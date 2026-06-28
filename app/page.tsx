@@ -1,37 +1,28 @@
-// The Main Page
-'use client'
-import HeroSection from "./components/HeroSection"
-import FeaturesSection from "./components/FeaturesSection"
-import PanelShowcase from "./components/PanelShowcase"
-import LocationsSection from "./components/LocationsSection"
-import FAQSection from "./components/FAQSection"
-import PricingSection from "./components/PricingSection"
-import ReviewMarquee from "./components/ReviewMarquee"
-import ComparisonSection from "./components/ComparisonSection"
-import Footer from "./components/Footer"
-import Navbar from "./components/Navbar"
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.8, ease: "easeOut" }
-}
+// VexaNode — landing page
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import LandingHero from "./components/landing/LandingHero";
+import FeatureGrid from "./components/landing/FeatureGrid";
+import ProductsSection from "./components/landing/ProductsSection";
+import GlobeSection from "./components/landing/GlobeSection";
+import Testimonials from "./components/landing/Testimonials";
+import FaqSection from "./components/landing/FaqSection";
+import CtaSection from "./components/landing/CtaSection";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#030408] text-white transition-colors duration-300">
+    <div className="min-h-screen bg-[#07090e] text-white">
       <Navbar />
-        <HeroSection />
-        <FeaturesSection />
-        <ComparisonSection />
-        <PricingSection />
-        <ReviewMarquee />
-        <LocationsSection />
-        <FAQSection />
-        <PanelShowcase />
-        <Footer />
+      <main>
+        <LandingHero />
+        <FeatureGrid />
+        <ProductsSection />
+        <GlobeSection />
+        <Testimonials />
+        <FaqSection />
+        <CtaSection />
+      </main>
+      <Footer />
     </div>
-  )
+  );
 }
-
-// hey smexy, i love you bb :0-
