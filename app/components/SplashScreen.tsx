@@ -3,23 +3,31 @@
 import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
-import Image from "next/image"
 
 export default function SplashScreen() {
   const [isLoading, setIsLoading] = useState(true)
+  const [isTextVisible, setIsTextVisible] = useState(true)
   const pathname = usePathname()
 
   useEffect(() => {
     setIsLoading(true)
+    setIsTextVisible(true)
     document.body.style.overflow = 'hidden'
     
-    const timer = setTimeout(() => {
+    // Fade out the text first
+    const textTimer = setTimeout(() => {
+      setIsTextVisible(false)
+    }, 1400)
+
+    // Complete transition and restore scroll after split animations
+    const finishTimer = setTimeout(() => {
       setIsLoading(false)
       document.body.style.overflow = 'unset'
-    }, 2500)
+    }, 2400) // 1.4s text + 1.0s split-slide duration
 
     return () => {
-      clearTimeout(timer)
+      clearTimeout(textTimer)
+      clearTimeout(finishTimer)
       document.body.style.overflow = 'unset'
     }
   }, [pathname])
@@ -27,55 +35,67 @@ export default function SplashScreen() {
   return (
     <AnimatePresence>
       {isLoading && (
-        <motion.div
-          key="splash-screen"
-          initial={{ opacity: 1 }}
-          exit={{ 
-            opacity: 0,
-            backdropFilter: "blur(0px)",
-            transition: { duration: 1.2, ease: [0.4, 0, 0.2, 1] }
-          }}
-          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#030408]"
-        >
-          {/* Subtle background glow from our theme */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-[#00a3ff]/10 rounded-full blur-[100px] pointer-events-none" />
-          
+        <div className="fixed inset-0 z-[9999] overflow-hidden pointer-events-none flex">
+          {/* Left panel - slides to the left */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative z-10 flex flex-col items-center justify-center gap-6"
-          >
-            {/* The Logo Image with a subtle glow around the shape itself */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="relative w-28 h-28 sm:w-32 sm:h-32 drop-shadow-[0_0_15px_rgba(0,163,255,0.5)]"
-            >
-              <Image 
-                src="/logo.png" 
-                alt="VexaNode Logo"
-                fill
-                className="object-contain"
-                priority
-              />
-            </motion.div>
+            initial={{ x: 0 }}
+            animate={isTextVisible ? { x: 0 } : { x: "-100%" }}
+            transition={{ duration: 0.9, ease: [0.77, 0, 0.175, 1] }}
+            className="absolute inset-y-0 left-0 w-1/2 bg-[#030408] pointer-events-auto border-r border-zinc-900/20"
+          />
+          
+          {/* Right panel - slides to the right */}
+          <motion.div
+            initial={{ x: 0 }}
+            animate={isTextVisible ? { x: 0 } : { x: "100%" }}
+            transition={{ duration: 0.9, ease: [0.77, 0, 0.175, 1] }}
+            className="absolute inset-y-0 right-0 w-1/2 bg-[#030408] pointer-events-auto border-l border-zinc-900/20"
+          />
 
-            {/* The shining white & gray text effect */}
-            <div 
-              className="text-2xl sm:text-3xl font-bold orbitron-font tracking-[0.2em] uppercase bg-clip-text text-transparent"
-              style={{
-                backgroundImage: 'linear-gradient(to right, #4b5563 20%, #ffffff 50%, #4b5563 80%)',
-                backgroundSize: '200% auto',
-                animation: 'shine 2s linear infinite',
-              }}
-            >
-              VexaNode
-            </div>
-          </motion.div>
-        </motion.div>
+          {/* Glowing background behind text (fades with text) */}
+          <AnimatePresence>
+            {isTextVisible && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0, transition: { duration: 0.4 } }}
+                className="absolute inset-0 flex items-center justify-center pointer-events-none z-10"
+              >
+                <div className="w-72 h-72 bg-[#10b981]/5 rounded-full blur-[100px]" />
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Centered Text Overlay */}
+          <AnimatePresence>
+            {isTextVisible && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ 
+                  opacity: 0, 
+                  scale: 1.05,
+                  transition: { duration: 0.5, ease: "easeIn" }
+                }}
+                className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none"
+              >
+                {/* The shining white & emerald brand text effect */}
+                <div 
+                  className="text-3xl sm:text-4xl font-extrabold orbitron-font tracking-[0.25em] uppercase bg-clip-text text-transparent bg-gradient-to-r from-zinc-500 via-white to-zinc-500"
+                  style={{
+                    backgroundSize: '200% auto',
+                    animation: 'shine 2.5s linear infinite',
+                    textShadow: '0 0 20px rgba(16, 185, 129, 0.2)'
+                  }}
+                >
+                  VexaNode
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       )}
     </AnimatePresence>
   )
 }
+

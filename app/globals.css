@@ -201,6 +201,7 @@
     scroll-behavior: smooth;
     /* Clear the fixed navbar when jumping to in-page anchors */
     scroll-padding-top: 6rem;
+    overflow-x: hidden;
   }
 
   body {
@@ -211,6 +212,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
   }
 
   ::selection {
