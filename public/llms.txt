@@ -1,0 +1,276 @@
+# VexaNode - Enterprise Hosting Provider
+
+> VexaNode is an enterprise-grade hosting storefront and client portal offering VPS, dedicated servers, game servers, web hosting, Discord bot hosting, Lavalink hosting, and managed databases. Built with Next.js 14, TypeScript, Supabase, and NextAuth.js.
+
+## Contact & Support
+- Website: https://vexanode.cloud
+- Discord: https://discord.vexanode.cloud
+- Email: support@vexanode.cloud
+- Legal: abuse@vexanode.cloud | legal@vexanode.cloud
+- Status: https://status.vexanode.cloud
+- Founded: 2026
+
+## Company Stats
+- Uptime: 99.9%
+- Global Nodes: 12+
+- Active Clients: 2,500+
+- Support: 24/7/365
+- Global Locations: USA Central, India West, Singapore, Germany, London, Tokyo
+
+---
+
+## PRODUCTS & PRICING
+
+### 1. VPS Hosting
+24 global locations across USA, Brazil, Ireland, Germany, UK, France, Sweden, Italy, Spain, Bahrain, UAE, South Africa, India, Singapore, Japan, South Korea, Australia, Canada.
+
+#### Standard (Intel Xeon E5)
+| Plan | CPU | RAM | Storage | Bandwidth | Price/mo |
+|------|-----|-----|---------|-----------|---------|
+| STD1 | 1 Core | 1 GB | 15 GB NVMe | 500 GB | ₹99 |
+| STD2 | 2 Core | 1 GB | 20 GB NVMe | 1 TB | ₹149 |
+| STD3 | 1 Core | 2 GB | 30 GB NVMe | 1 TB | ₹179 |
+| STD4 | 2 Core | 4 GB | 60 GB NVMe | 2 TB | ₹299 |
+| STD5 | 2 Core | 8 GB | 100 GB NVMe | 2 TB | ₹549 |
+| STD6 | 4 Core | 16 GB | 160 GB NVMe | 3 TB | ₹999 |
+| STD7 | 8 Core | 32 GB | 250 GB NVMe | 4 TB | ₹1,799 |
+| STD8 | 16 Core | 64 GB | 400 GB NVMe | 6 TB | ₹3,299 |
+
+#### Premium (Intel Xeon Platinum)
+| Plan | CPU | RAM | Storage | Bandwidth | Price/mo |
+|------|-----|-----|---------|-----------|---------|
+| PRE1 | 1 Core | 1 GB | 20 GB NVMe | 1 TB | ₹149 |
+| PRE2 | 2 Core | 1 GB | 25 GB NVMe | 1 TB | ₹199 |
+| PRE3 | 1 Core | 2 GB | 40 GB NVMe | 1 TB | ₹249 |
+| PRE4 | 2 Core | 4 GB | 80 GB NVMe | 2 TB | ₹399 |
+| PRE5 | 2 Core | 8 GB | 120 GB NVMe | 3 TB | ₹749 |
+| PRE6 | 4 Core | 16 GB | 200 GB NVMe | 4 TB | ₹1,399 |
+| PRE7 | 8 Core | 32 GB | 300 GB NVMe | 5 TB | ₹2,499 |
+| PRE8 | 16 Core | 64 GB | 500 GB NVMe | 8 TB | ₹4,499 |
+
+#### Performance (AMD EPYC)
+| Plan | CPU | RAM | Storage | Bandwidth | Price/mo |
+|------|-----|-----|---------|-----------|---------|
+| PERF1 | 1 Core | 1 GB | 25 GB NVMe | 1 TB | ₹199 |
+| PERF2 | 2 Core | 1 GB | 30 GB NVMe | 2 TB | ₹279 |
+| PERF3 | 1 Core | 2 GB | 50 GB NVMe | 2 TB | ₹349 |
+| PERF4 | 2 Core | 4 GB | 100 GB NVMe | 3 TB | ₹549 |
+| PERF5 | 2 Core | 8 GB | 150 GB NVMe | 4 TB | ₹999 |
+| PERF6 | 4 Core | 16 GB | 250 GB NVMe | 5 TB | ₹1,899 |
+| PERF7 | 8 Core | 32 GB | 400 GB NVMe | 6 TB | ₹3,499 |
+| PERF8 | 16 Core | 64 GB | 600 GB NVMe | 8 TB | ₹6,299 |
+
+Features: Full root access, 1 dedicated IPv4, NVMe SSD storage, DDoS protection.
+
+### 2. Dedicated Servers (VDS)
+All plans: Full Root Access, 24/7 Support, 99.9% Uptime, DDoS Protection, Free Backups, Priority Support.
+
+#### AMD Ryzen 7 (Germany)
+| Plan | CPU | RAM | Storage | Bandwidth | Price/mo |
+|------|-----|-----|---------|-----------|---------|
+| Basic | 4 Cores | 16 GB | 500 GB NVMe | Unlimited | £45.00 |
+| Standard | 6 Cores | 32 GB | 1 TB NVMe | Unlimited | £75.00 |
+| Pro | 8 Cores | 64 GB | 2 TB NVMe | Unlimited | £135.00 |
+| Enterprise | 16 Cores | 128 GB | 4 TB NVMe | Unlimited | £245.00 |
+
+#### AMD Ryzen 9 (Singapore, USA)
+| Plan | CPU | RAM | Storage | Bandwidth | Price/mo |
+|------|-----|-----|---------|-----------|---------|
+| Basic | 6 Cores | 32 GB DDR5 | 1 TB NVMe | Unlimited | £85.00 |
+| Standard | 8 Cores | 64 GB DDR5 | 2 TB NVMe | Unlimited | £145.00 |
+| Pro | 12 Cores | 128 GB DDR5 | 4 TB NVMe | Unlimited | £225.00 |
+| Enterprise | 16 Cores | 256 GB DDR5 | 8 TB NVMe | Unlimited | £395.00 |
+
+### 3. Game Servers
+Games supported: Minecraft, Garry's Mod, CS:GO, Rust, ARK: Survival Evolved, Valheim, Discord (NodeJS). Locations: Germany, Singapore.
+
+#### Premium (Ryzen 9 7950X/9950X)
+| Game | Plans | Starting Price |
+|------|-------|---------------|
+| Minecraft | 4GB / 8GB / 16GB / 32GB | $4.00/mo |
+| Garry's Mod | 4GB / 8GB / 16GB / 32GB | $4.00/mo |
+| CS:GO | 4GB / 8GB / 16GB / 32GB | $4.00/mo |
+| Rust | 4GB / 8GB / 16GB / 32GB | $4.00/mo |
+| ARK | 4GB / 8GB / 16GB / 32GB | $4.00/mo |
+| Valheim | 4GB / 8GB / 16GB / 32GB | $4.00/mo |
+| Discord (NodeJS) | 1GB / 2GB / 3GB | $0.90/mo |
+
+Budget plans are ~20% cheaper than premium. All plans include unmetered CPU and SSD storage.
+
+#### Minecraft-Specific Plans (game page)
+- Premium: Iron 4GB (₹399), Gold 8GB (₹749), Diamond 16GB (₹1,399)
+- Budget: Dirt 4GB (₹199), Stone 8GB (₹349)
+- Billing cycles: Monthly, Quarterly (-13%), Semi-Annually (-13%), Annually (-24%)
+
+### 4. Web Hosting
+
+#### Shared Hosting
+| Plan | vCPU | RAM | Storage | Bandwidth | Price/mo |
+|------|------|-----|---------|-----------|---------|
+| Starter | 1 vCPU | 1 GB | 10 GB SSD | 100 GB | £2.99 |
+| Basic | 1 vCPU | 2 GB | 25 GB SSD | 250 GB | £4.99 |
+| Standard | 2 vCPU | 4 GB | 50 GB SSD | 500 GB | £7.99 |
+
+#### Business Hosting
+| Plan | vCPU | RAM | Storage | Bandwidth | Price/mo |
+|------|------|-----|---------|-----------|---------|
+| Pro | 2 vCPU | 8 GB DDR4 | 100 GB NVMe | 1 TB | £14.99 |
+| Advanced | 4 vCPU | 16 GB DDR4 | 200 GB NVMe | 2 TB | £24.99 |
+| Enterprise | 8 vCPU | 32 GB DDR5 | 500 GB NVMe | 5 TB | £49.99 |
+
+All web hosting includes 99.9% uptime guarantee.
+
+### 5. Discord Bot Hosting (Pterodactyl)
+| Plan | RAM | CPU | Disk | Backups | DBs | Price/mo |
+|------|-----|-----|------|---------|-----|---------|
+| Starter | 512 MB | 50% | 1 GB | 0 | 0 | ₹35 |
+| Basic | 1 GB | 100% | 2 GB | 1 | 1 | ₹99 |
+| Silver | 2 GB | 150% | 4 GB | 1 | 1 | ₹129 |
+| Gold | 4 GB | 200% | 8 GB | 2 | 1 | ₹199 |
+| Platinum | 6 GB | 250% | 12 GB | 3 | 1 | ₹279 |
+| Diamond | 8 GB | 300% | 16 GB | 4 | 1 | ₹349 |
+| Netherite | 10 GB | 350% | 20 GB | 5 | 2 | ₹429 |
+| Obsidian | 16 GB | 500% | 32 GB | 10 | 5 | ₹550 |
+
+Billing discounts: Quarterly -5%, Semi-Annually -13%, Annually -24%. Supports Node.js, Python, Java, Go, Ruby, C#.
+
+### 6. Lavalink Hosting
+
+#### Self-Managed (Direct node access)
+| Plan | RAM | CPU | Storage | Price/mo |
+|------|-----|-----|---------|---------|
+| Starter | 512 MB | 50% | 1 GB | ₹35 |
+| Basic | 1 GB | 100% | 2 GB | ₹99 |
+| Silver | 2 GB | 150% | 4 GB | ₹129 |
+| Gold | 4 GB | 200% | 8 GB | ₹199 |
+| Platinum | 6 GB | 250% | 12 GB | ₹279 |
+| Diamond | 8 GB | 300% | 16 GB | ₹349 |
+| Netherite | 8 GB | 300% | 16 GB | ₹429 |
+| Obsidian | 12 GB | 400% | 24 GB | ₹550 |
+
+#### Managed Hosting (Full team management)
+| Plan | RAM | CPU | Storage | Network | Price/mo |
+|------|-----|-----|---------|---------|---------|
+| Basic | 2GB DDR4 | 1 Core | 5GB NVMe | 1Gbps | ₹140 |
+| Starter | 4GB DDR4 | 2 Cores | 8GB NVMe | 1Gbps | ₹190 |
+| Gold | 6GB DDR4 | 6 Cores | 15GB NVMe | 1Gbps | ₹280 |
+| Pro | High-end | Priority | Custom APIs | Custom | ₹500 |
+
+Billing discounts: Quarterly -0%, Semi-Annually -13%, Annually -24%. Features: 3.50 GHz base, 30+ sources (YouTube, Spotify, Soundcloud), 50Gbps network.
+
+### 7. Database Hosting (Managed)
+- MongoDB 7 - from $40/mo
+- SQL Hosting (multi-engine) - from $40/mo
+- Redis Hosting - from $40/mo
+- Pricing calculator: base $40/mo + $15/GB extra RAM + $10 per 5GB extra SSD
+- RAM range: 1-64 GB, SSD range: 5-500 GB
+
+---
+
+## FEATURES
+
+### Core Platform Features
+1. **High Performance** - AMD Ryzen 9 9950X / 7950X3D nodes
+2. **Ultra-Low Latency** - Strategically located edge nodes for optimal routing
+3. **Advanced Security** - Enterprise-grade multi-terabit DDoS mitigation
+4. **99.9% Uptime SLA** - Redundant power supplies, network carriers, and hardware nodes
+5. **Complete Control** - Manage servers, schedule backups, track metrics via Pterodactyl panel
+6. **Instant Scaling** - Dynamically allocate additional RAM, CPU cores, or NVMe storage
+7. **Global Network** - Deploy workloads across premium data centers globally
+
+### Panel Features
+- Shell Access
+- Plugin Manager
+- Mod Manager
+- Analytics
+
+### VPS Features
+Full root access, 1 dedicated IPv4 per plan, NVMe SSD storage, DDoS protection, multiple OS options, backup included.
+
+### Discord Bot Features
+Any language support (Node.js, Python, Java, Go, Ruby, C#), 12Tbps+ DDoS mitigation, 24/7 monitoring with automated failover, instant setup, full root access via Pterodactyl.
+
+### Game Server Features
+Instant deployment, DDoS protection, 24/7 support, custom configurations, mod support, unlimited slots, Bedrock + Java support.
+
+---
+
+## FAQ
+
+1. **How do I get started with game server hosting?** Choose your game, select a server location, and follow our easy setup wizard. Your server will be up in minutes with instant deployment.
+
+2. **What kind of support do you provide?** 24/7 technical support through live chat and ticket system. Expert team for server configuration, performance optimization, and technical issues.
+
+3. **Can I modify server settings and configurations?** Yes, full control through our intuitive control panel. Modify game settings, install mods, and manage your server.
+
+4. **What payment methods do you accept?** Major credit cards, PayPal, and cryptocurrency. Secure billing with no hidden fees.
+
+5. **Do you offer DDoS protection?** Yes, all servers include enterprise-grade DDoS protection at no extra cost.
+
+6. **Where are your servers located?** USA (N. Virginia, Ohio, N. California, Oregon), Brazil (Sao Paulo), Ireland, Germany (Frankfurt), UK (London), France (Paris), Sweden (Stockholm), Italy (Milan), Spain, Bahrain, UAE, South Africa (Cape Town), India (Mumbai, Hyderabad), Singapore, Japan (Tokyo, Osaka), South Korea (Seoul), Australia (Sydney), Canada (Montreal, Calgary).
+
+---
+
+## POLICIES
+
+### Terms of Service (10 sections)
+1. **Acceptance of Terms** - Using services binds you to these terms
+2. **Service Description** - VPS, dedicated servers, game server hosting
+3. **User Responsibilities** - Account confidentiality, accurate info
+4. **Acceptable Use Policy** - No unlawful activity, spam, malware, DDoS
+5. **Payment Terms** - Billed in advance, suspension after 7 days non-payment
+6. **Service Level Agreement** - 99.9% uptime goal
+7. **Data Protection** - Security of customer data
+8. **Limitation of Liability** - Limited to amount paid in preceding 12 months
+9. **Termination** - Grounds for service termination
+10. **Changes to Terms** - Right to modify with notice
+
+### Acceptable Use Policy (AUP)
+1. **Prohibited Content** - No illegal/defamatory/pornographic/infringing material
+2. **Network Abuse** - No DDoS, port scanning, sniffing, malware, viruses
+3. **Email & Spam** - No unsolicited bulk emails, zero-tolerance for mail relay abuse
+4. **Resource Misuse** - No excessive CPU/RAM spikes, no crypto-miners on shared resources
+5. **Compliance & Enforcement** - Suspension/termination for violations, permanent bans possible
+- Report abuse to: abuse@vexanode.cloud
+
+### Fair Usage Policy (FUP)
+1. **Fair Resource Allocation** - Fair distribution of CPU/RAM, throttling for constant high-load
+2. **Bandwidth Utilization** - Unmetered bandwidth under fair usage, no CDN hosting/mass file distribution/crypto-mining
+3. **Storage Management** - NVMe for active service data only, not personal cloud/backup
+4. **Database Performance** - Databases for service queries, not scraping/polling
+5. **Optimization Reviews** - Automated alerts for exceeding thresholds, dedicated tier suggestion
+
+### Service Level Agreement (SLA)
+1. **99.9% Uptime Commitment** - Core hosting services availability
+2. **Maintenance Protocols** - Scheduled off-peak, 24h notice via status page
+3. **Service Credits** - 0.1-1% downtime = 10% credit, >1% downtime = 25% credit
+4. **Support Response Times** - Priority tickets <15 minutes, Standard <4 hours, 24/7/365
+5. **Exclusions** - Customer-managed software, upstream providers, AUP violations
+
+### Privacy Policy
+1. **Data Collection** - Name, email, billing info, IP addresses, browser types
+2. **Usage of Information** - Service delivery, payments, updates, dashboard personalization. Data is NOT sold.
+3. **Infrastructure Security** - End-to-end encryption, regular audits, strict access controls
+4. **Cookies & Tracking** - Essential cookies for sessions, analytics for optimization
+5. **Third-Party Disclosure** - Payment processors (Stripe/PayPal), infrastructure providers (legally bound)
+- GDPR Compliant. Contact: legal@vexanode.cloud
+
+---
+
+## AFFILIATE PROGRAM
+- **Commission**: 15% recurring lifetime
+- **Cookie Duration**: 60 days
+- **Minimum Payout**: ₹500
+- **Payout Methods**: PayPal, UPI, Crypto
+- How it works: Sign up -> Share referral link -> Earn ongoing commission
+
+---
+
+## BLOG TOPICS
+Lavalink hosting guides, Discord bot hosting, VPS tutorials, DDoS protection, hosting comparisons, Node.js guides.
+
+## PARTNERS
+Music bot partners: Nothing (5,550 servers, 12M+ users), Flixo (1,738 servers), Nazha (1,703 servers), Tarang.
+
+## TECH STACK
+Next.js 14, TypeScript, Supabase (PostgreSQL), NextAuth.js v4, Cashfree Payments, Tailwind CSS, Framer Motion, Pterodactyl Panel.

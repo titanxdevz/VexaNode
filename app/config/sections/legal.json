@@ -1,0 +1,100 @@
+{
+  "termsOfService": {
+    "title": "Terms of Service",
+    "lastUpdated": "July 2025",
+    "companyName": "VexaNode",
+    "websiteUrl": "https://Node.vexanode.cloud",
+    "contactEmail": "legal@vexanode.cloud",
+    "sections": [
+      {
+        "title": "1. Acceptance of Terms",
+        "content": "By accessing and using our services, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service."
+      },
+      {
+        "title": "2. Service Description",
+        "content": "We provide VPS hosting, dedicated servers, and game server hosting services. Our services are subject to availability and may be modified, suspended, or discontinued at any time without notice."
+      },
+      {
+        "title": "3. User Responsibilities",
+        "content": "You are responsible for maintaining the confidentiality of your account information and for all activities that occur under your account. You agree to notify us immediately of any unauthorized use of your account."
+      },
+      {
+        "title": "4. Acceptable Use Policy",
+        "content": "You agree not to use our services for any unlawful purpose or in any way that could damage, disable, overburden, or impair our servers or networks. Prohibited activities include but are not limited to: illegal content distribution, spam, malware distribution, and DDoS attacks."
+      },
+      {
+        "title": "5. Payment Terms",
+        "content": "Payment is due in advance for all services. We accept various payment methods as displayed on our website. Failure to pay may result in service suspension or termination."
+      },
+      {
+        "title": "6. Service Level Agreement",
+        "content": "We strive to maintain 99.9% uptime for our services. In case of extended downtime, service credits may be provided as outlined in our SLA documentation."
+      },
+      {
+        "title": "7. Data Protection",
+        "content": "We implement appropriate security measures to protect your data. However, you are responsible for maintaining backups of your data. We are not liable for data loss."
+      },
+      {
+        "title": "8. Limitation of Liability",
+        "content": "Our liability is limited to the amount paid for the service in the preceding 12 months. We are not liable for any indirect, incidental, or consequential damages."
+      },
+      {
+        "title": "9. Termination",
+        "content": "Either party may terminate this agreement at any time. Upon termination, your access to the services will be discontinued, and any outstanding fees become immediately due."
+      },
+      {
+        "title": "10. Changes to Terms",
+        "content": "We reserve the right to modify these terms at any time. Changes will be effective immediately upon posting. Your continued use of the service constitutes acceptance of the modified terms."
+      }
+    ]
+  },
+  "privacyPolicy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "July 2025",
+    "companyName": "VexaNode",
+    "websiteUrl": "https://Node.vexanode.cloud",
+    "contactEmail": "legal@vexanode.cloud",
+    "sections": [
+      {
+        "title": "1. Information We Collect",
+        "content": "We collect information you provide directly to us, such as when you create an account, make a purchase, or contact us for support. This may include your name, email address, billing information, and technical support communications."
+      },
+      {
+        "title": "2. How We Use Your Information",
+        "content": "We use the information we collect to provide, maintain, and improve our services, process transactions, send you technical notices and support messages, and communicate with you about products, services, and promotional offers."
+      },
+      {
+        "title": "3. Information Sharing",
+        "content": "We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as described in this policy. We may share information with trusted service providers who assist us in operating our website and conducting our business."
+      },
+      {
+        "title": "4. Data Security",
+        "content": "We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet is 100% secure."
+      },
+      {
+        "title": "5. Cookies and Tracking",
+        "content": "We use cookies and similar tracking technologies to enhance your experience on our website. You can control cookie settings through your browser preferences."
+      },
+      {
+        "title": "6. Data Retention",
+        "content": "We retain your personal information for as long as necessary to provide our services and fulfill the purposes outlined in this policy, unless a longer retention period is required by law."
+      },
+      {
+        "title": "7. Your Rights",
+        "content": "You have the right to access, update, or delete your personal information. You may also opt out of certain communications from us. Contact us to exercise these rights."
+      },
+      {
+        "title": "8. Third-Party Services",
+        "content": "Our website may contain links to third-party websites or services. We are not responsible for the privacy practices of these third parties."
+      },
+      {
+        "title": "9. International Data Transfers",
+        "content": "Your information may be transferred to and processed in countries other than your own. We ensure appropriate safeguards are in place for such transfers."
+      },
+      {
+        "title": "10. Changes to This Policy",
+        "content": "We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the 'Last Updated' date."
+      }
+    ]
+  }
+}

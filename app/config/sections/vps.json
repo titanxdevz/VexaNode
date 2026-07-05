@@ -1,0 +1,776 @@
+{
+  "planTypes": [
+    {
+      "id": "standard",
+      "name": "Intel Xeon E5",
+      "displayName": "Standard",
+      "image": "/cpu/xeon-e5.png"
+    },
+    {
+      "id": "premium",
+      "name": "Intel Xeon Platinum",
+      "displayName": "Premium",
+      "image": "/cpu/xeon-platinum.png"
+    },
+    {
+      "id": "performance",
+      "name": "AMD EPYC",
+      "displayName": "Performance",
+      "image": "/cpu/amd-epyc.png"
+    }
+  ],
+  "locations": [
+    {
+      "id": "us-n-virginia",
+      "name": "N. Virginia",
+      "country": "United States",
+      "flag": "/flags/usa.png",
+      "displayName": "N. Virginia, USA",
+      "availableCpus": [
+        "standard",
+        "premium",
+        "performance"
+      ]
+    },
+    {
+      "id": "us-ohio",
+      "name": "Ohio",
+      "country": "United States",
+      "flag": "/flags/usa.png",
+      "displayName": "Ohio, USA",
+      "availableCpus": [
+        "standard",
+        "premium",
+        "performance"
+      ]
+    },
+    {
+      "id": "us-n-california",
+      "name": "N. California",
+      "country": "United States",
+      "flag": "/flags/usa.png",
+      "displayName": "N. California, USA",
+      "availableCpus": [
+        "standard",
+        "premium",
+        "performance"
+      ]
+    },
+    {
+      "id": "us-oregon",
+      "name": "Oregon",
+      "country": "United States",
+      "flag": "/flags/usa.png",
+      "displayName": "Oregon, USA",
+      "availableCpus": [
+        "standard",
+        "premium",
+        "performance"
+      ]
+    },
+    {
+      "id": "brazil-sao-paulo",
+      "name": "São Paulo",
+      "country": "Brazil",
+      "flag": "/flags/brazil.png",
+      "displayName": "São Paulo, Brazil",
+      "availableCpus": [
+        "standard",
+        "premium",
+        "performance"
+      ]
+    },
+    {
+      "id": "ireland",
+      "name": "Ireland",
+      "country": "Ireland",
+      "flag": "/flags/ireland.png",
+      "displayName": "Ireland",
+      "availableCpus": [
+        "standard",
+        "premium",
+        "performance"
+      ]
+    },
+    {
+      "id": "germany-frankfurt",
+      "name": "Frankfurt",
+      "country": "Germany",
+      "flag": "/flags/germany.png",
+      "displayName": "Frankfurt, Germany",
+      "availableCpus": [
+        "standard",
+        "premium",
+        "performance"
+      ]
+    },
+    {
+      "id": "uk-london",
+      "name": "London",
+      "country": "United Kingdom",
+      "flag": "/flags/uk.png",
+      "displayName": "London, UK",
+      "availableCpus": [
+        "standard",
+        "premium",
+        "performance"
+      ]
+    },
+    {
+      "id": "france-paris",
+      "name": "Paris",
+      "country": "France",
+      "flag": "/flags/france.png",
+      "displayName": "Paris, France",
+      "availableCpus": [
+        "standard",
+        "premium",
+        "performance"
+      ]
+    },
+    {
+      "id": "sweden-stockholm",
+      "name": "Stockholm",
+      "country": "Sweden",
+      "flag": "/flags/sweden.png",
+      "displayName": "Stockholm, Sweden",
+      "availableCpus": [
+        "standard",
+        "premium",
+        "performance"
+      ]
+    },
+    {
+      "id": "italy-milan",
+      "name": "Milan",
+      "country": "Italy",
+      "flag": "/flags/italy.png",
+      "displayName": "Milan, Italy",
+      "availableCpus": [
+        "standard",
+        "premium",
+        "performance"
+      ]
+    },
+    {
+      "id": "spain",
+      "name": "Spain",
+      "country": "Spain",
+      "flag": "/flags/spain.png",
+      "displayName": "Spain",
+      "availableCpus": [
+        "standard",
+        "premium",
+        "performance"
+      ]
+    },
+    {
+      "id": "me-bahrain",
+      "name": "Bahrain",
+      "country": "Bahrain",
+      "flag": "/flags/bahrain.png",
+      "displayName": "Bahrain",
+      "availableCpus": [
+        "standard",
+        "premium",
+        "performance"
+      ]
+    },
+    {
+      "id": "me-uae",
+      "name": "UAE",
+      "country": "UAE",
+      "flag": "/flags/uae.png",
+      "displayName": "UAE",
+      "availableCpus": [
+        "standard",
+        "premium",
+        "performance"
+      ]
+    },
+    {
+      "id": "sa-cape-town",
+      "name": "Cape Town",
+      "country": "South Africa",
+      "flag": "/flags/south-africa.png",
+      "displayName": "Cape Town, South Africa",
+      "availableCpus": [
+        "standard",
+        "premium",
+        "performance"
+      ]
+    },
+    {
+      "id": "india-mumbai",
+      "name": "Mumbai",
+      "country": "India",
+      "flag": "/flags/india.png",
+      "displayName": "Mumbai, India",
+      "availableCpus": [
+        "standard",
+        "premium",
+        "performance"
+      ]
+    },
+    {
+      "id": "india-hyderabad",
+      "name": "Hyderabad",
+      "country": "India",
+      "flag": "/flags/india.png",
+      "displayName": "Hyderabad, India",
+      "availableCpus": [
+        "standard",
+        "premium",
+        "performance"
+      ]
+    },
+    {
+      "id": "singapore",
+      "name": "Singapore",
+      "country": "Singapore",
+      "flag": "/flags/singapore.png",
+      "displayName": "Singapore",
+      "availableCpus": [
+        "standard",
+        "premium",
+        "performance"
+      ]
+    },
+    {
+      "id": "japan-tokyo",
+      "name": "Tokyo",
+      "country": "Japan",
+      "flag": "/flags/japan.png",
+      "displayName": "Tokyo, Japan",
+      "availableCpus": [
+        "standard",
+        "premium",
+        "performance"
+      ]
+    },
+    {
+      "id": "japan-osaka",
+      "name": "Osaka",
+      "country": "Japan",
+      "flag": "/flags/japan.png",
+      "displayName": "Osaka, Japan",
+      "availableCpus": [
+        "standard",
+        "premium",
+        "performance"
+      ]
+    },
+    {
+      "id": "korea-seoul",
+      "name": "Seoul",
+      "country": "South Korea",
+      "flag": "/flags/south-korea.png",
+      "displayName": "Seoul, South Korea",
+      "availableCpus": [
+        "standard",
+        "premium",
+        "performance"
+      ]
+    },
+    {
+      "id": "australia-sydney",
+      "name": "Sydney",
+      "country": "Australia",
+      "flag": "/flags/australia.png",
+      "displayName": "Sydney, Australia",
+      "availableCpus": [
+        "standard",
+        "premium",
+        "performance"
+      ]
+    },
+    {
+      "id": "canada-montreal",
+      "name": "Montreal",
+      "country": "Canada",
+      "flag": "/flags/canada.png",
+      "displayName": "Montreal, Canada",
+      "availableCpus": [
+        "standard",
+        "premium",
+        "performance"
+      ]
+    },
+    {
+      "id": "canada-calgary",
+      "name": "Calgary",
+      "country": "Canada",
+      "flag": "/flags/canada.png",
+      "displayName": "Calgary, Canada",
+      "availableCpus": [
+        "standard",
+        "premium",
+        "performance"
+      ]
+    }
+  ],
+  "plans": {
+    "standard": [
+      {
+        "id": "STD1",
+        "name": "Standard 1",
+        "badge": "30s",
+        "image": "/cpu/xeon-e5.png",
+        "cpu": "1 Core",
+        "cpuDetail": "Intel Xeon E5",
+        "ram": "1 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "15 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "500 GB",
+        "bandwidthDetail": "Bandwidth",
+        "ipv4": "1 Dedicated",
+        "ipv4Detail": "IPv4",
+        "price": "₹99",
+        "period": "/mo",
+        "orderLink": "/order/vps/STD1"
+      },
+      {
+        "id": "STD2",
+        "name": "Standard 2",
+        "badge": "30s",
+        "image": "/cpu/xeon-e5.png",
+        "cpu": "2 Core",
+        "cpuDetail": "Intel Xeon E5",
+        "ram": "1 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "20 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "1 TB",
+        "bandwidthDetail": "Bandwidth",
+        "ipv4": "1 Dedicated",
+        "ipv4Detail": "IPv4",
+        "price": "₹149",
+        "period": "/mo",
+        "orderLink": "/order/vps/STD2"
+      },
+      {
+        "id": "STD3",
+        "name": "Standard 3",
+        "badge": "30s",
+        "image": "/cpu/xeon-e5.png",
+        "cpu": "1 Core",
+        "cpuDetail": "Intel Xeon E5",
+        "ram": "2 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "30 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "1 TB",
+        "bandwidthDetail": "Bandwidth",
+        "ipv4": "1 Dedicated",
+        "ipv4Detail": "IPv4",
+        "price": "₹179",
+        "period": "/mo",
+        "orderLink": "/order/vps/STD3"
+      },
+      {
+        "id": "STD4",
+        "name": "Standard 4",
+        "badge": "30s",
+        "image": "/cpu/xeon-e5.png",
+        "cpu": "2 Core",
+        "cpuDetail": "Intel Xeon E5",
+        "ram": "4 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "60 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "2 TB",
+        "bandwidthDetail": "Bandwidth",
+        "ipv4": "1 Dedicated",
+        "ipv4Detail": "IPv4",
+        "price": "₹299",
+        "period": "/mo",
+        "orderLink": "/order/vps/STD4"
+      },
+      {
+        "id": "STD5",
+        "name": "Standard 5",
+        "badge": "30s",
+        "image": "/cpu/xeon-e5.png",
+        "cpu": "2 Core",
+        "cpuDetail": "Intel Xeon E5",
+        "ram": "8 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "100 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "2 TB",
+        "bandwidthDetail": "Bandwidth",
+        "ipv4": "1 Dedicated",
+        "ipv4Detail": "IPv4",
+        "price": "₹549",
+        "period": "/mo",
+        "orderLink": "/order/vps/STD5"
+      },
+      {
+        "id": "STD6",
+        "name": "Standard 6",
+        "badge": "30s",
+        "image": "/cpu/xeon-e5.png",
+        "cpu": "4 Core",
+        "cpuDetail": "Intel Xeon E5",
+        "ram": "16 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "160 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "3 TB",
+        "bandwidthDetail": "Bandwidth",
+        "ipv4": "1 Dedicated",
+        "ipv4Detail": "IPv4",
+        "price": "₹999",
+        "period": "/mo",
+        "orderLink": "/order/vps/STD6"
+      },
+      {
+        "id": "STD7",
+        "name": "Standard 7",
+        "badge": "30s",
+        "image": "/cpu/xeon-e5.png",
+        "cpu": "8 Core",
+        "cpuDetail": "Intel Xeon E5",
+        "ram": "32 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "250 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "4 TB",
+        "bandwidthDetail": "Bandwidth",
+        "ipv4": "1 Dedicated",
+        "ipv4Detail": "IPv4",
+        "price": "₹1,799",
+        "period": "/mo",
+        "orderLink": "/order/vps/STD7"
+      },
+      {
+        "id": "STD8",
+        "name": "Standard 8",
+        "badge": "30s",
+        "image": "/cpu/xeon-e5.png",
+        "cpu": "16 Core",
+        "cpuDetail": "Intel Xeon E5",
+        "ram": "64 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "400 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "6 TB",
+        "bandwidthDetail": "Bandwidth",
+        "ipv4": "1 Dedicated",
+        "ipv4Detail": "IPv4",
+        "price": "₹3,299",
+        "period": "/mo",
+        "orderLink": "/order/vps/STD8"
+      }
+    ],
+    "premium": [
+      {
+        "id": "PRE1",
+        "name": "Premium 1",
+        "badge": "15s",
+        "image": "/cpu/xeon-platinum.png",
+        "cpu": "1 Core",
+        "cpuDetail": "Intel Xeon Platinum",
+        "ram": "1 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "20 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "1 TB",
+        "bandwidthDetail": "Bandwidth",
+        "ipv4": "1 Dedicated",
+        "ipv4Detail": "IPv4",
+        "price": "₹149",
+        "period": "/mo",
+        "orderLink": "/order/vps/PRE1"
+      },
+      {
+        "id": "PRE2",
+        "name": "Premium 2",
+        "badge": "15s",
+        "image": "/cpu/xeon-platinum.png",
+        "cpu": "2 Core",
+        "cpuDetail": "Intel Xeon Platinum",
+        "ram": "1 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "25 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "1 TB",
+        "bandwidthDetail": "Bandwidth",
+        "ipv4": "1 Dedicated",
+        "ipv4Detail": "IPv4",
+        "price": "₹199",
+        "period": "/mo",
+        "orderLink": "/order/vps/PRE2"
+      },
+      {
+        "id": "PRE3",
+        "name": "Premium 3",
+        "badge": "15s",
+        "image": "/cpu/xeon-platinum.png",
+        "cpu": "1 Core",
+        "cpuDetail": "Intel Xeon Platinum",
+        "ram": "2 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "40 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "1 TB",
+        "bandwidthDetail": "Bandwidth",
+        "ipv4": "1 Dedicated",
+        "ipv4Detail": "IPv4",
+        "price": "₹249",
+        "period": "/mo",
+        "orderLink": "/order/vps/PRE3"
+      },
+      {
+        "id": "PRE4",
+        "name": "Premium 4",
+        "badge": "15s",
+        "image": "/cpu/xeon-platinum.png",
+        "cpu": "2 Core",
+        "cpuDetail": "Intel Xeon Platinum",
+        "ram": "4 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "80 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "2 TB",
+        "bandwidthDetail": "Bandwidth",
+        "ipv4": "1 Dedicated",
+        "ipv4Detail": "IPv4",
+        "price": "₹399",
+        "period": "/mo",
+        "orderLink": "/order/vps/PRE4"
+      },
+      {
+        "id": "PRE5",
+        "name": "Premium 5",
+        "badge": "15s",
+        "image": "/cpu/xeon-platinum.png",
+        "cpu": "2 Core",
+        "cpuDetail": "Intel Xeon Platinum",
+        "ram": "8 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "120 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "3 TB",
+        "bandwidthDetail": "Bandwidth",
+        "ipv4": "1 Dedicated",
+        "ipv4Detail": "IPv4",
+        "price": "₹749",
+        "period": "/mo",
+        "orderLink": "/order/vps/PRE5"
+      },
+      {
+        "id": "PRE6",
+        "name": "Premium 6",
+        "badge": "15s",
+        "image": "/cpu/xeon-platinum.png",
+        "cpu": "4 Core",
+        "cpuDetail": "Intel Xeon Platinum",
+        "ram": "16 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "200 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "4 TB",
+        "bandwidthDetail": "Bandwidth",
+        "ipv4": "1 Dedicated",
+        "ipv4Detail": "IPv4",
+        "price": "₹1,399",
+        "period": "/mo",
+        "orderLink": "/order/vps/PRE6"
+      },
+      {
+        "id": "PRE7",
+        "name": "Premium 7",
+        "badge": "15s",
+        "image": "/cpu/xeon-platinum.png",
+        "cpu": "8 Core",
+        "cpuDetail": "Intel Xeon Platinum",
+        "ram": "32 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "300 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "5 TB",
+        "bandwidthDetail": "Bandwidth",
+        "ipv4": "1 Dedicated",
+        "ipv4Detail": "IPv4",
+        "price": "₹2,499",
+        "period": "/mo",
+        "orderLink": "/order/vps/PRE7"
+      },
+      {
+        "id": "PRE8",
+        "name": "Premium 8",
+        "badge": "15s",
+        "image": "/cpu/xeon-platinum.png",
+        "cpu": "16 Core",
+        "cpuDetail": "Intel Xeon Platinum",
+        "ram": "64 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "500 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "8 TB",
+        "bandwidthDetail": "Bandwidth",
+        "ipv4": "1 Dedicated",
+        "ipv4Detail": "IPv4",
+        "price": "₹4,499",
+        "period": "/mo",
+        "orderLink": "/order/vps/PRE8"
+      }
+    ],
+    "performance": [
+      {
+        "id": "PERF1",
+        "name": "Performance 1",
+        "badge": "10s",
+        "image": "/cpu/amd-epyc.png",
+        "cpu": "1 Core",
+        "cpuDetail": "AMD EPYC",
+        "ram": "1 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "25 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "1 TB",
+        "bandwidthDetail": "Bandwidth",
+        "ipv4": "1 Dedicated",
+        "ipv4Detail": "IPv4",
+        "price": "₹199",
+        "period": "/mo",
+        "orderLink": "/order/vps/PERF1"
+      },
+      {
+        "id": "PERF2",
+        "name": "Performance 2",
+        "badge": "10s",
+        "image": "/cpu/amd-epyc.png",
+        "cpu": "2 Core",
+        "cpuDetail": "AMD EPYC",
+        "ram": "1 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "30 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "2 TB",
+        "bandwidthDetail": "Bandwidth",
+        "ipv4": "1 Dedicated",
+        "ipv4Detail": "IPv4",
+        "price": "₹279",
+        "period": "/mo",
+        "orderLink": "/order/vps/PERF2"
+      },
+      {
+        "id": "PERF3",
+        "name": "Performance 3",
+        "badge": "10s",
+        "image": "/cpu/amd-epyc.png",
+        "cpu": "1 Core",
+        "cpuDetail": "AMD EPYC",
+        "ram": "2 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "50 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "2 TB",
+        "bandwidthDetail": "Bandwidth",
+        "ipv4": "1 Dedicated",
+        "ipv4Detail": "IPv4",
+        "price": "₹349",
+        "period": "/mo",
+        "orderLink": "/order/vps/PERF3"
+      },
+      {
+        "id": "PERF4",
+        "name": "Performance 4",
+        "badge": "10s",
+        "image": "/cpu/amd-epyc.png",
+        "cpu": "2 Core",
+        "cpuDetail": "AMD EPYC",
+        "ram": "4 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "100 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "3 TB",
+        "bandwidthDetail": "Bandwidth",
+        "ipv4": "1 Dedicated",
+        "ipv4Detail": "IPv4",
+        "price": "₹549",
+        "period": "/mo",
+        "orderLink": "/order/vps/PERF4"
+      },
+      {
+        "id": "PERF5",
+        "name": "Performance 5",
+        "badge": "10s",
+        "image": "/cpu/amd-epyc.png",
+        "cpu": "2 Core",
+        "cpuDetail": "AMD EPYC",
+        "ram": "8 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "150 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "4 TB",
+        "bandwidthDetail": "Bandwidth",
+        "ipv4": "1 Dedicated",
+        "ipv4Detail": "IPv4",
+        "price": "₹999",
+        "period": "/mo",
+        "orderLink": "/order/vps/PERF5"
+      },
+      {
+        "id": "PERF6",
+        "name": "Performance 6",
+        "badge": "10s",
+        "image": "/cpu/amd-epyc.png",
+        "cpu": "4 Core",
+        "cpuDetail": "AMD EPYC",
+        "ram": "16 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "250 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "5 TB",
+        "bandwidthDetail": "Bandwidth",
+        "ipv4": "1 Dedicated",
+        "ipv4Detail": "IPv4",
+        "price": "₹1,899",
+        "period": "/mo",
+        "orderLink": "/order/vps/PERF6"
+      },
+      {
+        "id": "PERF7",
+        "name": "Performance 7",
+        "badge": "10s",
+        "image": "/cpu/amd-epyc.png",
+        "cpu": "8 Core",
+        "cpuDetail": "AMD EPYC",
+        "ram": "32 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "400 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "6 TB",
+        "bandwidthDetail": "Bandwidth",
+        "ipv4": "1 Dedicated",
+        "ipv4Detail": "IPv4",
+        "price": "₹3,499",
+        "period": "/mo",
+        "orderLink": "/order/vps/PERF7"
+      },
+      {
+        "id": "PERF8",
+        "name": "Performance 8",
+        "badge": "10s",
+        "image": "/cpu/amd-epyc.png",
+        "cpu": "16 Core",
+        "cpuDetail": "AMD EPYC",
+        "ram": "64 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "600 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "8 TB",
+        "bandwidthDetail": "Bandwidth",
+        "ipv4": "1 Dedicated",
+        "ipv4Detail": "IPv4",
+        "price": "₹6,299",
+        "period": "/mo",
+        "orderLink": "/order/vps/PERF8"
+      }
+    ]
+  }
+}

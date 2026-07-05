@@ -1,0 +1,101 @@
+{
+  "section": {
+    "title": {
+      "prefix": "Choose Your",
+      "highlight": "Plan",
+      "suffix": ""
+    },
+    "description": "Select the perfect hosting solution for your needs",
+    "plans": [
+      {
+        "titleKey": "pricingPlans.gameServers.title",
+        "image": "/games.jpg",
+        "descriptionKey": "pricingPlans.gameServers.description",
+        "basePrice": 4.99,
+        "featuresKeys": [
+          "pricingPlans.gameServers.features.instantDeployment",
+          "pricingPlans.gameServers.features.ddosProtection",
+          "pricingPlans.gameServers.features.support247",
+          "pricingPlans.gameServers.features.customConfigurations",
+          "pricingPlans.gameServers.features.modSupport"
+        ],
+        "buttonTextKey": "pricingPlans.gameServers.buttonText",
+        "buttonStyle": "secondary",
+        "popular": false,
+        "link": "/games"
+      },
+      {
+        "titleKey": "pricingPlans.vpsHosting.title",
+        "image": "/vps.png",
+        "descriptionKey": "pricingPlans.vpsHosting.description",
+        "basePrice": 9.99,
+        "featuresKeys": [
+          "pricingPlans.vpsHosting.features.fullRootAccess",
+          "pricingPlans.vpsHosting.features.ssdStorage",
+          "pricingPlans.vpsHosting.features.uptime",
+          "pricingPlans.vpsHosting.features.multipleOS",
+          "pricingPlans.vpsHosting.features.backupIncluded"
+        ],
+        "buttonTextKey": "pricingPlans.vpsHosting.buttonText",
+        "buttonStyle": "primary",
+        "popular": true,
+        "link": "/vps"
+      },
+      {
+        "titleKey": "pricingPlans.dedicatedServers.title",
+        "image": "/dedicated.webp",
+        "descriptionKey": "pricingPlans.dedicatedServers.description",
+        "basePrice": 99.99,
+        "featuresKeys": [
+          "pricingPlans.dedicatedServers.features.bareMetalPerformance",
+          "pricingPlans.dedicatedServers.features.customHardware",
+          "pricingPlans.dedicatedServers.features.enterpriseSupport",
+          "pricingPlans.dedicatedServers.features.advancedSecurity",
+          "pricingPlans.dedicatedServers.features.managedServices"
+        ],
+        "buttonTextKey": "pricingPlans.dedicatedServers.buttonText",
+        "buttonStyle": "secondary",
+        "popular": false,
+        "link": "/dedicated"
+      },
+      {
+        "titleKey": "pricingPlans.webHosting.title",
+        "image": "/banners/webhosting.png",
+        "descriptionKey": "pricingPlans.webHosting.description",
+        "basePrice": 2.99,
+        "featuresKeys": [
+          "pricingPlans.webHosting.features.ssdStorage",
+          "pricingPlans.webHosting.features.uptime",
+          "pricingPlans.webHosting.features.support247",
+          "pricingPlans.webHosting.features.freeSSL",
+          "pricingPlans.webHosting.features.dailyBackups"
+        ],
+        "buttonTextKey": "pricingPlans.webHosting.buttonText",
+        "buttonStyle": "secondary",
+        "popular": false,
+        "link": "/webhosting"
+      },
+      {
+        "titleKey": "discord.title",
+        "image": "/banners/node.webp",
+        "descriptionKey": "discord.description",
+        "basePrice": 2.99,
+        "featuresKeys": [
+          "pricingPlans.webHosting.features.ssdStorage",
+          "pricingPlans.webHosting.features.uptime",
+          "pricingPlans.webHosting.features.support247",
+          "pricingPlans.dedicatedServers.features.advancedSecurity",
+          "pricingPlans.webHosting.features.dailyBackups"
+        ],
+        "buttonTextKey": "pricingPlans.webHosting.buttonText",
+        "buttonStyle": "secondary",
+        "popular": false,
+        "link": "/webhosting"
+      }
+    ],
+    "footer": {
+      "text": "Need a custom solution?",
+      "linkText": "Contact our sales team"
+    }
+  }
+}

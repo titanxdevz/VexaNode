@@ -1,0 +1,266 @@
+{
+  "navbar": {
+    "games": "Oyunlar",
+    "cloud": "Bulut",
+    "dedicated": "Özel",
+    "discord": "Discord Bot",
+    "webhosting": "Web Hosting",
+    "legal": "Yasal",
+    "clientSpace": "MÜŞTERİ ALANI",
+    "termsOfService": "Hizmet Şartları",
+    "privacyPolicy": "Gizlilik Politikası",
+    "termsDescription": "Hizmet sözleşmemiz ve şartlarımız",
+    "privacyDescription": "Gizliliğinizi nasıl koruduğumuz"
+  },
+  "common": {
+    "orderNow": "Şimdi Sipariş Ver",
+    "getStarted": "Başlayın",
+    "learnMore": "Daha Fazla Öğren",
+    "readMore": "Devamını Oku",
+    "viewAll": "Tümünü Görüntüle",
+    "loading": "Yükleniyor...",
+    "comingSoon": "Yakında",
+    "popular": "Popüler",
+    "bestValue": "En İyi Değer",
+    "mostPopular": "En Popüler",
+    "recommended": "Önerilen"
+  },
+  "vps": {
+    "title": "VPS Hosting Çözümleri",
+    "description": "Tam root erişimi, SSD depolama ve 7/24 destek ile yüksek performanslı sanal özel sunucular. Geliştiriciler ve işletmeler için mükemmel.",
+    "badge": "Bulut VPS",
+    "location": "Konum",
+    "cpuType": "CPU Türü",
+    "choosePlan": "Plan Seç",
+    "step1": "1. Konum",
+    "step2": "2. CPU Türü",
+    "step3": "3. Plan Seç"
+  },
+  "dedicated": {
+    "title": "Özel Sunucu Çözümleri",
+    "description": "Kurumsal düzeyde donanım, tam kontrol ve zorlu uygulamalar için maksimum performans sunan bare metal özel sunucular.",
+    "badge": "Özel Sunucular",
+    "cpuType": "CPU Türü",
+    "location": "Konum",
+    "choosePlan": "Plan Seç",
+    "step1": "1. CPU Türü",
+    "step2": "2. Plan Seç",
+    "noStock": "Stok Bulunmuyor",
+    "noStockDescription": "Şu anda tüm VDS konfigürasyonları için stokumuz tükendi. Lütfen daha sonra tekrar kontrol edin veya güncellemeler için destek ekibimizle iletişime geçin."
+  },
+  "features": {
+    "title": "Gelişmiş Özellikler",
+    "subtitle": "Profesyonel oyun sunucusu hosting için ihtiyacınız olan her şey",
+    "badge": "Sizi Hayal Kırıklığına Uğratmayacağız",
+    "highPerformance": "Yüksek Performans",
+    "highPerformanceDesc": "Performans için en son nesil işlemciler tarafından desteklenir",
+    "lowLatency": "Düşük Gecikme",
+    "lowLatencyDesc": "Minimum gecikme ve delay için optimize edilmiş ağ altyapısı",
+    "advancedSecurity": "Gelişmiş Güvenlik",
+    "advancedSecurityDesc": "Sistemimiz, tehditleri gerçek zamanlı olarak tespit etmek, izole etmek ve etkisiz hale getirmek için tasarlanmış gelişmiş, çok katmanlı güvenlik protokolleri ile korunmaktadır — verilerinizin 7/24 güvende kalmasını sağlar",
+    "autoRecovery": "Otomatik Kurtarma",
+    "autoRecoveryDesc": "Otomatik sunucu kurtarma ve yedekleme sistemleri",
+    "fullControl": "Tam Kontrol",
+    "fullControlDesc": "Gelişmiş konfigürasyon seçenekleri ile eksiksiz sunucu kontrol paneli",
+    "resourceScaling": "Kaynak Ölçeklendirme",
+    "resourceScalingDesc": "Sunucu taleplerine dayalı dinamik kaynak tahsisi",
+    "globalNetwork": "Küresel Ağ",
+    "globalNetworkDesc": "Optimal bağlantı için dünya çapında sunucu konumları"
+  },
+  "locations": {
+    "title": "Küresel Konumlar",
+    "subtitle": "Optimal performans ve minimum gecikme için dünya çapında stratejik olarak konumlandırılmış sunucular",
+    "badge": "Küresel Altyapı"
+  },
+  "faq": {
+    "title": "Sıkça Sorulan Sorular",
+    "subtitle": "Oyun sunucusu hosting hizmetlerimiz hakkında yaygın soruların cevaplarını bulun",
+    "question1": "Oyun sunucusu hosting ile nasıl başlarım?",
+    "answer1": "Başlamak çok basit! Oyununuzu seçin, bir sunucu konumu belirleyin ve kolay kurulum sihirbazımızı takip edin. Anında dağıtım sistemimiz ile sunucunuz dakikalar içinde çalışır durumda olacak.",
+    "question2": "Ne tür destek sağlıyorsunuz?",
+    "answer2": "Canlı sohbet ve bilet sistemi aracılığıyla 7/24 teknik destek sunuyoruz. Uzman ekibimiz sunucu konfigürasyonu, performans optimizasyonu ve herhangi bir teknik sorun konusunda yardımcı olmaya her zaman hazır.",
+    "question3": "Sunucu ayarlarını ve konfigürasyonlarını değiştirebilir miyim?",
+    "answer3": "Evet! Sezgisel kontrol panelimiz aracılığıyla sunucu ayarlarınız üzerinde tam kontrole sahipsiniz. Oyun ayarlarını değiştirin, modlar yükleyin ve sunucunuzu kolaylıkla yönetin.",
+    "question4": "Hangi ödeme yöntemlerini kabul ediyorsunuz?",
+    "answer4": "Tüm büyük kredi kartlarını, PayPal'ı ve kripto para ödemelerini kabul ediyoruz. Faturalandırma sistemimiz güvenli ve şeffaftır, gizli ücret yoktur.",
+    "question5": "DDoS koruması sunuyor musunuz?",
+    "answer5": "Evet, tüm sunucularımız ek ücret olmadan kurumsal düzeyde DDoS koruması ile birlikte gelir. Sunucunuz saldırılar sırasında bile çevrimiçi kalacak."
+  },
+  "footer": {
+    "description": "Oyuncular ve geliştiriciler için premium hosting çözümleri. Son teknoloji altyapımızla eşsiz performans yaşayın.",
+    "madeBy": "Yapımcı",
+    "quickLinks": "Hızlı Bağlantılar",
+    "legal": "Yasal",
+    "contactUs": "Bize Ulaşın",
+    "clientArea": "Müşteri Alanı",
+    "discord": "Discord",
+    "vpsHosting": "VPS Hosting",
+    "dedicatedServerHosting": "Özel Sunucu Hosting",
+    "gameServerHosting": "Oyun Sunucusu Hosting",
+    "email": "E-posta",
+    "phone": "Telefon",
+    "gamePanel": "Oyun Paneli",
+    "allRightsReserved": "Tüm hakları saklıdır.",
+    "systemsOperational": "Tüm sistemler çalışıyor"
+  },
+  "webhosting": {
+    "title": "Web Hosting Çözümleri",
+    "description": "Yüksek performanslı sunucular, %99.9 çalışma süresi garantisi ve 7/24 destek ile profesyonel web hosting. Web siteleri, uygulamalar ve çevrimiçi işletmeler için mükemmel.",
+    "badge": "Web Hosting"
+  },
+  "panelShowcase": {
+    "badge": "Panelimiz",
+    "title": "Platformumuzu Deneyimleyin",
+    "subtitle": "Platformumuzu ihtiyaçlarınız için mükemmel seçim yapan güçlü özellikleri keşfedin"
+  },
+  "discordBanner": {
+    "title": "Discord'umuza Katılın",
+    "subtitle": "Oyuncu ve geliştirici topluluğumuzla bağlantı kurun",
+    "description": "Anında destek alın, deneyimlerinizi paylaşın ve en son haberlerden haberdar olun"
+  },
+  "osSelection": {
+    "badge": "İşletim Sistemleri",
+    "title": "İşletim sisteminizi seçin",
+    "description": "Geniş bir popüler işletim sistemi yelpazesinden seçim yapın. Tüm görüntüler önceden yapılandırılmış ve VPS'nizde anında dağıtıma hazır."
+  },
+  "hero": {
+    "titlePrefix": "Kendi",
+    "titleSuffix": "Sunucularınızı Barındırın",
+    "description": "Tüm favori oyunlarınız için şimşek hızında performans, rakipsiz güvenilirlik ve 7/24 destek yaşayın.",
+    "getStarted": "Başlayın",
+    "learnMore": "Daha Fazla Öğren",
+    "getStartedFree": "Ücretsiz başlayın!",
+    "instantSetup": "Anında Kurulum",
+    "instantSetupDesc": "Sunucunuzu 60 saniyeden kısa sürede çalıştırın",
+    "ddosProtection": "DDoS Koruması",
+    "ddosProtectionDesc": "Sunucularınız için kurumsal düzeyde güvenlik",
+    "uptime": "%99.9 Çalışma Süresi",
+    "uptimeDesc": "Garantili kullanılabilirlik ile güvenilir hosting",
+    "support": "7/24 Destek",
+    "supportDesc": "İhtiyacınız olduğunda uzman yardımı"
+  },
+  "configHeaders": {
+    "vpsHosting": "VPS Hosting",
+    "buildVps": "VPS'nizi Oluşturun",
+    "vpsDescription": "2Tbps+ DDoS koruması, birkaç küresel anycast konumu, en son Ryzen ve Intel donanımı ile desteklenen yüksek performanslı VPS; hepsi uygun fiyata.",
+    "vdsHosting": "VDS Hosting",
+    "buildVds": "VDS'nizi Oluşturun",
+    "vdsDescription": "2Tbps+ DDoS koruması, birkaç küresel anycast konumu, en son Ryzen ve Intel donanımı ile desteklenen yüksek performanslı Sanal Özel Sunucular; hepsi uygun fiyata.",
+    "gameServers": "Oyun Sunucuları",
+    "chooseGameServer": "Oyun Sunucunuzu Seçin",
+    "gameServersDescription": "Geniş optimize edilmiş oyun sunucuları yelpazemizden seçim yapın. Her sunucu maksimum performans için yapılandırılmış ve DDoS koruması ile birlikte gelir.",
+    "webHosting": "Web Hosting",
+    "webHostingSolutions": "Web Hosting Çözümleri",
+    "webHostingDescription": "Yüksek performanslı sunucular, %99.9 çalışma süresi garantisi ve 7/24 destek ile profesyonel web hosting. Web siteleri, uygulamalar ve çevrimiçi işletmeler için mükemmel.",
+    "discordBotHosting": "Discord Bot Hosting",
+    "discordBotTitle": "Discord Bot Hosting",
+    "discordBotDescription": "7/24 çalışma süresi, Node.js desteği ve kolay dağıtım ile güvenilir ve uygun fiyatlı Discord bot hosting. Geliştiriciler ve topluluklar için mükemmel."
+  },
+  "discord": {
+    "title": "Discord Bot Hosting",
+    "description": "7/24 çalışma süresi, Node.js desteği ve kolay dağıtım ile güvenilir ve uygun fiyatlı Discord bot hosting. Geliştiriciler ve topluluklar için mükemmel.",
+    "badge": "Discord Bot Hosting",
+    "step1": "1. Plan Türü",
+    "step2": "2. Plan Seç"
+  },
+  "pricingSection": {
+    "title": "Basit Fiyatlandırma",
+    "titleHighlight": "Planları",
+    "titleSuffix": "Herkes İçin",
+    "description": "İhtiyaçlarınız için mükemmel planı seçin. Tüm planlar gizli ücret olmadan temel özelliklerimizi içerir.",
+    "footerText": "Özel bir çözüme mi ihtiyacınız var?",
+    "footerLinkText": "Satış ekibimizle iletişime geçin"
+  },
+  "pricingPlans": {
+    "gameServers": {
+      "title": "Oyun Sunucuları",
+      "description": "Tüm popüler oyunlar için yüksek performanslı oyun hosting",
+      "buttonText": "Daha Fazla Görüntüle",
+      "features": {
+        "instantDeployment": "Anında dağıtım",
+        "ddosProtection": "DDoS koruması",
+        "support247": "7/24 destek",
+        "customConfigurations": "Özel konfigürasyonlar",
+        "modSupport": "Mod desteği"
+      }
+    },
+    "vpsHosting": {
+      "title": "VPS Hosting",
+      "description": "Uygulamalarınız için ölçeklenebilir sanal özel sunucular",
+      "buttonText": "Şimdi Sipariş Ver",
+      "features": {
+        "fullRootAccess": "Tam root erişimi",
+        "ssdStorage": "SSD depolama",
+        "uptime": "%99.9 çalışma süresi",
+        "multipleOS": "Çoklu işletim sistemi seçenekleri",
+        "backupIncluded": "Yedekleme dahil"
+      }
+    },
+    "dedicatedServers": {
+      "title": "Özel Sunucular",
+      "description": "Maksimum performans için kurumsal düzeyde özel donanım",
+      "buttonText": "Teklif Al",
+      "features": {
+        "bareMetalPerformance": "Bare metal performans",
+        "customHardware": "Özel donanım",
+        "enterpriseSupport": "Kurumsal destek",
+        "advancedSecurity": "Gelişmiş güvenlik",
+        "managedServices": "Yönetilen hizmetler"
+      }
+    },
+    "webHosting": {
+      "title": "Web Hosting",
+      "description": "Yüksek performanslı sunucular ve 7/24 destek ile profesyonel web hosting",
+      "buttonText": "Şimdi Sipariş Ver",
+      "features": {
+        "ssdStorage": "SSD depolama",
+        "uptime": "%99.9 çalışma süresi",
+        "support247": "7/24 destek",
+        "freeSSL": "Ücretsiz SSL sertifikası",
+        "dailyBackups": "Günlük yedeklemeler"
+      }
+    }
+  },
+  "gameServerList": {
+    "badge": "Oyun Sunucuları",
+    "title": "Oyun Sunucunuzu Seçin",
+    "description": "Geniş optimize edilmiş oyun sunucuları yelpazemizden seçim yapın. Her sunucu maksimum performans için yapılandırılmış ve DDoS koruması ile birlikte gelir.",
+    "step1": "1. Plan Türü",
+    "step2": "2. Konum",
+    "step3": "3. Yazılım Seç",
+    "step4": "4. Plan Seç",
+    "orderNow": "Şimdi Sipariş Ver",
+    "featured": "Öne Çıkan",
+    "premium": "Premium",
+    "startingAt": "Başlangıç fiyatı",
+    "ddosProtection": "DDoS Koruması"
+  },
+  "webHostingPricing": {
+    "badge": "Web Hosting Çözümleri",
+    "title": "Premium Web Hosting",
+    "description": "Web siteleriniz ve uygulamalarınız için hızlı, güvenilir ve güvenli web hosting çözümleri.",
+    "step1": "1. Plan Türü",
+    "step2": "2. Plan Seç",
+    "orderNow": "Şimdi Sipariş Ver",
+    "webHosting": "Web Hosting"
+  },
+  "cookies": {
+    "title": "Çerez Tercihleri",
+    "subtitle": "Gizlilik ayarlarınızı yönetin",
+    "description": "Tarama deneyiminizi geliştirmek ve tercihlerinizi hatırlamak için çerezler kullanıyoruz. Hangi çerezleri kabul edeceğinizi seçebilirsiniz.",
+    "acceptAll": "Tümünü Kabul Et",
+    "rejectAll": "Tümünü Reddet",
+    "customize": "Ayarları Özelleştir",
+    "savePreferences": "Tercihleri Kaydet",
+    "back": "Geri",
+    "openSettings": "Çerez ayarlarını aç",
+    "necessary": {
+      "title": "Gerekli Çerezler",
+      "description": "Temel web sitesi işlevselliği için gerekli olan temel çerezler. Bunlar devre dışı bırakılamaz."
+    },
+    "preferences": {
+      "title": "Tercih Çerezleri",
+      "description": "Daha iyi bir kullanıcı deneyimi için dil ve tema tercihlerinizi hatırlar."
+    }
+  }
+}

@@ -1,0 +1,682 @@
+{
+  "planTypes": [
+    {
+      "id": "budget",
+      "name": "Budget Ryzen",
+      "image": "/cpu/ryzen7.png"
+    },
+    {
+      "id": "premium",
+      "name": "Premium Ryzen 9",
+      "image": "/cpu/ryzen9.png"
+    }
+  ],
+  "locations": [
+    {
+      "id": "germany",
+      "name": "Germany",
+      "flag": "/flags/germany.png",
+      "availablePlanTypes": ["budget"]
+    },
+    {
+      "id": "singapore",
+      "name": "Singapore",
+      "flag": "/flags/singapore.png",
+      "availablePlanTypes": ["budget", "premium"]
+    }
+  ],
+  "games": [
+    {
+      "id": "minecraft",
+      "name": "Minecraft",
+      "description": "Build, explore, and survive in the ultimate sandbox game",
+      "icon": "/icons/minecraft-icon.webp",
+      "banner": "/banners/minecraft-banners.webp",
+      "featured": true,
+      "startingAt": "$4.00/mo",
+      "primaryColor": "#4CAF50",
+      "plans": {
+        "budget": [
+          {
+            "id": "minecraft-budget-1",
+            "name": "Minecraft 4GB",
+            "type": "budget",
+            "ram": "4 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 4.0,
+            "orderLink": "https://order.example.com/minecraft-4gb"
+          },
+          {
+            "id": "minecraft-budget-2",
+            "name": "Minecraft 8GB",
+            "type": "budget",
+            "ram": "8 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 8.0,
+            "orderLink": "https://order.example.com/minecraft-8gb"
+          },
+          {
+            "id": "minecraft-budget-3",
+            "name": "Minecraft 16GB",
+            "type": "budget",
+            "ram": "16 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 16.0,
+            "orderLink": "https://order.example.com/minecraft-16gb"
+          },
+          {
+            "id": "minecraft-budget-4",
+            "name": "Minecraft 32GB",
+            "type": "budget",
+            "ram": "32 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 32.0,
+            "orderLink": "https://order.example.com/minecraft-32gb"
+          }
+        ],
+        "premium": [
+          {
+            "id": "minecraft-premium-1",
+            "name": "Minecraft 4GB",
+            "type": "premium",
+            "ram": "4 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 5.0,
+            "orderLink": "https://order.example.com/minecraft-premium-4gb"
+          },
+          {
+            "id": "minecraft-premium-2",
+            "name": "Minecraft 8GB",
+            "type": "premium",
+            "ram": "8 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 10.0,
+            "orderLink": "https://order.example.com/minecraft-premium-8gb"
+          },
+          {
+            "id": "minecraft-premium-3",
+            "name": "Minecraft 16GB",
+            "type": "premium",
+            "ram": "16 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 20.0,
+            "orderLink": "https://order.example.com/minecraft-premium-16gb"
+          },
+          {
+            "id": "minecraft-premium-4",
+            "name": "Minecraft 32GB",
+            "type": "premium",
+            "ram": "32 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 40.0,
+            "orderLink": "https://order.example.com/minecraft-premium-32gb"
+          }
+        ]
+      }
+    },
+    {
+      "id": "gmod",
+      "name": "Garry's Mod",
+      "description": "Create and play in endless user-generated content",
+      "icon": "/icons/gmod-icon.webp",
+      "banner": "/banners/gmod-banner.webp",
+      "featured": false,
+      "startingAt": "$4.00/mo",
+      "primaryColor": "#FF6B35",
+      "plans": {
+        "budget": [
+          {
+            "id": "gmod-budget-1",
+            "name": "GMod 4GB",
+            "type": "budget",
+            "ram": "4 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 4.0,
+            "orderLink": "https://order.example.com/gmod-4gb"
+          },
+          {
+            "id": "gmod-budget-2",
+            "name": "GMod 8GB",
+            "type": "budget",
+            "ram": "8 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 8.0,
+            "orderLink": "https://order.example.com/gmod-8gb"
+          },
+          {
+            "id": "gmod-budget-3",
+            "name": "GMod 16GB",
+            "type": "budget",
+            "ram": "16 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 16.0,
+            "orderLink": "https://order.example.com/gmod-16gb"
+          },
+          {
+            "id": "gmod-budget-4",
+            "name": "GMod 32GB",
+            "type": "budget",
+            "ram": "32 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 32.0,
+            "orderLink": "https://order.example.com/gmod-32gb"
+          }
+        ],
+        "premium": [
+          {
+            "id": "gmod-premium-1",
+            "name": "GMod 4GB",
+            "type": "premium",
+            "ram": "4 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 5.0,
+            "orderLink": "https://order.example.com/gmod-premium-4gb"
+          },
+          {
+            "id": "gmod-premium-2",
+            "name": "GMod 8GB",
+            "type": "premium",
+            "ram": "8 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 10.0,
+            "orderLink": "https://order.example.com/gmod-premium-8gb"
+          },
+          {
+            "id": "gmod-premium-3",
+            "name": "GMod 16GB",
+            "type": "premium",
+            "ram": "16 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 20.0,
+            "orderLink": "https://order.example.com/gmod-premium-16gb"
+          },
+          {
+            "id": "gmod-premium-4",
+            "name": "GMod 32GB",
+            "type": "premium",
+            "ram": "32 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 40.0,
+            "orderLink": "https://order.example.com/gmod-premium-32gb"
+          }
+        ]
+      }
+    },
+    {
+      "id": "csgo",
+      "name": "CS:GO",
+      "description": "Competitive tactical first-person shooter",
+      "icon": "/icons/cs2-icon.webp",
+      "banner": "/banners/cs2-banner.webp",
+      "featured": true,
+      "startingAt": "$4.00/mo",
+      "primaryColor": "#F39C12",
+      "plans": {
+        "budget": [
+          {
+            "id": "csgo-budget-1",
+            "name": "CS:GO 4GB",
+            "type": "budget",
+            "ram": "4 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 4.0,
+            "orderLink": "https://order.example.com/csgo-4gb"
+          },
+          {
+            "id": "csgo-budget-2",
+            "name": "CS:GO 8GB",
+            "type": "budget",
+            "ram": "8 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 8.0,
+            "orderLink": "https://order.example.com/csgo-8gb"
+          },
+          {
+            "id": "csgo-budget-3",
+            "name": "CS:GO 16GB",
+            "type": "budget",
+            "ram": "16 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 16.0,
+            "orderLink": "https://order.example.com/csgo-16gb"
+          },
+          {
+            "id": "csgo-budget-4",
+            "name": "CS:GO 32GB",
+            "type": "budget",
+            "ram": "32 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 32.0,
+            "orderLink": "https://order.example.com/csgo-32gb"
+          }
+        ],
+        "premium": [
+          {
+            "id": "csgo-premium-1",
+            "name": "CS:GO 4GB",
+            "type": "premium",
+            "ram": "4 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 5.0,
+            "orderLink": "https://order.example.com/csgo-premium-4gb"
+          },
+          {
+            "id": "csgo-premium-2",
+            "name": "CS:GO 8GB",
+            "type": "premium",
+            "ram": "8 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 10.0,
+            "orderLink": "https://order.example.com/csgo-premium-8gb"
+          },
+          {
+            "id": "csgo-premium-3",
+            "name": "CS:GO 16GB",
+            "type": "premium",
+            "ram": "16 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 20.0,
+            "orderLink": "https://order.example.com/csgo-premium-16gb"
+          },
+          {
+            "id": "csgo-premium-4",
+            "name": "CS:GO 32GB",
+            "type": "premium",
+            "ram": "32 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 40.0,
+            "orderLink": "https://order.example.com/csgo-premium-32gb"
+          }
+        ]
+      }
+    },
+    {
+      "id": "rust",
+      "name": "Rust",
+      "description": "Survive, build, and dominate in this harsh multiplayer world",
+      "icon": "/icons/rust-icon.webp",
+      "banner": "/banners/rust-banner-2.webp",
+      "featured": false,
+      "startingAt": "$4.00/mo",
+      "primaryColor": "#CE422B",
+      "plans": {
+        "budget": [
+          {
+            "id": "rust-budget-1",
+            "name": "Rust 4GB",
+            "type": "budget",
+            "ram": "4 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 4.0,
+            "orderLink": "https://order.example.com/rust-4gb"
+          },
+          {
+            "id": "rust-budget-2",
+            "name": "Rust 8GB",
+            "type": "budget",
+            "ram": "8 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 8.0,
+            "orderLink": "https://order.example.com/rust-8gb"
+          },
+          {
+            "id": "rust-budget-3",
+            "name": "Rust 16GB",
+            "type": "budget",
+            "ram": "16 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 16.0,
+            "orderLink": "https://order.example.com/rust-16gb"
+          },
+          {
+            "id": "rust-budget-4",
+            "name": "Rust 32GB",
+            "type": "budget",
+            "ram": "32 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 32.0,
+            "orderLink": "https://order.example.com/rust-32gb"
+          }
+        ],
+        "premium": [
+          {
+            "id": "rust-premium-1",
+            "name": "Rust 4GB",
+            "type": "premium",
+            "ram": "4 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 5.0,
+            "orderLink": "https://order.example.com/rust-premium-4gb"
+          },
+          {
+            "id": "rust-premium-2",
+            "name": "Rust 8GB",
+            "type": "premium",
+            "ram": "8 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 10.0,
+            "orderLink": "https://order.example.com/rust-premium-8gb"
+          },
+          {
+            "id": "rust-premium-3",
+            "name": "Rust 16GB",
+            "type": "premium",
+            "ram": "16 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 20.0,
+            "orderLink": "https://order.example.com/rust-premium-16gb"
+          },
+          {
+            "id": "rust-premium-4",
+            "name": "Rust 32GB",
+            "type": "premium",
+            "ram": "32 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 40.0,
+            "orderLink": "https://order.example.com/rust-premium-32gb"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ark",
+      "name": "ARK: Survival Evolved",
+      "description": "Tame dinosaurs and survive in a prehistoric world",
+      "icon": "/icons/ark-icon.webp",
+      "banner": "/banners/ark-banners.webp",
+      "featured": false,
+      "startingAt": "$4.00/mo",
+      "primaryColor": "#8B4513",
+      "plans": {
+        "budget": [
+          {
+            "id": "ark-budget-1",
+            "name": "ARK 4GB",
+            "type": "budget",
+            "ram": "4 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 4.0,
+            "orderLink": "https://order.example.com/ark-4gb"
+          },
+          {
+            "id": "ark-budget-2",
+            "name": "ARK 8GB",
+            "type": "budget",
+            "ram": "8 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 8.0,
+            "orderLink": "https://order.example.com/ark-8gb"
+          },
+          {
+            "id": "ark-budget-3",
+            "name": "ARK 16GB",
+            "type": "budget",
+            "ram": "16 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 16.0,
+            "orderLink": "https://order.example.com/ark-16gb"
+          },
+          {
+            "id": "ark-budget-4",
+            "name": "ARK 32GB",
+            "type": "budget",
+            "ram": "32 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 32.0,
+            "orderLink": "https://order.example.com/ark-32gb"
+          }
+        ],
+        "premium": [
+          {
+            "id": "ark-premium-1",
+            "name": "ARK 4GB",
+            "type": "premium",
+            "ram": "4 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 5.0,
+            "orderLink": "https://order.example.com/ark-premium-4gb"
+          },
+          {
+            "id": "ark-premium-2",
+            "name": "ARK 8GB",
+            "type": "premium",
+            "ram": "8 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 10.0,
+            "orderLink": "https://order.example.com/ark-premium-8gb"
+          },
+          {
+            "id": "ark-premium-3",
+            "name": "ARK 16GB",
+            "type": "premium",
+            "ram": "16 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 20.0,
+            "orderLink": "https://order.example.com/ark-premium-16gb"
+          },
+          {
+            "id": "ark-premium-4",
+            "name": "ARK 32GB",
+            "type": "premium",
+            "ram": "32 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 40.0,
+            "orderLink": "https://order.example.com/ark-premium-32gb"
+          }
+        ]
+      }
+    },
+    {
+      "id": "valheim",
+      "name": "Valheim",
+      "description": "Explore and survive in a Norse mythology-inspired world",
+      "icon": "/icons/valheim-icon.webp",
+      "banner": "/banners/valheim-banner.webp",
+      "featured": true,
+      "startingAt": "$4.00/mo",
+      "primaryColor": "#4A90E2",
+      "plans": {
+        "budget": [
+          {
+            "id": "valheim-budget-1",
+            "name": "Valheim 4GB",
+            "type": "budget",
+            "ram": "4 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 4.0,
+            "orderLink": "https://order.example.com/valheim-4gb"
+          },
+          {
+            "id": "valheim-budget-2",
+            "name": "Valheim 8GB",
+            "type": "budget",
+            "ram": "8 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 8.0,
+            "orderLink": "https://order.example.com/valheim-8gb"
+          },
+          {
+            "id": "valheim-budget-3",
+            "name": "Valheim 16GB",
+            "type": "budget",
+            "ram": "16 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 16.0,
+            "orderLink": "https://order.example.com/valheim-16gb"
+          },
+          {
+            "id": "valheim-budget-4",
+            "name": "Valheim 32GB",
+            "type": "budget",
+            "ram": "32 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 32.0,
+            "orderLink": "https://order.example.com/valheim-32gb"
+          }
+        ],
+        "premium": [
+          {
+            "id": "valheim-premium-1",
+            "name": "Valheim 4GB",
+            "type": "premium",
+            "ram": "4 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 5.0,
+            "orderLink": "https://order.example.com/valheim-premium-4gb"
+          },
+          {
+            "id": "valheim-premium-2",
+            "name": "Valheim 8GB",
+            "type": "premium",
+            "ram": "8 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 10.0,
+            "orderLink": "https://order.example.com/valheim-premium-8gb"
+          },
+          {
+            "id": "valheim-premium-3",
+            "name": "Valheim 16GB",
+            "type": "premium",
+            "ram": "16 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 20.0,
+            "orderLink": "https://order.example.com/valheim-premium-16gb"
+          },
+          {
+            "id": "valheim-premium-4",
+            "name": "Valheim 32GB",
+            "type": "premium",
+            "ram": "32 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 40.0,
+            "orderLink": "https://order.example.com/valheim-premium-32gb"
+          }
+        ]
+      }
+    },
+    {
+      "id": "discord-nodejs",
+      "name": "Discord (NodeJS)",
+      "description": "Host your Discord bot with reliable NodeJS hosting",
+      "icon": "/icons/nodejs.png",
+      "banner": "/banners/node.webp",
+      "featured": true,
+      "startingAt": "$0.90/mo",
+      "primaryColor": "#339933",
+      "plans": {
+        "budget": [
+          {
+            "id": "discord-budget-1",
+            "name": "Discord 1GB",
+            "type": "budget",
+            "ram": "1 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 0.9,
+            "orderLink": "https://order.example.com/discord-1gb"
+          },
+          {
+            "id": "discord-budget-2",
+            "name": "Discord 2GB",
+            "type": "budget",
+            "ram": "2 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 1.8,
+            "orderLink": "https://order.example.com/discord-2gb"
+          },
+          {
+            "id": "discord-budget-3",
+            "name": "Discord 3GB",
+            "type": "budget",
+            "ram": "3 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 2.7,
+            "orderLink": "https://order.example.com/discord-3gb"
+          }
+        ],
+        "premium": [
+          {
+            "id": "discord-premium-1",
+            "name": "Discord 1GB",
+            "type": "premium",
+            "ram": "1 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 1.1,
+            "orderLink": "https://order.example.com/discord-premium-1gb"
+          },
+          {
+            "id": "discord-premium-2",
+            "name": "Discord 2GB",
+            "type": "premium",
+            "ram": "2 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 2.2,
+            "orderLink": "https://order.example.com/discord-premium-2gb"
+          },
+          {
+            "id": "discord-premium-3",
+            "name": "Discord 3GB",
+            "type": "premium",
+            "ram": "3 GB",
+            "cpu": "Unmetered",
+            "storage": "Unmetered SSD",
+            "price": 3.3,
+            "orderLink": "https://order.example.com/discord-premium-3gb"
+          }
+        ]
+      }
+    }
+  ]
+}

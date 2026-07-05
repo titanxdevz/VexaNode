@@ -1,0 +1,266 @@
+{
+  "navbar": {
+    "games": "ゲーム",
+    "cloud": "クラウド",
+    "dedicated": "専用サーバー",
+    "discord": "Discordボット",
+    "webhosting": "ウェブホスティング",
+    "legal": "法的事項",
+    "clientSpace": "クライアントスペース",
+    "termsOfService": "利用規約",
+    "privacyPolicy": "プライバシーポリシー",
+    "termsDescription": "当社のサービス契約と条件",
+    "privacyDescription": "お客様のプライバシーを保護する方法"
+  },
+  "common": {
+    "orderNow": "今すぐ注文",
+    "getStarted": "始める",
+    "learnMore": "詳細を見る",
+    "readMore": "続きを読む",
+    "viewAll": "すべて表示",
+    "loading": "読み込み中...",
+    "comingSoon": "近日公開",
+    "popular": "人気",
+    "bestValue": "最高の価値",
+    "mostPopular": "最も人気",
+    "recommended": "おすすめ"
+  },
+  "vps": {
+    "title": "VPSホスティングソリューション",
+    "description": "完全なrootアクセス、SSDストレージ、24時間365日サポート付きの高性能仮想プライベートサーバー。開発者や企業に最適です。",
+    "badge": "クラウドVPS",
+    "location": "場所",
+    "cpuType": "CPUタイプ",
+    "choosePlan": "プランを選択",
+    "step1": "1. 場所",
+    "step2": "2. CPUタイプ",
+    "step3": "3. プランを選択"
+  },
+  "dedicated": {
+    "title": "専用サーバーソリューション",
+    "description": "エンタープライズグレードのハードウェア、完全な制御、要求の厳しいアプリケーションのための最大パフォーマンスを備えたベアメタル専用サーバー。",
+    "badge": "専用サーバー",
+    "cpuType": "CPUタイプ",
+    "location": "場所",
+    "choosePlan": "プランを選択",
+    "step1": "1. CPUタイプ",
+    "step2": "2. プランを選択",
+    "noStock": "在庫なし",
+    "noStockDescription": "現在、すべてのVDS構成の在庫が切れています。後でもう一度確認するか、更新についてサポートチームにお問い合わせください。"
+  },
+  "features": {
+    "title": "高度な機能",
+    "subtitle": "プロフェッショナルなゲームサーバーホスティングに必要なすべて",
+    "badge": "ご期待を裏切りません",
+    "highPerformance": "高性能",
+    "highPerformanceDesc": "パフォーマンスのために最新世代のプロセッサーで駆動",
+    "lowLatency": "低遅延",
+    "lowLatencyDesc": "最小限のラグと遅延のために最適化されたネットワークインフラストラクチャ",
+    "advancedSecurity": "高度なセキュリティ",
+    "advancedSecurityDesc": "当社のシステムは、リアルタイムで脅威を検出、隔離、無力化するように設計された高度な多層セキュリティプロトコルによって保護されています — お客様のデータが24時間安全に保たれることを保証します",
+    "autoRecovery": "自動復旧",
+    "autoRecoveryDesc": "自動サーバー復旧とバックアップシステム",
+    "fullControl": "完全制御",
+    "fullControlDesc": "高度な設定オプション付きの完全なサーバーコントロールパネル",
+    "resourceScaling": "リソーススケーリング",
+    "resourceScalingDesc": "サーバーの需要に基づく動的リソース割り当て",
+    "globalNetwork": "グローバルネットワーク",
+    "globalNetworkDesc": "最適な接続性のための世界中のサーバーロケーション"
+  },
+  "locations": {
+    "title": "グローバルロケーション",
+    "subtitle": "最適なパフォーマンスと最小限の遅延のために世界中に戦略的に配置されたサーバー",
+    "badge": "グローバルインフラストラクチャ"
+  },
+  "faq": {
+    "title": "よくある質問",
+    "subtitle": "当社のゲームサーバーホスティングサービスに関する一般的な質問への回答を見つけてください",
+    "question1": "ゲームサーバーホスティングを始めるにはどうすればよいですか？",
+    "answer1": "始めるのは簡単です！ゲームを選択し、サーバーの場所を選択し、簡単なセットアップウィザードに従ってください。インスタント展開システムにより、サーバーは数分で稼働します。",
+    "question2": "どのようなサポートを提供していますか？",
+    "answer2": "ライブチャットとチケットシステムを通じて24時間365日の技術サポートを提供しています。当社の専門チームは、サーバー設定、パフォーマンス最適化、技術的な問題についていつでもお手伝いする準備ができています。",
+    "question3": "サーバー設定と構成を変更できますか？",
+    "answer3": "はい！直感的なコントロールパネルを通じてサーバー設定を完全に制御できます。ゲーム設定を変更し、MODをインストールし、サーバーを簡単に管理できます。",
+    "question4": "どの支払い方法を受け付けていますか？",
+    "answer4": "すべての主要なクレジットカード、PayPal、暗号通貨での支払いを受け付けています。当社の請求システムは安全で透明性があり、隠れた手数料はありません。",
+    "question5": "DDoS保護を提供していますか？",
+    "answer5": "はい、すべてのサーバーには追加費用なしでエンタープライズグレードのDDoS保護が含まれています。攻撃中でもサーバーはオンラインのままです。"
+  },
+  "footer": {
+    "description": "ゲーマーと開発者のためのプレミアムホスティングソリューション。最先端のインフラストラクチャで比類のないパフォーマンスを体験してください。",
+    "madeBy": "制作者",
+    "quickLinks": "クイックリンク",
+    "legal": "法的事項",
+    "contactUs": "お問い合わせ",
+    "clientArea": "クライアントエリア",
+    "discord": "Discord",
+    "vpsHosting": "VPSホスティング",
+    "dedicatedServerHosting": "専用サーバーホスティング",
+    "gameServerHosting": "ゲームサーバーホスティング",
+    "email": "メール",
+    "phone": "電話",
+    "gamePanel": "ゲームパネル",
+    "allRightsReserved": "すべての権利を保有。",
+    "systemsOperational": "すべてのシステムが稼働中"
+  },
+  "webhosting": {
+    "title": "ウェブホスティングソリューション",
+    "description": "高性能サーバー、99.9%稼働時間保証、24時間365日サポート付きのプロフェッショナルウェブホスティング。ウェブサイト、アプリケーション、オンラインビジネスに最適です。",
+    "badge": "ウェブホスティング"
+  },
+  "panelShowcase": {
+    "badge": "当社のパネル",
+    "title": "当社のプラットフォームを体験",
+    "subtitle": "当社のプラットフォームをお客様のニーズに最適な選択肢にする強力な機能を発見してください"
+  },
+  "discordBanner": {
+    "title": "当社のDiscordに参加",
+    "subtitle": "ゲーマーと開発者のコミュニティとつながる",
+    "description": "即座のサポートを受け、経験を共有し、最新ニュースで最新情報を入手"
+  },
+  "osSelection": {
+    "badge": "オペレーティングシステム",
+    "title": "OSを選択",
+    "description": "人気のオペレーティングシステムの幅広い範囲から選択してください。すべてのイメージは事前設定済みで、VPSに即座に展開する準備ができています。"
+  },
+  "hero": {
+    "titlePrefix": "あなた自身の",
+    "titleSuffix": "サーバーをホスト",
+    "description": "お気に入りのすべてのゲームで稲妻のような高速パフォーマンス、比類のない信頼性、24時間365日のサポートを体験してください。",
+    "getStarted": "始める",
+    "learnMore": "詳細を見る",
+    "getStartedFree": "無料で始めましょう！",
+    "instantSetup": "即座セットアップ",
+    "instantSetupDesc": "60秒以内にサーバーを稼働させる",
+    "ddosProtection": "DDoS保護",
+    "ddosProtectionDesc": "サーバーのためのエンタープライズグレードセキュリティ",
+    "uptime": "99.9%稼働時間",
+    "uptimeDesc": "保証された可用性を持つ信頼性の高いホスティング",
+    "support": "24時間365日サポート",
+    "supportDesc": "必要な時に専門家の支援"
+  },
+  "configHeaders": {
+    "vpsHosting": "VPSホスティング",
+    "buildVps": "VPSを構築",
+    "vpsDescription": "2Tbps+ DDoS保護、複数のグローバルエニーキャストロケーション、最新のRyzenとIntelハードウェアでサポートされた高性能VPS；すべて手頃な価格で。",
+    "vdsHosting": "VDSホスティング",
+    "buildVds": "VDSを構築",
+    "vdsDescription": "2Tbps+ DDoS保護、複数のグローバルエニーキャストロケーション、最新のRyzenとIntelハードウェアでサポートされた高性能仮想専用サーバー；すべて手頃な価格で。",
+    "gameServers": "ゲームサーバー",
+    "chooseGameServer": "ゲームサーバーを選択",
+    "gameServersDescription": "最適化されたゲームサーバーの幅広い範囲から選択してください。各サーバーは最大パフォーマンスのために設定され、DDoS保護が付属しています。",
+    "webHosting": "ウェブホスティング",
+    "webHostingSolutions": "ウェブホスティングソリューション",
+    "webHostingDescription": "高性能サーバー、99.9%稼働時間保証、24時間365日サポート付きのプロフェッショナルウェブホスティング。ウェブサイト、アプリケーション、オンラインビジネスに最適です。",
+    "discordBotHosting": "Discordボットホスティング",
+    "discordBotTitle": "Discordボットホスティング",
+    "discordBotDescription": "24時間365日稼働時間、Node.jsサポート、簡単な展開を備えた信頼性が高く手頃な価格のDiscordボットホスティング。開発者とコミュニティに最適です。"
+  },
+  "discord": {
+    "title": "Discordボットホスティング",
+    "description": "24時間365日稼働時間、Node.jsサポート、簡単な展開を備えた信頼性が高く手頃な価格のDiscordボットホスティング。開発者とコミュニティに最適です。",
+    "badge": "Discordボットホスティング",
+    "step1": "1. プランタイプ",
+    "step2": "2. プランを選択"
+  },
+  "pricingSection": {
+    "title": "シンプルな価格設定",
+    "titleHighlight": "プラン",
+    "titleSuffix": "すべての人のために",
+    "description": "お客様のニーズに最適なプランを選択してください。すべてのプランには隠れた手数料なしで当社のコア機能が含まれています。",
+    "footerText": "カスタムソリューションが必要ですか？",
+    "footerLinkText": "営業チームにお問い合わせください"
+  },
+  "pricingPlans": {
+    "gameServers": {
+      "title": "ゲームサーバー",
+      "description": "すべての人気ゲームのための高性能ゲームホスティング",
+      "buttonText": "詳細を見る",
+      "features": {
+        "instantDeployment": "即座展開",
+        "ddosProtection": "DDoS保護",
+        "support247": "24時間365日サポート",
+        "customConfigurations": "カスタム設定",
+        "modSupport": "MODサポート"
+      }
+    },
+    "vpsHosting": {
+      "title": "VPSホスティング",
+      "description": "アプリケーション用のスケーラブルな仮想プライベートサーバー",
+      "buttonText": "今すぐ注文",
+      "features": {
+        "fullRootAccess": "完全なrootアクセス",
+        "ssdStorage": "SSDストレージ",
+        "uptime": "99.9%稼働時間",
+        "multipleOS": "複数のOSオプション",
+        "backupIncluded": "バックアップ含む"
+      }
+    },
+    "dedicatedServers": {
+      "title": "専用サーバー",
+      "description": "最大パフォーマンスのためのエンタープライズグレード専用ハードウェア",
+      "buttonText": "見積もりを取得",
+      "features": {
+        "bareMetalPerformance": "ベアメタルパフォーマンス",
+        "customHardware": "カスタムハードウェア",
+        "enterpriseSupport": "エンタープライズサポート",
+        "advancedSecurity": "高度なセキュリティ",
+        "managedServices": "マネージドサービス"
+      }
+    },
+    "webHosting": {
+      "title": "ウェブホスティング",
+      "description": "高性能サーバーと24時間365日サポート付きのプロフェッショナルウェブホスティング",
+      "buttonText": "今すぐ注文",
+      "features": {
+        "ssdStorage": "SSDストレージ",
+        "uptime": "99.9%稼働時間",
+        "support247": "24時間365日サポート",
+        "freeSSL": "無料SSL証明書",
+        "dailyBackups": "毎日のバックアップ"
+      }
+    }
+  },
+  "gameServerList": {
+    "badge": "ゲームサーバー",
+    "title": "ゲームサーバーを選択",
+    "description": "最適化されたゲームサーバーの幅広い範囲から選択してください。各サーバーは最大パフォーマンスのために設定され、DDoS保護が付属しています。",
+    "step1": "1. プランタイプ",
+    "step2": "2. 場所",
+    "step3": "3. ソフトウェア選択",
+    "step4": "4. プランを選択",
+    "orderNow": "今すぐ注文",
+    "featured": "おすすめ",
+    "premium": "プレミアム",
+    "startingAt": "開始価格",
+    "ddosProtection": "DDoS保護"
+  },
+  "webHostingPricing": {
+    "badge": "ウェブホスティングソリューション",
+    "title": "プレミアムウェブホスティング",
+    "description": "ウェブサイトとアプリケーションのための高速、信頼性、安全なウェブホスティングソリューション。",
+    "step1": "1. プランタイプ",
+    "step2": "2. プランを選択",
+    "orderNow": "今すぐ注文",
+    "webHosting": "ウェブホスティング"
+  },
+  "cookies": {
+    "title": "Cookieの設定",
+    "subtitle": "プライバシー設定を管理",
+    "description": "ブラウジング体験を向上させ、設定を記憶するためにCookieを使用しています。受け入れるCookieを選択できます。",
+    "acceptAll": "すべて受け入れる",
+    "rejectAll": "すべて拒否する",
+    "customize": "設定をカスタマイズ",
+    "savePreferences": "設定を保存",
+    "back": "戻る",
+    "openSettings": "Cookie設定を開く",
+    "necessary": {
+      "title": "必要なCookie",
+      "description": "基本的なウェブサイト機能に必要な必須Cookie。これらは無効にできません。"
+    },
+    "preferences": {
+      "title": "設定Cookie",
+      "description": "より良いユーザー体験のために、言語とテーマの設定を記憶します。"
+    }
+  }
+}

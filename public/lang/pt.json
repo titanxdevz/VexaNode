@@ -1,0 +1,266 @@
+{
+  "navbar": {
+    "games": "Jogos",
+    "cloud": "Nuvem",
+    "dedicated": "Dedicado",
+    "discord": "Bot Discord",
+    "webhosting": "Hospedagem Web",
+    "legal": "Legal",
+    "clientSpace": "ÁREA DO CLIENTE",
+    "termsOfService": "Termos de Serviço",
+    "privacyPolicy": "Política de Privacidade",
+    "termsDescription": "Nosso acordo de serviço e termos",
+    "privacyDescription": "Como protegemos sua privacidade"
+  },
+  "common": {
+    "orderNow": "Pedir Agora",
+    "getStarted": "Começar",
+    "learnMore": "Saber Mais",
+    "readMore": "Ler Mais",
+    "viewAll": "Ver Tudo",
+    "loading": "Carregando...",
+    "comingSoon": "Em Breve",
+    "popular": "Popular",
+    "bestValue": "Melhor Valor",
+    "mostPopular": "Mais Popular",
+    "recommended": "Recomendado"
+  },
+  "vps": {
+    "title": "Soluções de Hospedagem VPS",
+    "description": "Servidores privados virtuais de alto desempenho com acesso root completo, armazenamento SSD e suporte 24/7. Perfeito para desenvolvedores e empresas.",
+    "badge": "VPS na Nuvem",
+    "location": "Localização",
+    "cpuType": "Tipo de CPU",
+    "choosePlan": "Escolher Plano",
+    "step1": "1. Localização",
+    "step2": "2. Tipo de CPU",
+    "step3": "3. Escolher Plano"
+  },
+  "dedicated": {
+    "title": "Soluções de Servidor Dedicado",
+    "description": "Servidores dedicados bare metal com hardware de nível empresarial, controle total e desempenho máximo para aplicações exigentes.",
+    "badge": "Servidores Dedicados",
+    "cpuType": "Tipo de CPU",
+    "location": "Localização",
+    "choosePlan": "Escolher Plano",
+    "step1": "1. Tipo de CPU",
+    "step2": "2. Escolher Plano",
+    "noStock": "Sem Estoque Disponível",
+    "noStockDescription": "Atualmente estamos sem estoque para todas as configurações VDS. Por favor, verifique mais tarde ou entre em contato com nossa equipe de suporte para atualizações."
+  },
+  "features": {
+    "title": "Recursos Avançados",
+    "subtitle": "Tudo que você precisa para hospedagem profissional de servidores de jogos",
+    "badge": "Não Vamos Decepcionar Você",
+    "highPerformance": "Alto Desempenho",
+    "highPerformanceDesc": "Alimentado por processadores de última geração para máximo desempenho",
+    "lowLatency": "Baixa Latência",
+    "lowLatencyDesc": "Infraestrutura de rede otimizada para mínimo lag e atraso",
+    "advancedSecurity": "Segurança Avançada",
+    "advancedSecurityDesc": "Nosso sistema é protegido por protocolos de segurança avançados de múltiplas camadas projetados para detectar, isolar e neutralizar ameaças em tempo real — garantindo que seus dados permaneçam seguros 24 horas por dia",
+    "autoRecovery": "Recuperação Automática",
+    "autoRecoveryDesc": "Sistemas automáticos de recuperação de servidor e backup",
+    "fullControl": "Controle Total",
+    "fullControlDesc": "Painel de controle completo do servidor com opções de configuração avançadas",
+    "resourceScaling": "Escalonamento de Recursos",
+    "resourceScalingDesc": "Alocação dinâmica de recursos baseada nas demandas do servidor",
+    "globalNetwork": "Rede Global",
+    "globalNetworkDesc": "Localizações de servidores em todo o mundo para conectividade ótima"
+  },
+  "locations": {
+    "title": "Localizações Globais",
+    "subtitle": "Servidores posicionados estrategicamente em todo o mundo para desempenho ótimo e latência mínima",
+    "badge": "Infraestrutura Global"
+  },
+  "faq": {
+    "title": "Perguntas Frequentes",
+    "subtitle": "Encontre respostas para perguntas comuns sobre nossos serviços de hospedagem de servidores de jogos",
+    "question1": "Como começar com hospedagem de servidores de jogos?",
+    "answer1": "Começar é simples! Escolha seu jogo, selecione uma localização de servidor e siga nosso assistente de configuração fácil. Seu servidor estará funcionando em minutos com nosso sistema de implantação instantânea.",
+    "question2": "Que tipo de suporte vocês fornecem?",
+    "answer2": "Oferecemos suporte técnico 24/7 através de chat ao vivo e sistema de tickets. Nossa equipe especializada está sempre pronta para ajudar com configuração de servidor, otimização de desempenho e qualquer problema técnico.",
+    "question3": "Posso modificar configurações e definições do servidor?",
+    "answer3": "Sim! Você tem controle total sobre as configurações do seu servidor através do nosso painel de controle intuitivo. Modifique configurações do jogo, instale mods e gerencie seu servidor com facilidade.",
+    "question4": "Quais métodos de pagamento vocês aceitam?",
+    "answer4": "Aceitamos todos os principais cartões de crédito, PayPal e pagamentos com criptomoedas. Nosso sistema de cobrança é seguro e transparente, sem taxas ocultas.",
+    "question5": "Vocês oferecem proteção DDoS?",
+    "answer5": "Sim, todos os nossos servidores vêm com proteção DDoS de nível empresarial incluída sem custo adicional. Seu servidor permanecerá online mesmo durante ataques."
+  },
+  "footer": {
+    "description": "Soluções de hospedagem premium para gamers e desenvolvedores. Experimente desempenho incomparável com nossa infraestrutura de ponta.",
+    "madeBy": "Feito por",
+    "quickLinks": "Links Rápidos",
+    "legal": "Legal",
+    "contactUs": "Entre em Contato",
+    "clientArea": "Área do Cliente",
+    "discord": "Discord",
+    "vpsHosting": "Hospedagem VPS",
+    "dedicatedServerHosting": "Hospedagem de Servidor Dedicado",
+    "gameServerHosting": "Hospedagem de Servidor de Jogos",
+    "email": "Email",
+    "phone": "Telefone",
+    "gamePanel": "Painel de Jogos",
+    "allRightsReserved": "Todos os direitos reservados.",
+    "systemsOperational": "Todos os sistemas operacionais"
+  },
+  "webhosting": {
+    "title": "Soluções de Hospedagem Web",
+    "description": "Hospedagem web profissional com servidores de alto desempenho, garantia de tempo de atividade de 99,9% e suporte 24/7. Perfeito para sites, aplicações e negócios online.",
+    "badge": "Hospedagem Web"
+  },
+  "panelShowcase": {
+    "badge": "Nosso Painel",
+    "title": "Experimente Nossa Plataforma",
+    "subtitle": "Descubra os recursos poderosos que fazem da nossa plataforma a escolha perfeita para suas necessidades"
+  },
+  "discordBanner": {
+    "title": "Junte-se ao Nosso Discord",
+    "subtitle": "Conecte-se com nossa comunidade de gamers e desenvolvedores",
+    "description": "Obtenha suporte instantâneo, compartilhe experiências e mantenha-se atualizado com as últimas notícias"
+  },
+  "osSelection": {
+    "badge": "Sistemas Operacionais",
+    "title": "Escolha seu SO",
+    "description": "Selecione de uma ampla gama de sistemas operacionais populares. Todas as imagens são pré-configuradas e prontas para implantação instantânea no seu VPS."
+  },
+  "hero": {
+    "titlePrefix": "Hospede seus próprios",
+    "titleSuffix": "Servidores",
+    "description": "Experimente desempenho ultrarrápido, confiabilidade incomparável e suporte 24/7 para todos os seus jogos favoritos.",
+    "getStarted": "Começar",
+    "learnMore": "Saber Mais",
+    "getStartedFree": "Comece gratuitamente!",
+    "instantSetup": "Configuração Instantânea",
+    "instantSetupDesc": "Coloque seu servidor funcionando em menos de 60 segundos",
+    "ddosProtection": "Proteção DDoS",
+    "ddosProtectionDesc": "Segurança de nível empresarial para seus servidores",
+    "uptime": "99,9% Tempo Ativo",
+    "uptimeDesc": "Hospedagem confiável com disponibilidade garantida",
+    "support": "Suporte 24/7",
+    "supportDesc": "Ajuda especializada quando você precisar"
+  },
+  "configHeaders": {
+    "vpsHosting": "Hospedagem VPS",
+    "buildVps": "Construa seu VPS",
+    "vpsDescription": "VPS de alto desempenho com proteção DDoS de 2Tbps+, várias localizações anycast globais, hardware Ryzen e Intel mais recente; tudo a um preço acessível.",
+    "vdsHosting": "Hospedagem VDS",
+    "buildVds": "Construa seu VDS",
+    "vdsDescription": "Servidores Dedicados Virtuais de alto desempenho com proteção DDoS de 2Tbps+, várias localizações anycast globais, hardware Ryzen e Intel mais recente; tudo a um preço acessível.",
+    "gameServers": "Servidores de Jogos",
+    "chooseGameServer": "Escolha seu Servidor de Jogos",
+    "gameServersDescription": "Selecione de nossa ampla gama de servidores de jogos otimizados. Cada servidor é configurado para máximo desempenho e vem com proteção DDoS.",
+    "webHosting": "Hospedagem Web",
+    "webHostingSolutions": "Soluções de Hospedagem Web",
+    "webHostingDescription": "Hospedagem web profissional com servidores de alto desempenho, garantia de tempo de atividade de 99,9% e suporte 24/7. Perfeito para sites, aplicações e negócios online.",
+    "discordBotHosting": "Hospedagem de Bot Discord",
+    "discordBotTitle": "Hospedagem de Bot Discord",
+    "discordBotDescription": "Hospedagem de bot Discord confiável e acessível com tempo de atividade 24/7, suporte Node.js e implantação fácil. Perfeito para desenvolvedores e comunidades."
+  },
+  "discord": {
+    "title": "Hospedagem de Bot Discord",
+    "description": "Hospedagem de bot Discord confiável e acessível com tempo de atividade 24/7, suporte Node.js e implantação fácil. Perfeito para desenvolvedores e comunidades.",
+    "badge": "Hospedagem de Bot Discord",
+    "step1": "1. Tipo de Plano",
+    "step2": "2. Escolher Plano"
+  },
+  "pricingSection": {
+    "title": "Preços Simples",
+    "titleHighlight": "Planos",
+    "titleSuffix": "para Todos",
+    "description": "Escolha o plano perfeito para suas necessidades. Todos os planos incluem nossos recursos principais sem taxas ocultas.",
+    "footerText": "Precisa de uma solução personalizada?",
+    "footerLinkText": "Entre em contato com nossa equipe de vendas"
+  },
+  "pricingPlans": {
+    "gameServers": {
+      "title": "Servidores de Jogos",
+      "description": "Hospedagem de jogos de alto desempenho para todos os jogos populares",
+      "buttonText": "Ver Mais",
+      "features": {
+        "instantDeployment": "Implantação instantânea",
+        "ddosProtection": "Proteção DDoS",
+        "support247": "Suporte 24/7",
+        "customConfigurations": "Configurações personalizadas",
+        "modSupport": "Suporte a mods"
+      }
+    },
+    "vpsHosting": {
+      "title": "Hospedagem VPS",
+      "description": "Servidores privados virtuais escaláveis para suas aplicações",
+      "buttonText": "Pedir Agora",
+      "features": {
+        "fullRootAccess": "Acesso root completo",
+        "ssdStorage": "Armazenamento SSD",
+        "uptime": "99,9% tempo ativo",
+        "multipleOS": "Múltiplas opções de SO",
+        "backupIncluded": "Backup incluído"
+      }
+    },
+    "dedicatedServers": {
+      "title": "Servidores Dedicados",
+      "description": "Hardware dedicado de nível empresarial para máximo desempenho",
+      "buttonText": "Obter Cotação",
+      "features": {
+        "bareMetalPerformance": "Desempenho bare metal",
+        "customHardware": "Hardware personalizado",
+        "enterpriseSupport": "Suporte empresarial",
+        "advancedSecurity": "Segurança avançada",
+        "managedServices": "Serviços gerenciados"
+      }
+    },
+    "webHosting": {
+      "title": "Hospedagem Web",
+      "description": "Hospedagem web profissional com servidores de alto desempenho e suporte 24/7",
+      "buttonText": "Pedir Agora",
+      "features": {
+        "ssdStorage": "Armazenamento SSD",
+        "uptime": "99,9% tempo ativo",
+        "support247": "Suporte 24/7",
+        "freeSSL": "Certificado SSL gratuito",
+        "dailyBackups": "Backups diários"
+      }
+    }
+  },
+  "gameServerList": {
+    "badge": "Servidores de Jogos",
+    "title": "Escolha seu Servidor de Jogos",
+    "description": "Selecione de nossa ampla gama de servidores de jogos otimizados. Cada servidor é configurado para máximo desempenho e vem com proteção DDoS.",
+    "step1": "1. Tipo de Plano",
+    "step2": "2. Localização",
+    "step3": "3. Selecionar Software",
+    "step4": "4. Escolher Plano",
+    "orderNow": "Pedir Agora",
+    "featured": "Destaque",
+    "premium": "Premium",
+    "startingAt": "A partir de",
+    "ddosProtection": "Proteção DDoS"
+  },
+  "webHostingPricing": {
+    "badge": "Soluções de Hospedagem Web",
+    "title": "Hospedagem Web Premium",
+    "description": "Soluções de hospedagem web rápidas, confiáveis e seguras para seus sites e aplicações.",
+    "step1": "1. Tipo de Plano",
+    "step2": "2. Escolher Plano",
+    "orderNow": "Pedir Agora",
+    "webHosting": "Hospedagem Web"
+  },
+  "cookies": {
+    "title": "Preferências de Cookies",
+    "subtitle": "Gerencie suas configurações de privacidade",
+    "description": "Usamos cookies para melhorar sua experiência de navegação e lembrar suas preferências. Você pode escolher quais cookies aceitar.",
+    "acceptAll": "Aceitar Todos",
+    "rejectAll": "Rejeitar Todos",
+    "customize": "Personalizar Configurações",
+    "savePreferences": "Salvar Preferências",
+    "back": "Voltar",
+    "openSettings": "Abrir configurações de cookies",
+    "necessary": {
+      "title": "Cookies Necessários",
+      "description": "Cookies essenciais necessários para a funcionalidade básica do site. Estes não podem ser desabilitados."
+    },
+    "preferences": {
+      "title": "Cookies de Preferências",
+      "description": "Lembram suas preferências de idioma e tema para uma melhor experiência do usuário."
+    }
+  }
+}

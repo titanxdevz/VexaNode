@@ -1,0 +1,121 @@
+{
+  "planTypes": [
+    {
+      "id": "budget",
+      "name": "Budget",
+      "displayName": "Budget Plans",
+      "image": "/icons/nodejs.png"
+    },
+    {
+      "id": "premium",
+      "name": "Premium",
+      "displayName": "Premium Plans",
+      "image": "/icons/nodejs.png"
+    }
+  ],
+  "plans": {
+    "budget": [
+      {
+        "id": "budget-starter",
+        "name": "Starter",
+        "badge": "Popular",
+        "cpu": "1 vCPU",
+        "cpuDetail": "Shared CPU",
+        "ram": "512 MB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "5 GB",
+        "storageDetail": "SSD Storage",
+        "bandwidth": "Unlimited",
+        "bandwidthDetail": "Bandwidth",
+        "uptime": "24/7 Uptime",
+        "price": "£3.99",
+        "period": "/mo",
+        "orderLink": "https://example.com/order/discord/budget/starter"
+      },
+      {
+        "id": "budget-basic",
+        "name": "Basic",
+        "cpu": "1 vCPU",
+        "cpuDetail": "Shared CPU",
+        "ram": "1 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "10 GB",
+        "storageDetail": "SSD Storage",
+        "bandwidth": "Unlimited",
+        "bandwidthDetail": "Bandwidth",
+        "uptime": "24/7 Uptime",
+        "price": "£5.99",
+        "period": "/mo",
+        "orderLink": "https://example.com/order/discord/budget/basic"
+      },
+      {
+        "id": "budget-standard",
+        "name": "Standard",
+        "cpu": "2 vCPU",
+        "cpuDetail": "Shared CPU",
+        "ram": "2 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "20 GB",
+        "storageDetail": "SSD Storage",
+        "bandwidth": "Unlimited",
+        "bandwidthDetail": "Bandwidth",
+        "uptime": "24/7 Uptime",
+        "price": "£9.99",
+        "period": "/mo",
+        "orderLink": "https://example.com/order/discord/budget/standard"
+      }
+    ],
+    "premium": [
+      {
+        "id": "premium-pro",
+        "name": "Pro",
+        "badge": "Best Value",
+        "cpu": "2 vCPU",
+        "cpuDetail": "Dedicated CPU",
+        "ram": "4 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "50 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "Unlimited",
+        "bandwidthDetail": "Bandwidth",
+        "uptime": "24/7 Uptime",
+        "price": "£19.99",
+        "period": "/mo",
+        "orderLink": "https://example.com/order/discord/premium/pro"
+      },
+      {
+        "id": "premium-advanced",
+        "name": "Advanced",
+        "cpu": "4 vCPU",
+        "cpuDetail": "Dedicated CPU",
+        "ram": "8 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "100 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "Unlimited",
+        "bandwidthDetail": "Bandwidth",
+        "uptime": "24/7 Uptime",
+        "price": "£34.99",
+        "period": "/mo",
+        "orderLink": "https://example.com/order/discord/premium/advanced"
+      },
+      {
+        "id": "premium-enterprise",
+        "name": "Enterprise",
+        "badge": "Most Popular",
+        "cpu": "8 vCPU",
+        "cpuDetail": "Dedicated CPU",
+        "ram": "16 GB",
+        "ramDetail": "DDR5 RAM",
+        "storage": "200 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "Unlimited",
+        "bandwidthDetail": "Bandwidth",
+        "uptime": "24/7 Uptime",
+        "price": "£59.99",
+        "period": "/mo",
+        "orderLink": "https://example.com/order/discord/premium/enterprise"
+      }
+    ]
+  }
+}

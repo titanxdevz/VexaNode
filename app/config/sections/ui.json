@@ -1,0 +1,69 @@
+{
+  "loading": {
+    "enableLoadingScreen": false,
+    "loadingDuration": 1000
+  },
+  "currency": {
+    "apiKey": "e912bbb7db10a10466ec18f0",
+    "baseCurrency": "USD",
+    "defaultCurrency": "USD",
+    "supportedCurrencies": [
+      { "code": "USD", "symbol": "$", "name": "US Dollar" },
+      { "code": "EUR", "symbol": "€", "name": "Euro" },
+      { "code": "GBP", "symbol": "£", "name": "British Pound" },
+      { "code": "CAD", "symbol": "C$", "name": "Canadian Dollar" },
+      { "code": "AUD", "symbol": "A$", "name": "Australian Dollar" },
+      { "code": "JPY", "symbol": "¥", "name": "Japanese Yen" }
+    ]
+  },
+  "themeSwitcher": {
+    "show": true,
+    "position": "bottom-left",
+    "defaultColor": "blue",
+    "availableColors": [
+      {
+        "name": "orange",
+        "value": "rgba(150, 93, 29, 1)",
+        "label": "Orange"
+      },
+      {
+        "name": "blue",
+        "value": "rgba(37, 99, 235, 1)",
+        "label": "Blue"
+      },
+      {
+        "name": "purple",
+        "value": "rgba(147, 51, 234, 1)",
+        "label": "Purple"
+      },
+      {
+        "name": "red",
+        "value": "rgba(239, 68, 68, 1)",
+        "label": "Red"
+      },
+      {
+        "name": "green",
+        "value": "rgba(34, 197, 94, 1)",
+        "label": "Green"
+      },
+      {
+        "name": "yellow",
+        "value": "rgba(234, 179, 8, 1)",
+        "label": "Yellow"
+      },
+      {
+        "name": "pink",
+        "value": "rgba(236, 72, 153, 1)",
+        "label": "Pink"
+      },
+      {
+        "name": "teal",
+        "value": "rgba(20, 184, 166, 1)",
+        "label": "Teal"
+      }
+    ]
+  },
+  "christmasTheme": {
+    "enabled": false
+  }
+}

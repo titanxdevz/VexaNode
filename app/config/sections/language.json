@@ -1,0 +1,112 @@
+{
+  "settings": {
+    "autoDetection": {
+      "enabled": true,
+      "fallbackLanguage": "en"
+    },
+    "defaultLanguage": "en"
+  },
+  "availableLanguages": [
+    {
+      "code": "en",
+      "name": "English",
+      "nativeName": "English",
+      "flag": "/flags/usa.png",
+      "enabled": true,
+      "rtl": false
+    },
+    {
+      "code": "fr",
+      "name": "French",
+      "nativeName": "Français",
+      "flag": "/flags/france.png",
+      "enabled": true,
+      "rtl": false
+    },
+    {
+      "code": "de",
+      "name": "German",
+      "nativeName": "Deutsch",
+      "flag": "/flags/germany.png",
+      "enabled": true,
+      "rtl": false
+    },
+    {
+      "code": "ar",
+      "name": "Arabic",
+      "nativeName": "العربية",
+      "flag": "/flags/lebanon.png",
+      "enabled": true,
+      "rtl": false
+    },
+    {
+      "code": "tr",
+      "name": "Turkish",
+      "nativeName": "Türkçe",
+      "flag": "/flags/turkey.png",
+      "enabled": true,
+      "rtl": false
+    },
+    {
+      "code": "ru",
+      "name": "Russian",
+      "nativeName": "Русский",
+      "flag": "/flags/russian.png",
+      "enabled": true,
+      "rtl": false
+    },
+    {
+      "code": "zh",
+      "name": "Chinese",
+      "nativeName": "中文",
+      "flag": "/flags/chinese.png",
+      "enabled": true,
+      "rtl": false
+    },
+    {
+      "code": "ja",
+      "name": "Japanese",
+      "nativeName": "日本語",
+      "flag": "/flags/japanese.png",
+      "enabled": true,
+      "rtl": false
+    },
+    {
+      "code": "hi",
+      "name": "Hindi",
+      "nativeName": "हिन्दी",
+      "flag": "/flags/india.png",
+      "enabled": true,
+      "rtl": false
+    },
+    {
+      "code": "es",
+      "name": "Spanish",
+      "nativeName": "Español",
+      "flag": "/flags/spain.png",
+      "enabled": true,
+      "rtl": false
+    },
+    {
+      "code": "pt",
+      "name": "Portuguese",
+      "nativeName": "Português",
+      "flag": "/flags/portugal.png",
+      "enabled": true,
+      "rtl": false
+    }
+  ],
+  "localeMapping": {
+    "en": ["en", "en-us", "en-gb", "en-au", "en-ca", "en-nz", "en-za", "en-ie"],
+    "fr": ["fr", "fr-fr", "fr-ca", "fr-be", "fr-ch", "fr-lu", "fr-mc"],
+    "de": ["de", "de-de", "de-at", "de-ch", "de-li", "de-lu"],
+    "ar": ["ar", "ar-sa", "ar-ae", "ar-eg", "ar-ma", "ar-dz", "ar-tn", "ar-ly", "ar-sd", "ar-sy", "ar-iq", "ar-jo", "ar-lb", "ar-kw", "ar-om", "ar-qa", "ar-bh", "ar-ye"],
+    "tr": ["tr", "tr-tr", "tr-cy"],
+    "ru": ["ru", "ru-ru", "ru-by", "ru-kz", "ru-kg", "ru-tj", "ru-uz", "ru-md", "ru-am", "ru-ge", "ru-ua", "ru-mn"],
+    "zh": ["zh", "zh-cn", "zh-tw", "zh-hk", "zh-mo", "zh-sg"],
+    "ja": ["ja", "ja-jp"],
+    "hi": ["hi", "hi-in", "hi-np"],
+    "es": ["es", "es-es", "es-mx", "es-ar", "es-co", "es-pe", "es-ve", "es-cl", "es-ec", "es-gt", "es-cu", "es-bo", "es-do", "es-hn", "es-py", "es-sv", "es-ni", "es-cr", "es-pa", "es-uy", "es-pr", "es-us"],
+    "pt": ["pt", "pt-pt", "pt-br", "pt-ao", "pt-mz", "pt-gw", "pt-cv", "pt-st", "pt-tl", "pt-mo"]
+  }
+}
