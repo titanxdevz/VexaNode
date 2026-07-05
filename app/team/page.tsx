@@ -5,6 +5,7 @@ import { ShieldCheck, Zap, Mail, MessageSquare, Twitter, Github, Linkedin, User,
 import { FaDiscord } from "react-icons/fa6"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
+import { PageMeta } from "../components/PageMeta"
 
 const team = [
   {
@@ -46,6 +47,7 @@ const team = [
 export default function TeamPage() {
   return (
     <div className="min-h-screen bg-[#08090d] text-white selection:bg-blue-500/30">
+      <PageMeta title="Our Team" />
       <Navbar />
 
       <main className="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">

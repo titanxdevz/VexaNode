@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { ShieldCheck, Server, ExternalLink, Music2, Radio, Waves, ChevronRight, Mic2, Users, Zap } from "lucide-react"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
+import { PageMeta } from "../components/PageMeta"
 import Image from "next/image"
 import { useState } from "react"
 
@@ -84,6 +85,7 @@ function BotLogo({ partner }: { partner: typeof partners[0] }) {
 export default function PartnersPage() {
   return (
     <div className="min-h-screen bg-[#06070a] text-white selection:bg-blue-500/30 overflow-x-hidden">
+      <PageMeta title="Our Partners" />
       <Navbar />
 
       <main className="relative z-10 pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">

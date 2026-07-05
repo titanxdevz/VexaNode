@@ -66,7 +66,7 @@ export default function NetworkGlobe() {
                 
                 networkArcs.push({
                     ...arcBase,
-                    color: '#00a3ff', 
+                    color: '#10b981', 
                 });
             }
         });
@@ -83,7 +83,7 @@ export default function NetworkGlobe() {
             height={700}
             backgroundColor="rgba(0,0,0,0)"
             showAtmosphere={true}
-            atmosphereColor="#00a3ff"
+            atmosphereColor="#10b981"
             atmosphereAltitude={0.25}
             globeImageUrl="" 
             globeMaterial={new THREE.MeshPhongMaterial({ color: '#030814', transparent: true, opacity: 0.95 })}
@@ -95,13 +95,13 @@ export default function NetworkGlobe() {
             
             arcsData={allArcs}
             arcColor="color"
-            arcDashLength={(d: any) => d.color === '#00a3ff' ? 0.2 : 1}
-            arcDashGap={(d: any) => d.color === '#00a3ff' ? 2 : 0} 
-            arcDashAnimateTime={(d: any) => d.color === '#00a3ff' ? 2500 : 0} 
-            arcStroke={(d: any) => d.color === '#00a3ff' ? 1.5 : 0.5} 
+            arcDashLength={(d: any) => d.color === '#10b981' ? 0.2 : 1}
+            arcDashGap={(d: any) => d.color === '#10b981' ? 2 : 0} 
+            arcDashAnimateTime={(d: any) => d.color === '#10b981' ? 2500 : 0} 
+            arcStroke={(d: any) => d.color === '#10b981' ? 1.5 : 0.5} 
             
             ringsData={locations}
-            ringColor={() => '#00a3ff'}
+            ringColor={() => '#10b981'}
             ringMaxRadius={(d: any) => d.isHub ? 6 : 4} 
             ringPropagationSpeed={2}
             ringRepeatPeriod={1500}

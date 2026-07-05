@@ -40,7 +40,7 @@ export default function ComparisonSection() {
   return (
     <section className="py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative">
       {/* Ambient glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#00a3ff]/[0.03] rounded-full blur-[160px] pointer-events-none will-change-transform" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#10b981]/[0.03] rounded-full blur-[160px] pointer-events-none will-change-transform" />
 
       <div className="relative z-10">
         <div className="text-center mb-16">
@@ -64,8 +64,8 @@ export default function ComparisonSection() {
           >
             Why Choose{" "}
             <span className="relative">
-              <span className="text-[#00a3ff] text-neon-glow-brand">VexaNode?</span>
-              <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-[#00a3ff]/0 via-[#00a3ff]/50 to-[#00a3ff]/0 rounded-full" />
+              <span className="text-[#10b981] text-neon-glow-brand">VexaNode?</span>
+              <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-[#10b981]/0 via-[#10b981]/50 to-[#10b981]/0 rounded-full" />
             </span>
           </motion.h2>
         </div>
@@ -78,8 +78,8 @@ export default function ComparisonSection() {
           <div className="relative grid grid-cols-3 bg-white/[0.02] border-b border-white/[0.06] py-6 px-6 lg:px-10">
             <div className="text-gray-500 font-bold uppercase tracking-widest text-[10px] self-center">Feature</div>
             <div className="text-center">
-              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#00a3ff]/20 to-[#6366f1]/20 text-transparent bg-clip-text bg-gradient-to-r from-[#00a3ff] to-[#6366f1] font-black tracking-widest uppercase text-xs">
-                <Check className="w-3.5 h-3.5 text-[#00a3ff]" />
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#10b981]/20 to-[#10b981]/20 text-transparent bg-clip-text bg-gradient-to-r from-[#10b981] to-[#10b981] font-black tracking-widest uppercase text-xs">
+                <Check className="w-3.5 h-3.5 text-[#10b981]" />
                 VexaNode
               </div>
             </div>
@@ -107,15 +107,15 @@ export default function ComparisonSection() {
                   <div className="relative grid grid-cols-3 py-5 px-6 lg:px-10 gap-4 items-center">
                     {/* Feature Name */}
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-xl bg-white/[0.03] border border-white/[0.05] flex items-center justify-center group-hover:border-[#00a3ff]/20 group-hover:bg-[#00a3ff]/5 transition-all duration-300">
-                        <Icon className="w-4 h-4 text-gray-400 group-hover:text-[#00a3ff] transition-colors duration-300" />
+                      <div className="w-9 h-9 rounded-xl bg-white/[0.03] border border-white/[0.05] flex items-center justify-center group-hover:border-[#10b981]/20 group-hover:bg-[#10b981]/5 transition-all duration-300">
+                        <Icon className="w-4 h-4 text-gray-400 group-hover:text-[#10b981] transition-colors duration-300" />
                       </div>
                       <span className="font-bold text-sm text-gray-300 group-hover:text-white transition-colors duration-300">{feature.name}</span>
                     </div>
 
                     {/* Vexa Value */}
                     <div className="flex justify-center">
-                      <div className="flex items-center gap-2 bg-gradient-to-r from-[#00a3ff]/10 to-[#6366f1]/10 text-[#00a3ff] px-3.5 py-2 rounded-xl border border-[#00a3ff]/20 font-semibold text-xs group-hover:from-[#00a3ff]/20 group-hover:to-[#6366f1]/20 transition-all duration-300">
+                      <div className="flex items-center gap-2 bg-gradient-to-r from-[#10b981]/10 to-[#10b981]/10 text-[#10b981] px-3.5 py-2 rounded-xl border border-[#10b981]/20 font-semibold text-xs group-hover:from-[#10b981]/20 group-hover:to-[#10b981]/20 transition-all duration-300">
                         <Check className="w-3.5 h-3.5" />
                         <span className="hidden sm:inline">{feature.vexa}</span>
                         <span className="sm:hidden">{feature.vexa.split(' ').slice(0, 2).join(' ')}</span>

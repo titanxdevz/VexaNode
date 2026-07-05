@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Search, Globe, ChevronRight, CheckCircle2, ShieldCheck, Zap, Server, Loader2, Sparkles, X } from "lucide-react"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
+import { PageMeta } from "../components/PageMeta"
 import { useCurrency } from "../contexts/CurrencyContext"
 
 const tlds = [
@@ -50,7 +51,8 @@ export default function DomainsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0b0f] text-white selection:bg-[#00a3ff]/30">
+    <div className="min-h-screen bg-[#0a0b0f] text-white selection:bg-[#10b981]/30">
+      <PageMeta title="Domain Names" />
       <Navbar />
 
       <main className="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -59,7 +61,7 @@ export default function DomainsPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-block bg-[#00a3ff]/10 text-[#00a3ff] text-[10px] font-bold px-4 py-1 rounded-full border border-[#00a3ff]/20 mb-6 uppercase tracking-widest"
+            className="inline-block bg-[#10b981]/10 text-[#10b981] text-[10px] font-bold px-4 py-1 rounded-full border border-[#10b981]/20 mb-6 uppercase tracking-widest"
           >
             Domain Registration
           </motion.div>
@@ -70,12 +72,12 @@ export default function DomainsPage() {
             className="text-4xl md:text-6xl font-bold mb-8 orbitron-font"
           >
             Find Your Perfect <br />
-            <span className="text-[#00a3ff] text-neon-glow-brand">Domain Name</span>
+            <span className="text-[#10b981] text-neon-glow-brand">Domain Name</span>
           </motion.h1>
 
           {/* Search Bar */}
           <div className="max-w-3xl mx-auto relative group">
-            <form onSubmit={handleSearch} className="relative z-10 flex gap-2 p-2 bg-[#0b0c16]/30 border border-white/10 rounded-2xl md:rounded-full backdrop-blur-xl focus-within:border-[#00a3ff]/50 transition-all">
+            <form onSubmit={handleSearch} className="relative z-10 flex gap-2 p-2 bg-[#0b0c16]/30 border border-white/10 rounded-2xl md:rounded-full backdrop-blur-xl focus-within:border-[#10b981]/50 transition-all">
               <div className="flex-1 relative">
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
                 <input 
@@ -89,12 +91,12 @@ export default function DomainsPage() {
               <button 
                 type="submit"
                 disabled={isSearching}
-                className="bg-[#00a3ff] hover:bg-[#1a6e94] text-white px-10 py-4 rounded-xl md:rounded-full font-bold transition-all flex items-center gap-2 shadow-lg shadow-[#00a3ff]/20"
+                className="bg-[#10b981] hover:bg-[#059669] text-white px-10 py-4 rounded-xl md:rounded-full font-bold transition-all flex items-center gap-2 shadow-lg shadow-[#10b981]/20"
               >
                 {isSearching ? <Loader2 className="w-5 h-5 animate-spin" /> : "Search"}
               </button>
             </form>
-            <div className="absolute -inset-1 bg-gradient-to-r from-[#00a3ff]/20 to-[#1a6e94]/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#10b981]/20 to-[#059669]/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
           </div>
         </div>
 
@@ -134,7 +136,7 @@ export default function DomainsPage() {
                 {searchResult.available ? (
                   <>
                     <div className="text-2xl font-bold text-white">{formatPrice(350)}</div>
-                    <button className="bg-[#00a3ff] hover:bg-[#1a6e94] text-white px-8 py-3 rounded-xl font-bold text-sm shadow-lg shadow-[#00a3ff]/20">
+                    <button className="bg-[#10b981] hover:bg-[#059669] text-white px-8 py-3 rounded-xl font-bold text-sm shadow-lg shadow-[#10b981]/20">
                       Add to Cart
                     </button>
                   </>
@@ -158,7 +160,7 @@ export default function DomainsPage() {
         <div className="mb-32">
           <div className="flex items-center justify-between mb-8">
             <h3 className="text-sm font-bold text-gray-500 uppercase tracking-widest flex items-center gap-2">
-              <Globe className="w-4 h-4 text-[#00a3ff]" /> All Extensions
+              <Globe className="w-4 h-4 text-[#10b981]" /> All Extensions
             </h3>
             <span className="text-[10px] text-gray-500 italic">*Renewal costs shown are per year</span>
           </div>
@@ -170,16 +172,16 @@ export default function DomainsPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.05 }}
-                className={`relative bg-[#0b0c16]/30 backdrop-blur-md border ${tld.popular ? 'border-[#00a3ff] ring-1 ring-[#00a3ff]/30 shadow-[0_0_30px_rgba(0,163,255,0.15)]' : 'border-white/10'} rounded-3xl p-6 hover:bg-white/[0.02] hover:border-[#00a3ff]/30 transition-all group`}
+                className={`relative bg-[#0b0c16]/30 backdrop-blur-md border ${tld.popular ? 'border-[#10b981] ring-1 ring-[#10b981]/30 shadow-[0_0_30px_rgba(16,185,129,0.15)]' : 'border-white/10'} rounded-3xl p-6 hover:bg-white/[0.02] hover:border-[#10b981]/30 transition-all group`}
               >
                 {tld.popular && (
-                  <div className="absolute top-0 right-6 bg-[#00a3ff] text-[9px] font-black px-3 py-1 rounded-b-lg uppercase tracking-widest flex items-center gap-1 shadow-[0_0_10px_rgba(0,163,255,0.35)]">
+                  <div className="absolute top-0 right-6 bg-[#10b981] text-[9px] font-black px-3 py-1 rounded-b-lg uppercase tracking-widest flex items-center gap-1 shadow-[0_0_10px_rgba(16,185,129,0.35)]">
                     <Sparkles className="w-3 h-3" /> {tld.tag}
                   </div>
                 )}
                 
                 <div className="flex items-center justify-between mb-6">
-                  <h4 className="text-2xl font-bold orbitron-font text-white group-hover:text-[#00a3ff] transition-colors">{tld.name}</h4>
+                  <h4 className="text-2xl font-bold orbitron-font text-white group-hover:text-[#10b981] transition-colors">{tld.name}</h4>
                   <div className="text-right">
                     <div className="text-xl font-bold text-white">{formatPrice(tld.firstYear)}</div>
                     <div className="text-[9px] text-gray-500 font-bold uppercase">First Year</div>
@@ -199,7 +201,7 @@ export default function DomainsPage() {
 
                 <button className={`w-full py-3 rounded-xl font-bold text-xs transition-all flex items-center justify-center gap-2 ${
                   tld.popular 
-                    ? 'bg-[#00a3ff] hover:bg-[#1a6e94] text-white shadow-lg shadow-[#00a3ff]/20' 
+                    ? 'bg-[#10b981] hover:bg-[#059669] text-white shadow-lg shadow-[#10b981]/20' 
                     : 'bg-white/5 hover:bg-white/10 border border-white/10'
                 }`}>
                   Add to Cart
@@ -217,8 +219,8 @@ export default function DomainsPage() {
             { title: "Easy DNS Management", desc: "Complete control over your records with our simple-to-use management console.", icon: Zap },
             { title: "Domain Forwarding", desc: "Redirect your domain to any existing website with a few clicks.", icon: ChevronRight }
           ].map((f, i) => (
-            <div key={i} className="p-8 rounded-[40px] bg-[#0b0c16]/30 backdrop-blur-md border border-white/10 hover:border-[#00a3ff]/30 transition-all group">
-              <f.icon className="w-10 h-10 text-[#00a3ff] mb-6 group-hover:scale-110 transition-transform" />
+            <div key={i} className="p-8 rounded-[40px] bg-[#0b0c16]/30 backdrop-blur-md border border-white/10 hover:border-[#10b981]/30 transition-all group">
+              <f.icon className="w-10 h-10 text-[#10b981] mb-6 group-hover:scale-110 transition-transform" />
               <h4 className="text-lg font-bold mb-2 orbitron-font">{f.title}</h4>
               <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
             </div>

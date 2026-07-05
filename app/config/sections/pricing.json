@@ -81,16 +81,16 @@
         "descriptionKey": "discord.description",
         "basePrice": 2.99,
         "featuresKeys": [
-          "pricingPlans.webHosting.features.ssdStorage",
-          "pricingPlans.webHosting.features.uptime",
-          "pricingPlans.webHosting.features.support247",
-          "pricingPlans.dedicatedServers.features.advancedSecurity",
-          "pricingPlans.webHosting.features.dailyBackups"
+          "pricingPlans.gameServers.features.instantDeployment",
+          "pricingPlans.gameServers.features.ddosProtection",
+          "pricingPlans.gameServers.features.support247",
+          "pricingPlans.gameServers.features.customConfigurations",
+          "pricingPlans.discord.features.highPerformance"
         ],
-        "buttonTextKey": "pricingPlans.webHosting.buttonText",
+        "buttonTextKey": "discord.buttonText",
         "buttonStyle": "secondary",
         "popular": false,
-        "link": "/webhosting"
+        "link": "/discord"
       }
     ],
     "footer": {

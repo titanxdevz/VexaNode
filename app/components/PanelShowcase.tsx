@@ -77,9 +77,9 @@ export default function PanelShowcase() {
   return (
     <div className="bg-[#030408] relative py-32 px-4 sm:px-6 lg:px-8 overflow-hidden border-t border-b border-white/[0.04]">
       {/* Enhanced ambient background */}
-      <div className="absolute top-20 -left-32 w-80 h-80 bg-[#00a3ff]/[0.04] rounded-full blur-[150px] pointer-events-none will-change-transform" />
-      <div className="absolute bottom-20 -right-32 w-96 h-96 bg-[#6366f1]/[0.03] rounded-full blur-[150px] pointer-events-none will-change-transform" />
-      <div className="absolute top-1/2 left-1/3 w-[500px] h-[500px] bg-[#00a3ff]/[0.02] rounded-full blur-[120px] pointer-events-none will-change-transform" />
+      <div className="absolute top-20 -left-32 w-80 h-80 bg-[#10b981]/[0.04] rounded-full blur-[150px] pointer-events-none will-change-transform" />
+      <div className="absolute bottom-20 -right-32 w-96 h-96 bg-[#10b981]/[0.03] rounded-full blur-[150px] pointer-events-none will-change-transform" />
+      <div className="absolute top-1/2 left-1/3 w-[500px] h-[500px] bg-[#10b981]/[0.02] rounded-full blur-[120px] pointer-events-none will-change-transform" />
 
       {/* Subtle grid */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none" />
@@ -92,13 +92,13 @@ export default function PanelShowcase() {
           transition={{ duration: 0.5 }}
           className="text-left mb-12"
         >
-          <div className="inline-flex items-center gap-2 bg-[#00a3ff]/10 text-[#00a3ff] text-[10px] font-bold px-3 py-1.5 rounded-full border border-[#00a3ff]/20 mb-6 tracking-widest uppercase">
+          <div className="inline-flex items-center gap-2 bg-[#10b981]/10 text-[#10b981] text-[10px] font-bold px-3 py-1.5 rounded-full border border-[#10b981]/20 mb-6 tracking-widest uppercase">
             <Sparkles className="w-3 h-3" />
             {t('panelShowcase.badge')}
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-black text-white mb-4 orbitron-font uppercase tracking-tight">
-            {t('panelShowcase.title').split(' ').slice(0, -1).join(' ')} <span className="relative"><span className="text-[#00a3ff] text-neon-glow-brand">{t('panelShowcase.title').split(' ').slice(-1)[0]}</span><span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-[#00a3ff]/0 via-[#00a3ff]/50 to-[#00a3ff]/0 rounded-full" /></span>
+            {t('panelShowcase.title').split(' ').slice(0, -1).join(' ')} <span className="relative"><span className="text-[#10b981] text-neon-glow-brand">{t('panelShowcase.title').split(' ').slice(-1)[0]}</span><span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-[#10b981]/0 via-[#10b981]/50 to-[#10b981]/0 rounded-full" /></span>
           </h2>
           <p className="text-gray-400 text-base max-w-2xl quicksand-font">
             {t('panelShowcase.subtitle')}
@@ -130,24 +130,24 @@ export default function PanelShowcase() {
                     className="group relative cursor-pointer"
                   >
                     {isActive && (
-                      <div className={`absolute -inset-[1px] rounded-xl bg-gradient-to-r from-[#00a3ff]/30 to-[#6366f1]/30 opacity-100 blur-sm transition-opacity duration-500`} />
+                      <div className={`absolute -inset-[1px] rounded-xl bg-gradient-to-r from-[#10b981]/30 to-[#10b981]/30 opacity-100 blur-sm transition-opacity duration-500`} />
                     )}
                     <div className={`relative transition-all duration-400 bg-[#0b0c16]/30 backdrop-blur-md border rounded-xl overflow-hidden ${
                       isActive
-                        ? 'border-[#00a3ff]/40 shadow-lg shadow-[#00a3ff]/10'
+                        ? 'border-[#10b981]/40 shadow-lg shadow-[#10b981]/10'
                         : 'border-white/[0.06] hover:border-white/[0.15]'
                     }`}>
                       {isActive && (
-                        <div className="absolute inset-0 bg-gradient-to-br from-[#00a3ff]/5 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#10b981]/5 to-transparent" />
                       )}
                       <div className="relative flex items-center p-4 sm:p-5">
                         <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-400 ${
                           isActive
-                            ? 'bg-gradient-to-br from-[#00a3ff]/20 to-[#6366f1]/20 border border-[#00a3ff]/30'
+                            ? 'bg-gradient-to-br from-[#10b981]/20 to-[#10b981]/20 border border-[#10b981]/30'
                             : 'bg-white/[0.04] border border-white/[0.06] group-hover:bg-white/[0.08]'
                         }`}>
                           <Icon className={`w-5 h-5 sm:w-6 sm:h-6 transition-colors duration-300 ${
-                            isActive ? 'text-[#00a3ff]' : 'text-gray-400 group-hover:text-[#00a3ff]'
+                            isActive ? 'text-[#10b981]' : 'text-gray-400 group-hover:text-[#10b981]'
                           }`} />
                         </div>
                         <div className="ml-4 flex-1 min-w-0">
@@ -161,7 +161,7 @@ export default function PanelShowcase() {
                           </p>
                         </div>
                         <ChevronRight className={`w-4 h-4 flex-shrink-0 transition-all duration-300 ${
-                          isActive ? 'text-[#00a3ff] translate-x-0.5' : 'text-gray-500 group-hover:text-gray-300'
+                          isActive ? 'text-[#10b981] translate-x-0.5' : 'text-gray-500 group-hover:text-gray-300'
                         }`} />
                       </div>
 
@@ -169,7 +169,7 @@ export default function PanelShowcase() {
                       {isActive && (
                         <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-white/[0.04]">
                           <motion.div
-                            className="h-full rounded-full bg-gradient-to-r from-[#00a3ff] to-[#6366f1]"
+                            className="h-full rounded-full bg-gradient-to-r from-[#10b981] to-[#10b981]"
                             initial={{ width: "0%" }}
                             animate={{ width: `${progress}%` }}
                             transition={{ duration: 0.1, ease: "linear" }}
@@ -193,7 +193,7 @@ export default function PanelShowcase() {
           >
             <div className="relative w-full bg-[#0b0c16]/30 backdrop-blur-xl border border-white/[0.06] rounded-2xl overflow-hidden flex flex-col h-full group/image">
               {/* Inner glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#00a3ff]/3 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#10b981]/3 to-transparent pointer-events-none" />
 
               {/* Image area */}
               <div className="flex-1 p-2 sm:p-3">

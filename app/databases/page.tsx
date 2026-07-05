@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { Database, Zap, Shield, ChevronRight, Server, HardDrive, Cpu, CheckCircle2, LayoutGrid, Layers, Sparkles, ArrowRight } from "lucide-react"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
+import { PageMeta } from "../components/PageMeta"
 import { useCurrency } from "../contexts/CurrencyContext"
 
 const dbPlans = [
@@ -74,6 +75,7 @@ export default function DatabasePage() {
       {/* Subtle grid overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none" />
 
+      <PageMeta title="Managed Databases" />
       <Navbar />
 
       <main className="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">

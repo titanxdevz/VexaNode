@@ -5,10 +5,13 @@ import { motion, AnimatePresence } from "framer-motion"
 import { ChevronRight, Cpu, Zap, Shield, HardDrive, Gamepad2, Trophy, Users, Sparkles } from "lucide-react"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
+import { PageMeta } from "../components/PageMeta"
 import { CustomIcons } from "../components/CustomIcons"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
+import gamesConfig from "../config/sections/games.json"
 
+const gameConfig = ((gamesConfig as any).games || []).find((g: any) => g.id === "minecraft")
 
 const cycles = [
   { id: "monthly", name: "Monthly", discount: 0 },
@@ -127,6 +130,7 @@ export default function MinecraftPage() {
       <div className="absolute top-1/2 left-2/3 w-[500px] h-[500px] bg-emerald-500/[0.02] rounded-full blur-[120px] pointer-events-none will-change-transform" />
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none" />
 
+      <PageMeta title="Minecraft Hosting" />
       <Navbar />
 
       <main className="relative z-10 pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -138,7 +142,7 @@ export default function MinecraftPage() {
           >
             <div className="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-400 text-[10px] font-bold px-3 py-1.5 rounded-full border border-emerald-500/20 mb-6 tracking-widest uppercase">
               <Sparkles className="w-3 h-3" />
-              Minecraft Game Hosting
+              {gameConfig?.name || "Minecraft"} Game Hosting
             </div>
             <h1 className="text-5xl md:text-6xl font-black mb-6 orbitron-font leading-none uppercase tracking-tight">
               Extreme <br />
@@ -148,7 +152,7 @@ export default function MinecraftPage() {
               </span>
             </h1>
             <p className="text-gray-400 text-base leading-relaxed max-w-xl quicksand-font">
-              Dominate your players with zero lag. Our Minecraft servers run on 5.7GHz+ Ryzen processors, enterprise-grade NVMe storage, and DDoS protection.
+              {gameConfig?.description || "Dominate your players with zero lag. Our Minecraft servers run on 5.7GHz+ Ryzen processors, enterprise-grade NVMe storage, and DDoS protection."}
             </p>
           </motion.div>
 

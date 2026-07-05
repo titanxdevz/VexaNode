@@ -49,9 +49,9 @@ export default function Footer() {
 
   const socialLinks = [
     { icon: FaDiscord, href: "https://discord.gg/syHFbR5yBQ", color: "hover:text-[#5865F2] hover:bg-[#5865F2]/10 hover:border-[#5865F2]/50" },
-    { icon: Twitter, href: "#", color: "hover:text-[#1DA1F2] hover:bg-[#1DA1F2]/10 hover:border-[#1DA1F2]/50" },
-    { icon: Github, href: "#", color: "hover:text-white hover:bg-white/10 hover:border-white/50" },
-    { icon: Instagram, href: "#", color: "hover:text-[#E4405F] hover:bg-[#E4405F]/10 hover:border-[#E4405F]/50" },
+    { icon: Twitter, href: "https://twitter.com/vexanode", color: "hover:text-[#1DA1F2] hover:bg-[#1DA1F2]/10 hover:border-[#1DA1F2]/50" },
+    { icon: Github, href: "https://github.com/vexanode", color: "hover:text-white hover:bg-white/10 hover:border-white/50" },
+    { icon: Instagram, href: "https://instagram.com/vexanode", color: "hover:text-[#E4405F] hover:bg-[#E4405F]/10 hover:border-[#E4405F]/50" },
   ]
 
   return (

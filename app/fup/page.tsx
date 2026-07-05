@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Scale, Info, CheckCircle2, Zap, BarChart3, Database, HardDrive, Cpu, Gauge } from "lucide-react"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
+import { PageMeta } from "../components/PageMeta"
 
 const fupRules = [
   {
@@ -36,6 +37,7 @@ const fupRules = [
 export default function FUP() {
   return (
     <div className="min-h-screen bg-[#08090d] text-white selection:bg-blue-500/30">
+      <PageMeta title="Fair Usage Policy" />
       <Navbar />
 
       <main className="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">

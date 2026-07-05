@@ -104,9 +104,9 @@ export default function PricingSection() {
   return (
     <section id="pricing" className="py-32 bg-[#030408] relative overflow-hidden">
       {/* Enhanced ambient background */}
-      <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-[#00a3ff]/[0.04] rounded-full blur-[180px] pointer-events-none will-change-transform" />
-      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[700px] h-[700px] bg-[#6366f1]/[0.03] rounded-full blur-[150px] pointer-events-none will-change-transform" />
-      <div className="absolute top-1/2 left-2/3 w-[500px] h-[500px] bg-[#00a3ff]/[0.02] rounded-full blur-[120px] pointer-events-none will-change-transform" />
+      <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-[#10b981]/[0.04] rounded-full blur-[180px] pointer-events-none will-change-transform" />
+      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[700px] h-[700px] bg-[#10b981]/[0.03] rounded-full blur-[150px] pointer-events-none will-change-transform" />
+      <div className="absolute top-1/2 left-2/3 w-[500px] h-[500px] bg-[#10b981]/[0.02] rounded-full blur-[120px] pointer-events-none will-change-transform" />
 
       {/* Subtle grid overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none" />
@@ -121,15 +121,15 @@ export default function PricingSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <div className="inline-flex items-center gap-2 bg-[#00a3ff]/10 text-[#00a3ff] text-[10px] font-bold px-3 py-1.5 rounded-full border border-[#00a3ff]/20 mb-6 tracking-widest uppercase">
+              <div className="inline-flex items-center gap-2 bg-[#10b981]/10 text-[#10b981] text-[10px] font-bold px-3 py-1.5 rounded-full border border-[#10b981]/20 mb-6 tracking-widest uppercase">
                 <Sparkles className="w-3 h-3" />
                 Choose Your Plan
               </div>
               <h2 className="text-4xl sm:text-6xl font-black text-white mb-4 orbitron-font uppercase tracking-tight">
                 Flexible{" "}
                 <span className="relative">
-                  <span className="text-[#00a3ff] text-neon-glow-brand">Pricing Plans</span>
-                  <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-[#00a3ff]/0 via-[#00a3ff]/50 to-[#00a3ff]/0 rounded-full" />
+                  <span className="text-[#10b981] text-neon-glow-brand">Pricing Plans</span>
+                  <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-[#10b981]/0 via-[#10b981]/50 to-[#10b981]/0 rounded-full" />
                 </span>
               </h2>
               <p className="text-gray-400 text-lg quicksand-font max-w-xl">
@@ -149,7 +149,7 @@ export default function PricingSection() {
             <div className="relative flex items-center gap-1.5 bg-white/[0.04] border border-white/[0.06] p-1 rounded-2xl backdrop-blur-md">
               {/* Sliding indicator */}
               <div
-                className={`absolute top-1 bottom-1 rounded-xl bg-gradient-to-r from-[#00a3ff] to-[#6366f1] transition-all duration-300 ease-out shadow-[0_0_15px_rgba(0,163,255,0.3)] ${
+                className={`absolute top-1 bottom-1 rounded-xl bg-gradient-to-r from-[#10b981] to-[#10b981] transition-all duration-300 ease-out shadow-[0_0_15px_rgba(16,185,129,0.3)] ${
                   billingCycle === "monthly" ? "left-1 right-[55%]" : "left-[45%] right-1"
                 }`}
               />
@@ -194,7 +194,7 @@ export default function PricingSection() {
               {/* Popular badge */}
               {plan.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20">
-                  <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-[#00a3ff] to-[#6366f1] text-white text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest orbitron-font shadow-[0_0_20px_rgba(0,163,255,0.4)]">
+                  <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-[#10b981] to-[#10b981] text-white text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest orbitron-font shadow-[0_0_20px_rgba(16,185,129,0.4)]">
                     <Sparkles className="w-3 h-3" />
                     Most Popular
                   </div>
@@ -207,7 +207,7 @@ export default function PricingSection() {
               {/* Card */}
               <div className={`relative bg-[#0b0c16]/40 backdrop-blur-xl border rounded-3xl overflow-hidden transition-all duration-500 ${
                 plan.popular 
-                  ? 'border-[#00a3ff]/30 shadow-[0_0_30px_rgba(0,163,255,0.08)]' 
+                  ? 'border-[#10b981]/30 shadow-[0_0_30px_rgba(16,185,129,0.08)]' 
                   : 'border-white/[0.06] hover:border-white/[0.12]'
               }`}>
                 {/* Inner glow overlay */}
@@ -222,10 +222,10 @@ export default function PricingSection() {
                     <div className="flex flex-col items-center lg:items-start lg:w-52 flex-shrink-0 text-center lg:text-left">
                       {/* Icon with glow */}
                       <div className="relative mb-6">
-                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${plan.popular ? 'from-[#00a3ff]/20 to-[#6366f1]/20' : 'from-white/[0.08] to-white/[0.02]'} border border-white/[0.06] flex items-center justify-center group-hover:scale-110 group-hover:rotate-[8deg] transition-all duration-500 relative z-10`}>
+                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${plan.popular ? 'from-[#10b981]/20 to-[#10b981]/20' : 'from-white/[0.08] to-white/[0.02]'} border border-white/[0.06] flex items-center justify-center group-hover:scale-110 group-hover:rotate-[8deg] transition-all duration-500 relative z-10`}>
                           <plan.icon className="w-8 h-8 text-white" />
                         </div>
-                        <div className="absolute inset-0 bg-[#00a3ff]/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 scale-75 group-hover:scale-110 opacity-0 group-hover:opacity-100" />
+                        <div className="absolute inset-0 bg-[#10b981]/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 scale-75 group-hover:scale-110 opacity-0 group-hover:opacity-100" />
                       </div>
 
                       <h3 className="text-2xl font-black text-white mb-2 orbitron-font uppercase tracking-tight">{plan.title}</h3>
@@ -259,7 +259,7 @@ export default function PricingSection() {
                           { label: "Disk", val: plan.specs.storage, icon: HardDrive },
                         ].map((s, idx) => (
                           <div key={idx} className="bg-white/[0.03] border border-white/[0.05] rounded-xl p-3 flex flex-col items-center text-center group/spec hover:bg-white/[0.06] transition-colors duration-300">
-                            <s.icon className="w-3.5 h-3.5 text-[#00a3ff] mb-1.5" />
+                            <s.icon className="w-3.5 h-3.5 text-[#10b981] mb-1.5" />
                             <span className="text-[7px] text-gray-600 font-bold uppercase tracking-[0.15em]">{s.label}</span>
                             <span className="text-[10px] text-gray-300 font-semibold mt-0.5 truncate w-full">{s.val}</span>
                           </div>
@@ -289,8 +289,8 @@ export default function PricingSection() {
                       >
                         {plan.popular && (
                           <>
-                            <div className="absolute inset-0 bg-gradient-to-r from-[#00a3ff] via-[#6366f1] to-[#00a3ff] bg-[length:200%_100%] animate-gradient-x transition-all duration-500" />
-                            <div className="absolute inset-0 bg-gradient-to-r from-[#00a3ff] to-[#6366f1] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500" />
+                            <div className="absolute inset-0 bg-gradient-to-r from-[#10b981] via-[#10b981] to-[#10b981] bg-[length:200%_100%] animate-gradient-x transition-all duration-500" />
+                            <div className="absolute inset-0 bg-gradient-to-r from-[#10b981] to-[#10b981] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500" />
                           </>
                         )}
                         <span className="relative z-10 flex items-center gap-2">

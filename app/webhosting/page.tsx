@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import WebHostingPricingSection from '../components/webhosting/WebHostingPricingSection';
 import FeaturesSection from "../components/FeaturesSection"
 import FAQSection from "../components/FAQSection"
@@ -5,6 +6,10 @@ import Footer from "../components/Footer"
 import Navbar from "../components/Navbar";
 import PanelShowcase from "../components/PanelShowcase"
 import LocationsSection from '../components/LocationsSection';
+
+export const metadata: Metadata = {
+  title: "Web Hosting",
+}
 
 export default function WebHostingPage() {
   return (

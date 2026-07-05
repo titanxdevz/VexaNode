@@ -10,6 +10,7 @@ import {
 } from "lucide-react"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
+import { PageMeta } from "../components/PageMeta"
 import { CustomIcons } from "../components/CustomIcons"
 import { useCurrency } from "../contexts/CurrencyContext"
 import Image from "next/image"
@@ -170,6 +171,7 @@ export default function DiscordBotPage() {
       {/* Subtle grid overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none" />
 
+      <PageMeta title="Discord Bot Hosting" />
       <Navbar />
 
       <main className="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
@@ -203,7 +205,7 @@ export default function DiscordBotPage() {
               <div className="flex items-center gap-3 px-6 py-4 rounded-2xl bg-[#0b0c16]/30 backdrop-blur-xl border border-white/[0.06]">
                 <div className="flex -space-x-2">
                   {[1, 2, 3].map(i => (
-                    <div key={i} className="w-8 h-8 rounded-full border-2 border-[#0a0b0f] bg-[#00a3ff] flex items-center justify-center text-[10px] font-bold">
+                    <div key={i} className="w-8 h-8 rounded-full border-2 border-[#0a0b0f] bg-[#10b981] flex items-center justify-center text-[10px] font-bold">
                       {i === 3 ? "1k+" : <Image src={`https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=40&w=32`} alt="" width={32} height={32} className="rounded-full" />}
                     </div>
                   ))}
@@ -464,7 +466,7 @@ function SpecItem({ icon: Icon, label, value }: { icon: any, label: string, valu
   return (
     <div className="flex items-center justify-between group/spec">
       <div className="flex items-center gap-3">
-        <Icon className="w-4 h-4 text-[#00a3ff]/60 group-hover/spec:text-[#00a3ff] transition-colors" />
+        <Icon className="w-4 h-4 text-[#10b981]/60 group-hover/spec:text-[#10b981] transition-colors" />
         <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wider">{label}</span>
       </div>
       <span className="text-sm font-bold text-white">{value}</span>

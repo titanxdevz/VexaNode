@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Users, DollarSign, BarChart3, ArrowRight, CheckCircle2, Gift, PieChart, ShieldCheck } from "lucide-react"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
+import { PageMeta } from "../components/PageMeta"
 
 const features = [
   {
@@ -37,6 +38,7 @@ const steps = [
 export default function AffiliatesPage() {
   return (
     <div className="min-h-screen bg-[#0a0b0f] text-white selection:bg-blue-500/30">
+      <PageMeta title="Affiliate Program" />
       <Navbar />
 
       {/* Hero Section */}
