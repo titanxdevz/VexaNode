@@ -7,12 +7,19 @@ import { Server, Zap } from "lucide-react";
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 const regions = [
-  { city: "Mumbai", country: "India", cpu: "Ryzen 9 9950X", ping: "8ms" },
-  { city: "Singapore", country: "Singapore", cpu: "Ryzen 9 5950X", ping: "12ms" },
-  { city: "Frankfurt", country: "Germany", cpu: "Ryzen 9 7900", ping: "10ms" },
-  { city: "New York", country: "United States", cpu: "EPYC 7C13", ping: "14ms" },
-  { city: "Dallas", country: "United States", cpu: "EPYC 7763", ping: "16ms" },
-  { city: "Amsterdam", country: "Netherlands", cpu: "Ryzen 9 5950X", ping: "11ms" },
+  { city: "Mumbai", country: "India", cpu: "AMD Ryzen 9 9950X", ping: "8ms" },
+  { city: "Mumbai", country: "India", cpu: "AMD Ryzen 7 7700X", ping: "8ms" },
+  { city: "Mumbai", country: "India", cpu: "Intel Xeon E5-2680 v4", ping: "11ms" },
+  { city: "Delhi", country: "India", cpu: "AMD Ryzen 9 9950X", ping: "7ms" },
+  { city: "Noida", country: "India", cpu: "Intel Xeon", ping: "6ms" },
+  { city: "Kolkata", country: "India", cpu: "AMD EPYC", ping: "9ms" },
+  { city: "Singapore", country: "Singapore", cpu: "AMD Ryzen 9 9950X", ping: "12ms" },
+  { city: "Singapore", country: "Singapore", cpu: "AMD Ryzen 9 5950X", ping: "12ms" },
+  { city: "Johor", country: "Malaysia", cpu: "AMD Ryzen 9 9950X", ping: "13ms" },
+  { city: "Sydney", country: "Australia", cpu: "AMD Ryzen 9 9900X", ping: "18ms" },
+  { city: "Miami", country: "USA", cpu: "Intel Gold", ping: "12ms" },
+  { city: "Frankfurt", country: "Germany", cpu: "AMD EPYC", ping: "10ms" },
+  { city: "Ashburn", country: "Virginia", cpu: "Intel Xeon", ping: "14ms" },
 ];
 
 export default function GlobeSection() {
@@ -38,10 +45,10 @@ export default function GlobeSection() {
           </p>
 
           {/* Regional Specifications List */}
-          <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 max-h-[350px] overflow-y-auto pr-2 custom-scrollbar">
             {regions.map((r, i) => (
               <motion.div
-                key={r.city}
+                key={r.city + "-" + r.cpu + "-" + i}
                 initial={{ opacity: 0, x: -12 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}

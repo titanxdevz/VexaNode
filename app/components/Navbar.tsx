@@ -49,7 +49,7 @@ const iconMap: { [key: string]: React.ElementType } = {
   Menu,
   X,
   ChevronRight,
-  FaDiscord: CustomIcons.Bot,
+  FaDiscord: CustomIcons.Discord,
   GrServerCluster,
   Music: FaMusic,
   Database,

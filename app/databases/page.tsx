@@ -54,22 +54,22 @@ const dbPlans = [
 
 export default function DatabasePage() {
   const { formatPrice } = useCurrency()
-  const [ram, setRam] = useState(1)
+  const [ram, setRam] = useState(0.5)
   const [ssd, setSsd] = useState(5)
 
   const calculateExtraPrice = () => {
     const basePrice = 40
-    const extraRamPrice = (ram - 1) * 15
-    const extraSsdPrice = (ssd - 5) / 5 * 10
+    const extraRamPrice = (ram - 0.5) * 15
+    const extraSsdPrice = ((ssd - 5) / 2) * 10
     return basePrice + extraRamPrice + extraSsdPrice
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0b0f] text-white selection:bg-[#00a3ff]/30 relative overflow-hidden">
+    <div className="min-h-screen bg-[#07090e] text-white selection:bg-emerald-500/30 relative overflow-hidden">
       {/* Ambient glow backgrounds */}
-      <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-[#00a3ff]/[0.04] rounded-full blur-[180px] pointer-events-none will-change-transform" />
-      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[700px] h-[700px] bg-[#6366f1]/[0.03] rounded-full blur-[150px] pointer-events-none will-change-transform" />
-      <div className="absolute top-1/2 left-2/3 w-[500px] h-[500px] bg-[#00a3ff]/[0.02] rounded-full blur-[120px] pointer-events-none will-change-transform" />
+      <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-emerald-500/[0.04] rounded-full blur-[180px] pointer-events-none will-change-transform" />
+      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[700px] h-[700px] bg-teal-500/[0.03] rounded-full blur-[150px] pointer-events-none will-change-transform" />
+      <div className="absolute top-1/2 left-2/3 w-[500px] h-[500px] bg-emerald-500/[0.02] rounded-full blur-[120px] pointer-events-none will-change-transform" />
       
       {/* Subtle grid overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none" />
@@ -82,7 +82,7 @@ export default function DatabasePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <div className="inline-flex items-center gap-2 bg-[#00a3ff]/10 text-[#00a3ff] text-[10px] font-bold px-3 py-1.5 rounded-full border border-[#00a3ff]/20 mb-6 tracking-widest uppercase orbitron-font">
+            <div className="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-400 text-[10px] font-bold px-3 py-1.5 rounded-full border border-emerald-500/20 mb-6 tracking-widest uppercase orbitron-font">
               <Sparkles className="w-3 h-3" />
               Managed Data Solutions
             </div>
@@ -95,8 +95,8 @@ export default function DatabasePage() {
           >
             Powerful Managed <br />
             <span className="relative">
-              <span className="text-[#00a3ff] text-neon-glow-brand">Databases</span>
-              <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-[#00a3ff]/0 via-[#00a3ff]/50 to-[#00a3ff]/0 rounded-full" />
+              <span className="text-emerald-500 text-neon-glow-brand">Databases</span>
+              <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-emerald-500/0 via-emerald-500/50 to-emerald-500/0 rounded-full" />
             </span>
           </motion.h1>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg quicksand-font">
@@ -114,16 +114,16 @@ export default function DatabasePage() {
               className="group relative"
             >
               <div className={`absolute -inset-[1px] rounded-[40px] bg-gradient-to-b from-white/0 via-white/0 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm ${
-                plan.id === 'sql' ? 'group-hover:from-[#00a3ff]/10 group-hover:via-[#6366f1]/5 group-hover:to-transparent' :
+                plan.id === 'sql' ? 'group-hover:from-teal-500/10 group-hover:via-teal-500/5 group-hover:to-transparent' :
                 plan.id === 'mongodb' ? 'group-hover:from-emerald-500/10 group-hover:via-emerald-500/5 group-hover:to-transparent' :
-                'group-hover:from-red-500/10 group-hover:via-red-500/5 group-hover:to-transparent'
+                'group-hover:from-rose-500/10 group-hover:via-rose-500/5 group-hover:to-transparent'
               }`} />
               
-              <div className={`relative bg-[#0b0c16]/40 backdrop-blur-xl border border-white/[0.06] rounded-[40px] p-8 transition-all duration-500 overflow-hidden hover:border-white/[0.12]`}>
+              <div className={`relative bg-[#0c0e1a]/40 backdrop-blur-xl border border-white/[0.06] rounded-[40px] p-8 transition-all duration-500 overflow-hidden hover:border-white/[0.12]`}>
                 <div className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none ${
-                  plan.id === 'sql' ? 'from-[#00a3ff]/5 via-transparent to-transparent' :
+                  plan.id === 'sql' ? 'from-teal-500/5 via-transparent to-transparent' :
                   plan.id === 'mongodb' ? 'from-emerald-500/5 via-transparent to-transparent' :
-                  'from-red-500/5 via-transparent to-transparent'
+                  'from-rose-500/5 via-transparent to-transparent'
                 }`} />
                 
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
@@ -132,25 +132,25 @@ export default function DatabasePage() {
                   {/* Icon with glow */}
                   <div className="relative mb-8">
                     <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br from-white/[0.08] to-white/[0.02] border border-white/[0.06] flex items-center justify-center group-hover:scale-110 transition-all duration-500 relative z-10 ${
-                      plan.id === 'sql' ? 'group-hover:border-[#00a3ff]/30' :
+                      plan.id === 'sql' ? 'group-hover:border-teal-500/30' :
                       plan.id === 'mongodb' ? 'group-hover:border-emerald-500/30' :
-                      'group-hover:border-red-500/30'
+                      'group-hover:border-rose-500/30'
                     }`}>
                       {plan.icon === "Database" ? <Database className="w-8 h-8 text-emerald-500" /> : 
-                       plan.icon === "Layers" ? <Layers className="w-8 h-8 text-[#00a3ff]" /> : 
-                       <Zap className="w-8 h-8 text-red-500" />}
+                       plan.icon === "Layers" ? <Layers className="w-8 h-8 text-teal-400" /> : 
+                       <Zap className="w-8 h-8 text-rose-500" />}
                     </div>
                     <div className={`absolute inset-0 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 scale-75 group-hover:scale-110 opacity-0 group-hover:opacity-100 ${
-                      plan.id === 'sql' ? 'bg-[#00a3ff]/10' :
+                      plan.id === 'sql' ? 'bg-teal-500/10' :
                       plan.id === 'mongodb' ? 'bg-emerald-500/10' :
-                      'bg-red-500/10'
+                      'bg-rose-500/10'
                     }`} />
                   </div>
                   
                   <h3 className={`text-2xl font-black mb-4 orbitron-font uppercase tracking-tight transition-colors ${
-                    plan.id === 'sql' ? 'group-hover:text-[#00a3ff]' :
-                    plan.id === 'mongodb' ? 'group-hover:text-emerald-500' :
-                    'group-hover:text-red-500'
+                    plan.id === 'sql' ? 'group-hover:text-teal-400' :
+                    plan.id === 'mongodb' ? 'group-hover:text-emerald-400' :
+                    'group-hover:text-rose-400'
                   }`}>{plan.name}</h3>
                   <p className="text-gray-400 text-sm mb-8 leading-relaxed flex-1 quicksand-font">
                     {plan.desc}
@@ -175,7 +175,7 @@ export default function DatabasePage() {
                       </div>
                     </div>
                     <a 
-                      href="https://discord.gg/syHFbR5yBQ"
+                      href="https://discord.gg/vexanode"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group/btn relative flex items-center justify-center gap-2 w-full py-4 rounded-2xl font-bold transition-all duration-500 orbitron-font uppercase tracking-wider text-xs overflow-hidden bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.06] hover:border-white/[0.12] text-white"
@@ -198,73 +198,73 @@ export default function DatabasePage() {
           animate={{ opacity: 1 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative bg-[#0b0c16]/40 backdrop-blur-xl border border-white/[0.06] rounded-[40px] p-8 md:p-12 mb-32 overflow-hidden"
+          className="relative bg-[#0c0e1a]/40 backdrop-blur-xl border border-white/[0.06] rounded-[40px] p-8 md:p-12 mb-32 overflow-hidden"
         >
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative">
             <div>
-              <h2 className="text-3xl font-black mb-6 orbitron-font uppercase tracking-tight">Scale Your <span className="relative"><span className="text-[#00a3ff] text-neon-glow-brand">Resources</span><span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-[#00a3ff]/0 via-[#00a3ff]/50 to-[#00a3ff]/0 rounded-full" /></span></h2>
+              <h2 className="text-3xl font-black mb-6 orbitron-font uppercase tracking-tight">Scale Your <span className="relative"><span className="text-emerald-500 text-neon-glow-brand">Resources</span><span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-emerald-500/0 via-emerald-500/50 to-emerald-500/0 rounded-full" /></span></h2>
               <p className="text-gray-400 mb-10 quicksand-font">Need more power? Instantly scale your database memory and storage as your application grows.</p>
               
-              <div className="space-y-10">
+               <div className="space-y-10">
                 <div>
                   <div className="flex justify-between mb-4">
                     <span className="text-sm font-bold text-gray-300 uppercase tracking-widest">Memory (RAM)</span>
-                    <span className="text-sm font-bold text-[#00a3ff]">{ram} GB</span>
+                    <span className="text-sm font-bold text-emerald-400 font-mono">{ram === 0.5 ? "512 MB" : `${ram} GB`}</span>
                   </div>
                   <div className="relative">
                     <input 
-                      type="range" min="1" max="64" step="1" 
-                      value={ram} onChange={(e) => setRam(parseInt(e.target.value))}
-                      className="w-full h-2 bg-white/10 rounded-full appearance-none cursor-pointer accent-[#00a3ff] [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-gradient-to-r [&::-webkit-slider-thumb]:from-[#00a3ff] [&::-webkit-slider-thumb]:to-[#6366f1] [&::-webkit-slider-thumb]:shadow-[0_0_10px_rgba(0,163,255,0.5)] [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-white/20" 
+                      type="range" min="0.5" max="32.5" step="1" 
+                      value={ram} onChange={(e) => setRam(parseFloat(e.target.value))}
+                      className="w-full h-2 bg-white/10 rounded-full appearance-none cursor-pointer accent-emerald-500 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-gradient-to-r [&::-webkit-slider-thumb]:from-emerald-500 [&::-webkit-slider-thumb]:to-teal-400 [&::-webkit-slider-thumb]:shadow-[0_0_10px_rgba(16,185,129,0.5)] [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-white/20" 
                     />
                     <div className="absolute top-1/2 left-0 right-0 h-2 rounded-full pointer-events-none overflow-hidden">
                       <div 
-                        className="h-full bg-gradient-to-r from-[#00a3ff]/50 to-[#6366f1]/50 rounded-full transition-all duration-300"
-                        style={{ width: `${((ram - 1) / 63) * 100}%` }}
+                        className="h-full bg-gradient-to-r from-emerald-500/50 to-teal-400/50 rounded-full transition-all duration-300"
+                        style={{ width: `${((ram - 0.5) / 32) * 100}%` }}
                       />
                     </div>
                   </div>
                   <div className="flex justify-between mt-2 text-[10px] text-gray-500 font-bold">
-                    <span>1 GB</span>
-                    <span>64 GB</span>
+                    <span>512 MB</span>
+                    <span>32.5 GB</span>
                   </div>
                 </div>
 
                 <div>
                   <div className="flex justify-between mb-4">
                     <span className="text-sm font-bold text-gray-300 uppercase tracking-widest">SSD Storage</span>
-                    <span className="text-sm font-bold text-[#00a3ff]">{ssd} GB</span>
+                    <span className="text-sm font-bold text-emerald-400 font-mono">{ssd} GB</span>
                   </div>
                   <div className="relative">
                     <input 
-                      type="range" min="5" max="500" step="5" 
+                      type="range" min="5" max="205" step="2" 
                       value={ssd} onChange={(e) => setSsd(parseInt(e.target.value))}
-                      className="w-full h-2 bg-white/10 rounded-full appearance-none cursor-pointer accent-[#00a3ff] [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-gradient-to-r [&::-webkit-slider-thumb]:from-[#00a3ff] [&::-webkit-slider-thumb]:to-[#6366f1] [&::-webkit-slider-thumb]:shadow-[0_0_10px_rgba(0,163,255,0.5)] [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-white/20" 
+                      className="w-full h-2 bg-white/10 rounded-full appearance-none cursor-pointer accent-emerald-500 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-gradient-to-r [&::-webkit-slider-thumb]:from-emerald-500 [&::-webkit-slider-thumb]:to-teal-400 [&::-webkit-slider-thumb]:shadow-[0_0_10px_rgba(16,185,129,0.5)] [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-white/20" 
                     />
                     <div className="absolute top-1/2 left-0 right-0 h-2 rounded-full pointer-events-none overflow-hidden">
                       <div 
-                        className="h-full bg-gradient-to-r from-[#00a3ff]/50 to-[#6366f1]/50 rounded-full transition-all duration-300"
-                        style={{ width: `${((ssd - 5) / 495) * 100}%` }}
+                        className="h-full bg-gradient-to-r from-emerald-500/50 to-teal-400/50 rounded-full transition-all duration-300"
+                        style={{ width: `${((ssd - 5) / 200) * 100}%` }}
                       />
                     </div>
                   </div>
                   <div className="flex justify-between mt-2 text-[10px] text-gray-500 font-bold">
                     <span>5 GB</span>
-                    <span>500 GB</span>
+                    <span>205 GB</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="relative bg-[#0b0c16]/40 backdrop-blur-xl border border-white/[0.06] rounded-[32px] p-8 text-center flex flex-col justify-center items-center shadow-2xl overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#00a3ff]/5 via-transparent to-[#6366f1]/5 pointer-events-none" />
+            <div className="relative bg-[#0c0e1a]/40 backdrop-blur-xl border border-white/[0.06] rounded-[32px] p-8 text-center flex flex-col justify-center items-center shadow-2xl overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-teal-500/5 pointer-events-none" />
               <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
               
               <div className="relative">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#00a3ff]/20 to-[#6366f1]/20 rounded-2xl flex items-center justify-center mb-6 mx-auto border border-white/[0.06]">
-                  <LayoutGrid className="w-8 h-8 text-[#00a3ff]" />
+                <div className="w-16 h-16 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-2xl flex items-center justify-center mb-6 mx-auto border border-white/[0.06]">
+                  <LayoutGrid className="w-8 h-8 text-emerald-400" />
                 </div>
                 <h4 className="text-lg font-bold mb-2">Estimated Monthly Total</h4>
                 <div className="text-5xl font-black text-white mb-4 orbitron-font">
@@ -274,10 +274,10 @@ export default function DatabasePage() {
                   Billed monthly. Cancel anytime. <br /> Includes backup and 24/7 monitoring.
                 </p>
                 <a 
-                  href="https://discord.gg/syHFbR5yBQ"
+                  href="https://discord.gg/vexanode"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group/btn relative flex items-center justify-center gap-2 w-full bg-gradient-to-r from-[#00a3ff] to-[#6366f1] hover:from-[#1a6e94] hover:to-[#4f46e5] text-white font-bold py-4 rounded-2xl transition-all shadow-[0_0_20px_rgba(0,163,255,0.3)] orbitron-font uppercase tracking-wider text-xs overflow-hidden"
+                  className="group/btn relative flex items-center justify-center gap-2 w-full bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-600 hover:to-teal-500 text-white font-bold py-4 rounded-2xl transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] orbitron-font uppercase tracking-wider text-xs overflow-hidden"
                 >
                   <span className="relative z-10 flex items-center gap-2">
                     Configure My Database

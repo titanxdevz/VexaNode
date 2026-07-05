@@ -27,22 +27,22 @@ const botPlans = [
   {
     id: "starter",
     name: "Starter",
-    basePrice: 35,
+    basePrice: 24,
     ram: "512 MB",
-    cpu: "50%",
-    disk: "1 GB",
-    backups: "0",
-    databases: "0",
+    cpu: "1 vCPU",
+    disk: "15 GB NVMe SSD",
+    backups: "1",
+    databases: "1",
     popular: false,
     color: "blue"
   },
   {
     id: "basic",
     name: "Basic",
-    basePrice: 99,
+    basePrice: 60,
     ram: "1 GB",
-    cpu: "100%",
-    disk: "2 GB",
+    cpu: "1 vCPU",
+    disk: "20 GB NVMe SSD",
     backups: "1",
     databases: "1",
     popular: false,
@@ -51,10 +51,10 @@ const botPlans = [
   {
     id: "silver",
     name: "Silver",
-    basePrice: 129,
+    basePrice: 95,
     ram: "2 GB",
-    cpu: "150%",
-    disk: "4 GB",
+    cpu: "2 vCPU",
+    disk: "40 GB NVMe SSD",
     backups: "1",
     databases: "1",
     popular: true,
@@ -63,10 +63,10 @@ const botPlans = [
   {
     id: "gold",
     name: "Gold",
-    basePrice: 199,
+    basePrice: 149,
     ram: "4 GB",
-    cpu: "200%",
-    disk: "8 GB",
+    cpu: "2 vCPU",
+    disk: "60 GB NVMe SSD",
     backups: "2",
     databases: "1",
     popular: false,
@@ -75,10 +75,10 @@ const botPlans = [
   {
     id: "platinum",
     name: "Platinum",
-    basePrice: 279,
+    basePrice: 200,
     ram: "6 GB",
-    cpu: "250%",
-    disk: "12 GB",
+    cpu: "2 vCPU",
+    disk: "80 GB NVMe SSD",
     backups: "3",
     databases: "1",
     popular: false,
@@ -87,10 +87,10 @@ const botPlans = [
   {
     id: "diamond",
     name: "Diamond",
-    basePrice: 349,
+    basePrice: 269,
     ram: "8 GB",
-    cpu: "300%",
-    disk: "16 GB",
+    cpu: "3 vCPU",
+    disk: "120 GB NVMe SSD",
     backups: "4",
     databases: "1",
     popular: false,
@@ -99,10 +99,10 @@ const botPlans = [
   {
     id: "netherite",
     name: "Netherite",
-    basePrice: 429,
+    basePrice: 329,
     ram: "10 GB",
-    cpu: "350%",
-    disk: "20 GB",
+    cpu: "4 vCPU",
+    disk: "160 GB NVMe SSD",
     backups: "5",
     databases: "2",
     popular: false,
@@ -111,10 +111,10 @@ const botPlans = [
   {
     id: "obsidian",
     name: "Obsidian",
-    basePrice: 550,
-    ram: "16 GB",
-    cpu: "500%",
-    disk: "32 GB",
+    basePrice: 399,
+    ram: "12 GB",
+    cpu: "4 vCPU",
+    disk: "240 GB NVMe SSD",
     backups: "10",
     databases: "5",
     popular: false,
@@ -147,15 +147,7 @@ export default function DiscordBotPage() {
   }
 
   const handleDeploy = (plan: any) => {
-    const price = calculatePrice(plan.basePrice)
-    localStorage.setItem('vexa_cart_total', price.toString())
-    localStorage.setItem('vexa_cart_items', JSON.stringify([{
-      name: `Discord Bot Hosting - ${plan.name}`,
-      description: `${plan.ram} RAM | ${plan.cpu} CPU | ${plan.disk} Disk`,
-      price: price
-    }]))
-    
-    router.push('/')
+    window.open("https://discord.gg/vexanode", "_blank")
   }
 
   useEffect(() => {
@@ -169,11 +161,11 @@ export default function DiscordBotPage() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-[#0a0b0f] text-white selection:bg-[#00a3ff]/30 relative overflow-hidden">
+    <div className="min-h-screen bg-[#07090e] text-white selection:bg-emerald-500/30 relative overflow-hidden">
       {/* Ambient glow backgrounds */}
-      <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-[#00a3ff]/[0.04] rounded-full blur-[180px] pointer-events-none will-change-transform" />
-      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[700px] h-[700px] bg-[#6366f1]/[0.03] rounded-full blur-[150px] pointer-events-none will-change-transform" />
-      <div className="absolute top-1/2 left-2/3 w-[500px] h-[500px] bg-[#00a3ff]/[0.02] rounded-full blur-[120px] pointer-events-none will-change-transform" />
+      <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-emerald-500/[0.04] rounded-full blur-[180px] pointer-events-none will-change-transform" />
+      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[700px] h-[700px] bg-teal-500/[0.03] rounded-full blur-[150px] pointer-events-none will-change-transform" />
+      <div className="absolute top-1/2 left-2/3 w-[500px] h-[500px] bg-emerald-500/[0.02] rounded-full blur-[120px] pointer-events-none will-change-transform" />
       
       {/* Subtle grid overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none" />
@@ -188,24 +180,24 @@ export default function DiscordBotPage() {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
           >
-            <div className="inline-flex items-center gap-2 bg-[#00a3ff]/10 text-[#00a3ff] text-[10px] font-bold px-3 py-1.5 rounded-full border border-[#00a3ff]/20 mb-6 uppercase tracking-widest orbitron-font">
+            <div className="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-400 text-[10px] font-bold px-3 py-1.5 rounded-full border border-emerald-500/20 mb-6 uppercase tracking-widest orbitron-font">
               <Sparkles className="w-3 h-3" />
               Performance First Hosting
             </div>
             <h1 className="text-5xl md:text-7xl font-black mb-8 orbitron-font leading-none uppercase tracking-tight">
               Power Your <br />
               <span className="relative">
-                <span className="text-[#00a3ff] text-neon-glow-brand">
+                <span className="text-emerald-500 text-neon-glow-brand">
                   Discord Bots
                 </span>
-                <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-[#00a3ff]/0 via-[#00a3ff]/50 to-[#00a3ff]/0 rounded-full" />
+                <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-emerald-500/0 via-emerald-500/50 to-emerald-500/0 rounded-full" />
               </span>
             </h1>
             <p className="text-gray-400 text-lg mb-10 leading-relaxed max-w-xl quicksand-font">
               Unleash the full potential of your Discord bots with our high-performance Pterodactyl-powered nodes. Built for reliability, speed, and 24/7 uptime.
             </p>
             <div className="flex flex-wrap gap-4">
-              <button className="bg-gradient-to-r from-[#00a3ff] to-[#6366f1] hover:from-[#1a6e94] hover:to-[#4f46e5] text-white px-8 py-4 rounded-2xl font-bold transition-all shadow-[0_0_30px_rgba(0,163,255,0.3)] orbitron-font uppercase tracking-wider text-sm">
+              <button className="bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-600 hover:to-teal-500 text-white px-8 py-4 rounded-2xl font-bold transition-all shadow-[0_0_30px_rgba(16,185,129,0.3)] orbitron-font uppercase tracking-wider text-sm">
                 View Plans
               </button>
               <div className="flex items-center gap-3 px-6 py-4 rounded-2xl bg-[#0b0c16]/30 backdrop-blur-xl border border-white/[0.06]">
@@ -245,7 +237,7 @@ export default function DiscordBotPage() {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, y: -10 }}
-                      className={log.includes("[BOT]") ? "text-[#00a3ff]" : log.includes("[SYSTEM]") ? "text-green-400" : "text-gray-400"}
+                      className={log.includes("[BOT]") ? "text-emerald-400" : log.includes("[SYSTEM]") ? "text-teal-400" : "text-gray-400"}
                     >
                       <span className="text-gray-600 mr-3">[{new Date().toLocaleTimeString()}]</span>
                       {log}
@@ -255,7 +247,7 @@ export default function DiscordBotPage() {
                 <motion.div 
                   animate={{ opacity: [0, 1] }} 
                   transition={{ duration: 0.8, repeat: Infinity }}
-                  className="w-2 h-4 bg-[#00a3ff] inline-block align-middle" 
+                  className="w-2 h-4 bg-emerald-500 inline-block align-middle" 
                 />
               </div>
             </div>
@@ -264,7 +256,7 @@ export default function DiscordBotPage() {
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-6 -right-6 md:-right-12 bg-gradient-to-br from-[#00a3ff] to-[#6366f1] p-6 rounded-3xl shadow-2xl"
+              className="absolute -bottom-6 -right-6 md:-right-12 bg-gradient-to-br from-emerald-500 to-teal-500 p-6 rounded-3xl shadow-2xl"
             >
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center">
@@ -272,7 +264,7 @@ export default function DiscordBotPage() {
                 </div>
                 <div>
                   <div className="text-2xl font-black text-white orbitron-font">99.9%</div>
-                  <div className="text-[10px] font-black text-blue-100 uppercase tracking-widest orbitron-font">Uptime SLA</div>
+                  <div className="text-[10px] font-black text-emerald-100 uppercase tracking-widest orbitron-font">Uptime SLA</div>
                 </div>
               </div>
             </motion.div>
@@ -281,13 +273,13 @@ export default function DiscordBotPage() {
 
         {/* Pricing Toggles */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-black mb-4 orbitron-font uppercase tracking-tight">Choose Your <span className="relative"><span className="text-[#00a3ff] text-neon-glow-brand">Performance Level</span><span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-[#00a3ff]/0 via-[#00a3ff]/50 to-[#00a3ff]/0 rounded-full" /></span></h2>
+          <h2 className="text-4xl font-black mb-4 orbitron-font uppercase tracking-tight">Choose Your <span className="relative"><span className="text-emerald-500 text-neon-glow-brand">Performance Level</span><span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-emerald-500/0 via-emerald-500/50 to-emerald-500/0 rounded-full" /></span></h2>
           <p className="text-gray-400 text-lg mb-8 max-w-xl mx-auto quicksand-font">Select the billing frequency that matches your project requirements.</p>
           <div className="flex flex-col items-center gap-6">
             {/* Sliding pill toggle for billing */}
             <div className="relative flex items-center gap-2 bg-white/[0.04] border border-white/[0.06] p-1.5 rounded-2xl backdrop-blur-md">
               <div
-                className={`absolute top-1.5 bottom-1.5 rounded-xl bg-gradient-to-r from-[#00a3ff] to-[#6366f1] transition-all duration-300 ease-out shadow-[0_0_15px_rgba(0,163,255,0.3)] ${
+                className={`absolute top-1.5 bottom-1.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 transition-all duration-300 ease-out shadow-[0_0_15px_rgba(16,185,129,0.3)] ${
                   selectedCycle === "monthly" ? "left-1.5 right-[75%]" :
                   selectedCycle === "quarterly" ? "left-[25%] right-[50%]" :
                   selectedCycle === "semi-annually" ? "left-[50%] right-[25%]" :
@@ -328,33 +320,33 @@ export default function DiscordBotPage() {
             >
               {plan.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20">
-                  <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-[#00a3ff] to-[#6366f1] text-white text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest orbitron-font shadow-[0_0_20px_rgba(0,163,255,0.4)]">
+                  <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest orbitron-font shadow-[0_0_20px_rgba(16,185,129,0.4)]">
                     <Sparkles className="w-3 h-3" />
                     Popular
                   </div>
                 </div>
               )}
 
-              <div className={`absolute -inset-[1px] rounded-[40px] bg-gradient-to-b ${plan.popular ? 'from-[#00a3ff]/20 via-[#6366f1]/10 to-transparent opacity-100' : 'from-white/0 via-white/0 to-white/0 opacity-0 group-hover:opacity-100'} transition-opacity duration-500 blur-sm`} />
+              <div className={`absolute -inset-[1px] rounded-[40px] bg-gradient-to-b ${plan.popular ? 'from-emerald-500/20 via-teal-500/10 to-transparent opacity-100' : 'from-white/0 via-white/0 to-white/0 opacity-0 group-hover:opacity-100'} transition-opacity duration-500 blur-sm`} />
               
-              <div className={`relative bg-[#0b0c16]/40 backdrop-blur-xl border rounded-[40px] overflow-hidden transition-all duration-500 ${
+              <div className={`relative bg-[#0c0e1a]/40 backdrop-blur-xl border rounded-[40px] overflow-hidden transition-all duration-500 ${
                 plan.popular 
-                  ? 'border-[#00a3ff]/30 shadow-[0_0_30px_rgba(0,163,255,0.08)]' 
+                  ? 'border-emerald-500/30 shadow-[0_0_30px_rgba(16,185,129,0.08)]' 
                   : 'border-white/[0.06] hover:border-white/[0.12]'
               }`}>
-                <div className={`absolute inset-0 bg-gradient-to-br ${plan.popular ? 'from-[#00a3ff]/10 via-transparent to-transparent' : ''} opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
+                <div className={`absolute inset-0 bg-gradient-to-br ${plan.popular ? 'from-emerald-500/10 via-transparent to-transparent' : ''} opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
                 
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
 
                 <div className="relative p-8 flex flex-col">
                   <div className="mb-8">
                     <div className="relative mb-6">
-                      <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${plan.popular ? 'from-[#00a3ff]/20 to-[#6366f1]/20' : 'from-white/[0.08] to-white/[0.02]'} border border-white/[0.06] flex items-center justify-center group-hover:scale-110 transition-all duration-500 relative z-10`}>
-                        <CustomIcons.Bot className="w-8 h-8 text-white" />
+                      <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${plan.popular ? 'from-emerald-500/20 to-teal-500/20' : 'from-white/[0.08] to-white/[0.02]'} border border-white/[0.06] flex items-center justify-center group-hover:scale-110 transition-all duration-500 relative z-10`}>
+                        <CustomIcons.Discord className="w-8 h-8 text-white" />
                       </div>
-                      <div className="absolute inset-0 bg-[#00a3ff]/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 scale-75 group-hover:scale-110 opacity-0 group-hover:opacity-100" />
+                      <div className="absolute inset-0 bg-emerald-500/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 scale-75 group-hover:scale-110 opacity-0 group-hover:opacity-100" />
                     </div>
-                    <h3 className="text-2xl font-black mb-2 orbitron-font uppercase tracking-tight group-hover:text-[#00a3ff] transition-colors">{plan.name}</h3>
+                    <h3 className="text-2xl font-black mb-2 orbitron-font uppercase tracking-tight group-hover:text-emerald-400 transition-colors">{plan.name}</h3>
                     <div className="flex items-baseline gap-1 mt-3">
                       <span className="text-3xl font-black orbitron-font text-white">{formatPrice(calculatePrice(plan.basePrice))}</span>
                       <span className="text-gray-500 text-xs font-bold uppercase tracking-widest">/mo</span>
@@ -380,8 +372,8 @@ export default function DiscordBotPage() {
                   >
                     {plan.popular && (
                       <>
-                        <div className="absolute inset-0 bg-gradient-to-r from-[#00a3ff] via-[#6366f1] to-[#00a3ff] bg-[length:200%_100%] animate-gradient-x transition-all duration-500" />
-                        <div className="absolute inset-0 bg-gradient-to-r from-[#00a3ff] to-[#6366f1] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-500 bg-[length:200%_100%] animate-gradient-x transition-all duration-500" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-teal-500 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500" />
                       </>
                     )}
                     <span className="relative z-10 flex items-center gap-2">
@@ -399,12 +391,12 @@ export default function DiscordBotPage() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="relative bg-[#0b0c16]/40 backdrop-blur-xl border border-white/[0.06] rounded-[40px] p-12 mb-32 overflow-hidden"
+          className="relative bg-[#0c0e1a]/40 backdrop-blur-xl border border-white/[0.06] rounded-[40px] p-12 mb-32 overflow-hidden"
         >
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
           
           <div className="text-center mb-12 relative">
-            <h2 className="text-3xl font-black mb-4 orbitron-font uppercase tracking-tight">Premium Features <span className="relative"><span className="text-[#00a3ff] text-neon-glow-brand">Included</span><span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-[#00a3ff]/0 via-[#00a3ff]/50 to-[#00a3ff]/0 rounded-full" /></span></h2>
+            <h2 className="text-3xl font-black mb-4 orbitron-font uppercase tracking-tight">Premium Features <span className="relative"><span className="text-emerald-500 text-neon-glow-brand">Included</span><span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-emerald-500/0 via-emerald-500/50 to-emerald-500/0 rounded-full" /></span></h2>
             <p className="text-gray-400 max-w-xl mx-auto quicksand-font">Every bot plan comes with our enterprise-grade feature set by default.</p>
           </div>
           
@@ -420,13 +412,13 @@ export default function DiscordBotPage() {
               <div key={i} className="group/feat bg-white/[0.02] border border-white/[0.04] rounded-2xl p-6 hover:bg-white/[0.04] hover:border-white/[0.08] transition-all duration-300">
                 <div className="flex gap-5">
                   <div className="relative">
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#00a3ff]/20 to-[#6366f1]/10 border border-white/[0.06] flex items-center justify-center flex-shrink-0 group-hover/feat:scale-110 transition-transform duration-300 relative z-10">
-                      <f.icon className="w-6 h-6 text-[#00a3ff]" />
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-500/10 border border-white/[0.06] flex items-center justify-center flex-shrink-0 group-hover/feat:scale-110 transition-transform duration-300 relative z-10">
+                      <f.icon className="w-6 h-6 text-emerald-400" />
                     </div>
-                    <div className="absolute inset-0 bg-[#00a3ff]/10 rounded-2xl blur-xl opacity-0 group-hover/feat:opacity-100 transition-opacity duration-500 scale-75 group-hover/feat:scale-110" />
+                    <div className="absolute inset-0 bg-emerald-500/10 rounded-2xl blur-xl opacity-0 group-hover/feat:opacity-100 transition-opacity duration-500 scale-75 group-hover/feat:scale-110" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-white mb-2 group-hover/feat:text-[#00a3ff] transition-colors">{f.title}</h4>
+                    <h4 className="font-bold text-white mb-2 group-hover/feat:text-emerald-400 transition-colors">{f.title}</h4>
                     <p className="text-xs text-gray-400 leading-relaxed quicksand-font">{f.desc}</p>
                   </div>
                 </div>
@@ -443,7 +435,7 @@ export default function DiscordBotPage() {
             <button className="bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.06] px-10 py-4 rounded-2xl font-bold transition-all orbitron-font uppercase tracking-wider text-xs">
               Contact Sales
             </button>
-            <button className="bg-gradient-to-r from-[#00a3ff] to-[#6366f1] hover:from-[#1a6e94] hover:to-[#4f46e5] text-white px-10 py-4 rounded-2xl font-bold transition-all shadow-[0_0_20px_rgba(0,163,255,0.3)] orbitron-font uppercase tracking-wider text-xs">
+            <button className="bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-600 hover:to-teal-500 text-white px-10 py-4 rounded-2xl font-bold transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] orbitron-font uppercase tracking-wider text-xs">
               Get Started
             </button>
           </div>
