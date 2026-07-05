@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Check, ShieldCheck, Zap, Cpu, Server, Sparkles } from "lucide-react";
@@ -13,15 +14,20 @@ const heroPills = [
   "5 global locations · 99.95% Lavalink SLA"
 ];
 
-const consoleLines = [
-  { t: "$ vexa deploy --region auto", c: "text-zinc-500" },
-  { t: "✔ Provisioning Ryzen 9 compute node", c: "text-emerald-400" },
-  { t: "✔ Attaching 10 Gbps anti-DDoS network", c: "text-emerald-400" },
-  { t: "✔ Booting container · 0.4s", c: "text-emerald-400" },
-  { t: "● Live at node-del-09.vexanode.cloud", c: "text-emerald-300 font-bold" },
-];
-
 export default function LandingHero() {
+  const [cpu, setCpu] = useState(28);
+  const [ram, setRam] = useState(42.5);
+  const [packets, setPackets] = useState(14028);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCpu(Math.floor(25 + Math.random() * 15));
+      setRam(parseFloat((40 + Math.random() * 5).toFixed(1)));
+      setPackets(prev => prev + Math.floor(Math.random() * 120));
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative overflow-hidden pt-36 pb-20 lg:pt-44 lg:pb-28 bg-zinc-950 text-white">
       {/* Background radial glow */}
@@ -92,38 +98,142 @@ export default function LandingHero() {
 
           </div>
 
-          {/* Right: Premium styled console panel mockup */}
+          {/* Right: Premium Cloud Server Performance Dashboard */}
           <div className="relative">
-            <div className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/60 shadow-2xl backdrop-blur-sm">
-              <div className="flex items-center gap-2 border-b border-zinc-800/80 bg-zinc-900/80 px-4 py-3">
-                <span className="h-2.5 w-2.5 rounded-full bg-zinc-800" />
-                <span className="h-2.5 w-2.5 rounded-full bg-zinc-800" />
-                <span className="h-2.5 w-2.5 rounded-full bg-zinc-800" />
-                <span className="ml-3 text-[10px] font-bold text-zinc-500 uppercase tracking-widest">
-                  vexanode — deployment console
-                </span>
-              </div>
-              <div className="space-y-2.5 p-5 font-mono text-xs leading-relaxed">
-                {consoleLines.map((line, i) => (
-                  <div
-                    key={i}
-                    className={line.c}
-                  >
-                    {line.t}
+            {/* Live Monitoring Dashboard Wrapper */}
+            <div className="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950/60 shadow-2xl backdrop-blur-md">
+              
+              {/* Header bar */}
+              <div className="flex items-center justify-between border-b border-zinc-800/80 bg-zinc-900/40 px-5 py-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex gap-1.5">
+                    <span className="h-3 w-3 rounded-full bg-red-500/80" />
+                    <span className="h-3 w-3 rounded-full bg-yellow-500/80" />
+                    <span className="h-3 w-3 rounded-full bg-green-500/80" />
                   </div>
-                ))}
+                  <span className="font-mono text-[11px] font-bold text-zinc-400">
+                    node-mumbai-01.vexanode.cloud
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  </span>
+                  <span className="font-mono text-[10px] font-bold tracking-wider text-emerald-400 uppercase">
+                    Live Status
+                  </span>
+                </div>
+              </div>
+
+              {/* Specs & Performance Metrics */}
+              <div className="p-6 space-y-6">
+                
+                {/* Metric 1: CPU Allocation (Ryzen 9 9950X) */}
+                <div className="space-y-2">
+                  <div className="flex justify-between items-center text-xs font-mono">
+                    <div className="flex items-center gap-2 text-zinc-300">
+                      <Cpu className="w-3.5 h-3.5 text-emerald-400" />
+                      <span className="font-bold">CPU Usage (Ryzen 9 9950X)</span>
+                    </div>
+                    <span className="text-emerald-400 font-bold">{cpu}%</span>
+                  </div>
+                  <div className="h-2 w-full bg-zinc-900 rounded-full overflow-hidden">
+                    <motion.div 
+                      className="h-full bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full"
+                      animate={{ width: `${cpu}%` }}
+                      transition={{ duration: 1 }}
+                    />
+                  </div>
+                  <div className="flex justify-between text-[9px] text-zinc-500 font-mono">
+                    <span>16 Cores / 32 Threads</span>
+                    <span>39°C Temp</span>
+                  </div>
+                </div>
+
+                {/* Metric 2: Memory Allocation */}
+                <div className="space-y-2">
+                  <div className="flex justify-between items-center text-xs font-mono">
+                    <div className="flex items-center gap-2 text-zinc-300">
+                      <Server className="w-3.5 h-3.5 text-emerald-400" />
+                      <span className="font-bold">DDR5 RAM Allocation</span>
+                    </div>
+                    <span className="text-emerald-400 font-bold">{ram}%</span>
+                  </div>
+                  <div className="h-2 w-full bg-zinc-900 rounded-full overflow-hidden">
+                    <motion.div 
+                      className="h-full bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full"
+                      animate={{ width: `${ram}%` }}
+                      transition={{ duration: 1 }}
+                    />
+                  </div>
+                  <div className="flex justify-between text-[9px] text-zinc-500 font-mono">
+                    <span>Active: 27.2 GB</span>
+                    <span>Total Limit: 64.0 GB</span>
+                  </div>
+                </div>
+
+                {/* Grid stats for Network and NVMe IO */}
+                <div className="grid grid-cols-2 gap-4">
+                  
+                  {/* DDoS Status */}
+                  <div className="p-3 rounded-xl border border-zinc-900 bg-zinc-900/20 space-y-1">
+                    <div className="text-[10px] uppercase font-bold text-zinc-500 tracking-wider">DDoS Protection</div>
+                    <div className="text-xs font-bold text-emerald-400 flex items-center gap-1.5">
+                      <ShieldCheck className="w-3.5 h-3.5" />
+                      Active Filter
+                    </div>
+                    <div className="text-[10px] text-zinc-400 font-mono">{packets.toLocaleString()} Pkts/s Blocked</div>
+                  </div>
+
+                  {/* NVMe IO status */}
+                  <div className="p-3 rounded-xl border border-zinc-900 bg-zinc-900/20 space-y-1">
+                    <div className="text-[10px] uppercase font-bold text-zinc-500 tracking-wider">NVMe Read/Write</div>
+                    <div className="text-xs font-bold text-zinc-200 flex items-center gap-1.5">
+                      <Zap className="w-3.5 h-3.5 text-emerald-400" />
+                      NVMe Gen 4
+                    </div>
+                    <div className="text-[10px] text-zinc-400 font-mono">6.4 GB/s Read · 5.2 GB/s Write</div>
+                  </div>
+
+                </div>
+
+                {/* Node datacenter locations visual list */}
+                <div className="border-t border-zinc-900 pt-4 space-y-2">
+                  <div className="text-[10px] uppercase font-bold text-zinc-500 tracking-wider font-mono">
+                    Active Regional Deployments
+                  </div>
+                  <div className="flex gap-2 flex-wrap">
+                    {[
+                      { city: "Mumbai, IN", code: "Ryzen 9", active: true },
+                      { city: "Singapore, SG", code: "Ryzen 9", active: true },
+                      { city: "Frankfurt, DE", code: "EPYC", active: true },
+                      { city: "Sydney, AU", code: "Ryzen 9", active: true },
+                      { city: "Miami, US", code: "Ryzen 9", active: true }
+                    ].map((loc, i) => (
+                      <span 
+                        key={i} 
+                        className="inline-flex items-center gap-1.5 bg-zinc-900/40 border border-zinc-800 px-2.5 py-1 rounded-lg text-[10px] font-mono text-zinc-300"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                        {loc.city} ({loc.code})
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
               </div>
             </div>
 
-            {/* Floating uptime card */}
-            <div className="absolute -bottom-5 -left-5 hidden rounded-xl border border-zinc-800 bg-zinc-950 p-3.5 sm:block shadow-xl">
+            {/* Floating operational uptime card */}
+            <div className="absolute -bottom-5 -left-5 hidden rounded-xl border border-zinc-800 bg-zinc-950 p-4 sm:block shadow-xl">
               <div className="flex items-center gap-3">
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500/10 border border-emerald-500/20">
                   <Check className="h-4 w-4 text-emerald-400" />
                 </div>
                 <div>
-                  <div className="text-xs font-black text-white uppercase tracking-wider">All systems operational</div>
-                  <div className="text-[10px] text-zinc-500">90-day SLA Uptime · 99.95%</div>
+                  <div className="text-xs font-black text-white uppercase tracking-wider">All networks stable</div>
+                  <div className="text-[10px] text-zinc-500">10 Gbps Port capacity · 99.99% Uptime</div>
                 </div>
               </div>
             </div>
