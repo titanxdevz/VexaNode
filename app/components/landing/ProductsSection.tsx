@@ -78,7 +78,7 @@ export default function ProductsSection() {
   ];
 
   return (
-    <section id="pricing" className="relative scroll-mt-28 py-20 lg:py-28 bg-zinc-950 text-white">
+    <section id="pricing" className="relative scroll-mt-28 py-20 lg:py-28 bg-zinc-950 text-white overflow-hidden">
       {/* Ambient center glow */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[500px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-500/5 blur-[140px]" />
 
