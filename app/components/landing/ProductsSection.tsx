@@ -15,7 +15,7 @@ export default function ProductsSection() {
       icon: Bot,
       name: "Bot Hosting",
       href: "/discord",
-      priceInINR: 53,
+      priceInINR: 24,
       desc: "Shared vCPU instances optimized for always-on Discord and Telegram bots.",
       features: [
         "Shared Ryzen 9 / EPYC vCPU",
@@ -47,7 +47,7 @@ export default function ProductsSection() {
       icon: Server,
       name: "VPS Hosting",
       href: "/vps",
-      priceInINR: 225,
+      priceInINR: 249,
       desc: "Virtual private servers with full root access and dedicated resources.",
       features: [
         "Ryzen 9 9950X / EPYC CPU",
@@ -63,7 +63,7 @@ export default function ProductsSection() {
       icon: Database,
       name: "Database Hosting",
       href: "/databases",
-      priceInINR: 99,
+      priceInINR: 40,
       desc: "Managed high-speed databases for storage and production applications.",
       features: [
         "MongoDB, PostgreSQL, MySQL, Redis",
