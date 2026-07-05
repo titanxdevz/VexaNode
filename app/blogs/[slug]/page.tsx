@@ -89,19 +89,10 @@ export default function BlogDetailPage() {
               />
             </div>
 
-            <div className="prose prose-lg dark:prose-invert max-w-none">
-              <div className="text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
-                {blog.content.split('\n').map((paragraph, i) => (
-                  <p key={i} className="text-lg">{paragraph}</p>
-                ))}
-                <p className="text-lg">
-                  At VexaNode, we are committed to providing the infrastructure that allows your community to thrive. Whether you are running a small survival server or a massive network, our nodes are built to scale with you. Our engineering team is constantly working on new optimizations to ensure that you always have the best performance in the industry.
-                </p>
-                <p className="text-lg">
-                  Stay tuned for more updates and tutorials as we continue to evolve our platform to meet the needs of modern developers and community owners.
-                </p>
-              </div>
-            </div>
+            <div 
+              className="prose prose-lg dark:prose-invert max-w-none"
+              dangerouslySetInnerHTML={{ __html: blog.content }} 
+            />
 
             <div className="mt-16 p-8 rounded-3xl bg-blue-600/5 border border-blue-500/20 text-center">
               <h3 className="text-2xl font-bold mb-4 orbitron-font">Ready to deploy?</h3>
