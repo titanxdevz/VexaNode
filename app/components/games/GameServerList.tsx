@@ -80,7 +80,7 @@ export default function GameServerList() {
   if (!currentGame || !currentLocation) {
     return (
       <div className="min-h-screen bg-[#0a0b0f] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-[#00a3ff]"></div>
+        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-[#10b981]"></div>
       </div>
     )
   }

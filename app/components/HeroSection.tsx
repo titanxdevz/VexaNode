@@ -10,8 +10,8 @@ export default function HeroSection() {
     <div className="relative min-h-screen flex items-center bg-[#07090e] overflow-hidden pt-24 pb-20">
       {/* Background ambient glow & grid */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#00a3ff]/10 rounded-full blur-[150px] opacity-70 translate-x-1/4 -translate-y-1/4 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#00a3ff]/5 rounded-full blur-[120px] opacity-50 -translate-x-1/4 translate-y-1/4 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#10b981]/10 rounded-full blur-[150px] opacity-70 translate-x-1/4 -translate-y-1/4 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#10b981]/5 rounded-full blur-[120px] opacity-50 -translate-x-1/4 translate-y-1/4 pointer-events-none" />
         {/* Subtle grid */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
       </div>
@@ -28,14 +28,14 @@ export default function HeroSection() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-wrap items-center gap-4 mb-8"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#00a3ff]/10 border border-[#00a3ff]/20 backdrop-blur-md">
-              <span className="w-2 h-2 rounded-full bg-[#00a3ff] animate-pulse" />
-              <span className="text-[11px] font-bold text-[#00a3ff] tracking-wider uppercase">99.99% Uptime SLA</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#10b981]/10 border border-[#10b981]/20 backdrop-blur-md">
+              <span className="w-2 h-2 rounded-full bg-[#10b981] animate-pulse" />
+              <span className="text-[11px] font-bold text-[#10b981] tracking-wider uppercase">99.99% Uptime SLA</span>
             </div>
             <div className="hidden sm:flex items-center gap-3 text-[11px] font-medium text-gray-400">
-              <span className="flex items-center gap-1"><Zap className="w-3 h-3 text-[#00a3ff]" /> Instant Deploy</span>
-              <span className="flex items-center gap-1"><ShieldCheck className="w-3 h-3 text-[#00a3ff]" /> DDoS Protection</span>
-              <span className="flex items-center gap-1"><HardDrive className="w-3 h-3 text-[#00a3ff]" /> NVMe SSD</span>
+              <span className="flex items-center gap-1"><Zap className="w-3 h-3 text-[#10b981]" /> Instant Deploy</span>
+              <span className="flex items-center gap-1"><ShieldCheck className="w-3 h-3 text-[#10b981]" /> DDoS Protection</span>
+              <span className="flex items-center gap-1"><HardDrive className="w-3 h-3 text-[#10b981]" /> NVMe SSD</span>
             </div>
           </motion.div>
 
@@ -47,7 +47,7 @@ export default function HeroSection() {
           >
             <h1 className="text-5xl sm:text-6xl lg:text-[72px] font-black text-white mb-6 tracking-tight leading-[1.05] font-sans">
               Deploy Faster.<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#00a3ff] to-[#00a3ff]">Scale Without Limits.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#10b981] to-[#10b981]">Scale Without Limits.</span>
             </h1>
           </motion.div>
 
@@ -70,14 +70,14 @@ export default function HeroSection() {
           >
             <Link
               href="#pricing"
-              className="w-full sm:w-auto bg-[#00a3ff] hover:bg-[#0d8ad6] text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 shadow-[0_0_20px_rgba(0,163,255,0.3)] hover:shadow-[0_0_30px_rgba(0,163,255,0.5)] flex items-center justify-center gap-2 group"
+              className="w-full sm:w-auto bg-[#10b981] hover:bg-[#059669] text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.5)] flex items-center justify-center gap-2 group"
             >
               Launch Your Server
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               href="/products"
-              className="w-full sm:w-auto bg-transparent border border-gray-700 hover:border-[#00a3ff] text-white hover:text-[#00a3ff] hover:bg-[#00a3ff]/5 px-8 py-4 rounded-xl font-bold transition-all duration-300 flex items-center justify-center backdrop-blur-sm"
+              className="w-full sm:w-auto bg-transparent border border-gray-700 hover:border-[#10b981] text-white hover:text-[#10b981] hover:bg-[#10b981]/5 px-8 py-4 rounded-xl font-bold transition-all duration-300 flex items-center justify-center backdrop-blur-sm"
             >
               Explore Products
             </Link>
@@ -115,7 +115,7 @@ export default function HeroSection() {
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-              className="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] rounded-full border border-[#00a3ff]/20 border-dashed"
+              className="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] rounded-full border border-[#10b981]/20 border-dashed"
             />
             <motion.div
               animate={{ rotate: -360 }}
@@ -128,19 +128,19 @@ export default function HeroSection() {
           <motion.div
             animate={{ y: [0, -20, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-1/4 right-1/4 w-32 h-32 bg-[#00a3ff]/20 rounded-full blur-2xl"
+            className="absolute top-1/4 right-1/4 w-32 h-32 bg-[#10b981]/20 rounded-full blur-2xl"
           />
           <motion.div
             animate={{ y: [0, 20, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-[#00a3ff]/30 rounded-full blur-xl"
+            className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-[#10b981]/30 rounded-full blur-xl"
           />
 
           {/* 3D Floating Logo */}
           <motion.div
             animate={{ y: [0, -15, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="relative z-10 drop-shadow-[0_0_50px_rgba(0,163,255,0.4)]"
+            className="relative z-10 drop-shadow-[0_0_50px_rgba(16,185,129,0.4)]"
           >
             <Image
               src="/logo.png"
@@ -167,7 +167,7 @@ export default function HeroSection() {
                   delay: Math.random() * 5,
                   ease: "linear"
                 }}
-                className="absolute w-1.5 h-1.5 bg-[#00a3ff] rounded-full blur-[1px]"
+                className="absolute w-1.5 h-1.5 bg-[#10b981] rounded-full blur-[1px]"
                 style={{
                   left: `${Math.random() * 80 + 10}%`,
                   top: `${Math.random() * 50 + 50}%`

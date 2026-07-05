@@ -109,8 +109,8 @@ export default function VDSPricingSection() {
           backgroundSize: '64px 64px'
         }}
       />
-      <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-[#00a3ff]/10 blur-[160px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] bg-[#00a3ff]/5 blur-[160px] rounded-full pointer-events-none" />
+      <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-[#10b981]/10 blur-[160px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] bg-[#10b981]/5 blur-[160px] rounded-full pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto w-full">
         {/* Header Section */}
@@ -120,15 +120,15 @@ export default function VDSPricingSection() {
           transition={{ duration: 0.6 }}
           className="text-left mb-12"
         >
-          <div className="inline-flex items-center gap-2 bg-[#00a3ff]/10 text-[#00a3ff] text-[10px] font-bold px-3 py-1.5 rounded-full border border-[#00a3ff]/20 mb-6 tracking-widest uppercase">
+          <div className="inline-flex items-center gap-2 bg-[#10b981]/10 text-[#10b981] text-[10px] font-bold px-3 py-1.5 rounded-full border border-[#10b981]/20 mb-6 tracking-widest uppercase">
             <Sparkles className="w-3 h-3" />
             <span>Dedicated VDS Slices</span>
           </div>
           <h2 className="text-4xl sm:text-6xl font-bold text-white mb-6 orbitron-font leading-tight">
             Enterprise VDS <br />
             <span className="relative">
-              <span className="text-[#00a3ff] text-neon-glow-brand">Hosting Slices</span>
-              <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-[#00a3ff]/0 via-[#00a3ff]/50 to-[#00a3ff]/0 rounded-full" />
+              <span className="text-[#10b981] text-neon-glow-brand">Hosting Slices</span>
+              <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-[#10b981]/0 via-[#10b981]/50 to-[#10b981]/0 rounded-full" />
             </span>
           </h2>
           <p className="text-gray-400 text-sm sm:text-lg max-w-3xl leading-relaxed">
@@ -139,8 +139,8 @@ export default function VDSPricingSection() {
         {/* Location Tabs Selector */}
         <div className="flex flex-col sm:flex-row justify-between items-center gap-6 mb-12 border-t border-white/[0.04] pt-8">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#00a3ff]/10 border border-[#00a3ff]/20 flex items-center justify-center">
-              <MapPin className="w-5 h-5 text-[#00a3ff]" />
+            <div className="w-10 h-10 rounded-xl bg-[#10b981]/10 border border-[#10b981]/20 flex items-center justify-center">
+              <MapPin className="w-5 h-5 text-[#10b981]" />
             </div>
             <div>
               <h3 className="text-sm font-bold text-white uppercase tracking-wider">Select Deployment Location</h3>
@@ -154,7 +154,7 @@ export default function VDSPricingSection() {
                 key={loc.id}
                 onClick={() => setSelectedLocation(loc.id)}
                 className={`relative px-6 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center gap-2 cursor-pointer ${
-                  selectedLocation === loc.id ? "bg-[#00a3ff] text-white shadow-lg shadow-[#00a3ff]/25" : "text-zinc-500 hover:text-zinc-300"
+                  selectedLocation === loc.id ? "bg-[#10b981] text-white shadow-lg shadow-[#10b981]/25" : "text-zinc-500 hover:text-zinc-300"
                 }`}
               >
                 <span>{loc.flag}</span>
@@ -173,14 +173,14 @@ export default function VDSPricingSection() {
         >
           <div>
             <h4 className="text-sm font-bold text-white flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#00a3ff] animate-ping" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#10b981] animate-ping" />
               Optional Add-on Available
             </h4>
             <p className="text-xs text-gray-400 mt-1">Need additional dedicated IPs for your {currentLocObj?.name} cluster? Scale up anytime.</p>
           </div>
-          <div className="bg-[#00a3ff]/10 border border-[#00a3ff]/25 px-4 py-2.5 rounded-xl text-right">
+          <div className="bg-[#10b981]/10 border border-[#10b981]/25 px-4 py-2.5 rounded-xl text-right">
             <span className="text-xs text-gray-400 uppercase block tracking-wider font-bold">Extra IPv4</span>
-            <span className="text-[#00a3ff] font-extrabold text-sm">+₹{currentLocObj?.extraIpCost}/month per IP</span>
+            <span className="text-[#10b981] font-extrabold text-sm">+₹{currentLocObj?.extraIpCost}/month per IP</span>
           </div>
         </motion.div>
 
@@ -196,12 +196,12 @@ export default function VDSPricingSection() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="relative group bg-[#0b0c16]/30 backdrop-blur-xl rounded-[28px] overflow-hidden border border-white/[0.06] hover:border-white/[0.12] transition-all duration-500 flex flex-col h-full"
               >
-                <div className="absolute -inset-[1px] rounded-[28px] bg-gradient-to-b from-[#00a3ff]/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm pointer-events-none" />
+                <div className="absolute -inset-[1px] rounded-[28px] bg-gradient-to-b from-[#10b981]/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm pointer-events-none" />
 
                 <div className="relative z-10 p-6 flex flex-col h-full">
                   {plan.badge && (
                     <div className="absolute top-4 right-4 z-20">
-                      <span className="inline-flex items-center gap-1.5 bg-[#00a3ff]/10 text-[#00a3ff] text-[10px] font-bold px-3 py-1 rounded-full border border-[#00a3ff]/20 tracking-widest uppercase">
+                      <span className="inline-flex items-center gap-1.5 bg-[#10b981]/10 text-[#10b981] text-[10px] font-bold px-3 py-1 rounded-full border border-[#10b981]/20 tracking-widest uppercase">
                         <Sparkles className="w-2.5 h-2.5" />
                         {plan.badge}
                       </span>
@@ -211,7 +211,7 @@ export default function VDSPricingSection() {
                   <div className="flex items-center gap-3.5 mb-6">
                     <div className="text-3xl">{currentLocObj?.flag}</div>
                     <div>
-                      <h3 className="text-lg font-bold text-white group-hover:text-[#00a3ff] transition-colors">{plan.name}</h3>
+                      <h3 className="text-lg font-bold text-white group-hover:text-[#10b981] transition-colors">{plan.name}</h3>
                       <p className="text-xs text-gray-400 uppercase font-mono tracking-wider">{currentLocObj?.name}</p>
                     </div>
                   </div>
@@ -219,23 +219,23 @@ export default function VDSPricingSection() {
                   {/* Hardware Spec Badges */}
                   <div className="space-y-2.5 mb-8 flex-1">
                     <div className="flex justify-between items-center text-xs px-3.5 py-2.5 rounded-xl bg-white/[0.02] border border-white/[0.04]">
-                      <span className="text-gray-400 flex items-center gap-2"><Cpu className="w-4 h-4 text-[#00a3ff]" /> CPU</span>
+                      <span className="text-gray-400 flex items-center gap-2"><Cpu className="w-4 h-4 text-[#10b981]" /> CPU</span>
                       <span className="font-bold text-white text-right">{plan.cpu} ({plan.cpuDetail})</span>
                     </div>
                     <div className="flex justify-between items-center text-xs px-3.5 py-2.5 rounded-xl bg-white/[0.02] border border-white/[0.04]">
-                      <span className="text-gray-400 flex items-center gap-2"><MemoryStick className="w-4 h-4 text-[#00a3ff]" /> RAM</span>
+                      <span className="text-gray-400 flex items-center gap-2"><MemoryStick className="w-4 h-4 text-[#10b981]" /> RAM</span>
                       <span className="font-bold text-white">{plan.ram}</span>
                     </div>
                     <div className="flex justify-between items-center text-xs px-3.5 py-2.5 rounded-xl bg-white/[0.02] border border-white/[0.04]">
-                      <span className="text-gray-400 flex items-center gap-2"><HardDrive className="w-4 h-4 text-[#00a3ff]" /> Storage</span>
+                      <span className="text-gray-400 flex items-center gap-2"><HardDrive className="w-4 h-4 text-[#10b981]" /> Storage</span>
                       <span className="font-bold text-white">{plan.storage}</span>
                     </div>
                     <div className="flex justify-between items-center text-xs px-3.5 py-2.5 rounded-xl bg-white/[0.02] border border-white/[0.04]">
-                      <span className="text-gray-400 flex items-center gap-2"><Server className="w-4 h-4 text-[#00a3ff]" /> Network</span>
+                      <span className="text-gray-400 flex items-center gap-2"><Server className="w-4 h-4 text-[#10b981]" /> Network</span>
                       <span className="font-bold text-white">{plan.ips}</span>
                     </div>
                     <div className="flex justify-between items-center text-xs px-3.5 py-2.5 rounded-xl bg-white/[0.02] border border-white/[0.04]">
-                      <span className="text-gray-400 flex items-center gap-2"><Shield className="w-4 h-4 text-[#00a3ff]" /> Security</span>
+                      <span className="text-gray-400 flex items-center gap-2"><Shield className="w-4 h-4 text-[#10b981]" /> Security</span>
                       <span className="font-bold text-white">{plan.ddos}</span>
                     </div>
                   </div>
@@ -248,7 +248,7 @@ export default function VDSPricingSection() {
                     </div>
                     <button
                       onClick={handleDeploy}
-                      className="group/btn relative w-full py-4 rounded-xl font-bold transition-all duration-500 flex items-center justify-center gap-2 overflow-hidden bg-white/[0.04] hover:bg-[#00a3ff] text-white border border-white/[0.06] hover:border-transparent"
+                      className="group/btn relative w-full py-4 rounded-xl font-bold transition-all duration-500 flex items-center justify-center gap-2 overflow-hidden bg-white/[0.04] hover:bg-[#10b981] text-white border border-white/[0.06] hover:border-transparent"
                     >
                       <span className="relative z-10 flex items-center gap-2 font-bold uppercase tracking-wider text-xs">
                         Get Started

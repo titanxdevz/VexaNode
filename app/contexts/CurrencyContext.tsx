@@ -12,7 +12,10 @@ const currencies: Record<string, Currency> = {
   INR: { code: "INR", symbol: "₹", rate: 1 },
   USD: { code: "USD", symbol: "$", rate: 0.012 },
   EUR: { code: "EUR", symbol: "€", rate: 0.011 },
-  GBP: { code: "GBP", symbol: "£", rate: 0.0094 }
+  GBP: { code: "GBP", symbol: "£", rate: 0.0094 },
+  CAD: { code: "CAD", symbol: "C$", rate: 0.016 },
+  AUD: { code: "AUD", symbol: "A$", rate: 0.018 },
+  JPY: { code: "JPY", symbol: "¥", rate: 1.87 }
 }
 
 type CurrencyContextType = {

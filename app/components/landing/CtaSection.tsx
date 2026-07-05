@@ -14,10 +14,10 @@ export default function CtaSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease }}
-        className="relative mx-auto max-w-5xl overflow-hidden rounded-3xl border border-[#00a3ff]/25 bg-[#00a3ff]/10 px-8 py-16 text-center lg:px-16"
+        className="relative mx-auto max-w-5xl overflow-hidden rounded-3xl border border-[#10b981]/25 bg-[#10b981]/10 px-8 py-16 text-center lg:px-16"
       >
         {/* Ambient glow */}
-        <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[400px] w-[600px] -translate-x-1/2 rounded-full bg-[#00a3ff]/20 blur-[140px]" />
+        <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[400px] w-[600px] -translate-x-1/2 rounded-full bg-[#10b981]/20 blur-[140px]" />
 
         <h2 className="mx-auto max-w-2xl text-4xl font-black tracking-tight text-white sm:text-5xl">
           Ready to deploy your next server?
@@ -30,7 +30,7 @@ export default function CtaSection() {
         <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Link
             href="#pricing"
-            className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#00a3ff] px-8 py-3.5 font-semibold text-white transition-colors duration-300 hover:bg-[#0d8ad6]"
+            className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#10b981] px-8 py-3.5 font-semibold text-white transition-colors duration-300 hover:bg-[#059669]"
           >
             Get started now
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

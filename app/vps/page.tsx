@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { ChevronRight, Cpu, Zap, Shield, Check, Server, HardDrive, Globe, Activity, Sparkles, MapPin } from "lucide-react"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
+import { PageMeta } from "../components/PageMeta"
 import { useCurrency } from "../contexts/CurrencyContext"
 
 const cycles = [
@@ -234,6 +235,7 @@ export default function VPSPage() {
       <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[700px] h-[700px] bg-teal-500/[0.03] rounded-full blur-[150px] pointer-events-none will-change-transform" />
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none" />
 
+      <PageMeta title="VPS Plans" />
       <Navbar />
 
       {/* Fullscreen Region-Selection Modal on first visit */}
@@ -251,7 +253,7 @@ export default function VPSPage() {
               exit={{ scale: 0.9, y: 20 }}
               className="bg-[#0b0c16] border border-white/[0.08] rounded-[32px] max-w-4xl w-full p-6 sm:p-10 shadow-2xl relative"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/[0.05] via-transparent to-[#00a3ff]/[0.05] pointer-events-none rounded-[32px]" />
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/[0.05] via-transparent to-[#10b981]/[0.05] pointer-events-none rounded-[32px]" />
               <div className="relative text-center max-w-2xl mx-auto mb-10">
                 <div className="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-400 text-[10px] font-bold px-3 py-1.5 rounded-full border border-emerald-500/20 mb-4 tracking-widest uppercase">
                   <Globe className="w-3.5 h-3.5 animate-spin-slow" />

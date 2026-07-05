@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { ChevronRight, Cpu, Zap, Shield, HardDrive, Music, Check, Headphones, Globe, Sparkles, MessageSquare, Database } from "lucide-react"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
+import { PageMeta } from "../components/PageMeta"
 import { CustomIcons } from "../components/CustomIcons"
 import { useCurrency } from "../contexts/CurrencyContext"
 import LavalinkTest from "../components/LavalinkTest"
@@ -177,11 +178,12 @@ export default function LavalinkPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0b0f] text-white selection:bg-[#00a3ff]/30 relative overflow-hidden">
+    <div className="min-h-screen bg-[#0a0b0f] text-white selection:bg-[#10b981]/30 relative overflow-hidden">
       <div className="fixed inset-0 bg-[length:64px_64px] bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] pointer-events-none" />
-      <div className="fixed top-40 -left-40 w-[500px] h-[500px] bg-[#00a3ff]/5 blur-[160px] rounded-full pointer-events-none" />
-      <div className="fixed bottom-40 -right-40 w-[500px] h-[500px] bg-[#00a3ff]/5 blur-[160px] rounded-full pointer-events-none" />
+      <div className="fixed top-40 -left-40 w-[500px] h-[500px] bg-[#10b981]/5 blur-[160px] rounded-full pointer-events-none" />
+      <div className="fixed bottom-40 -right-40 w-[500px] h-[500px] bg-[#10b981]/5 blur-[160px] rounded-full pointer-events-none" />
 
+      <PageMeta title="Lavalink Hosting" />
       <Navbar />
 
       <main className="relative pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -191,7 +193,7 @@ export default function LavalinkPage() {
           animate={{ opacity: 1, y: 0 }}
           className="mb-6"
         >
-          <span className="inline-flex items-center gap-2 bg-[#00a3ff]/10 text-[#00a3ff] text-[10px] font-bold px-3 py-1.5 rounded-full border border-[#00a3ff]/20 mb-6 tracking-widest uppercase">
+          <span className="inline-flex items-center gap-2 bg-[#10b981]/10 text-[#10b981] text-[10px] font-bold px-3 py-1.5 rounded-full border border-[#10b981]/20 mb-6 tracking-widest uppercase">
             <Sparkles className="w-3 h-3" />
             Lavalink Node Hosting
           </span>
@@ -202,9 +204,9 @@ export default function LavalinkPage() {
           <div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 orbitron-font leading-tight">
               Lavalink VPS <br />
-              <span className="relative inline-block text-[#00a3ff] text-neon-glow-brand">
+              <span className="relative inline-block text-[#10b981] text-neon-glow-brand">
                 On Pterodactyl
-                <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-[#00a3ff]/0 via-[#00a3ff]/50 to-[#00a3ff]/0 rounded-full" />
+                <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-[#10b981]/0 via-[#10b981]/50 to-[#10b981]/0 rounded-full" />
               </span>
             </h1>
             <p className="text-gray-400 max-w-2xl">
@@ -216,7 +218,7 @@ export default function LavalinkPage() {
              {/* Billing Cycle Toggle - Pill Slider */}
             <div className="relative bg-[#0b0c16]/30 backdrop-blur-xl border border-white/[0.06] p-1 rounded-full flex gap-1">
               <div
-                className="absolute top-1 bottom-1 rounded-full bg-[#00a3ff] shadow-[0_0_15px_rgba(0,163,255,0.3)] transition-all duration-300 ease-out"
+                className="absolute top-1 bottom-1 rounded-full bg-[#10b981] shadow-[0_0_15px_rgba(16,185,129,0.3)] transition-all duration-300 ease-out"
                 style={{
                   left: `calc(${cycles.findIndex(c => c.id === selectedCycle) * (100 / cycles.length)}% + 2px)`,
                   width: `calc(${100 / cycles.length}% - 4px)`
@@ -256,20 +258,20 @@ export default function LavalinkPage() {
                   onClick={() => setSelectedCategory(cat.id)}
                   className={`relative group flex flex-col items-start gap-3 p-6 rounded-2xl border transition-all duration-300 text-left overflow-hidden ${
                     selectedCategory === cat.id
-                      ? "bg-[#0b0c16]/30 backdrop-blur-xl border-[#00a3ff]/50 shadow-[0_0_30px_rgba(0,163,255,0.15)]"
+                      ? "bg-[#0b0c16]/30 backdrop-blur-xl border-[#10b981]/50 shadow-[0_0_30px_rgba(16,185,129,0.15)]"
                       : "bg-[#0b0c16]/30 backdrop-blur-xl border-white/[0.06] hover:border-white/[0.12]"
                   }`}
                 >
                   {selectedCategory === cat.id && (
-                    <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(0,163,255,0.08),transparent_50%)] pointer-events-none" />
+                    <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(16,185,129,0.08),transparent_50%)] pointer-events-none" />
                   )}
                   <div className="flex items-center gap-3 relative z-10">
                     <div className={`p-2 rounded-lg transition-all duration-300 ${
                       selectedCategory === cat.id
-                        ? "bg-[#00a3ff]/20 scale-110"
-                        : "bg-[#00a3ff]/10 group-hover:scale-105"
+                        ? "bg-[#10b981]/20 scale-110"
+                        : "bg-[#10b981]/10 group-hover:scale-105"
                     }`}>
-                      <cat.icon className={`w-5 h-5 ${selectedCategory === cat.id ? "text-white" : "text-[#00a3ff]"}`} />
+                      <cat.icon className={`w-5 h-5 ${selectedCategory === cat.id ? "text-white" : "text-[#10b981]"}`} />
                     </div>
                     <span className={`text-xl font-bold transition-colors ${selectedCategory === cat.id ? "text-white" : "text-gray-300"}`}>{cat.name}</span>
                   </div>
@@ -296,17 +298,17 @@ export default function LavalinkPage() {
                   exit={{ opacity: 0, x: 20 }}
                   transition={{ delay: idx * 0.1 }}
                   className={`group relative bg-[#0b0c16]/30 backdrop-blur-xl border ${
-                    plan.popular ? 'border-[#00a3ff]/50 ring-1 ring-[#00a3ff]/20' : 'border-white/[0.06]'
-                  } hover:border-[#00a3ff]/30 rounded-2xl p-4 md:p-6 transition-all duration-300 flex flex-col lg:flex-row items-center gap-6 hover:shadow-[0_0_30px_rgba(0,163,255,0.08)]`}
+                    plan.popular ? 'border-[#10b981]/50 ring-1 ring-[#10b981]/20' : 'border-white/[0.06]'
+                  } hover:border-[#10b981]/30 rounded-2xl p-4 md:p-6 transition-all duration-300 flex flex-col lg:flex-row items-center gap-6 hover:shadow-[0_0_30px_rgba(16,185,129,0.08)]`}
                 >
                   {plan.popular && (
-                    <div className="absolute -top-3 left-6 bg-gradient-to-r from-[#00a3ff] to-[#0080cc] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-[0_0_20px_rgba(0,163,255,0.35)]">
+                    <div className="absolute -top-3 left-6 bg-gradient-to-r from-[#10b981] to-[#059669] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-[0_0_20px_rgba(16,185,129,0.35)]">
                       Popular Choice
                     </div>
                   )}
 
                   {/* Icon */}
-                  <div className="flex-shrink-0 w-16 h-16 bg-[#00a3ff]/10 rounded-xl flex items-center justify-center border border-[#00a3ff]/20 group-hover:border-[#00a3ff]/50 transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(0,163,255,0.15)]">
+                  <div className="flex-shrink-0 w-16 h-16 bg-[#10b981]/10 rounded-xl flex items-center justify-center border border-[#10b981]/20 group-hover:border-[#10b981]/50 transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.15)]">
                     {selectedCategory === 'managed' ? (
                       plan.hardware === 'AMD' ? (
                         <CustomIcons.AMD className="w-10 h-10 text-[#ED1C24]" />
@@ -314,13 +316,13 @@ export default function LavalinkPage() {
                         <CustomIcons.Intel className="w-10 h-10 text-[#0071C5]" />
                       )
                     ) : (
-                      <Music className="w-8 h-8 text-[#00a3ff]" />
+                      <Music className="w-8 h-8 text-[#10b981]" />
                     )}
                   </div>
 
                   {/* Name */}
                   <div className="flex-1 text-center lg:text-left">
-                    <h4 className="text-xl font-bold mb-1 group-hover:text-[#00a3ff] transition-colors">{plan.name}</h4>
+                    <h4 className="text-xl font-bold mb-1 group-hover:text-[#10b981] transition-colors">{plan.name}</h4>
                     <p className="text-xs text-gray-500 font-medium tracking-wide uppercase">
                       {selectedCategory === 'managed' ? 'Managed by VexaNode Team' : 'Self-Managed Audio Node'}
                     </p>
@@ -331,30 +333,30 @@ export default function LavalinkPage() {
                     {selectedCategory === 'self-managed' ? (
                       <>
                         <div className="flex items-center gap-2 bg-white/[0.03] px-4 py-2 rounded-lg border border-white/[0.06]">
-                          <Zap className="w-4 h-4 text-[#00a3ff]" />
+                          <Zap className="w-4 h-4 text-[#10b981]" />
                           <span className="text-xs font-bold text-gray-300">{plan.ram} RAM</span>
                         </div>
                         <div className="flex items-center gap-2 bg-white/[0.03] px-4 py-2 rounded-lg border border-white/[0.06]">
-                          <Music className="w-4 h-4 text-[#00a3ff]" />
+                          <Music className="w-4 h-4 text-[#10b981]" />
                           <span className="text-xs font-bold text-gray-300">{plan.players}</span>
                         </div>
                         <div className="flex items-center gap-2 bg-white/[0.03] px-4 py-2 rounded-lg border border-white/[0.06]">
-                          <Globe className="w-4 h-4 text-[#00a3ff]" />
+                          <Globe className="w-4 h-4 text-[#10b981]" />
                           <span className="text-xs font-bold text-gray-300">{plan.region}</span>
                         </div>
                       </>
                     ) : (
                       <>
                         <div className="flex items-center gap-2 bg-white/[0.03] px-4 py-2 rounded-lg border border-white/[0.06]">
-                          <Zap className="w-4 h-4 text-[#00a3ff]" />
+                          <Zap className="w-4 h-4 text-[#10b981]" />
                           <span className="text-xs font-bold text-gray-300">{plan.ram}</span>
                         </div>
                         <div className="flex items-center gap-2 bg-white/[0.03] px-4 py-2 rounded-lg border border-white/[0.06]">
-                          <Cpu className="w-4 h-4 text-[#00a3ff]" />
+                          <Cpu className="w-4 h-4 text-[#10b981]" />
                           <span className="text-xs font-bold text-gray-300 line-clamp-1 max-w-[150px]">{plan.cpu}</span>
                         </div>
                         <div className="flex items-center gap-2 bg-white/[0.03] px-4 py-2 rounded-lg border border-white/[0.06]">
-                          <HardDrive className="w-4 h-4 text-[#00a3ff]" />
+                          <HardDrive className="w-4 h-4 text-[#10b981]" />
                           <span className="text-xs font-bold text-gray-300">{plan.storage}</span>
                         </div>
                       </>
@@ -366,12 +368,12 @@ export default function LavalinkPage() {
                     <div className="text-right">
                       <div className="text-2xl font-bold text-white">{formatPrice(calculatePrice(plan.basePrice))}<span className="text-sm font-normal text-gray-500">/mo</span></div>
                       {selectedCycle !== 'monthly' && (
-                        <div className="text-[10px] text-[#00a3ff] font-bold uppercase tracking-tighter">Billed {selectedCycle}</div>
+                        <div className="text-[10px] text-[#10b981] font-bold uppercase tracking-tighter">Billed {selectedCycle}</div>
                       )}
                     </div>
                     <button
                       onClick={() => handleDeploy(plan)}
-                      className="bg-gradient-to-r from-[#00a3ff] to-[#0080cc] hover:from-[#0080cc] hover:to-[#00a3ff] text-white px-8 py-3 rounded-xl font-bold transition-all duration-300 shadow-[0_0_20px_rgba(0,163,255,0.2)] hover:shadow-[0_0_35px_rgba(0,163,255,0.4)] flex items-center gap-2 active:scale-[0.98]"
+                      className="bg-gradient-to-r from-[#10b981] to-[#059669] hover:from-[#059669] hover:to-[#10b981] text-white px-8 py-3 rounded-xl font-bold transition-all duration-300 shadow-[0_0_20px_rgba(16,185,129,0.2)] hover:shadow-[0_0_35px_rgba(16,185,129,0.4)] flex items-center gap-2 active:scale-[0.98]"
                     >
                       Deploy Node
                       <ChevronRight className="w-4 h-4" />
@@ -394,12 +396,12 @@ export default function LavalinkPage() {
             { title: "50Gbps Network", desc: "Massive network backbone for zero audio buffering.", icon: Shield },
             { title: "Full Management", desc: "Let our experts handle the setup and maintenance.", icon: Sparkles }
           ].map((feature, idx) => (
-            <div key={idx} className="group relative p-8 rounded-3xl bg-[#0b0c16]/30 backdrop-blur-xl border border-white/[0.06] hover:border-[#00a3ff]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(0,163,255,0.08)] overflow-hidden">
-              <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(0,163,255,0.03),transparent_60%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-              <div className="p-2 bg-[#00a3ff]/10 rounded-xl w-fit mb-6 group-hover:scale-110 transition-transform duration-300">
-                <feature.icon className="w-6 h-6 text-[#00a3ff]" />
+            <div key={idx} className="group relative p-8 rounded-3xl bg-[#0b0c16]/30 backdrop-blur-xl border border-white/[0.06] hover:border-[#10b981]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(16,185,129,0.08)] overflow-hidden">
+              <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(16,185,129,0.03),transparent_60%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="p-2 bg-[#10b981]/10 rounded-xl w-fit mb-6 group-hover:scale-110 transition-transform duration-300">
+                <feature.icon className="w-6 h-6 text-[#10b981]" />
               </div>
-              <h4 className="text-lg font-bold mb-2 orbitron-font group-hover:text-[#00a3ff] transition-colors">{feature.title}</h4>
+              <h4 className="text-lg font-bold mb-2 orbitron-font group-hover:text-[#10b981] transition-colors">{feature.title}</h4>
               <p className="text-sm text-gray-400 leading-relaxed">{feature.desc}</p>
             </div>
           ))}

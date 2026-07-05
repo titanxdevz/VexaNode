@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Search, Book, Terminal, Cpu, Server, Shield, Globe, MessageSquare, ChevronRight, PlayCircle, FileText, Zap } from "lucide-react"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
+import { PageMeta } from "../components/PageMeta"
 import Link from "next/link"
 
 const categories = [
@@ -43,6 +44,7 @@ const popularGuides = [
 export default function DocsPage() {
   return (
     <div className="min-h-screen bg-[#0a0b0f] text-white selection:bg-blue-500/30">
+      <PageMeta title="Documentation" />
       <Navbar />
 
       {/* Hero Section */}
