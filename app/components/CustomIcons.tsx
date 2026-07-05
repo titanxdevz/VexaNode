@@ -32,8 +32,13 @@ export const CustomIcons = {
     </svg>
   ),
   Minecraft: ({ className }: { className?: string }) => (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
-      <path d="M4 2H20C21.1 2 22 2.9 22 4V20C22 21.1 21.1 22 20 22H4C2.9 22 2 21.1 2 20V4C2 2.9 2.9 2 4 2M6 6V10H10V6H6M14 6V10H18V6H14M6 14V18H10V14H6M14 14V18H18V14H14Z" />
+    <svg viewBox="0 0 24 24" fill="none" className={className} stroke="currentColor" strokeWidth="1.5">
+      <path d="M12 2L2 7V17L12 22L22 17V7L12 2Z" fill="currentColor" fillOpacity="0.1" />
+      <path d="M12 2V12" />
+      <path d="M2 7L12 12L22 7" />
+      <path d="M12 12H12.01" strokeWidth="3" strokeLinecap="round" />
+      <path d="M7 9.5L12 12L17 9.5" />
+      <path d="M2 12L12 17L22 12" strokeDasharray="2 2" />
     </svg>
   ),
   Database: ({ className }: { className?: string }) => (
@@ -67,13 +72,23 @@ export const CustomIcons = {
       <path d="M12 8.5L8.5 12 12 15.5l3.5-3.5L12 8.5z" />
     </svg>
   ),
+  Ryzen: ({ className }: { className?: string }) => (
+    <svg viewBox="0 0 24 24" fill="none" className={className} stroke="currentColor" strokeWidth="1.5">
+      <rect x="4" y="4" width="16" height="16" rx="2" fill="currentColor" fillOpacity="0.05" />
+      <path d="M6 14L12 8L18 14" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M6 18L12 12L18 18" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.6" />
+      <text x="12" y="21" fontSize="5" textAnchor="middle" fontWeight="bold" fill="currentColor" fontFamily="monospace">RYZEN 9</text>
+    </svg>
+  ),
   Intel: ({ className }: { className?: string }) => (
     <svg viewBox="0 0 24 24" fill="none" className={className} stroke="currentColor" strokeWidth="1.5">
-      <circle cx="12" cy="12" r="10" />
-      <path d="M8 12h8" strokeLinecap="round" />
-      <path d="M10 9l-2 3 2 3" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M14 9l2 3-2 3" strokeLinecap="round" strokeLinejoin="round" />
-      <rect x="7" y="7" width="10" height="10" rx="1" strokeOpacity="0.2" />
+      <ellipse cx="12" cy="12" rx="10" ry="8" strokeWidth="2" />
+      <text x="12" y="14" fontSize="6" textAnchor="middle" fontWeight="bold" fill="currentColor" fontFamily="sans-serif">intel</text>
+    </svg>
+  ),
+  Discord: ({ className }: { className?: string }) => (
+    <svg viewBox="0 0 127.14 96.36" fill="currentColor" className={className}>
+      <path d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,52.88,6.83,77.19,77.19,0,0,0,49.58,0,105.15,105.15,0,0,0,19.14,8.07C2.81,32.22-1.7,55.72.48,78.68A105.73,105.73,0,0,0,32,96.36a77.7,77.7,0,0,0,6.63-10.85,68.43,68.43,0,0,1-10.5-5c.87-.64,1.72-1.31,2.54-2A75.54,75.54,0,0,0,96.2,78.53c.82.68,1.67,1.35,2.54,2a68.43,68.43,0,0,1-10.5,5A77.7,77.7,0,0,0,94.88,96.36,105.73,105.73,0,0,0,126.4,78.68C129.23,50.77,121.6,27.5,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.9,46,53.9,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.14,46,96.14,53,91,65.69,84.69,65.69Z" />
     </svg>
   )
 };
