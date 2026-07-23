@@ -1,0 +1,266 @@
+{
+  "navbar": {
+    "games": "游戏",
+    "cloud": "云服务",
+    "dedicated": "独立服务器",
+    "discord": "Discord机器人",
+    "webhosting": "网站托管",
+    "legal": "法律条款",
+    "clientSpace": "客户中心",
+    "termsOfService": "服务条款",
+    "privacyPolicy": "隐私政策",
+    "termsDescription": "我们的服务协议和条款",
+    "privacyDescription": "我们如何保护您的隐私"
+  },
+  "common": {
+    "orderNow": "立即订购",
+    "getStarted": "开始使用",
+    "learnMore": "了解更多",
+    "readMore": "阅读更多",
+    "viewAll": "查看全部",
+    "loading": "加载中...",
+    "comingSoon": "即将推出",
+    "popular": "热门",
+    "bestValue": "最佳价值",
+    "mostPopular": "最受欢迎",
+    "recommended": "推荐"
+  },
+  "vps": {
+    "title": "VPS托管解决方案",
+    "description": "高性能虚拟专用服务器，具有完整root访问权限、SSD存储和24/7支持。非常适合开发者和企业。",
+    "badge": "云VPS",
+    "location": "位置",
+    "cpuType": "CPU类型",
+    "choosePlan": "选择方案",
+    "step1": "1. 位置",
+    "step2": "2. CPU类型",
+    "step3": "3. 选择方案"
+  },
+  "dedicated": {
+    "title": "独立服务器解决方案",
+    "description": "企业级硬件的裸机独立服务器，具有完全控制权和最大性能，适用于高要求应用程序。",
+    "badge": "独立服务器",
+    "cpuType": "CPU类型",
+    "location": "位置",
+    "choosePlan": "选择方案",
+    "step1": "1. CPU类型",
+    "step2": "2. 选择方案",
+    "noStock": "暂无库存",
+    "noStockDescription": "我们目前所有VDS配置都缺货。请稍后再试或联系我们的支持团队获取更新。"
+  },
+  "features": {
+    "title": "高级功能",
+    "subtitle": "专业游戏服务器托管所需的一切",
+    "badge": "我们不会让您失望",
+    "highPerformance": "高性能",
+    "highPerformanceDesc": "由最新一代处理器提供强劲性能",
+    "lowLatency": "低延迟",
+    "lowLatencyDesc": "优化的网络基础设施，实现最小延迟",
+    "advancedSecurity": "高级安全",
+    "advancedSecurityDesc": "我们的系统受到先进的多层安全协议保护，旨在实时检测、隔离和中和威胁——确保您的数据全天候安全",
+    "autoRecovery": "自动恢复",
+    "autoRecoveryDesc": "自动服务器恢复和备份系统",
+    "fullControl": "完全控制",
+    "fullControlDesc": "完整的服务器控制面板，具有高级配置选项",
+    "resourceScaling": "资源扩展",
+    "resourceScalingDesc": "基于服务器需求的动态资源分配",
+    "globalNetwork": "全球网络",
+    "globalNetworkDesc": "全球服务器位置，实现最佳连接"
+  },
+  "locations": {
+    "title": "全球位置",
+    "subtitle": "战略性地分布在全球各地的服务器，实现最佳性能和最小延迟",
+    "badge": "全球基础设施"
+  },
+  "faq": {
+    "title": "常见问题",
+    "subtitle": "查找有关我们游戏服务器托管服务的常见问题答案",
+    "question1": "如何开始使用游戏服务器托管？",
+    "answer1": "开始很简单！选择您的游戏，选择服务器位置，然后按照我们简单的设置向导操作。通过我们的即时部署系统，您的服务器将在几分钟内启动运行。",
+    "question2": "您提供什么样的支持？",
+    "answer2": "我们通过在线聊天和工单系统提供24/7技术支持。我们的专家团队随时准备帮助您进行服务器配置、性能优化和任何技术问题。",
+    "question3": "我可以修改服务器设置和配置吗？",
+    "answer3": "是的！您可以通过我们直观的控制面板完全控制服务器设置。修改游戏设置、安装模组，轻松管理您的服务器。",
+    "question4": "您接受哪些付款方式？",
+    "answer4": "我们接受所有主要信用卡、PayPal和加密货币付款。我们的计费系统安全透明，没有隐藏费用。",
+    "question5": "您提供DDoS保护吗？",
+    "answer5": "是的，我们所有服务器都免费提供企业级DDoS保护。即使在攻击期间，您的服务器也会保持在线。"
+  },
+  "footer": {
+    "description": "为游戏玩家和开发者提供优质托管解决方案。通过我们尖端的基础设施体验无与伦比的性能。",
+    "madeBy": "制作者",
+    "quickLinks": "快速链接",
+    "legal": "法律条款",
+    "contactUs": "联系我们",
+    "clientArea": "客户区域",
+    "discord": "Discord",
+    "vpsHosting": "VPS托管",
+    "dedicatedServerHosting": "独立服务器托管",
+    "gameServerHosting": "游戏服务器托管",
+    "email": "邮箱",
+    "phone": "电话",
+    "gamePanel": "游戏面板",
+    "allRightsReserved": "版权所有。",
+    "systemsOperational": "所有系统正常运行"
+  },
+  "webhosting": {
+    "title": "网站托管解决方案",
+    "description": "专业网站托管，配备高性能服务器、99.9%正常运行时间保证和24/7支持。非常适合网站、应用程序和在线业务。",
+    "badge": "网站托管"
+  },
+  "panelShowcase": {
+    "badge": "我们的面板",
+    "title": "体验我们的平台",
+    "subtitle": "发现使我们的平台成为您需求完美选择的强大功能"
+  },
+  "discordBanner": {
+    "title": "加入我们的Discord",
+    "subtitle": "与我们的游戏玩家和开发者社区连接",
+    "description": "获得即时支持，分享经验，了解最新消息"
+  },
+  "osSelection": {
+    "badge": "操作系统",
+    "title": "选择您的操作系统",
+    "description": "从广泛的流行操作系统中选择。所有镜像都已预配置，可在您的VPS上即时部署。"
+  },
+  "hero": {
+    "titlePrefix": "托管您自己的",
+    "titleSuffix": "服务器",
+    "description": "为您所有喜爱的游戏体验闪电般的性能、无与伦比的可靠性和24/7支持。",
+    "getStarted": "开始使用",
+    "learnMore": "了解更多",
+    "getStartedFree": "免费开始！",
+    "instantSetup": "即时设置",
+    "instantSetupDesc": "在60秒内启动您的服务器",
+    "ddosProtection": "DDoS保护",
+    "ddosProtectionDesc": "为您的服务器提供企业级安全",
+    "uptime": "99.9%正常运行时间",
+    "uptimeDesc": "可靠的托管，保证可用性",
+    "support": "24/7支持",
+    "supportDesc": "需要时提供专家帮助"
+  },
+  "configHeaders": {
+    "vpsHosting": "VPS托管",
+    "buildVps": "构建您的VPS",
+    "vpsDescription": "高性能VPS，配备2Tbps+ DDoS保护、多个全球任播位置、最新的Ryzen和Intel硬件；所有这些都以实惠的价格提供。",
+    "vdsHosting": "VDS托管",
+    "buildVds": "构建您的VDS",
+    "vdsDescription": "高性能虚拟专用服务器，配备2Tbps+ DDoS保护、多个全球任播位置、最新的Ryzen和Intel硬件；所有这些都以实惠的价格提供。",
+    "gameServers": "游戏服务器",
+    "chooseGameServer": "选择您的游戏服务器",
+    "gameServersDescription": "从我们广泛的优化游戏服务器中选择。每个服务器都配置为最大性能，并配备DDoS保护。",
+    "webHosting": "网站托管",
+    "webHostingSolutions": "网站托管解决方案",
+    "webHostingDescription": "专业网站托管，配备高性能服务器、99.9%正常运行时间保证和24/7支持。非常适合网站、应用程序和在线业务。",
+    "discordBotHosting": "Discord机器人托管",
+    "discordBotTitle": "Discord机器人托管",
+    "discordBotDescription": "可靠且实惠的Discord机器人托管，24/7正常运行时间、Node.js支持和简易部署。非常适合开发者和社区。"
+  },
+  "discord": {
+    "title": "Discord机器人托管",
+    "description": "可靠且实惠的Discord机器人托管，24/7正常运行时间、Node.js支持和简易部署。非常适合开发者和社区。",
+    "badge": "Discord机器人托管",
+    "step1": "1. 方案类型",
+    "step2": "2. 选择方案"
+  },
+  "pricingSection": {
+    "title": "简单定价",
+    "titleHighlight": "方案",
+    "titleSuffix": "适合所有人",
+    "description": "为您的需求选择完美的方案。所有方案都包含我们的核心功能，没有隐藏费用。",
+    "footerText": "需要定制解决方案？",
+    "footerLinkText": "联系我们的销售团队"
+  },
+  "pricingPlans": {
+    "gameServers": {
+      "title": "游戏服务器",
+      "description": "为所有热门游戏提供高性能游戏托管",
+      "buttonText": "查看更多",
+      "features": {
+        "instantDeployment": "即时部署",
+        "ddosProtection": "DDoS保护",
+        "support247": "24/7支持",
+        "customConfigurations": "自定义配置",
+        "modSupport": "模组支持"
+      }
+    },
+    "vpsHosting": {
+      "title": "VPS托管",
+      "description": "为您的应用程序提供可扩展的虚拟专用服务器",
+      "buttonText": "立即订购",
+      "features": {
+        "fullRootAccess": "完整root访问权限",
+        "ssdStorage": "SSD存储",
+        "uptime": "99.9%正常运行时间",
+        "multipleOS": "多种操作系统选项",
+        "backupIncluded": "包含备份"
+      }
+    },
+    "dedicatedServers": {
+      "title": "独立服务器",
+      "description": "企业级专用硬件，实现最大性能",
+      "buttonText": "获取报价",
+      "features": {
+        "bareMetalPerformance": "裸机性能",
+        "customHardware": "定制硬件",
+        "enterpriseSupport": "企业支持",
+        "advancedSecurity": "高级安全",
+        "managedServices": "托管服务"
+      }
+    },
+    "webHosting": {
+      "title": "网站托管",
+      "description": "专业网站托管，配备高性能服务器和24/7支持",
+      "buttonText": "立即订购",
+      "features": {
+        "ssdStorage": "SSD存储",
+        "uptime": "99.9%正常运行时间",
+        "support247": "24/7支持",
+        "freeSSL": "免费SSL证书",
+        "dailyBackups": "每日备份"
+      }
+    }
+  },
+  "gameServerList": {
+    "badge": "游戏服务器",
+    "title": "选择您的游戏服务器",
+    "description": "从我们广泛的优化游戏服务器中选择。每个服务器都配置为最大性能，并配备DDoS保护。",
+    "step1": "1. 方案类型",
+    "step2": "2. 位置",
+    "step3": "3. 选择软件",
+    "step4": "4. 选择方案",
+    "orderNow": "立即订购",
+    "featured": "精选",
+    "premium": "高级版",
+    "startingAt": "起价",
+    "ddosProtection": "DDoS保护"
+  },
+  "webHostingPricing": {
+    "badge": "网站托管解决方案",
+    "title": "高级网站托管",
+    "description": "为您的网站和应用程序提供快速、可靠和安全的网站托管解决方案。",
+    "step1": "1. 方案类型",
+    "step2": "2. 选择方案",
+    "orderNow": "立即订购",
+    "webHosting": "网站托管"
+  },
+  "cookies": {
+    "title": "Cookie 偏好设置",
+    "subtitle": "管理您的隐私设置",
+    "description": "我们使用 Cookie 来增强您的浏览体验并记住您的偏好。您可以选择接受哪些 Cookie。",
+    "acceptAll": "接受全部",
+    "rejectAll": "拒绝全部",
+    "customize": "自定义设置",
+    "savePreferences": "保存偏好",
+    "back": "返回",
+    "openSettings": "打开 Cookie 设置",
+    "necessary": {
+      "title": "必要 Cookie",
+      "description": "网站基本功能所需的基本 Cookie。这些无法禁用。"
+    },
+    "preferences": {
+      "title": "偏好 Cookie",
+      "description": "记住您的语言和主题偏好，以获得更好的用户体验。"
+    }
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "planTypes": [
+    {
+      "id": "shared",
+      "name": "Shared",
+      "displayName": "Shared Hosting",
+      "image": "/icons/inteli7.png"
+    },
+    {
+      "id": "business",
+      "name": "Business",
+      "displayName": "Business Hosting",
+      "image": "/cpu/ryzen9.png"
+    }
+  ],
+  "plans": {
+    "shared": [
+      {
+        "id": "shared-starter",
+        "name": "Starter",
+        "badge": "Popular",
+        "cpu": "1 vCPU",
+        "cpuDetail": "Shared CPU",
+        "ram": "1 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "10 GB",
+        "storageDetail": "SSD Storage",
+        "bandwidth": "100 GB",
+        "bandwidthDetail": "Monthly Transfer",
+        "uptime": "99.9% Uptime",
+        "price": "£2.99",
+        "period": "/mo",
+        "orderLink": "https://example.com/order/webhosting/shared/starter"
+      },
+      {
+        "id": "shared-basic",
+        "name": "Basic",
+        "cpu": "1 vCPU",
+        "cpuDetail": "Shared CPU",
+        "ram": "2 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "25 GB",
+        "storageDetail": "SSD Storage",
+        "bandwidth": "250 GB",
+        "bandwidthDetail": "Monthly Transfer",
+        "uptime": "99.9% Uptime",
+        "price": "£4.99",
+        "period": "/mo",
+        "orderLink": "https://example.com/order/webhosting/shared/basic"
+      },
+      {
+        "id": "shared-standard",
+        "name": "Standard",
+        "cpu": "2 vCPU",
+        "cpuDetail": "Shared CPU",
+        "ram": "4 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "50 GB",
+        "storageDetail": "SSD Storage",
+        "bandwidth": "500 GB",
+        "bandwidthDetail": "Monthly Transfer",
+        "uptime": "99.9% Uptime",
+        "price": "£7.99",
+        "period": "/mo",
+        "orderLink": "https://example.com/order/webhosting/shared/standard"
+      }
+    ],
+    "business": [
+      {
+        "id": "business-pro",
+        "name": "Pro",
+        "badge": "Best Value",
+        "cpu": "2 vCPU",
+        "cpuDetail": "Dedicated CPU",
+        "ram": "8 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "100 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "1 TB",
+        "bandwidthDetail": "Monthly Transfer",
+        "uptime": "99.9% Uptime",
+        "price": "£14.99",
+        "period": "/mo",
+        "orderLink": "https://example.com/order/webhosting/business/pro"
+      },
+      {
+        "id": "business-advanced",
+        "name": "Advanced",
+        "cpu": "4 vCPU",
+        "cpuDetail": "Dedicated CPU",
+        "ram": "16 GB",
+        "ramDetail": "DDR4 RAM",
+        "storage": "200 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "2 TB",
+        "bandwidthDetail": "Monthly Transfer",
+        "uptime": "99.9% Uptime",
+        "price": "£24.99",
+        "period": "/mo",
+        "orderLink": "https://example.com/order/webhosting/business/advanced"
+      },
+      {
+        "id": "business-enterprise",
+        "name": "Enterprise",
+        "badge": "Most Popular",
+        "cpu": "8 vCPU",
+        "cpuDetail": "Dedicated CPU",
+        "ram": "32 GB",
+        "ramDetail": "DDR5 RAM",
+        "storage": "500 GB",
+        "storageDetail": "NVMe SSD",
+        "bandwidth": "5 TB",
+        "bandwidthDetail": "Monthly Transfer",
+        "uptime": "99.9% Uptime",
+        "price": "£49.99",
+        "period": "/mo",
+        "orderLink": "https://example.com/order/webhosting/business/enterprise"
+      }
+    ]
+  }
+}

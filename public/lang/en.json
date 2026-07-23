@@ -1,0 +1,273 @@
+{
+  "navbar": {
+    "home": "Home",
+    "botHosting": "Bot Hosting",
+    "databaseHosting": "Database Hosting",
+    "lavalinkHosting": "Lavalink Hosting",
+    "vpsHosting": "VPS Hosting",
+    "ddos": "DDoS",
+    "games": "Games",
+    "blogs": "Blogs",
+    "legal": "Legal",
+    "clientSpace": "CLIENT SPACE",
+    "termsOfService": "Terms of Service",
+    "privacyPolicy": "Privacy Policy",
+    "refundPolicy": "Refund Policy",
+    "sla": "Service Level Agreement",
+    "team": "Team & Management",
+    "partners": "Our Partner",
+    "aup": "Acceptable Usage Policy",
+    "fup": "Fair Usage Policy"
+  },
+  "common": {
+    "orderNow": "Order Now",
+    "getStarted": "Get Started",
+    "learnMore": "Learn More",
+    "readMore": "Read More",
+    "viewAll": "View All",
+    "loading": "Loading...",
+    "comingSoon": "Coming Soon",
+    "popular": "Popular",
+    "bestValue": "Best Value",
+    "mostPopular": "Most Popular",
+    "recommended": "Recommended"
+  },
+  "vps": {
+    "title": "VPS Hosting Solutions",
+    "description": "High-performance virtual private servers with full root access, SSD storage, and 24/7 support. Perfect for developers and businesses.",
+    "badge": "Cloud VPS",
+    "location": "Location",
+    "cpuType": "CPU Type",
+    "choosePlan": "Choose Plan",
+    "step1": "1. Location",
+    "step2": "2. CPU Type",
+    "step3": "3. Choose Plan"
+  },
+  "dedicated": {
+    "title": "Dedicated Server Solutions",
+    "description": "Bare metal dedicated servers with enterprise-grade hardware, full control, and maximum performance for demanding applications.",
+    "badge": "Dedicated Servers",
+    "cpuType": "CPU Type",
+    "location": "Location",
+    "choosePlan": "Choose Plan",
+    "step1": "1. CPU Type",
+    "step2": "2. Choose Plan",
+    "noStock": "No Stock Available",
+    "noStockDescription": "We're currently out of stock for all VDS configurations. Please check back later or contact our support team for updates."
+  },
+  "features": {
+    "title": "Advanced Features",
+    "subtitle": "Everything you need for professional game server hosting",
+    "badge": "We Won't Disappoint",
+    "highPerformance": "High Performance",
+    "highPerformanceDesc": "Powered by latest generation processors for performance",
+    "lowLatency": "Low Latency",
+    "lowLatencyDesc": "Optimized network infrastructure for minimal lag and delay",
+    "advancedSecurity": "Advanced Security",
+    "advancedSecurityDesc": "Our system is protected by advanced, multi-layered security protocols designed to detect, isolate, and neutralize threats in real time — ensuring your data remains safe around the clock",
+    "autoRecovery": "Auto Recovery",
+    "autoRecoveryDesc": "Automatic server recovery and backup systems",
+    "fullControl": "Full Control",
+    "fullControlDesc": "Complete server control panel with advanced configuration options",
+    "resourceScaling": "Resource Scaling",
+    "resourceScalingDesc": "Dynamic resource allocation based on server demands",
+    "globalNetwork": "Global Network",
+    "globalNetworkDesc": "Worldwide server locations for optimal connectivity"
+  },
+  "locations": {
+    "title": "Global Locations",
+    "subtitle": "Strategically positioned servers worldwide for optimal performance and minimal latency",
+    "badge": "Global Infrastructure"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to common questions about our game server hosting services",
+    "question1": "How do I get started with game server hosting?",
+    "answer1": "Getting started is simple! Choose your game, select a server location, and follow our easy setup wizard. Your server will be up and running in minutes with our instant deployment system.",
+    "question2": "What kind of support do you provide?",
+    "answer2": "We offer 24/7 technical support through live chat and ticket system. Our expert team is always ready to help with server configuration, performance optimization, and any technical issues.",
+    "question3": "Can I modify server settings and configurations?",
+    "answer3": "Yes! You have full control over your server settings through our intuitive control panel. Modify game settings, install mods, and manage your server with ease.",
+    "question4": "What payment methods do you accept?",
+    "answer4": "We accept all major credit cards, PayPal, and cryptocurrency payments. Our billing system is secure and transparent, with no hidden fees.",
+    "question5": "Do you offer DDoS protection?",
+    "answer5": "Yes, all our servers come with enterprise-grade DDoS protection included at no extra cost. Your server will stay online even during attacks."
+  },
+  "footer": {
+    "description": "Premium hosting solutions for gamers and developers. Experience unmatched performance with our cutting-edge infrastructure.",
+    "madeBy": "Made by",
+    "quickLinks": "Quick Links",
+    "legal": "Legal",
+    "contactUs": "Contact Us",
+    "clientArea": "Client Area",
+    "discord": "Discord",
+    "vpsHosting": "VPS Hosting",
+    "dedicatedServerHosting": "Dedicated Server Hosting",
+    "gameServerHosting": "Game Server Hosting",
+    "email": "Email",
+    "phone": "Phone",
+    "gamePanel": "Game Panel",
+    "allRightsReserved": "All rights reserved.",
+    "systemsOperational": "All systems operational"
+  },
+  "webhosting": {
+    "title": "Web Hosting Solutions",
+    "description": "Professional web hosting with high-performance servers, 99.9% uptime guarantee, and 24/7 support. Perfect for websites, applications, and online businesses.",
+    "badge": "Web Hosting"
+  },
+  "panelShowcase": {
+    "badge": "Our Panel",
+    "title": "Experience Our Platform",
+    "subtitle": "Discover the powerful features that make our platform the perfect choice for your needs"
+  },
+  "discordBanner": {
+    "title": "Join Our Discord",
+    "subtitle": "Connect with our community of gamers and developers",
+    "description": "Get instant support, share experiences, and stay updated with the latest news"
+  },
+  "osSelection": {
+    "badge": "Operating Systems",
+    "title": "Choose your OS",
+    "description": "Select from a wide range of popular operating systems. All images are pre-configured and ready to deploy instantly on your VPS."
+  },
+  "hero": {
+    "titlePrefix": "Host your own",
+    "titleSuffix": "Servers",
+    "description": "Experience lightning-fast performance, unbeatable reliability, and 24/7 support for all your favorite games.",
+    "getStarted": "Get started",
+    "learnMore": "Learn More",
+    "getStartedFree": "Get started for free!",
+    "instantSetup": "Instant Setup",
+    "instantSetupDesc": "Get your server running in under 60 seconds",
+    "ddosProtection": "DDoS Protection",
+    "ddosProtectionDesc": "Enterprise-grade security for your servers",
+    "uptime": "99.9% Uptime",
+    "uptimeDesc": "Reliable hosting with guaranteed availability",
+    "support": "24/7 Support",
+    "supportDesc": "Expert help whenever you need it"
+  },
+  "configHeaders": {
+    "vpsHosting": "VPS Hosting",
+    "buildVps": "Build your VPS",
+    "vpsDescription": "High performance VPS backed with 2Tbps+ DDoS protection, several global anycast locations, latest Ryzen and Intel hardware; all at an affordable price.",
+    "vdsHosting": "VDS Hosting",
+    "buildVds": "Build your VDS",
+    "vdsDescription": "High performance Virtual Dedicated Servers backed with 2Tbps+ DDoS protection, several global anycast locations, latest Ryzen and Intel hardware; all at an affordable price.",
+    "gameServers": "Game Servers",
+    "chooseGameServer": "Choose your Game Server",
+    "gameServersDescription": "Select from our wide range of optimized game servers. Each server is configured for maximum performance and comes with DDoS protection.",
+    "webHosting": "Web Hosting",
+    "webHostingSolutions": "Web Hosting Solutions",
+    "webHostingDescription": "Professional web hosting with high-performance servers, 99.9% uptime guarantee, and 24/7 support. Perfect for websites, applications, and online businesses.",
+    "discordBotHosting": "Discord Bot Hosting",
+    "discordBotTitle": "Discord Bot Hosting",
+    "discordBotDescription": "Reliable and affordable Discord bot hosting with 24/7 uptime, Node.js support, and easy deployment. Perfect for developers and communities."
+  },
+  "discord": {
+    "title": "Discord Bot Hosting",
+    "description": "Reliable and affordable Discord bot hosting with 24/7 uptime, Node.js support, and easy deployment. Perfect for developers and communities.",
+    "badge": "Discord Bot Hosting",
+    "step1": "1. Plan Type",
+    "step2": "2. Choose Plan"
+  },
+  "pricingSection": {
+    "title": "Simple Pricing",
+    "titleHighlight": "Plans",
+    "titleSuffix": "for Everyone",
+    "description": "Choose the perfect plan for your needs. All plans include our core features with no hidden fees.",
+    "footerText": "Need a custom solution?",
+    "footerLinkText": "Contact our sales team"
+  },
+  "pricingPlans": {
+    "gameServers": {
+      "title": "Game Servers",
+      "description": "High-performance game hosting for all popular games",
+      "buttonText": "View More",
+      "features": {
+        "instantDeployment": "Instant deployment",
+        "ddosProtection": "DDoS protection",
+        "support247": "24/7 support",
+        "customConfigurations": "Custom configurations",
+        "modSupport": "Mod support"
+      }
+    },
+    "vpsHosting": {
+      "title": "VPS Hosting",
+      "description": "Scalable virtual private servers for your applications",
+      "buttonText": "Order Now",
+      "features": {
+        "fullRootAccess": "Full root access",
+        "ssdStorage": "SSD storage",
+        "uptime": "99.9% uptime",
+        "multipleOS": "Multiple OS options",
+        "backupIncluded": "Backup included"
+      }
+    },
+    "dedicatedServers": {
+      "title": "Dedicated Servers",
+      "description": "Enterprise-grade dedicated hardware for maximum performance",
+      "buttonText": "Get a Quote",
+      "features": {
+        "bareMetalPerformance": "Bare metal performance",
+        "customHardware": "Custom hardware",
+        "enterpriseSupport": "Enterprise support",
+        "advancedSecurity": "Advanced security",
+        "managedServices": "Managed services"
+      }
+    },
+    "webHosting": {
+      "title": "Web Hosting",
+      "description": "Professional web hosting with high-performance servers and 24/7 support",
+      "buttonText": "Order Now",
+      "features": {
+        "ssdStorage": "SSD storage",
+        "uptime": "99.9% uptime",
+        "support247": "24/7 support",
+        "freeSSL": "Free SSL certificate",
+        "dailyBackups": "Daily backups"
+      }
+    }
+  },
+  "gameServerList": {
+    "badge": "Game Servers",
+    "title": "Choose your Game Server",
+    "description": "Select from our wide range of optimized game servers. Each server is configured for maximum performance and comes with DDoS protection.",
+    "step1": "1. Plan Type",
+    "step2": "2. Location", 
+    "step3": "3. Select Software",
+    "step4": "4. Choose Plan",
+    "orderNow": "Order Now",
+    "featured": "Featured",
+    "premium": "Premium",
+    "startingAt": "Starting at",
+    "ddosProtection": "DDoS Protection"
+  },
+  "webHostingPricing": {
+    "badge": "Web Hosting Solutions",
+    "title": "Premium Web Hosting",
+    "description": "Fast, reliable, and secure web hosting solutions for your websites and applications.",
+    "step1": "1. Plan Type",
+    "step2": "2. Choose Plan",
+    "orderNow": "Order Now",
+    "webHosting": "Web Hosting"
+  },
+  "cookies": {
+    "title": "Cookie Preferences",
+    "subtitle": "Manage your privacy settings",
+    "description": "We use cookies to enhance your browsing experience and remember your preferences. You can choose which cookies to accept.",
+    "acceptAll": "Accept All",
+    "rejectAll": "Reject All",
+    "customize": "Customize Settings",
+    "savePreferences": "Save Preferences",
+    "back": "Back",
+    "openSettings": "Open cookie settings",
+    "necessary": {
+      "title": "Necessary Cookies",
+      "description": "Essential cookies required for basic website functionality. These cannot be disabled."
+    },
+    "preferences": {
+      "title": "Preference Cookies",
+      "description": "Remember your language and theme preferences for a better user experience."
+    }
+  }
+}

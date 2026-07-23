@@ -1,0 +1,53 @@
+{
+  "showcase": {
+    "header": {
+      "badge": {
+        "text": "Our Panel",
+        "icon": "Zap"
+      },
+      "title": {
+        "text": "Experience Our Platform",
+        "accent": "Platform"
+      },
+      "description": "Discover the powerful features that make our platform the perfect choice for your needs"
+    },
+    "cards": [
+      {
+        "id": 1,
+        "icon": "Zap",
+        "title": "Shell Access",
+        "description": "Manage your server directly via our own custom made Shell system. no need for any third party tools!",
+        "imageDark": "/showcase/dark/shell.png",
+        "imageLight": "/showcase/light/shell.png"
+      },
+      {
+        "id": 2,
+        "icon": "Plug",
+        "title": "Plugin Manager",
+        "description": "Our developers worked hard to bring you the best experience when hosting ur minecraft server. install plugins in a single click.",
+        "imageDark": "/showcase/dark/plugin.png",
+        "imageLight": "/showcase/light/plugin.png"
+      },
+      {
+        "id": 3,
+        "icon": "Archive",
+        "title": "Mod Manager",
+        "description": "Our developers worked hard to bring you the best experience when hosting ur minecraft server. install mods in a single click.",
+        "imageDark": "/showcase/dark/mod.png",
+        "imageLight": "/showcase/light/mod.png"
+      },
+      {
+        "id": 4,
+        "icon": "HeartPulse",
+        "title": "Analytics",
+        "description": "View ur server analytic in 1 minute, giving you detailed logs and charts.",
+        "imageDark": "/showcase/dark/analytics.png",
+        "imageLight": "/showcase/light/analytics.png"
+      }
+    ],
+    "settings": {
+      "autoAdvanceInterval": 5000,
+      "progressUpdateInterval": 100
+    }
+  }
+}

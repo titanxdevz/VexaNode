@@ -1,0 +1,57 @@
+{
+  "navbar": {
+    "logo": "/logo.png",
+    "brandName": "Vexa",
+    "brandAccent": "Node"
+  },
+  "hero": {
+    "title": {
+      "suffixColor": "white",
+      "gameNameColor": "blue"
+    },
+    "games": [
+      {
+        "id": "minecraft",
+        "name": "Minecraft",
+        "displayName": "Minecraft",
+        "banner": "/banners/minecraft-banners.webp",
+        "color": "#4CAF50",
+        "showSuffix": true,
+        "showInDropdown": true
+      }
+    ],
+    "cycleInterval": 10000,
+    "partners": [
+      {
+        "name": "Hetzner",
+        "src": "/advertisement/hetzner.png",
+        "loading": "lazy"
+      },
+      {
+        "name": "Intel",
+        "src": "/advertisement/intel.png",
+        "loading": "lazy"
+      },
+      {
+        "name": "Pterodactyl",
+        "src": "/advertisement/pterodactyl.png",
+        "loading": "lazy"
+      },
+      {
+        "name": "NeoProtect",
+        "src": "/advertisement/neoprotect.png",
+        "loading": "lazy"
+      },
+      {
+        "name": "Samsung",
+        "src": "/advertisement/samsung.png",
+        "loading": "lazy"
+      },
+      {
+        "name": "VexaNode",
+        "src": "/banners/Vexa-Banner.webp",
+        "loading": "lazy"
+      }
+    ]
+  }
+}

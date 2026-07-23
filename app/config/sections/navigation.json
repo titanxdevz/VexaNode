@@ -1,0 +1,135 @@
+{
+  "mainNavigation": [
+    {
+      "name": "Products",
+      "href": "#",
+      "hasDropdown": true,
+      "isMegaMenu": false,
+      "dropdownType": "grid",
+      "dropdownItems": [
+        {
+          "name": "Global Cloud VPS",
+          "description": "High-performance virtual servers",
+          "href": "/vps"
+        },
+        {
+          "name": "Dedicated Servers",
+          "description": "Powerful bare metal VDS slices",
+          "href": "/dedicated"
+        },
+        {
+          "name": "Managed Databases",
+          "description": "SQL, MongoDB & Redis hosting",
+          "href": "/databases"
+        },
+        {
+          "name": "Minecraft Hosting",
+          "description": "High performance Minecraft nodes",
+          "href": "/games?game=minecraft"
+        },
+        {
+          "name": "Bot Hosting",
+          "description": "Reliable hosting for Discord bots",
+          "href": "/discord"
+        },
+        {
+          "name": "Lavalink Hosting",
+          "description": "High performance audio nodes",
+          "href": "/lavalink"
+        }
+      ]
+    },
+    {
+      "name": "Legal",
+      "href": "#",
+      "hasDropdown": true,
+      "dropdownType": "list",
+      "dropdownItems": [
+        {
+          "name": "Terms of Service",
+          "href": "/terms-of-services",
+          "description": "Our service agreement"
+        },
+        {
+          "name": "Privacy Policy",
+          "href": "/privacy-policy",
+          "description": "Data protection policy"
+        },
+        {
+          "name": "Refund Policy",
+          "href": "/refund-policy",
+          "description": "Our cancellation policy"
+        },
+        {
+          "name": "SLA",
+          "href": "/sla",
+          "description": "Service Level Agreement"
+        },
+        {
+          "name": "Acceptable Use",
+          "href": "/aup",
+          "description": "Fair use guidelines"
+        },
+        {
+          "name": "Fair Usage",
+          "href": "/fup",
+          "description": "Resource allocation policy"
+        }
+      ]
+    },
+    {
+      "name": "Company",
+      "href": "#",
+      "hasDropdown": true,
+      "dropdownType": "list",
+      "dropdownItems": [
+        {
+          "name": "Team",
+          "href": "/team",
+          "description": "Meet our leadership"
+        },
+        {
+          "name": "Partners",
+          "href": "/partners",
+          "description": "Our trusted partners"
+        },
+        {
+          "name": "Affiliate Program",
+          "href": "/affiliates",
+          "description": "Earn recurring commission"
+        },
+        {
+          "name": "About Us",
+          "href": "/about",
+          "description": "Learn about VexaNode"
+        },
+        {
+          "name": "Contact",
+          "href": "/contact",
+          "description": "Get in touch with us"
+        }
+      ]
+    },
+    {
+      "name": "Status",
+      "href": "https://status.vexanode.cloud",
+      "hasDropdown": false,
+      "showStatusDot": true
+    }
+  ],
+  "socialLinks": [
+    {
+      "name": "Discord",
+      "href": "#",
+      "icon": "discord"
+    }
+  ],
+  "banner": {
+    "show": true,
+    "text": "SUMMER SALE IS LIVE!",
+    "couponCode": "VEXA20",
+    "style": "primary-purple",
+    "backgroundColor": "#1e40af",
+    "fallbackColor": "#1e3a8a"
+  }
+}

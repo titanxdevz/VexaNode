@@ -1,0 +1,515 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   Keyframes & motion helpers
+   ============================================================ */
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes gradient-x {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-x {
+  animation: gradient-x 3s ease infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 4s ease-in-out infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+/* Optimize animation performance */
+.will-change-transform {
+  will-change: transform;
+}
+
+/* Optimize image rendering */
+.optimize-images {
+  image-rendering: optimizeQuality;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Image loading optimizations */
+.hero-image {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: opacity, transform;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+.hero-image-loading {
+  filter: blur(5px);
+  transform: scale(1.05);
+  transition: filter 0.7s ease-out, transform 0.7s ease-out, opacity 0.7s ease-out;
+}
+
+.hero-image-loaded {
+  filter: blur(0);
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Smooth image transitions */
+@keyframes imageLoad {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+.animate-image-load {
+  animation: imageLoad 0.8s ease-out forwards;
+}
+
+/* Preload shimmer effect */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.loading-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ============================================================
+   Design tokens — clean, professional dark theme
+   (flat surfaces, subtle borders, neutral shadows — no glass)
+   ============================================================ */
+:root {
+  --radius: 0.625rem;
+
+  /* Base palette */
+  --background: #09090b;
+  --surface-0: #121214; /* navbar, footer, section bases */
+  --surface-1: #18181b; /* cards / panels */
+  --surface-2: #27272a; /* raised / hover */
+  --surface-3: #3f3f46; /* active / strong */
+
+  /* Text */
+  --foreground: #f4f4f5;
+  --muted: #a1a1aa;
+  --subtle: #71717a;
+
+  /* Borders */
+  --border: #27272a;
+  --border-strong: #3f3f46;
+
+  /* Accent — VexaNode brand green/emerald */
+  --accent: #10b981;
+  --accent-hover: #059669;
+  --accent-surface: #064e3b;
+  --accent-surface-strong: #022c22;
+  --accent-border: rgba(16, 185, 129, 0.3);
+
+  /* Neutral elevation */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.6);
+  --shadow-md: 0 6px 18px -6px rgba(0, 0, 0, 0.75);
+  --shadow-lg: 0 18px 44px -14px rgba(0, 0, 0, 0.85);
+
+  /* ---- Legacy token aliases ---- */
+  --icon-primary: var(--accent);
+  --color-primary: #ffffff;
+  --color-secondary: #a1a1aa;
+  --button-primary: var(--accent);
+  --text-button-primary: #ffffff;
+  --card-primary: var(--surface-1);
+  --text-card-primary: #ffffff;
+  --border-primary: var(--border);
+  --border-secondary: var(--accent-border);
+  --text-secondary: var(--accent);
+  --icon-text-primary: var(--accent);
+  --hover-gradient: var(--surface-2);
+
+  /* Globe Configuration - Dark Mode */
+  --globe-base-color-r: 0.05;
+  --globe-base-color-g: 0.10;
+  --globe-base-color-b: 0.08;
+  --globe-marker-color-r: 0.062;
+  --globe-marker-color-g: 0.725;
+  --globe-marker-color-b: 0.505;
+  --globe-glow-color-r: 0.04;
+  --globe-glow-color-g: 0.15;
+  --globe-glow-color-b: 0.08;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Clear the fixed navbar when jumping to in-page anchors */
+    scroll-padding-top: 6rem;
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
+      "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--accent);
+    color: #ffffff;
+  }
+
+  /* CSS Classes for easy usage */
+  .icon-primary {
+    color: var(--icon-primary);
+  }
+
+  .color-primary {
+    color: var(--color-primary);
+  }
+
+  .color-secondary {
+    color: var(--color-secondary);
+  }
+
+  .button-primary {
+    background-color: var(--button-primary);
+    color: var(--text-button-primary);
+  }
+
+  .button-color {
+    color: var(--button-primary);
+  }
+
+  .button-bg {
+    background-color: var(--button-primary);
+  }
+
+  .after\:bg-button-bg::after {
+    background-color: var(--button-primary);
+  }
+  .border-top-nav {
+    border-color: var(--button-primary);
+  }
+  .text-button-primary {
+    color: var(--text-button-primary);
+  }
+
+  .card-primary {
+    background-color: var(--card-primary);
+  }
+
+  .text-card-primary {
+    color: var(--text-card-primary);
+  }
+
+  .border-primary {
+    border-color: var(--border-primary);
+  }
+
+  .border-secondary {
+    border-color: var(--border-secondary);
+  }
+
+  .after\:border-secondary:after {
+    border-color: var(--border-secondary);
+  }
+
+  .text-secondary {
+    color: var(--text-secondary);
+  }
+
+  .icon-text-primary {
+    color: var(--icon-text-primary);
+  }
+
+  .hover\:icon-text-primary:hover {
+    color: var(--icon-text-primary) !important;
+  }
+
+  .group:hover .group-hover\:text-icon-text-primary {
+    color: var(--icon-text-primary) !important;
+  }
+
+  .hover-gradient {
+    background: var(--hover-gradient);
+  }
+
+  .hover\:hover-gradient:hover {
+    background: var(--hover-gradient) !important;
+  }
+  .hover\:border-secondary:hover {
+    border-color: var(--border-secondary) !important;
+  }
+
+  .blob-primary {
+    background-color: var(--icon-primary);
+    opacity: 0.08;
+  }
+
+  .blob-secondary {
+    background-color: var(--icon-primary);
+    opacity: 0.08;
+  }
+
+  .svg-gradient-fill {
+    fill: var(--icon-primary);
+  }
+
+  .bottom-border-gradient {
+    background: linear-gradient(to right, transparent, var(--icon-primary), transparent);
+    opacity: 0.25;
+  }
+}
+
+@layer utilities {
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .orbitron-font {
+    font-family: var(--font-orbitron), sans-serif;
+  }
+
+  .quicksand-font {
+    font-family: var(--font-quicksand), sans-serif;
+  }
+
+  .animate-reverse {
+    animation-direction: reverse;
+  }
+
+  .dottedfeatures {
+    @apply w-full h-full bg-cover bg-center bg-repeat;
+    background-image: url("data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 2000 1400%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cmask id=%22b%22 x=%220%22 y=%220%22 width=%222000%22 height=%221400%22%3E%3Cpath fill=%22url(%23a)%22 d=%22M0 0h2000v1400H0z%22%2F%3E%3C%2Fmask%3E%3Cpath fill=%22%230e0f11%22 d=%22M0 0h2000v1400H0z%22%2F%3E%3Cg mask=%22url(%23b)%22%3E%3Cg style=%22transform-origin:center center%22%3E%3Ccircle cx=%2226.5%22 cy=%2226.5%22 r=%224%22 fill=%22%233578cc81%22%2F%3E%3Ccircle cx=%2279.5%22 cy=%2226.5%22 r=%224%22 fill=%22%233578ccdf%22%2F%3E%3Ccircle cx=%22132.5%22 cy=%2226.5%22 r=%224%22 fill=%22%233578cc1a%22%2F%3E%3Ccircle cx=%22238.5%22 cy=%2226.5%22 r=%224%22 fill=%22%233578cc7d%22%2F%3E%3Ccircle cx=%22344.5%22 cy=%2226.5%22 r=%224%22 fill=%22%233578cc99%22%2F%3E%3Ccircle cx=%22450.5%22 cy=%2226.5%22 r=%224%22 fill=%22%233578cc19%22%2F%3E%3Ccircle cx=%22609.5%22 cy=%2226.5%22 r=%224%22 fill=%22%233578ccee%22%2F%3E%3Ccircle cx=%22662.5%22 cy=%2226.5%22 r=%224%22 fill=%22%233578cc4e%22%2F%3E%3Ccircle cx%22715.5%22 cy=%2226.5%22 r=%224%22 fill=%22%233578cc81%22%2F%3E%3Ccircle cx=%22768.5%22 cy=%2226.5%22 r=%224%22 fill=%22%233578cc78%22%2F%3E%3Ccircle cx=%22821.5%22 cy=%2226.5%22 r=%224%22 fill=%22%233578cc24%22%2F%3E%3Ccircle cx=%22874.5%22 cy=%2226.5%22 r=%224%22 fill=%22%233578cca8%22%2F%3E%3Ccircle cx=%22927.5%22 cy=%2226.5%22 r=%224%22 fill=%22%233578ccbf%22%2F%3E%3Ccircle cx=%221033.5%22 cy=%2226.5%22 r=%224%22 fill=%22%233578cc43%22%2F%3E%3Ccircle cx=%221086.5%22 cy=%2226.5%22 r=%224%22 fill=%22%233578cc9c%22%2F%3E%3Ccircle cx=%221139.5%22 cy=%2226.5%22 r=%224%22 fill=%22%233578ccf5%22%2F%3E%3Ccircle cx=%221404.5%22 cy=%2226.5%22 r=%224%22 fill=%22%233578cc2a%22%2F%3E%3Ccircle cx=%221563.5%22 cy=%2226.5%22 r=%224%22 fill=%22%233578cc61%22%2F%3E%3Ccircle cx=%221616.5%22 cy=%2226.5%22 r=%224%22 fill=%22%233578ccb6%22%2F%3E%3Ccircle cx=%221669.5%22 cy=%2226.5%22 r=%224%22 fill=%22%233578ccd7%22%2F%3E%3Ccircle cx=%221722.5%22 cy=%2226.5%22 r=%224%22 fill=%22%233578cc2a%22%2F%3E%3Ccircle cx=%221881.5%22 cy=%2226.5%22 r=%224%22 fill=%22%233578cce4%22%2F%3E%3Ccircle cx=%221987.5%22 cy=%2226.5%22 r=%224%22 fill=%22%233578ccf9%22%2F%3E%3Ccircle cx=%222040.5%22 cy=%2226.5%22 r=%224%22 fill=%22%233578cc5d%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3Cdefs%3E%3CradialGradient id=%22a%22%3E%3Cstop offset=%220%22 stop-color=%22%23fff%22%2F%3E%3Cstop offset=%22100%25%22 stop-color=%22%23fff%22 stop-opacity=%220%22%2F%3E%3C%2FradialGradient%3E%3C%2Fdefs%3E%3C%2Fsvg%3E");
+  }
+
+  .bg-cyber-dark {
+    background-color: var(--background);
+  }
+
+  /* Neon glow helpers neutralized for a clean, professional look */
+  .text-neon-glow-brand {
+    text-shadow: none;
+  }
+
+  .border-cyber-glow-brand {
+    border: 1px solid var(--border);
+    box-shadow: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .border-cyber-glow-brand:hover {
+    border-color: var(--accent-border);
+    box-shadow: var(--shadow-md);
+  }
+
+  .glow-brand-blob {
+    background: radial-gradient(circle, rgba(0, 163, 255, 0.05) 0%, transparent 70%);
+    will-change: transform;
+  }
+}
+
+/* ============================================================
+   Professional normalization (UNLAYERED — wins the cascade)
+   Strips glassmorphism + neon glow and flattens translucent
+   surfaces into solid, professional ones across the whole app.
+   ============================================================ */
+
+/* 1. Remove glass blur everywhere */
+[class*="backdrop-blur"] {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* 2. Replace neon glow shadows with subtle neutral elevation */
+[class*="shadow-[0_0_"] {
+  box-shadow: var(--shadow-md) !important;
+}
+
+/* 3. Remove colored glow drop-shadow filters */
+[class*="drop-shadow-[0_0_"] {
+  filter: none !important;
+}
+
+/* 4. Flatten translucent white surfaces into solid panels */
+.bg-white\/3,
+.bg-white\/5 {
+  background-color: var(--surface-1) !important;
+}
+.bg-white\/10 {
+  background-color: var(--surface-2) !important;
+}
+.bg-white\/20 {
+  background-color: var(--surface-3) !important;
+}
+.hover\:bg-white\/3:hover,
+.hover\:bg-white\/5:hover {
+  background-color: var(--surface-2) !important;
+}
+.hover\:bg-white\/10:hover,
+.hover\:bg-white\/20:hover {
+  background-color: var(--surface-3) !important;
+}
+.group:hover .group-hover\:bg-white\/5,
+.group:hover .group-hover\:bg-white\/10 {
+  background-color: var(--surface-2) !important;
+}
+
+/* 5. Solidify translucent white borders */
+.border-white\/3,
+.border-white\/5,
+.border-white\/8,
+.border-white\/10 {
+  border-color: var(--border) !important;
+}
+.border-white\/15,
+.border-white\/20,
+.border-white\/30 {
+  border-color: var(--border-strong) !important;
+}
+.hover\:border-white\/10:hover,
+.hover\:border-white\/15:hover,
+.hover\:border-white\/20:hover,
+.hover\:border-white\/30:hover {
+  border-color: var(--border-strong) !important;
+}
+.group:hover .group-hover\:border-white\/10,
+.group:hover .group-hover\:border-white\/20 {
+  border-color: var(--border-strong) !important;
+}
+
+/* 6. Flatten subtle accent tints into clean blue-tinted surfaces */
+.bg-\[\#00a3ff\]\/5,
+.bg-\[\#00a3ff\]\/8 {
+  background-color: var(--accent-surface) !important;
+}
+.bg-\[\#00a3ff\]\/10,
+.bg-\[\#00a3ff\]\/15 {
+  background-color: var(--accent-surface-strong) !important;
+}
+.hover\:bg-\[\#00a3ff\]\/5:hover,
+.hover\:bg-\[\#00a3ff\]\/10:hover {
+  background-color: var(--accent-surface-strong) !important;
+}
+
+/* 7. Make dark panels / section backgrounds solid & consistent */
+.bg-\[\#030408\],
+.bg-\[\#050505\],
+.bg-cyber-dark {
+  background-color: var(--background) !important;
+}
+.bg-\[\#030408\]\/90,
+.bg-\[\#030408\]\/60,
+.bg-\[\#06070c\],
+.bg-\[\#06070c\]\/90,
+.bg-\[\#0a0b10\],
+.bg-\[\#0d0f1a\],
+.bg-\[\#0d0f1a\]\/95 {
+  background-color: var(--surface-0) !important;
+}
+
+/* 8. Slim, professional scrollbar (replaces the hidden one) */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  display: block;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--border-strong);
+  border-radius: 9999px;
+  border: 2px solid var(--background);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #36405180;
+}
+
+/* 9. Accessible focus ring */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* 10. Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
