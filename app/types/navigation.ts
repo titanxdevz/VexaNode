@@ -1,3 +1,10 @@
+export interface SubDropdownItem {
+  name: string;
+  href: string;
+  description?: string;
+  badge?: string;
+}
+
 export interface DropdownItem {
   name: string;
   href: string;
@@ -7,6 +14,7 @@ export interface DropdownItem {
   badgeColor?: string;
   color?: string;
   image?: string;
+  subItems?: SubDropdownItem[];
 }
 
 export interface MegaMenuSection {

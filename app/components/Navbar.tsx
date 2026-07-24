@@ -110,32 +110,71 @@ const Navbar: React.FC = () => {
 
     return (
       <div className="absolute top-full left-0 mt-0 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 transform group-hover:translate-y-0 translate-y-1 z-50 will-change-transform">
-        <div className={`relative bg-zinc-950 border border-zinc-800 rounded-xl shadow-xl overflow-hidden ${isGrid ? 'w-[500px] p-4' : 'w-[240px] p-2'}`}>
+        <div className={`relative bg-zinc-950 border border-zinc-800 rounded-xl shadow-xl overflow-visible ${isGrid ? 'w-[500px] p-4' : 'w-[240px] p-2'}`}>
           <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-500/80 to-transparent" />
           
           <div className={isGrid ? "grid grid-cols-2 gap-3" : "space-y-1"}>
             {item.dropdownItems.map((dropdownItem, idx) => (
-              <Link
-                key={idx}
-                href={dropdownItem.href}
-                className="flex flex-col p-2.5 rounded-lg border border-transparent hover:border-zinc-800 hover:bg-zinc-900 transition-all duration-150 group/item"
-              >
-                <div className="flex items-center justify-between mb-0.5">
-                  <span className="text-xs font-bold text-zinc-100 group-hover/item:text-emerald-400 transition-colors">
-                    {dropdownItem.name}
-                  </span>
-                  {dropdownItem.badge && (
-                    <span className="text-[9px] font-black px-1.5 py-0.5 rounded bg-emerald-500 text-black">
-                      {dropdownItem.badge}
+              <div key={idx} className="relative group/sub">
+                <Link
+                  href={dropdownItem.href}
+                  className="flex flex-col p-2.5 rounded-lg border border-transparent hover:border-zinc-800 hover:bg-zinc-900 transition-all duration-150 group/item"
+                >
+                  <div className="flex items-center justify-between mb-0.5">
+                    <span className="text-xs font-bold text-zinc-100 group-hover/item:text-emerald-400 transition-colors flex items-center gap-1">
+                      {dropdownItem.name}
+                      {dropdownItem.subItems && (
+                        <ChevronRight className="w-3 h-3 text-emerald-400 group-hover/sub:translate-x-0.5 transition-transform" />
+                      )}
                     </span>
+                    {dropdownItem.badge && (
+                      <span className="text-[9px] font-black px-1.5 py-0.5 rounded bg-emerald-500 text-black">
+                        {dropdownItem.badge}
+                      </span>
+                    )}
+                  </div>
+                  {dropdownItem.description && (
+                    <p className="text-[10px] text-zinc-400 leading-tight">
+                      {dropdownItem.description}
+                    </p>
                   )}
-                </div>
-                {dropdownItem.description && (
-                  <p className="text-[10px] text-zinc-400 leading-tight">
-                    {dropdownItem.description}
-                  </p>
+                </Link>
+
+                {/* Sub-dropdown hover flyout menu */}
+                {dropdownItem.subItems && (
+                  <div className="absolute left-full -top-2 pl-2 opacity-0 pointer-events-none group-hover/sub:opacity-100 group-hover/sub:pointer-events-auto transition-all duration-200 transform translate-x-1 group-hover/sub:translate-x-0 z-50 w-[260px]">
+                    <div className="p-2 bg-zinc-950 border border-zinc-800 rounded-xl shadow-2xl space-y-1 relative before:absolute before:-left-3 before:top-0 before:h-full before:w-3">
+                      <div className="text-[9px] font-black text-emerald-400 tracking-wider uppercase px-2.5 py-1 border-b border-zinc-800/80 mb-1 flex items-center justify-between">
+                        <span>Lavalink Hosting</span>
+                        <span className="text-[8px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-1.5 py-0.5 rounded">2 Options</span>
+                      </div>
+                      {dropdownItem.subItems.map((sub, sIdx) => (
+                        <Link
+                          key={sIdx}
+                          href={sub.href}
+                          className="flex flex-col p-2.5 rounded-lg border border-transparent hover:border-zinc-800 hover:bg-zinc-900/80 transition-all duration-150 group/subitem"
+                        >
+                          <div className="flex items-center justify-between">
+                            <span className="text-xs font-bold text-zinc-100 group-hover/subitem:text-emerald-400 transition-colors">
+                              {sub.name}
+                            </span>
+                            {sub.badge && (
+                              <span className="text-[8px] font-black px-1.5 py-0.5 rounded bg-emerald-500 text-black">
+                                {sub.badge}
+                              </span>
+                            )}
+                          </div>
+                          {sub.description && (
+                            <p className="text-[10px] text-zinc-400 mt-1 leading-tight">
+                              {sub.description}
+                            </p>
+                          )}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 )}
-              </Link>
+              </div>
             ))}
           </div>
         </div>

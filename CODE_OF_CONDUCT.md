@@ -20,7 +20,7 @@ We are committed to making VexaNode a welcoming and respectful community for eve
 
 ## Reporting
 
-If you experience or witness unacceptable behavior, report it by contacting the maintainers via the [VexaNode Discord](https://discord.gg/vexanode).
+If you experience or witness unacceptable behavior, report it by contacting the maintainers via the [VexaNode Discord](https://discord.gg/syHFbR5yBQ).
 
 All reports will be handled with confidentiality and reviewed promptly.
 

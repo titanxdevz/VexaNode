@@ -120,7 +120,7 @@ export default function MinecraftPage() {
   }
 
   const handleDeploy = (plan: any) => {
-    window.open("https://discord.gg/vexanode", "_blank")
+    window.open("https://discord.gg/syHFbR5yBQ", "_blank")
   }
 
   return (

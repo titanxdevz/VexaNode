@@ -177,7 +177,7 @@ export default function DatabasePage() {
                       </div>
                     </div>
                     <a 
-                      href="https://discord.gg/vexanode"
+                      href="https://discord.gg/syHFbR5yBQ"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group/btn relative flex items-center justify-center gap-2 w-full py-4 rounded-2xl font-bold transition-all duration-500 orbitron-font uppercase tracking-wider text-xs overflow-hidden bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.06] hover:border-white/[0.12] text-white"
@@ -276,7 +276,7 @@ export default function DatabasePage() {
                   Billed monthly. Cancel anytime. <br /> Includes backup and 24/7 monitoring.
                 </p>
                 <a 
-                  href="https://discord.gg/vexanode"
+                  href="https://discord.gg/syHFbR5yBQ"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group/btn relative flex items-center justify-center gap-2 w-full bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-600 hover:to-teal-500 text-white font-bold py-4 rounded-2xl transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] orbitron-font uppercase tracking-wider text-xs overflow-hidden"

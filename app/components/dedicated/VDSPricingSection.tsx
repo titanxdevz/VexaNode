@@ -97,7 +97,7 @@ export default function VDSPricingSection() {
   const currentPlans = dediPlans[selectedLocation as keyof typeof dediPlans] || []
 
   const handleDeploy = () => {
-    window.open("https://discord.gg/vexanode", "_blank")
+    window.open("https://discord.gg/syHFbR5yBQ", "_blank")
   }
 
   return (

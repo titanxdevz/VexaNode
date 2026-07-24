@@ -35,7 +35,20 @@
         {
           "name": "Lavalink Hosting",
           "description": "High performance audio nodes",
-          "href": "/lavalink"
+          "href": "/lavalink",
+          "subItems": [
+            {
+              "name": "Managed Lavalink",
+              "description": "Fully managed, pre-configured audio nodes",
+              "href": "/lavalink/managed",
+              "badge": "Popular"
+            },
+            {
+              "name": "Self-Managed Lavalink",
+              "description": "Full root access & custom application.yml",
+              "href": "/lavalink/self-managed"
+            }
+          ]
         }
       ]
     },
