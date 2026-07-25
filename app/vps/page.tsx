@@ -7,6 +7,7 @@ import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import { PageMeta } from "../components/PageMeta"
 import { useCurrency } from "../contexts/CurrencyContext"
+import Link from "next/link"
 
 const cycles = [
   { id: "monthly", name: "Monthly", discount: 0 },
@@ -345,6 +346,36 @@ export default function VPSPage() {
               ))}
             </div>
           </motion.div>
+        </div>
+
+        {/* Dedicated Regional Pages Bar */}
+        <div className="mb-10 bg-zinc-950/60 border border-zinc-800 rounded-2xl p-4">
+          <h3 className="text-xs font-bold text-emerald-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+            <Globe className="w-3.5 h-3.5" />
+            Dedicated Regional Pages
+          </h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+            <Link href="/vps/miami" className="flex items-center gap-2 p-2.5 rounded-xl bg-zinc-900/80 border border-zinc-800 hover:border-emerald-500/50 hover:bg-emerald-500/5 transition-all text-xs font-bold text-zinc-200">
+              <span className="text-lg">🇺🇸</span>
+              <span>Miami VPS</span>
+            </Link>
+            <Link href="/vps/utah" className="flex items-center gap-2 p-2.5 rounded-xl bg-zinc-900/80 border border-zinc-800 hover:border-emerald-500/50 hover:bg-emerald-500/5 transition-all text-xs font-bold text-zinc-200">
+              <span className="text-lg">🇺🇸</span>
+              <span>Utah VPS</span>
+            </Link>
+            <Link href="/vps/germany" className="flex items-center gap-2 p-2.5 rounded-xl bg-zinc-900/80 border border-zinc-800 hover:border-emerald-500/50 hover:bg-emerald-500/5 transition-all text-xs font-bold text-zinc-200">
+              <span className="text-lg">🇩🇪</span>
+              <span>Germany VPS</span>
+            </Link>
+            <Link href="/vps/india" className="flex items-center gap-2 p-2.5 rounded-xl bg-zinc-900/80 border border-zinc-800 hover:border-emerald-500/50 hover:bg-emerald-500/5 transition-all text-xs font-bold text-zinc-200">
+              <span className="text-lg">🇮🇳</span>
+              <span>India VPS</span>
+            </Link>
+            <Link href="/vps/singapore" className="flex items-center gap-2 p-2.5 rounded-xl bg-zinc-900/80 border border-zinc-800 hover:border-emerald-500/50 hover:bg-emerald-500/5 transition-all text-xs font-bold text-zinc-200">
+              <span className="text-lg">🇸🇬</span>
+              <span>Singapore VPS</span>
+            </Link>
+          </div>
         </div>
 
         {/* Dropdown Location Selection Box */}

@@ -1,1059 +1,159 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-<loc>https://vexanode.com/</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>1</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/bot-hosting</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>1</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/why-choose-vexanode</loc>
-<lastmod>2026-06-01T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>1</priority>
-</url>
-<url>
-<loc>https://vexanode.com/lavalink</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>1</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/premium-discord-bot-hosting</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>1</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/highperformance-bot-hosting</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>1</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/free-discord-bot-hosting</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>1</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/lavalink-hosting</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>1</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/minecraft-hosting</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>1</priority>
-</url>
-<url>
-<loc>https://vexanode.com/lavalink-rankings</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.99</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/vps-hosting/india</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.99</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/public-lavalink-servers</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.99</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/heavencloud-vs-fools-discord-bot-hosting-2026</loc>
-<lastmod>2026-06-29T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.99</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/heavencloud-vs-fools-lavalink-hosting-2026</loc>
-<lastmod>2026-06-29T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.99</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/windows-rdp-india</loc>
-<lastmod>2026-06-06T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.98</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/vps-hosting</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.98</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/vps-hosting/singapore</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.98</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/best-lavalink-hosting</loc>
-<lastmod>2026-03-05T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.98</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/vps-hosting/miami</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.97</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/vps-hosting/utah</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.97</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/vds-hosting</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.97</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/game-hosting</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.97</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/vds-hosting/india</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.96</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/vds-hosting/miami</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.96</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/vds-hosting/utah</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.96</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/gta-v-hosting-india</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.96</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/highperformance-minecraft-hosting</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.96</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/india-ddos-protection</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.96</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/database</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.96</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/best-singapore-vps-hosting-ddos-protection-2026</loc>
-<lastmod>2026-05-26T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.96</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/best-miami-vps-hosting-florida-2026</loc>
-<lastmod>2026-05-26T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.96</priority>
-</url>
-<url>
-<loc>https://vexanode.com/knowledge-center</loc>
-<lastmod>2026-06-26T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.95</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/vps-hosting/usa</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.95</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/minecrafthosting-budget</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.95</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/minecraft-ddos-protected-hosting</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.95</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/fivemhosting-budget</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.95</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/hytalehosting-budget</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.95</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/ipv4-lease</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.95</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/database/india</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.95</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/why-heavencloud-best-game-server-hosting-india</loc>
-<lastmod>2026-05-25T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.95</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/lavalink-hosting/india</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.94</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/lavalink-hosting/usa</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.94</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/minecraft-server-hosting</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.94</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/minecraft-server-hosting/india</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.94</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/fivem-hosting</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.94</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/hytale-hosting</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.94</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/best-minecraft-server-hosting-india-2026</loc>
-<lastmod>2026-03-30T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.94</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/vps-hosting/germany</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.93</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/lavalink-hosting/v4</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.93</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/database/usa</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.93</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/database/singapore</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.93</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/minecraft-hosting-india-pricing-guide-2026</loc>
-<lastmod>2026-04-29T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.93</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/dedicated-lavalink-hosting</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.92</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/highperformance-fivem-hosting</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.92</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/minecraft-server-hosting/singapore</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.92</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/database/germany</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.92</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/running-lavalink-on-vps</loc>
-<lastmod>2026-02-10T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.92</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/minecraft-hosting-low-ping-india</loc>
-<lastmod>2026-04-29T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.92</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/budget-vs-dedicated-minecraft-hosting-india</loc>
-<lastmod>2026-04-29T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.92</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/self-managed-lavalink-hosting</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.91</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/minecraft-server-hosting/germany</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.91</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/what-is-lavalink</loc>
-<lastmod>2026-02-28T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.91</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/minecraft-ddos-protection-explained</loc>
-<lastmod>2026-04-29T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.91</priority>
-</url>
-<url>
-<loc>https://vexanode.com/llms.txt</loc>
-<lastmod>2026-06-01T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.9</priority>
-</url>
-<url>
-<loc>https://vexanode.com/llms.json</loc>
-<lastmod>2026-06-01T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.9</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.9</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/minecraft-budget-hosting</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.9</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/minecraft-high-performance-hosting</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.9</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/games</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.9</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/paper-vs-purpur-performance-hosting</loc>
-<lastmod>2026-04-29T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.9</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/choose-minecraft-hosting-location-india</loc>
-<lastmod>2026-04-29T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.9</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/minecraft-hosting-for-smp-communities</loc>
-<lastmod>2026-04-29T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.89</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/how-to-reduce-minecraft-server-lag</loc>
-<lastmod>2026-04-29T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.89</priority>
-</url>
-<url>
-<loc>https://vexanode.com/knowledge-center/schema.json</loc>
-<lastmod>2026-06-26T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.88</priority>
-</url>
-<url>
-<loc>https://vexanode.com/knowledge-center/manifest.json</loc>
-<lastmod>2026-06-26T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.88</priority>
-</url>
-<url>
-<loc>https://vexanode.com/knowledge-center/sitemap.json</loc>
-<lastmod>2026-06-26T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.88</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/highperformance-hytale-hosting</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.88</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/deploying-redbot-on-heavencloud-ryzen-vps</loc>
-<lastmod>2026-06-26T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.88</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/ai-llm-infrastructure-guide-cpu-network-ddos</loc>
-<lastmod>2026-06-25T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.88</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/why-choose-vexanode-lavalink</loc>
-<lastmod>2026-06-26T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.88</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/how-to-host-discord-bot</loc>
-<lastmod>2026-03-04T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.88</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/minecraft-server-backup-strategy</loc>
-<lastmod>2026-04-29T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.88</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/minecraft-hosting-control-panel-guide</loc>
-<lastmod>2026-04-29T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.87</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/free-telegram-bot-hosting</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.86</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/why-choose-vexanode/schema.json</loc>
-<lastmod>2026-06-01T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.85</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/why-choose-vexanode/manifest.json</loc>
-<lastmod>2026-06-01T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.85</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/why-choose-vexanode/sitemap.json</loc>
-<lastmod>2026-06-01T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.85</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/game-hosting/schema.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.85</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/game-hosting/manifest.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.85</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/game-hosting/sitemap.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.85</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/minecraft-hosting/schema.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.85</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/minecraft-hosting/manifest.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.85</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/minecraft-hosting/sitemap.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.85</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/fivem-hosting/schema.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.85</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/fivem-hosting/manifest.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.85</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/fivem-hosting/sitemap.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.85</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/gta-v-hosting-india/schema.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.85</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/gta-v-hosting-india/manifest.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.85</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/gta-v-hosting-india/sitemap.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.85</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/hytale-hosting/schema.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.85</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/hytale-hosting/manifest.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.85</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/hytale-hosting/sitemap.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.85</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/india-ddos-protection/schema.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.85</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/india-ddos-protection/manifest.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.85</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/india-ddos-protection/sitemap.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.85</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service/premium-telegram-bot-hosting</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.85</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/why-choose-vexanode.schema.json</loc>
-<lastmod>2026-06-01T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/why-choose-vexanode.manifest.json</loc>
-<lastmod>2026-06-01T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/why-choose-vexanode.sitemap.json</loc>
-<lastmod>2026-06-01T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service-game-hosting.schema.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service-game-hosting.manifest.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service-game-hosting.sitemap.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service-minecraft-hosting.schema.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service-minecraft-hosting.manifest.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service-minecraft-hosting.sitemap.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service-fivem-hosting.schema.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service-fivem-hosting.manifest.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service-fivem-hosting.sitemap.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service-gta-v-hosting-india.schema.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service-gta-v-hosting-india.manifest.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service-gta-v-hosting-india.sitemap.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service-hytale-hosting.schema.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service-hytale-hosting.manifest.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service-hytale-hosting.sitemap.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service-india-ddos-protection.schema.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service-india-ddos-protection.manifest.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service-india-ddos-protection.sitemap.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://vexanode.com/knowledge-center.schema.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://vexanode.com/knowledge-center.manifest.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://vexanode.com/knowledge-center.sitemap.json</loc>
-<lastmod>2026-06-03T00:00:00.000Z</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/best-discord-bot-hosting-beginners</loc>
-<lastmod>2026-03-05T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/how-much-ram-discord-bot-need</loc>
-<lastmod>2026-03-04T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/free-vs-paid-discord-bot-hosting</loc>
-<lastmod>2026-03-03T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/hosting-discord-music-bots</loc>
-<lastmod>2026-03-02T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/why-discord-bot-keeps-going-offline</loc>
-<lastmod>2026-03-01T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/lavalink-server-requirements</loc>
-<lastmod>2026-02-27T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/lavalink-performance-optimization</loc>
-<lastmod>2026-02-26T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/lavalink-docker-setup</loc>
-<lastmod>2026-02-25T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/lavalink-load-balancing</loc>
-<lastmod>2026-02-24T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/what-is-vps-hosting</loc>
-<lastmod>2026-02-23T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/linux-vps-setup-guide</loc>
-<lastmod>2026-02-22T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/vps-vs-dedicated-server</loc>
-<lastmod>2026-02-21T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/vps-security-guide</loc>
-<lastmod>2026-02-20T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/deploy-nodejs-app-vps</loc>
-<lastmod>2026-02-19T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/pm2-nodejs-guide</loc>
-<lastmod>2026-02-18T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/environment-variables-nodejs</loc>
-<lastmod>2026-02-17T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/free-discord-bot-hosting-guide</loc>
-<lastmod>2026-02-16T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/lavalink-setup-guide</loc>
-<lastmod>2026-02-15T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/discord-bot-hosting-vs-vps</loc>
-<lastmod>2026-02-14T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/nodejs-bot-hosting-guide</loc>
-<lastmod>2026-02-13T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/cheap-vps-for-developers</loc>
-<lastmod>2026-02-12T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/discord-music-bot-setup</loc>
-<lastmod>2026-02-11T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/python-discord-bot-hosting</loc>
-<lastmod>2026-02-09T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/best-minecraft-plugins-2026</loc>
-<lastmod>2026-03-30T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/optimizing-minecraft-server-performance</loc>
-<lastmod>2026-03-30T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/securing-vps-hosting-guide</loc>
-<lastmod>2026-03-30T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/discord-bot-scaling-tips</loc>
-<lastmod>2026-03-30T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/lavalink-v4-features</loc>
-<lastmod>2026-03-30T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/choosing-between-vps-and-dedicated</loc>
-<lastmod>2026-03-30T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/setting-up-pterodactyl-panel</loc>
-<lastmod>2026-03-30T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/best-discord-bot-libraries-2026</loc>
-<lastmod>2026-03-30T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/low-latency-gaming-india</loc>
-<lastmod>2026-03-30T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/minecraft-bedrock-vs-java-hosting</loc>
-<lastmod>2026-03-30T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/monetizing-minecraft-server</loc>
-<lastmod>2026-03-30T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/db-hosting-for-bots</loc>
-<lastmod>2026-03-30T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/best-minecraft-hosting-for-modpacks</loc>
-<lastmod>2026-04-29T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/blog/minecraft-server-ram-guide-india</loc>
-<lastmod>2026-04-29T00:00:00.000Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.76</priority>
-</url>
-<url>
-<loc>https://vexanode.com/our-partner</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-<url>
-<loc>https://vexanode.com/service-level-agreement</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.45</priority>
-</url>
-<url>
-<loc>https://vexanode.com/terms-of-services</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.4</priority>
-</url>
-<url>
-<loc>https://vexanode.com/privacy-policy</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.4</priority>
-</url>
-<url>
-<loc>https://vexanode.com/team-management</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.4</priority>
-</url>
-<url>
-<loc>https://vexanode.com/refund-policy</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.35</priority>
-</url>
-<url>
-<loc>https://vexanode.com/fair-usage-policy</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.35</priority>
-</url>
-<url>
-<loc>https://vexanode.com/acceptable-usage-policy</loc>
-<lastmod>2026-06-29T14:33:26.961Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.35</priority>
-</url>
-<url>
-<loc>https://vexanode.com/a7f3c9e2b1584d6f0e91bc4327658d0.txt</loc>
-<lastmod>2026-06-01T00:00:00.000Z</lastmod>
-<changefreq>yearly</changefreq>
-<priority>0.3</priority>
-</url>
+  <url>
+    <loc>https://vexanode.cloud/</loc>
+    <lastmod>2026-07-25T09:50:00.000Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://vexanode.cloud/games</loc>
+    <lastmod>2026-07-25T09:50:00.000Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://vexanode.cloud/discord/free</loc>
+    <lastmod>2026-07-25T09:50:00.000Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://vexanode.cloud/discord</loc>
+    <lastmod>2026-07-25T09:50:00.000Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://vexanode.cloud/vps</loc>
+    <lastmod>2026-07-25T09:50:00.000Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://vexanode.cloud/vps/miami</loc>
+    <lastmod>2026-07-25T09:50:00.000Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://vexanode.cloud/vps/utah</loc>
+    <lastmod>2026-07-25T09:50:00.000Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://vexanode.cloud/vps/germany</loc>
+    <lastmod>2026-07-25T09:50:00.000Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://vexanode.cloud/vps/india</loc>
+    <lastmod>2026-07-25T09:50:00.000Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://vexanode.cloud/vps/singapore</loc>
+    <lastmod>2026-07-25T09:50:00.000Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://vexanode.cloud/dedicated</loc>
+    <lastmod>2026-07-25T09:50:00.000Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://vexanode.cloud/dedicated/utah</loc>
+    <lastmod>2026-07-25T09:50:00.000Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://vexanode.cloud/dedicated/miami</loc>
+    <lastmod>2026-07-25T09:50:00.000Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://vexanode.cloud/lavalink</loc>
+    <lastmod>2026-07-25T09:50:00.000Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://vexanode.cloud/lavalink/managed</loc>
+    <lastmod>2026-07-25T09:50:00.000Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://vexanode.cloud/lavalink/self-managed</loc>
+    <lastmod>2026-07-25T09:50:00.000Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://vexanode.cloud/databases</loc>
+    <lastmod>2026-07-25T09:50:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://vexanode.cloud/webhosting</loc>
+    <lastmod>2026-07-25T09:50:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://vexanode.cloud/domains</loc>
+    <lastmod>2026-07-25T09:50:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://vexanode.cloud/about</loc>
+    <lastmod>2026-07-25T09:50:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://vexanode.cloud/team</loc>
+    <lastmod>2026-07-25T09:50:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://vexanode.cloud/partners</loc>
+    <lastmod>2026-07-25T09:50:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://vexanode.cloud/affiliates</loc>
+    <lastmod>2026-07-25T09:50:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://vexanode.cloud/contact</loc>
+    <lastmod>2026-07-25T09:50:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://vexanode.cloud/blogs</loc>
+    <lastmod>2026-07-25T09:50:00.000Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://vexanode.cloud/docs</loc>
+    <lastmod>2026-07-25T09:50:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
 </urlset>

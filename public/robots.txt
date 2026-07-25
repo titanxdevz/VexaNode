@@ -1,4 +1,5 @@
 User-agent: *
 Disallow:
-Crawl-delay: 10
-Sitemap: https://Node.vexanode.cloud/sitemap.xml
+Crawl-delay: 5
+
+Sitemap: https://vexanode.cloud/sitemap.xml

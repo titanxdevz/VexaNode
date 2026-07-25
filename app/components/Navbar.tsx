@@ -142,11 +142,11 @@ const Navbar: React.FC = () => {
 
                 {/* Sub-dropdown hover flyout menu */}
                 {dropdownItem.subItems && (
-                  <div className="absolute left-full -top-2 pl-2 opacity-0 pointer-events-none group-hover/sub:opacity-100 group-hover/sub:pointer-events-auto transition-all duration-200 transform translate-x-1 group-hover/sub:translate-x-0 z-50 w-[260px]">
+                  <div className="absolute left-full -top-2 pl-2 opacity-0 pointer-events-none group-hover/sub:opacity-100 group-hover/sub:pointer-events-auto transition-all duration-200 transform translate-x-1 group-hover/sub:translate-x-0 z-50 w-[270px]">
                     <div className="p-2 bg-zinc-950 border border-zinc-800 rounded-xl shadow-2xl space-y-1 relative before:absolute before:-left-3 before:top-0 before:h-full before:w-3">
                       <div className="text-[9px] font-black text-emerald-400 tracking-wider uppercase px-2.5 py-1 border-b border-zinc-800/80 mb-1 flex items-center justify-between">
-                        <span>Lavalink Hosting</span>
-                        <span className="text-[8px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-1.5 py-0.5 rounded">2 Options</span>
+                        <span>{dropdownItem.name}</span>
+                        <span className="text-[8px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-1.5 py-0.5 rounded">{dropdownItem.subItems.length} Options</span>
                       </div>
                       {dropdownItem.subItems.map((sub, sIdx) => (
                         <Link
@@ -348,18 +348,43 @@ const Navbar: React.FC = () => {
                 {item.dropdownItems.map((dropdownItem, idx) => {
                   const isSubActive = pathname === dropdownItem.href;
                   return (
-                    <Link
-                      key={idx}
-                      href={dropdownItem.href}
-                      onClick={closeMobileMenu}
-                      prefetch={true}
-                      className={`flex items-center justify-between px-4 py-2.5 border-l border-zinc-800/80 transition-all ${
-                        isSubActive ? 'bg-emerald-500/5 text-emerald-400 font-bold' : 'text-zinc-400 hover:text-zinc-200'
-                      }`}
-                    >
-                      <span className="text-xs">{dropdownItem.name}</span>
-                      <ChevronRight className="w-3.5 h-3.5 opacity-50" />
-                    </Link>
+                    <div key={idx} className="border-l border-zinc-800/80">
+                      <Link
+                        href={dropdownItem.href}
+                        onClick={closeMobileMenu}
+                        prefetch={true}
+                        className={`flex items-center justify-between px-4 py-2.5 transition-all ${
+                          isSubActive ? 'bg-emerald-500/5 text-emerald-400 font-bold' : 'text-zinc-300 hover:text-zinc-100'
+                        }`}
+                      >
+                        <span className="text-xs font-semibold">{dropdownItem.name}</span>
+                        <ChevronRight className="w-3.5 h-3.5 opacity-50" />
+                      </Link>
+
+                      {dropdownItem.subItems && (
+                        <div className="pl-4 pb-2 space-y-1 bg-zinc-900/30">
+                          {dropdownItem.subItems.map((sub, sIdx) => {
+                            const isChildActive = pathname === sub.href;
+                            return (
+                              <Link
+                                key={sIdx}
+                                href={sub.href}
+                                onClick={closeMobileMenu}
+                                prefetch={true}
+                                className={`flex items-center justify-between px-3 py-1.5 rounded text-xs transition-colors ${
+                                  isChildActive
+                                    ? 'text-emerald-400 font-bold bg-emerald-500/10'
+                                    : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/50'
+                                }`}
+                              >
+                                <span>{sub.name}</span>
+                                <ChevronRight className="w-3 h-3 opacity-40" />
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
                   );
                 })}
               </motion.div>

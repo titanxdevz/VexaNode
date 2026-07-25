@@ -9,13 +9,52 @@
       "dropdownItems": [
         {
           "name": "Global Cloud VPS",
-          "description": "High-performance virtual servers",
-          "href": "/vps"
+          "description": "High-performance virtual servers by region",
+          "href": "/vps",
+          "subItems": [
+            {
+              "name": "🇺🇸 USA - Miami VPS",
+              "description": "Intel Xeon Gold 6152 NVMe VPS",
+              "href": "/vps/miami"
+            },
+            {
+              "name": "🇺🇸 USA - Utah VPS",
+              "description": "Unmetered Budget VPS Slices",
+              "href": "/vps/utah"
+            },
+            {
+              "name": "🇩🇪 Germany VPS",
+              "description": "EPYC, VEXA & Ryzen 9 9950X Nodes",
+              "href": "/vps/germany"
+            },
+            {
+              "name": "🇮🇳 India VPS",
+              "description": "Mumbai & Delhi EPYC / Ryzen 9",
+              "href": "/vps/india"
+            },
+            {
+              "name": "🇸🇬 Singapore VPS",
+              "description": "OVH DDoS Protected Asia VPS",
+              "href": "/vps/singapore"
+            }
+          ]
         },
         {
           "name": "Dedicated Servers",
           "description": "Powerful bare metal VDS slices",
-          "href": "/dedicated"
+          "href": "/dedicated",
+          "subItems": [
+            {
+              "name": "🇺🇸 Utah VDS Slices",
+              "description": "16-44 Dedicated Cores up to 128GB RAM",
+              "href": "/dedicated/utah"
+            },
+            {
+              "name": "🇺🇸 Miami Dedicated VEXA",
+              "description": "Intel Xeon Gold Bare-Metal Slices",
+              "href": "/dedicated/miami"
+            }
+          ]
         },
         {
           "name": "Managed Databases",
@@ -30,7 +69,20 @@
         {
           "name": "Bot Hosting",
           "description": "Reliable hosting for Discord bots",
-          "href": "/discord"
+          "href": "/discord",
+          "subItems": [
+            {
+              "name": "Free Bot Hosting",
+              "description": "100% Free 24/7 Discord Bot Node",
+              "href": "/discord/free",
+              "badge": "Free"
+            },
+            {
+              "name": "Premium Bot Hosting",
+              "description": "Dedicated high resource bot nodes",
+              "href": "/discord"
+            }
+          ]
         },
         {
           "name": "Lavalink Hosting",

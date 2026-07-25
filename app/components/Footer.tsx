@@ -11,7 +11,7 @@ export default function Footer() {
     {
       title: "Hosting",
       links: [
-        { name: "Free Discord Hosting", href: "/discord" },
+        { name: "Free Discord Hosting", href: "/discord/free" },
         { name: "Paid Bot Hosting", href: "/discord" },
         { name: "Lavalink Hosting", href: "/lavalink" },
         { name: "Minecraft Hosting", href: "/games?game=minecraft" },
@@ -20,29 +20,29 @@ export default function Footer() {
     {
       title: "VPS Hosting",
       links: [
-        { name: "India VPS Slices", href: "/vps" },
-        { name: "USA Cloud VPS", href: "/vps" },
-        { name: "Singapore VPS", href: "/vps" },
-        { name: "Germany VPS Nodes", href: "/vps" },
+        { name: "USA Miami VPS", href: "/vps/miami" },
+        { name: "USA Utah VPS", href: "/vps/utah" },
+        { name: "Germany VPS", href: "/vps/germany" },
+        { name: "India VPS", href: "/vps/india" },
+        { name: "Singapore VPS", href: "/vps/singapore" },
       ]
     },
     {
-      title: "Resources",
+      title: "Dedicated Servers",
       links: [
-        { name: "Status Page", href: "https://status.vexanode.cloud" },
-        { name: "Company Blog", href: "/blogs" },
-        { name: "Documentation", href: "/docs" },
-        { name: "Affiliate Program", href: "/affiliates" },
+        { name: "Utah VDS Slices", href: "/dedicated/utah" },
+        { name: "Miami Dedicated VEXA", href: "/dedicated/miami" },
+        { name: "All Dedicated Servers", href: "/dedicated" },
       ]
     },
     {
-      title: "Company",
+      title: "Company & Legal",
       links: [
         { name: "Client Area", href: "https://billing.vexanode.cloud" },
         { name: "Our Partners", href: "/partners" },
         { name: "Terms of Service", href: "/terms-of-services" },
         { name: "Privacy Policy", href: "/privacy-policy" },
-        { name: "Refund Policy", href: "/refund-policy" },
+        { name: "Status Page", href: "https://status.vexanode.cloud" },
       ]
     }
   ]

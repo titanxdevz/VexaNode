@@ -1,0 +1,163 @@
+"use client"
+
+import { motion } from "framer-motion"
+import { Server, Cpu, MemoryStick, HardDrive, Shield, Sparkles, MapPin, ArrowRight } from "lucide-react"
+import Navbar from "../../components/Navbar"
+import Footer from "../../components/Footer"
+import { PageMeta } from "../../components/PageMeta"
+import { ProductSchema } from "../../components/SchemaOrg"
+import { useCurrency } from "../../contexts/CurrencyContext"
+import Link from "next/link"
+
+const utahDediPlans = [
+  {
+    id: "utah-32gb",
+    name: "Utah VDS Slice 32GB",
+    cpu: "16 Dedicated Cores",
+    cpuDetail: "Intel E5-2680v2",
+    ram: "32 GB DDR3",
+    storage: "500 GB SSD",
+    ips: "2× IPv4 Included",
+    ddos: "DDoS Protected",
+    badge: "Popular",
+    price: 2000
+  },
+  {
+    id: "utah-64gb",
+    name: "Utah VDS Slice 64GB",
+    cpu: "22 Dedicated Cores",
+    cpuDetail: "Intel E5-2680v2",
+    ram: "64 GB DDR3",
+    storage: "700 GB SSD",
+    ips: "2× IPv4 Included",
+    ddos: "DDoS Protected",
+    badge: "Best Value",
+    price: 3700
+  },
+  {
+    id: "utah-128gb",
+    name: "Utah VDS Slice 128GB",
+    cpu: "44 Dedicated Cores",
+    cpuDetail: "Intel E5-2680v2",
+    ram: "128 GB DDR3",
+    storage: "1024 GB SSD",
+    ips: "2× IPv4 Included",
+    ddos: "Neoprotect DDoS Protected",
+    badge: "Enterprise",
+    price: 5000
+  }
+]
+
+export default function UtahDedicatedPage() {
+  const { formatPrice } = useCurrency()
+
+  const handleDeploy = () => {
+    window.open("https://discord.gg/syHFbR5yBQ", "_blank")
+  }
+
+  return (
+    <div className="min-h-screen bg-[#0a0b0f] text-white selection:bg-emerald-500/30 relative overflow-hidden">
+      <PageMeta title="Utah, USA Dedicated VDS Slices" description="Deploy high core Intel Xeon E5-2680v2 dedicated VDS slices in Salt Lake City, Utah with up to 128GB RAM." />
+      <ProductSchema
+        name="Utah, USA Dedicated VDS Slices"
+        description="High core Intel Xeon E5-2680v2 dedicated VDS slices in Salt Lake City Utah with up to 128GB RAM."
+        lowPrice={2000}
+        highPrice={5000}
+        url="https://vexanode.cloud/dedicated/utah"
+        ratingValue={4.9}
+        reviewCount={64}
+        offerCount={3}
+      />
+      <Navbar />
+
+      <main className="relative z-10 pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-12">
+          <div className="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-400 text-[10px] font-bold px-3 py-1.5 rounded-full border border-emerald-500/20 mb-4 tracking-widest uppercase">
+            <MapPin className="w-3.5 h-3.5" />
+            🇺🇸 Salt Lake City, Utah Region
+          </div>
+          <h1 className="text-3xl sm:text-5xl font-bold mb-4 orbitron-font leading-tight">
+            Utah Dedicated <span className="text-emerald-400">VDS Slices</span>
+          </h1>
+          <p className="text-gray-400 text-sm sm:text-base max-w-3xl leading-relaxed">
+            Unleash 16 to 44 dedicated CPU cores, up to 128GB RAM, and 1TB SSD storage in Salt Lake City, Utah. Includes 2x dedicated IPv4 addresses and Neoprotect DDoS protection.
+          </p>
+        </motion.div>
+
+        {/* Quick Region Switcher */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 text-xs border-b border-zinc-800/80">
+          <span className="text-gray-500 font-bold uppercase text-[10px] tracking-wider shrink-0 mr-2">Other Region:</span>
+          <Link href="/dedicated/miami" className="px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white transition-colors shrink-0">🇺🇸 Miami Dedicated</Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {utahDediPlans.map((plan, index) => (
+            <motion.div
+              key={plan.id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="relative group bg-[#0b0c16]/50 backdrop-blur-xl rounded-2xl overflow-hidden border border-zinc-800 hover:border-emerald-500/50 transition-all duration-500 flex flex-col justify-between p-6"
+            >
+              <div>
+                <div className="flex justify-between items-center mb-4">
+                  <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20">
+                    🇺🇸 Utah VDS
+                  </span>
+                  {plan.badge && (
+                    <span className="text-[10px] font-black px-2 py-0.5 rounded bg-emerald-500 text-black uppercase">
+                      {plan.badge}
+                    </span>
+                  )}
+                </div>
+
+                <h3 className="text-xl font-bold text-white mb-6 group-hover:text-emerald-400 transition-colors">
+                  {plan.name}
+                </h3>
+
+                <div className="space-y-3 mb-8">
+                  <div className="flex justify-between items-center text-xs p-3 rounded-xl bg-zinc-900/50 border border-zinc-800">
+                    <span className="text-gray-400 flex items-center gap-2"><Cpu className="w-4 h-4 text-emerald-400" /> CPU</span>
+                    <span className="font-bold text-white text-right">{plan.cpu}</span>
+                  </div>
+                  <div className="flex justify-between items-center text-xs p-3 rounded-xl bg-zinc-900/50 border border-zinc-800">
+                    <span className="text-gray-400 flex items-center gap-2"><MemoryStick className="w-4 h-4 text-emerald-400" /> RAM</span>
+                    <span className="font-bold text-white">{plan.ram}</span>
+                  </div>
+                  <div className="flex justify-between items-center text-xs p-3 rounded-xl bg-zinc-900/50 border border-zinc-800">
+                    <span className="text-gray-400 flex items-center gap-2"><HardDrive className="w-4 h-4 text-emerald-400" /> Storage</span>
+                    <span className="font-bold text-white">{plan.storage}</span>
+                  </div>
+                  <div className="flex justify-between items-center text-xs p-3 rounded-xl bg-zinc-900/50 border border-zinc-800">
+                    <span className="text-gray-400 flex items-center gap-2"><Server className="w-4 h-4 text-emerald-400" /> Network</span>
+                    <span className="font-bold text-white">{plan.ips}</span>
+                  </div>
+                  <div className="flex justify-between items-center text-xs p-3 rounded-xl bg-zinc-900/50 border border-zinc-800">
+                    <span className="text-gray-400 flex items-center gap-2"><Shield className="w-4 h-4 text-emerald-400" /> Protection</span>
+                    <span className="font-bold text-white">{plan.ddos}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-zinc-800/80">
+                <div className="mb-4 flex items-end">
+                  <span className="text-3xl font-black text-white orbitron-font">{formatPrice(plan.price)}</span>
+                  <span className="text-[10px] text-gray-500 uppercase font-bold tracking-widest ml-2 mb-1">/ month</span>
+                </div>
+                <button
+                  onClick={handleDeploy}
+                  className="w-full py-3.5 rounded-xl font-bold bg-emerald-500 hover:bg-emerald-400 text-black transition-all duration-200 text-xs uppercase tracking-wider shadow-lg shadow-emerald-500/20 flex items-center justify-center gap-2"
+                >
+                  Deploy Utah VDS
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  )
+}
