@@ -10,7 +10,6 @@ import { QueryProvider } from "./components/QueryProvider";
 import { ToastProvider } from "./components/ToastProvider";
 import CookieConsent from "./components/CookieConsent";
 import SummerSalePopup from "./components/SummerSalePopup";
-import SplashScreen from "./components/SplashScreen";
 import { Analytics } from "@vercel/analytics/next"
 
 const geistSans = Geist({
@@ -233,7 +232,6 @@ export default function RootLayout({
               <QueryProvider>
                 <ToastProvider>
                   <LayoutWrapper>
-                    <SplashScreen />
                     {children}
                     <SummerSalePopup />
                     <Analytics />

@@ -92,6 +92,37 @@ const Navbar: React.FC = () => {
     }));
   }, []);
 
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') closeMobileMenu();
+    };
+
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isMobileMenuOpen, closeMobileMenu]);
+
+  const isHrefActive = useCallback((href: string) => {
+    const path = href.split(/[?#]/)[0];
+    return path.startsWith('/') && (pathname === path || (path !== '/' && pathname.startsWith(`${path}/`)));
+  }, [pathname]);
+
+  const isNavigationItemActive = useCallback((item: NavigationItem) => {
+    if (isHrefActive(item.href)) return true;
+
+    return Boolean(
+      item.dropdownItems?.some(dropdownItem => isHrefActive(dropdownItem.href)) ||
+      item.megaMenuSections?.some(section => section.items.some(subItem => isHrefActive(subItem.href)))
+    );
+  }, [isHrefActive]);
+
   const getTranslatedNavName = useCallback((itemName: string) => {
     const navKey = itemName.toLowerCase().replace(/\s+/g, '');
     switch (navKey) {
@@ -191,51 +222,54 @@ const Navbar: React.FC = () => {
   };
 
   const renderNavigationItem = useCallback((item: NavigationItem) => {
-    const isActive = pathname === item.href || (item.hasDropdown && pathname.startsWith(item.href));
+    const isActive = isNavigationItemActive(item);
     const translatedName = getTranslatedNavName(item.name);
 
     return (
       <div key={item.name} className="relative group flex items-center h-full py-1">
         <Link
           href={item.href}
-          className={`px-3 py-1.5 text-xs font-bold transition-all duration-150 flex items-center gap-1 relative ${
+          className={`relative flex items-center gap-1 px-3 py-2 text-xs font-bold transition-colors duration-200 focus-visible:outline-none focus-visible:text-white ${
             isActive ? 'text-white' : 'text-zinc-400 hover:text-white'
           }`}
           prefetch={true}
+          aria-current={isActive ? 'page' : undefined}
         >
           <span>{translatedName}</span>
           {item.hasDropdown && (
             <ChevronRight className="w-3.5 h-3.5 rotate-90 opacity-50 group-hover:rotate-[270deg] transition-transform duration-150" />
           )}
 
-          {isActive && (
-            <motion.div
-              className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-emerald-500 rounded-full shadow-[0_0_8px_rgba(16,185,129,0.8)]"
-              layoutId="nav-hover-dot"
-            />
-          )}
+          <span
+            aria-hidden="true"
+            className={`absolute inset-x-3 -bottom-0.5 h-0.5 origin-center rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.55)] transition-transform duration-200 ${
+              isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100 group-focus-within:scale-x-100'
+            }`}
+          />
         </Link>
         {item.hasDropdown && (item.isMegaMenu ? renderMegaMenu(item) : renderDropdown(item))}
       </div>
     );
-  }, [pathname, renderDropdown]);
+  }, [getTranslatedNavName, isNavigationItemActive, renderDropdown]);
 
   const renderMobileNavigationItem = useCallback((item: NavigationItem) => {
     const IconComponent = item.icon ? getIcon(item.icon) : null;
     const translatedName = getTranslatedNavName(item.name);
     const isDropdownOpen = mobileDropdownStates[item.name] || false;
+    const isItemActive = isNavigationItemActive(item);
 
     if (item.hasDropdown && item.isMegaMenu && item.megaMenuSections) {
       return (
-        <div key={item.name} className="border-b border-zinc-800/50">
+        <div key={item.name} className={`border-b border-zinc-800/50 border-l-2 ${isItemActive ? 'border-l-emerald-400' : 'border-l-transparent'}`}>
           <button
             onClick={() => toggleMobileDropdown(item.name)}
-            className={`w-full flex items-center justify-between px-4 py-3 transition-colors duration-150 ${
-              isDropdownOpen ? 'bg-zinc-900/40' : 'hover:bg-zinc-900/20'
+            className={`w-full min-h-12 flex items-center justify-between px-4 py-3 transition-colors duration-150 ${
+              isDropdownOpen || isItemActive ? 'bg-emerald-500/5' : 'hover:bg-zinc-900/30'
             }`}
+            aria-expanded={isDropdownOpen}
           >
             <div className="flex items-center gap-2">
-              <span className={`text-xs font-bold tracking-wider ${isDropdownOpen ? 'text-emerald-400' : 'text-zinc-200'}`}>
+              <span className={`text-xs font-bold tracking-wider ${isDropdownOpen || isItemActive ? 'text-emerald-400' : 'text-zinc-200'}`}>
                 {translatedName.toUpperCase()}
               </span>
             </div>
@@ -257,7 +291,7 @@ const Navbar: React.FC = () => {
                       <span className="text-[9px] font-black tracking-widest text-emerald-500/60 uppercase">{section.title}</span>
                     </div>
                     {section.items.map((subItem, iIdx) => {
-                      const isSubActive = pathname === subItem.href;
+                        const isSubActive = isHrefActive(subItem.href);
                       return (
                         <Link
                           key={iIdx}
@@ -284,14 +318,15 @@ const Navbar: React.FC = () => {
 
     if (item.hasDropdown && item.dropdownItems) {
       return (
-        <div key={item.name} className="border-b border-zinc-800/50">
+        <div key={item.name} className={`border-b border-zinc-800/50 border-l-2 ${isItemActive ? 'border-l-emerald-400' : 'border-l-transparent'}`}>
           <button
             onClick={() => toggleMobileDropdown(item.name)}
-            className={`w-full flex items-center justify-between px-4 py-3 transition-colors duration-150 ${
-              isDropdownOpen ? 'bg-zinc-900/40' : 'hover:bg-zinc-900/20'
+            className={`w-full min-h-12 flex items-center justify-between px-4 py-3 transition-colors duration-150 ${
+              isDropdownOpen || isItemActive ? 'bg-emerald-500/5' : 'hover:bg-zinc-900/30'
             }`}
+            aria-expanded={isDropdownOpen}
           >
-            <span className={`text-xs font-bold tracking-wider ${isDropdownOpen ? 'text-emerald-400' : 'text-zinc-200'}`}>
+            <span className={`text-xs font-bold tracking-wider ${isDropdownOpen || isItemActive ? 'text-emerald-400' : 'text-zinc-200'}`}>
               {translatedName.toUpperCase()}
             </span>
             <ChevronRight className={`w-4 h-4 transition-transform duration-150 ${isDropdownOpen ? 'rotate-90 text-emerald-400' : 'text-zinc-500'}`} />
@@ -307,7 +342,7 @@ const Navbar: React.FC = () => {
                 className="overflow-hidden bg-zinc-950/60 pl-2"
               >
                 {item.dropdownItems.map((dropdownItem, idx) => {
-                  const isSubActive = pathname === dropdownItem.href;
+                  const isSubActive = isHrefActive(dropdownItem.href);
                   return (
                     <Link
                       key={idx}
@@ -330,22 +365,23 @@ const Navbar: React.FC = () => {
       );
     }
 
-    const isActive = pathname === item.href;
+    const isActive = isHrefActive(item.href);
     return (
       <Link
         key={item.name}
         href={item.href}
         onClick={closeMobileMenu}
         prefetch={true}
-        className={`flex items-center justify-between px-4 py-3 border-b border-zinc-800/50 transition-all ${
-          isActive ? 'bg-emerald-500/5 text-emerald-400 font-bold' : 'text-zinc-300 hover:text-zinc-100 hover:bg-zinc-900/10'
+        className={`min-h-12 flex items-center justify-between px-4 py-3 border-b border-l-2 border-zinc-800/50 transition-all ${
+          isActive ? 'border-l-emerald-400 bg-emerald-500/5 text-emerald-400 font-bold' : 'border-l-transparent text-zinc-300 hover:text-zinc-100 hover:bg-zinc-900/20'
         }`}
+        aria-current={isActive ? 'page' : undefined}
       >
         <span className="text-xs font-bold tracking-wider">{translatedName.toUpperCase()}</span>
         <ChevronRight className="w-3.5 h-3.5 opacity-50" />
       </Link>
     );
-  }, [pathname, closeMobileMenu, mobileDropdownStates, toggleMobileDropdown]);
+  }, [closeMobileMenu, getTranslatedNavName, isHrefActive, isNavigationItemActive, mobileDropdownStates, toggleMobileDropdown]);
 
   return (
     <div className="relative">
@@ -353,8 +389,8 @@ const Navbar: React.FC = () => {
         ref={navRef}
         className={`fixed z-50 inset-x-0 top-0 transition-all duration-300 ${
           isScrolled
-            ? 'bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800/80 py-3'
-            : 'bg-zinc-950/40 backdrop-blur-sm border-b border-white/5 py-4'
+            ? 'bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800/80 py-2.5'
+            : 'bg-zinc-950/60 backdrop-blur-md border-b border-white/10 py-2.5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
@@ -378,27 +414,28 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Desktop Nav Items */}
-          <div className="hidden md:flex items-center justify-center flex-1 gap-1">
+          <div className="hidden xl:flex items-center justify-center flex-1 gap-1">
             {config.mainNavigation.map((item) => renderNavigationItem(item))}
             
             <Link
               href="/partners"
-              className={`px-3 py-1.5 text-xs font-bold transition-all duration-150 relative ${
+              className={`group relative px-3 py-2 text-xs font-bold transition-colors duration-200 focus-visible:outline-none focus-visible:text-white ${
                 pathname === '/partners' ? 'text-white' : 'text-zinc-400 hover:text-white'
               }`}
+              aria-current={pathname === '/partners' ? 'page' : undefined}
             >
               <span>Partners</span>
-              {pathname === '/partners' && (
-                <motion.div
-                  className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-emerald-500 rounded-full shadow-[0_0_8px_rgba(16,185,129,0.8)]"
-                  layoutId="nav-hover-dot"
-                />
-              )}
+              <span
+                aria-hidden="true"
+                className={`absolute inset-x-3 -bottom-0.5 h-0.5 origin-center rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.55)] transition-transform duration-200 ${
+                  pathname === '/partners' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100 group-focus-visible:scale-x-100'
+                }`}
+              />
             </Link>
           </div>
 
           {/* Right Utilities */}
-          <div className="hidden md:flex items-center space-x-3">
+          <div className="hidden xl:flex items-center space-x-3">
             {/* Operational Status */}
             <div className="flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-2.5 py-1 select-none whitespace-nowrap">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
@@ -433,13 +470,15 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Mobile menu toggle */}
-          <div className="flex items-center md:hidden gap-2">
+          <div className="flex items-center xl:hidden gap-2">
             <CurrencySelector />
             <button
               type="button"
-              className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-900 text-zinc-200 transition-colors hover:border-zinc-600 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/70"
               onClick={toggleMobileMenu}
-              aria-label="Toggle menu"
+              aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
               {isMobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
             </button>
@@ -451,7 +490,7 @@ const Navbar: React.FC = () => {
       {/* Mobile Drawer Panel */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <div className="md:hidden fixed inset-0 z-40 flex flex-col pt-[53px]">
+          <div className="xl:hidden fixed inset-x-0 bottom-0 top-[61px] z-40 flex flex-col">
             {/* Backdrop */}
             <motion.div
               className="absolute inset-0 bg-black/70 backdrop-blur-sm"
@@ -463,6 +502,7 @@ const Navbar: React.FC = () => {
 
             {/* Drawer */}
             <motion.div
+              id="mobile-navigation"
               className="relative bg-zinc-950 border-t border-zinc-800 flex flex-col h-full overflow-hidden"
               initial={{ scaleY: 0.96, opacity: 0 }}
               animate={{ scaleY: 1, opacity: 1 }}
@@ -474,8 +514,9 @@ const Navbar: React.FC = () => {
                   href="/partners"
                   onClick={closeMobileMenu}
                   className={`flex items-center justify-between px-4 py-3 border-b border-zinc-800/50 transition-all ${
-                    pathname === '/partners' ? 'bg-emerald-500/5 text-emerald-400 font-bold' : 'text-zinc-300 hover:text-zinc-100'
+                    pathname === '/partners' ? 'border-l-emerald-400 bg-emerald-500/5 text-emerald-400 font-bold' : 'border-l-transparent text-zinc-300 hover:bg-zinc-900/20 hover:text-zinc-100'
                   }`}
+                  aria-current={pathname === '/partners' ? 'page' : undefined}
                 >
                   <span className="text-xs font-bold tracking-wider">PARTNERS</span>
                   <ChevronRight className="w-3.5 h-3.5 opacity-50" />
