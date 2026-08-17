@@ -2,9 +2,9 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { 
-  Database, Zap, Shield, ChevronRight, Server, HardDrive, 
-  Cpu, CheckCircle2, Layers, Sparkles, ChevronDown, Radio 
+import {
+  Database, Zap, Shield, ChevronRight, Server, HardDrive,
+  Cpu, CheckCircle2, Layers, Sparkles, ChevronDown, Radio
 } from "lucide-react"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
@@ -101,8 +101,8 @@ export default function DatabasePage() {
     window.open(plan.buyUrl, "_blank", "noopener,noreferrer")
   }
 
-  const filteredPlans = selectedType === "all" 
-    ? dbPlans 
+  const filteredPlans = selectedType === "all"
+    ? dbPlans
     : dbPlans.filter(p => p.type === selectedType)
 
   return (
@@ -304,7 +304,7 @@ export default function DatabasePage() {
                       </div>
                     </div>
 
-                    {/* Price & Order Now Button */}
+                    {/* Price and product link */}
                     <div className="pt-4 border-t border-white/[0.06]">
                       <div className="flex items-baseline justify-between mb-4">
                         <span className="text-xs text-gray-500">Starting at</span>
