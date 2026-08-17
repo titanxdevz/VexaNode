@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Server, Cpu, MemoryStick, HardDrive, Shield, Check, Sparkles, ArrowRight, MapPin } from "lucide-react"
 import { useCurrency } from "../../contexts/CurrencyContext"
@@ -92,6 +92,13 @@ const dediPlans = {
 export default function VDSPricingSection() {
   const [selectedLocation, setSelectedLocation] = useState("utah")
   const { formatPrice } = useCurrency()
+
+  useEffect(() => {
+    const location = new URLSearchParams(window.location.search).get("location")
+    if (location && locations.some(item => item.id === location)) {
+      setSelectedLocation(location)
+    }
+  }, [])
 
   const currentLocObj = locations.find(loc => loc.id === selectedLocation)
   const currentPlans = dediPlans[selectedLocation as keyof typeof dediPlans] || []

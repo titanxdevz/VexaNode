@@ -2,115 +2,141 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronRight, Cpu, Zap, Shield, HardDrive, Gamepad2, Trophy, Users, Sparkles } from "lucide-react"
+import { 
+  ChevronRight, Cpu, Zap, Shield, HardDrive, 
+  Gamepad2, Sparkles, Server, Check, ChevronDown, Radio 
+} from "lucide-react"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import { PageMeta } from "../components/PageMeta"
 import { CustomIcons } from "../components/CustomIcons"
-import { useRouter } from "next/navigation"
-import Image from "next/image"
-import gamesConfig from "../config/sections/games.json"
-
-const gameConfig = ((gamesConfig as any).games || []).find((g: any) => g.id === "minecraft")
+import { useCurrency } from "../contexts/CurrencyContext"
+import CurrencySelector from "../components/CurrencySelector"
+import Link from "next/link"
 
 const cycles = [
   { id: "monthly", name: "Monthly", discount: 0 },
-  { id: "quarterly", name: "Quarterly", discount: 0 },
-  { id: "semi-annually", name: "Semi-Annually", discount: 0.13 },
-  { id: "annually", name: "Annually", discount: 0.24 }
+  { id: "quarterly", name: "Quarterly", discount: 0.05, label: "5% OFF" },
+  { id: "semi-annually", name: "Semi-Annually", discount: 0.13, label: "13% OFF" },
+  { id: "annually", name: "Annually", discount: 0.24, label: "24% OFF" }
 ]
 
 const categories = [
-  { id: "budget", name: "Budget Extreme", icon: CustomIcons.Intel, desc: "High-Performance Intel Xeon / Ryzen 5" },
-  { id: "premium", name: "Premium Ryzen 9", icon: CustomIcons.Ryzen, desc: "AMD Ryzen 9 7950X / 9950X Performance" }
+  { id: "budget", name: "Budget Extreme", icon: CustomIcons.Intel, badge: "Intel Xeon / Ryzen 5" },
+  { id: "premium", name: "Premium Ryzen 9", icon: CustomIcons.Ryzen, badge: "Ryzen 9 7950X / 9950X" }
 ]
 
 const plans = {
-  premium: [
-    {
-      id: "mc-diamond",
-      name: "Diamond Plan",
-      cpu: "4 vCores",
-      ram: "8 GB RAM",
-      storage: "120 GB NVMe SSD",
-      basePrice: 480,
-      href: "https://billing.vexanode.cloud/checkout/config/21"
-    },
-    {
-      id: "mc-emerald",
-      name: "Emerald Plan",
-      cpu: "6 vCores",
-      ram: "12 GB RAM",
-      storage: "180 GB NVMe SSD",
-      basePrice: 720,
-      href: "https://billing.vexanode.cloud/checkout/config/22"
-    },
-    {
-      id: "mc-obsidian",
-      name: "Obsidian Plan",
-      cpu: "8 vCores",
-      ram: "16 GB RAM",
-      storage: "240 GB NVMe SSD",
-      basePrice: 960,
-      href: "https://billing.vexanode.cloud/checkout/config/22"
-    },
-    {
-      id: "mc-ender",
-      name: "Ender Plan",
-      cpu: "12 vCores",
-      ram: "32 GB RAM",
-      storage: "480 GB NVMe SSD",
-      basePrice: 1920,
-      href: "https://billing.vexanode.cloud/checkout/config/22"
-    }
-  ],
   budget: [
     {
       id: "mc-seed",
-      name: "Seed Plan",
-      cpu: "1 vCore",
+      name: "Seed",
+      cpu: "1 vCore (Intel Xeon)",
       ram: "1 GB RAM",
       storage: "15 GB NVMe SSD",
+      port: "1 Gbps Uplink",
       basePrice: 60,
-      href: "https://billing.vexanode.cloud/checkout/config/23"
+      popular: false
     },
     {
       id: "mc-sprout",
-      name: "Sprout Plan",
-      cpu: "1 vCore",
+      name: "Sprout",
+      cpu: "1 vCore (Intel Xeon)",
       ram: "2 GB RAM",
       storage: "30 GB NVMe SSD",
+      port: "1 Gbps Uplink",
       basePrice: 120,
-      href: "https://billing.vexanode.cloud/checkout/config/23"
+      popular: false
     },
     {
       id: "mc-stone",
-      name: "Stone Plan",
-      cpu: "2 vCores",
+      name: "Stone",
+      cpu: "2 vCores (Intel Xeon)",
       ram: "4 GB RAM",
       storage: "60 GB NVMe SSD",
+      port: "1 Gbps Uplink",
       basePrice: 240,
-      href: "https://billing.vexanode.cloud/checkout/config/24"
+      popular: true
     },
     {
       id: "mc-iron",
-      name: "Iron Plan",
-      cpu: "3 vCores",
+      name: "Iron",
+      cpu: "3 vCores (Intel Xeon)",
       ram: "6 GB RAM",
       storage: "90 GB NVMe SSD",
+      port: "1 Gbps Uplink",
       basePrice: 360,
-      href: "https://billing.vexanode.cloud/checkout/config/24"
+      popular: false
+    }
+  ],
+  premium: [
+    {
+      id: "mc-diamond",
+      name: "Diamond",
+      cpu: "4 vCores (Ryzen 9 9950X)",
+      ram: "8 GB DDR5 RAM",
+      storage: "120 GB Gen4 NVMe",
+      port: "1 Gbps Uplink",
+      basePrice: 480,
+      popular: false
+    },
+    {
+      id: "mc-emerald",
+      name: "Emerald",
+      cpu: "6 vCores (Ryzen 9 9950X)",
+      ram: "12 GB DDR5 RAM",
+      storage: "180 GB Gen4 NVMe",
+      port: "1 Gbps Uplink",
+      basePrice: 720,
+      popular: true
+    },
+    {
+      id: "mc-obsidian",
+      name: "Obsidian",
+      cpu: "8 vCores (Ryzen 9 9950X)",
+      ram: "16 GB DDR5 RAM",
+      storage: "240 GB Gen4 NVMe",
+      port: "1 Gbps Uplink",
+      basePrice: 960,
+      popular: false
+    },
+    {
+      id: "mc-ender",
+      name: "Ender",
+      cpu: "12 vCores (Ryzen 9 9950X)",
+      ram: "32 GB DDR5 RAM",
+      storage: "480 GB Gen4 NVMe",
+      port: "1 Gbps Uplink",
+      basePrice: 1920,
+      popular: false
     }
   ]
 }
 
-export default function MinecraftPage() {
-  const [selectedCategory, setSelectedCategory] = useState("budget")
-  const [selectedCycle, setSelectedCycle] = useState("semi-annually")
+const faqs = [
+  {
+    q: "Can I install any Minecraft version, Forge, Fabric, or Paper?",
+    a: "Yes! Our Pterodactyl game panel features a 1-click egg installer for Vanilla, Paper, Purpur, Spigot, Forge, Fabric, Mohist, BungeeCord, Velocity, and modpacks from CurseForge and Modrinth."
+  },
+  {
+    q: "How fast is game server setup after ordering?",
+    a: "Deployment is instantaneous. Your Minecraft server is automatically provisioned and ready for players in under 60 seconds."
+  },
+  {
+    q: "Do you provide DDoS protection for game servers?",
+    a: "Yes! All game nodes are shielded by 100Gbps+ Game-Specific DDoS filtering that protects against UDP floods, bot joins, and amplification attacks without raising ping."
+  },
+  {
+    q: "Can I upgrade my RAM or CPU later?",
+    a: "Yes, you can upgrade your plan at any time without losing any world data, plugins, or server configurations."
+  }
+]
 
-  const router = useRouter()
-
-  const cycleIndex = cycles.findIndex(c => c.id === selectedCycle)
+export default function GameHostingPage() {
+  const [selectedCategory, setSelectedCategory] = useState<"budget" | "premium">("budget")
+  const [selectedCycle, setSelectedCycle] = useState("monthly")
+  const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const { formatPrice } = useCurrency()
 
   const calculatePrice = (base: number) => {
     const cycle = cycles.find(c => c.id === selectedCycle)
@@ -120,94 +146,109 @@ export default function MinecraftPage() {
   }
 
   const handleDeploy = (plan: any) => {
-    window.open("https://discord.gg/dJpMDfgUQq", "_blank")
+    window.open("https://billing.vexanode.gg", "_blank")
   }
 
   return (
-    <div className="min-h-screen bg-[#07090e] text-white selection:bg-emerald-500/30 relative overflow-hidden">
-      <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-emerald-500/[0.04] rounded-full blur-[180px] pointer-events-none will-change-transform" />
-      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[700px] h-[700px] bg-teal-500/[0.03] rounded-full blur-[150px] pointer-events-none will-change-transform" />
-      <div className="absolute top-1/2 left-2/3 w-[500px] h-[500px] bg-emerald-500/[0.02] rounded-full blur-[120px] pointer-events-none will-change-transform" />
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none" />
+    <div className="min-h-screen bg-[#07090e] text-white selection:bg-[#10b981]/30 relative overflow-hidden">
+      {/* Background Ambient Glow */}
+      <div className="fixed inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(16,185,129,0.08),transparent_100%)] pointer-events-none" />
+      <div className="fixed inset-0 bg-[linear-gradient(rgba(255,255,255,0.012)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.012)_1px,transparent_1px)] bg-[size:48px_48px] pointer-events-none" />
 
-      <PageMeta title="Minecraft Hosting" />
+      <PageMeta title="Minecraft & Game Server Hosting — VexaNode" />
       <Navbar />
 
       <main className="relative z-10 pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        {/* Hero Section with Minecraft image */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-          >
-            <div className="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-400 text-[10px] font-bold px-3 py-1.5 rounded-full border border-emerald-500/20 mb-6 tracking-widest uppercase">
-              <Sparkles className="w-3 h-3" />
-              {gameConfig?.name || "Minecraft"} Game Hosting
+        {/* Header Section (Clean VisiHost Style) */}
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-10">
+          <div className="max-w-3xl">
+            {/* Small Badge */}
+            <div className="inline-block bg-[#10b981]/10 text-[#10b981] text-xs font-semibold px-3 py-1 rounded-md border border-[#10b981]/20 mb-4">
+              Game Server Hosting
             </div>
-            <h1 className="text-5xl md:text-6xl font-black mb-6 orbitron-font leading-none uppercase tracking-tight">
-              Extreme <br />
-              <span className="relative">
-                <span className="text-emerald-500 text-neon-glow-brand">Performance</span>
-                <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-emerald-500/0 via-emerald-500/50 to-emerald-500/0 rounded-full" />
-              </span>
+
+            {/* Title */}
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black orbitron-font tracking-tight mb-4 text-white">
+              High-Performance Minecraft{" "}
+              <span className="text-[#10b981]">Server Hosting</span>
             </h1>
-            <p className="text-gray-400 text-base leading-relaxed max-w-xl quicksand-font">
-              {gameConfig?.description || "Dominate your players with zero lag. Our Minecraft servers run on 5.7GHz+ Ryzen processors, enterprise-grade NVMe storage, and DDoS protection."}
+
+            {/* Description */}
+            <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-4">
+              Deploy high-tickrate Minecraft game servers powered by AMD Ryzen 9 and high-clock Intel processors. Ultra-fast NVMe Gen4 storage, instant modpack installers, and unmetered DDoS defense.
             </p>
-          </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="relative flex justify-center"
-          >
-            <div className="relative w-[280px] h-[280px] md:w-[350px] md:h-[350px] rounded-3xl overflow-hidden border border-white/5 bg-[#0c0e1a]/40 shadow-2xl">
-              <Image
-                src="/minecraft_block.jpg"
-                alt="Minecraft Server Block"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#07090e] via-transparent to-transparent opacity-60" />
+            {/* Sub-links */}
+            <div className="text-xs text-gray-500 flex flex-wrap items-center gap-1.5 font-medium">
+              <span className="text-gray-400">Also Explore:</span>
+              <Link href="/discord" className="text-[#10b981] hover:underline">Discord Bot Hosting</Link>
+              <span>•</span>
+              <Link href="/lavalink" className="text-[#10b981] hover:underline">Lavalink Audio</Link>
+              <span>•</span>
+              <Link href="/vps" className="text-[#10b981] hover:underline">VPS Hosting</Link>
+              <span>•</span>
+              <Link href="/databases" className="text-[#10b981] hover:underline">Database Hosting</Link>
             </div>
-            {/* Floating Badge */}
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-4 -right-4 bg-gradient-to-r from-emerald-500 to-teal-400 p-4 rounded-2xl shadow-xl text-center z-20"
-            >
-              <span className="text-xs font-black text-white orbitron-font uppercase tracking-wider">Instant Setup</span>
-            </motion.div>
-          </motion.div>
-        </div>
-
-        {/* Configuration Row */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12 border-t border-white/[0.04] pt-12">
-          <div>
-            <h2 className="text-3xl font-black orbitron-font uppercase tracking-tight">Choose Your Tier</h2>
-            <p className="text-gray-400 text-sm">Select hardware level and billing cycle below.</p>
           </div>
 
-          <div className="flex flex-col items-end gap-4">
-            {/* Billing Cycle - Sliding Pill Toggle */}
-            <div className="relative flex items-center bg-white/[0.04] border border-white/[0.06] p-1 rounded-2xl backdrop-blur-md">
-              <div
-                className="absolute top-1 bottom-1 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 transition-all duration-300 ease-out shadow-[0_0_15px_rgba(16,185,129,0.3)]"
-                style={{
-                  left: `calc(${(cycleIndex / cycles.length) * 100}% + 4px)`,
-                  width: `calc(${100 / cycles.length}% - 8px)`,
-                }}
-              />
+          {/* Top-Right Currency Selector */}
+          <div className="flex-shrink-0 self-start lg:mt-2">
+            <CurrencySelector />
+          </div>
+        </div>
+
+        {/* 1. Choose Hardware Tier */}
+        <div className="mb-6">
+          <h3 className="text-xs font-bold text-gray-400 mb-3 tracking-wide">
+            1. Choose Hardware Tier
+          </h3>
+          <div className="inline-flex flex-wrap bg-[#0b0e14] p-1 rounded-xl border border-white/[0.08] gap-1">
+            {categories.map((cat) => {
+              const isSelected = selectedCategory === cat.id
+              const Icon = cat.icon
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => setSelectedCategory(cat.id as any)}
+                  className={`flex items-center gap-2 px-4 sm:px-5 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                    isSelected
+                      ? "bg-[#10b981] text-black shadow-[0_0_15px_rgba(16,185,129,0.3)]"
+                      : "text-gray-400 hover:text-white"
+                  }`}
+                >
+                  <Icon className="w-3.5 h-3.5" />
+                  <span>{cat.name}</span>
+                </button>
+              )
+            })}
+          </div>
+        </div>
+
+        {/* 2. Choose Billing Cycle (Mobile Optimized Horizontal Scroll) */}
+        <div className="mb-10">
+          <h3 className="text-xs font-bold text-gray-400 mb-3 tracking-wide">
+            2. Choose Billing Cycle
+          </h3>
+          <div className="w-full max-w-full overflow-x-auto no-scrollbar flex items-center gap-1.5 pb-1">
+            <div className="inline-flex bg-[#0b0e14] p-1 rounded-xl border border-white/[0.08] flex-nowrap">
               {cycles.map((cycle) => (
                 <button
                   key={cycle.id}
+                  type="button"
                   onClick={() => setSelectedCycle(cycle.id)}
-                  className={`relative z-10 flex-1 px-2.5 py-2.5 rounded-xl text-[10px] font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer text-center ${selectedCycle === cycle.id ? "text-white" : "text-gray-500 hover:text-gray-300"
-                    }`}
+                  className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap flex-shrink-0 flex items-center gap-1.5 ${
+                    selectedCycle === cycle.id
+                      ? "bg-[#10b981] text-black shadow-[0_0_12px_rgba(16,185,129,0.3)]"
+                      : "text-gray-400 hover:text-white"
+                  }`}
                 >
-                  {cycle.name}
+                  <span>{cycle.name}</span>
                   {cycle.discount > 0 && (
-                    <span className="ml-1 text-[8px] opacity-70">-{Math.round(cycle.discount * 100)}%</span>
+                    <span className={`text-[9px] px-1 py-0.2 rounded font-black uppercase ${
+                      selectedCycle === cycle.id ? "bg-black/20 text-black" : "bg-[#10b981]/15 text-[#10b981]"
+                    }`}>
+                      {cycle.label}
+                    </span>
                   )}
                 </button>
               ))}
@@ -215,143 +256,218 @@ export default function MinecraftPage() {
           </div>
         </div>
 
-        {/* Tier Selectors */}
-        <div className="space-y-8 mb-12">
-          <div>
-            <h3 className="text-sm font-bold text-gray-500 mb-4 uppercase tracking-wider flex items-center gap-2">
-              <span className="text-white">1.</span> Select Hardware Tier
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {categories.map((cat) => (
-                <button
-                  key={cat.id}
-                  onClick={() => setSelectedCategory(cat.id)}
-                  className={`relative group text-left ${selectedCategory === cat.id ? "z-10" : ""
-                    }`}
-                >
-                  <div className={`absolute -inset-[1px] rounded-2xl bg-gradient-to-b from-emerald-500/30 via-teal-500/20 to-transparent opacity-0 transition-opacity duration-500 blur-sm pointer-events-none ${selectedCategory === cat.id ? "opacity-100" : "group-hover:opacity-60"
-                    }`} />
-                  <div className={`relative flex flex-col items-start gap-3 p-6 rounded-2xl border transition-all duration-300 ${selectedCategory === cat.id
-                      ? "bg-[#0c0e1a]/40 backdrop-blur-xl border-emerald-500 text-white shadow-[0_0_40px_rgba(16,185,129,0.2)]"
-                      : "bg-[#0c0e1a]/20 backdrop-blur-sm border-white/[0.06] text-gray-400 hover:border-white/20 hover:bg-white/[0.02]"
-                    }`}>
-                    <div className="flex items-center gap-3">
-                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center border transition-all duration-300 ${selectedCategory === cat.id
-                          ? "bg-emerald-500/20 border-emerald-500/40"
-                          : "bg-white/[0.04] border-white/[0.06] group-hover:border-white/20"
-                        }`}>
-                        <cat.icon className={`w-5 h-5 ${selectedCategory === cat.id ? "text-white" : "text-emerald-400"}`} />
-                      </div>
-                      <span className="text-xl font-bold">{cat.name}</span>
-                    </div>
-                    <p className="text-sm opacity-80">{cat.desc}</p>
-                  </div>
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Plans List */}
-        <div>
-          <h3 className="text-sm font-bold text-gray-500 mb-6 uppercase tracking-wider flex items-center gap-2">
-            <span className="text-white">2.</span> Choose Plan
+        {/* 3. Choose Plan Grid (Clean Cards) */}
+        <div className="mb-20">
+          <h3 className="text-xs font-bold text-gray-400 mb-4 tracking-wide">
+            3. Choose Plan
           </h3>
 
-          <div className="space-y-4">
-            <AnimatePresence mode="wait">
-              {plans[selectedCategory as keyof typeof plans].map((plan, idx) => (
-                <motion.div
-                  key={plan.id}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 20 }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="group relative"
-                >
-                  <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-b from-emerald-500/20 via-teal-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm pointer-events-none" />
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={selectedCategory}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"
+            >
+              {plans[selectedCategory].map((plan) => {
+                const price = calculatePrice(plan.basePrice)
+                return (
+                  <div
+                    key={plan.id}
+                    className={`relative rounded-2xl bg-[#0a0d14]/90 border transition-all duration-300 p-5 flex flex-col justify-between hover:-translate-y-1 ${
+                      plan.popular
+                        ? "border-[#10b981] shadow-[0_0_25px_rgba(16,185,129,0.15)]"
+                        : "border-white/[0.08] hover:border-[#10b981]/40 hover:bg-[#0c1018]"
+                    }`}
+                  >
+                    {/* Popular Badge */}
+                    {plan.popular && (
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#10b981] to-[#059669] text-black text-[9px] font-black px-3 py-0.5 rounded-full uppercase tracking-wider shadow-[0_0_15px_rgba(16,185,129,0.35)] flex items-center gap-1">
+                        <Sparkles className="w-2.5 h-2.5 fill-black" />
+                        Most Popular
+                      </div>
+                    )}
 
-                  <div className="relative bg-[#0c0e1a]/30 backdrop-blur-xl border border-white/[0.06] hover:border-white/[0.12] rounded-2xl p-4 md:p-6 transition-all duration-500 flex flex-col lg:flex-row items-center gap-6 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/3 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                    <div>
+                      {/* Card Header: Icon + Plan Name + Subtitle */}
+                      <div className="flex items-center gap-3.5 mb-5">
+                        <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/[0.08] flex items-center justify-center p-2 text-[#10b981] flex-shrink-0">
+                          <Gamepad2 className="w-5 h-5 text-white" />
+                        </div>
+                        <div>
+                          <h4 className="text-base font-bold text-white orbitron-font">{plan.name}</h4>
+                          <span className="text-[11px] text-gray-400">Game Server</span>
+                        </div>
+                      </div>
 
-                    <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-emerald-500/[0.02] rounded-full blur-[100px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                      {/* Specs Rows */}
+                      <div className="space-y-3 mb-6">
+                        <div className="flex items-center justify-between text-xs">
+                          <span className="text-gray-400 flex items-center gap-2">
+                            <Zap className="w-3.5 h-3.5 text-[#10b981]" />
+                            Memory
+                          </span>
+                          <span className="font-bold text-white">{plan.ram}</span>
+                        </div>
 
-                    {/* Icon */}
-                    <div className="relative z-10 flex-shrink-0 w-16 h-16 bg-emerald-500/10 rounded-xl flex items-center justify-center border border-emerald-500/20 group-hover:border-emerald-500/50 group-hover:scale-110 transition-all duration-500">
-                      <CustomIcons.Minecraft className="w-10 h-10 text-emerald-400 group-hover:scale-110 transition-transform" />
-                    </div>
+                        <div className="flex items-center justify-between text-xs">
+                          <span className="text-gray-400 flex items-center gap-2">
+                            <Cpu className="w-3.5 h-3.5 text-[#10b981]" />
+                            Processor
+                          </span>
+                          <span className="font-bold text-white">{plan.cpu}</span>
+                        </div>
 
-                    {/* Name */}
-                    <div className="relative z-10 flex-1 text-center lg:text-left">
-                      <h4 className="text-xl font-bold mb-1 group-hover:text-emerald-400 transition-colors">{plan.name}</h4>
-                      <div className="flex items-center justify-center lg:justify-start gap-2 flex-wrap">
-                        <span className="text-[10px] bg-white/[0.06] border border-white/[0.06] px-2 py-0.5 rounded uppercase font-bold tracking-wider">Bedrock + Java</span>
-                        <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded uppercase font-bold tracking-wider">Unlimited Slots</span>
+                        <div className="flex items-center justify-between text-xs">
+                          <span className="text-gray-400 flex items-center gap-2">
+                            <HardDrive className="w-3.5 h-3.5 text-[#10b981]" />
+                            Storage
+                          </span>
+                          <span className="font-bold text-white">{plan.storage}</span>
+                        </div>
+
+                        <div className="flex items-center justify-between text-xs">
+                          <span className="text-gray-400 flex items-center gap-2">
+                            <Radio className="w-3.5 h-3.5 text-[#10b981]" />
+                            Port
+                          </span>
+                          <span className="font-bold text-white">{plan.port}</span>
+                        </div>
                       </div>
                     </div>
 
-                    {/* Specs */}
-                    <div className="relative z-10 flex flex-wrap justify-center gap-2">
-                      <div className="flex items-center gap-2 bg-white/[0.04] border border-white/[0.06] px-3 py-2 rounded-lg group-hover:border-emerald-500/30 group-hover:bg-white/[0.06] transition-all duration-300">
-                        <Cpu className="w-3.5 h-3.5 text-emerald-400" />
-                        <span className="text-xs font-bold text-gray-300">{plan.cpu}</span>
+                    {/* Price & Order Now Button */}
+                    <div className="pt-4 border-t border-white/[0.06]">
+                      <div className="flex items-baseline justify-between mb-4">
+                        <span className="text-xs text-gray-500">Starting at</span>
+                        <div className="text-right">
+                          <span className="text-2xl font-black text-white orbitron-font">
+                            {formatPrice(price)}
+                          </span>
+                          <span className="text-xs text-gray-400">/mo</span>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-2 bg-white/[0.04] border border-white/[0.06] px-3 py-2 rounded-lg group-hover:border-emerald-500/30 group-hover:bg-white/[0.06] transition-all duration-300">
-                        <Zap className="w-3.5 h-3.5 text-emerald-400" />
-                        <span className="text-xs font-bold text-gray-300">{plan.ram}</span>
-                      </div>
-                      <div className="flex items-center gap-2 bg-white/[0.04] border border-white/[0.06] px-3 py-2 rounded-lg group-hover:border-emerald-500/30 group-hover:bg-white/[0.06] transition-all duration-300">
-                        <HardDrive className="w-3.5 h-3.5 text-emerald-400" />
-                        <span className="text-xs font-bold text-gray-300">{plan.storage}</span>
-                      </div>
-                    </div>
 
-                    {/* Price & Action */}
-                    <div className="relative z-10 flex items-center gap-6 ml-auto flex-shrink-0">
-                      <div className="text-right">
-                        <div className="text-2xl font-bold text-white">₹{calculatePrice(plan.basePrice)}<span className="text-sm font-normal text-gray-500">/mo</span></div>
-                        {selectedCycle !== 'monthly' && (
-                          <div className="text-[10px] text-emerald-400 font-bold uppercase tracking-tighter text-right">Billed {selectedCycle}</div>
-                        )}
-                      </div>
                       <button
                         onClick={() => handleDeploy(plan)}
-                        className="group/btn relative px-8 py-3 rounded-xl font-bold transition-all duration-500 flex items-center gap-2 overflow-hidden"
+                        className="w-full bg-[#10b981] hover:bg-[#059669] text-black font-extrabold py-3 px-4 rounded-xl text-xs transition-all duration-200 flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(16,185,129,0.25)] hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] active:scale-[0.98] cursor-pointer"
                       >
-                        <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-500 bg-[length:200%_100%] animate-gradient-x" />
-                        <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-teal-400 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500" />
-                        <span className="relative z-10 flex items-center gap-2 text-white">
-                          Build Server
-                          <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                        </span>
+                        <span>Order Now</span>
+                        <ChevronRight className="w-3.5 h-3.5 stroke-[3]" />
                       </button>
                     </div>
                   </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
+                )
+              })}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Feature Highlights Grid */}
+        <div className="mb-20">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <h2 className="text-2xl font-bold orbitron-font text-white mb-2">
+              Why Gamers Choose VexaNode
+            </h2>
+            <p className="text-xs text-gray-400">
+              Low-ping game routes, high single-thread clock speeds, and 1-click modpack installer.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              {
+                icon: Cpu,
+                title: "5.7GHz+ Ryzen Processors",
+                desc: "High single-core clock frequencies optimized for heavy entity counts and complex Redstone contraptions."
+              },
+              {
+                icon: Shield,
+                title: "Game-Specific DDoS Filter",
+                desc: "Real-time packet inspection filters out malicious floods while keeping legitimate players connected."
+              },
+              {
+                icon: Zap,
+                title: "Instant Modpack Installer",
+                desc: "Install CurseForge, FTB, and Modrinth modpacks with one click directly inside your Pterodactyl game panel."
+              },
+              {
+                icon: HardDrive,
+                title: "PCIe 4.0 NVMe Storage",
+                desc: "Ultra-fast read/write speeds ensure zero chunk generation lag and instant world saves."
+              },
+              {
+                icon: Server,
+                title: "Full SFTP & Database Access",
+                desc: "Direct file manager, sub-user permissions, scheduled backups, and free MySQL databases."
+              },
+              {
+                icon: Check,
+                title: "99.9% Uptime Guarantee",
+                desc: "Redundant power feeds, enterprise Tier-3 datacenters, and automatic node failover mechanisms."
+              }
+            ].map((feature, idx) => (
+              <div
+                key={idx}
+                className="p-5 rounded-2xl bg-[#0b0c12]/60 border border-white/[0.06] hover:border-[#10b981]/30 transition-all duration-200"
+              >
+                <div className="w-8 h-8 rounded-lg bg-[#10b981]/10 border border-[#10b981]/20 flex items-center justify-center text-[#10b981] mb-3">
+                  <feature.icon className="w-4 h-4" />
+                </div>
+                <h4 className="text-sm font-bold text-white orbitron-font mb-1">{feature.title}</h4>
+                <p className="text-xs text-gray-400 leading-relaxed">{feature.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Features Row */}
-        <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="group bg-[#0c0e1a]/30 backdrop-blur-xl border border-white/[0.06] rounded-2xl p-6 flex flex-col items-center gap-3 text-center hover:border-white/[0.12] transition-all duration-500">
-            <div className="w-14 h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all duration-500">
-              <Shield className="w-7 h-7 text-emerald-400" />
-            </div>
-            <span className="text-sm font-bold orbitron-font text-gray-300 group-hover:text-white transition-colors">DDoS Protected</span>
+        {/* FAQs Section */}
+        <div className="max-w-3xl mx-auto mb-16">
+          <div className="text-center mb-8">
+            <h2 className="text-xl sm:text-2xl font-bold orbitron-font text-white mb-2">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-xs text-gray-400">
+              Everything you need to know about VexaNode Minecraft hosting.
+            </p>
           </div>
-          <div className="group bg-[#0c0e1a]/30 backdrop-blur-xl border border-white/[0.06] rounded-2xl p-6 flex flex-col items-center gap-3 text-center hover:border-white/[0.12] transition-all duration-500">
-            <div className="w-14 h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all duration-500">
-              <Users className="w-7 h-7 text-emerald-400" />
-            </div>
-            <span className="text-sm font-bold orbitron-font text-gray-300 group-hover:text-white transition-colors">100% Uptime</span>
-          </div>
-          <div className="group bg-[#0c0e1a]/30 backdrop-blur-xl border border-white/[0.06] rounded-2xl p-6 flex flex-col items-center gap-3 text-center hover:border-white/[0.12] transition-all duration-500">
-            <div className="w-14 h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all duration-500">
-              <Zap className="w-7 h-7 text-emerald-400" />
-            </div>
-            <span className="text-sm font-bold orbitron-font text-gray-300 group-hover:text-white transition-colors">NVMe Gen4 Storage</span>
+
+          <div className="space-y-2.5">
+            {faqs.map((faq, index) => {
+              const isOpen = openFaq === index
+              return (
+                <div
+                  key={index}
+                  className="rounded-xl border border-white/[0.06] bg-[#0b0e14]/60 overflow-hidden transition-all"
+                >
+                  <button
+                    onClick={() => setOpenFaq(isOpen ? null : index)}
+                    className="w-full p-4 text-left flex items-center justify-between gap-4 hover:bg-white/[0.02] transition-colors cursor-pointer"
+                  >
+                    <span className="text-xs sm:text-sm font-bold text-white">{faq.q}</span>
+                    <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-200 flex-shrink-0 ${
+                      isOpen ? "rotate-180 text-[#10b981]" : ""
+                    }`} />
+                  </button>
+
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="px-4 pb-4 text-xs text-gray-400 leading-relaxed border-t border-white/[0.04] pt-2.5"
+                      >
+                        {faq.a}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              )
+            })}
           </div>
         </div>
       </main>

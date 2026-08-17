@@ -2,6 +2,8 @@ export interface DropdownItem {
   name: string;
   href: string;
   description?: string;
+  children?: DropdownItem[];
+  disabled?: boolean;
   icon?: string;
   badge?: string;
   badgeColor?: string;
