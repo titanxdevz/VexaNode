@@ -31,7 +31,7 @@ export default function ProductsSection() {
       icon: Music,
       name: "Lavalink Hosting",
       href: "/lavalink",
-      priceInINR: 49,
+      priceInINR: 240,
       desc: "High-performance JVM-tuned audio nodes for crystal clear music playback.",
       features: [
         "Dedicated JVM allocation",
