@@ -492,7 +492,7 @@ const Navbar: React.FC = () => {
 
             {/* Client Area */}
             <a
-              href="https://billing.vexanode.cloud"
+              href="https://billing.vexanode.gg"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white hover:bg-zinc-200 text-black font-black px-3.5 py-1.5 rounded-lg text-[11px] transition-all tracking-wider shadow-sm uppercase whitespace-nowrap"
@@ -560,7 +560,7 @@ const Navbar: React.FC = () => {
                 </div>
 
                 <a
-                  href="https://billing.vexanode.cloud"
+                  href="https://billing.vexanode.gg"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full text-center bg-white hover:bg-zinc-200 text-black font-black py-2.5 rounded-lg text-xs transition-all tracking-wider uppercase"
