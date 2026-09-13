@@ -28,21 +28,16 @@
       "dropdownType": "grid",
       "dropdownItems": [
         {
+          "name": "SA-MP Hosting",
+          "description": "Reliable DDoS-protected GTA SA-MP & open.mp hosting",
+          "href": "/samp",
+          "badge": "NEW"
+        },
+        {
           "name": "Hytale Hosting",
-          "description": "Premium game hosting for Hytale - coming soon",
-          "href": "#",
-          "badge": "Coming soon",
-          "disabled": true
-        },
-        {
-          "name": "Cheap VPS India",
-          "description": "High-performance EPYC & Intel VPS hosting",
-          "href": "/vps?location=india-vexa"
-        },
-        {
-          "name": "Dedicated Servers",
-          "description": "Bare metal dedicated server solutions",
-          "href": "/dedicated"
+          "description": "High-performance Hytale game servers with low latency",
+          "href": "/hytale",
+          "badge": "NEW"
         },
         {
           "name": "Database Hosting",
@@ -52,7 +47,7 @@
         {
           "name": "Blogs & Guides",
           "description": "Hosting guides and technical articles",
-          "href": "/blogs"
+          "href": "/blog"
         },
         {
           "name": "About Us",

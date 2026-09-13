@@ -1,46 +1,47 @@
-'use client'
-import { lazy, Suspense } from 'react'
-import Navbar from "../components/Navbar"
-import VDSPricingSection from "../components/dedicated/VDSPricingSection"
-import { PageMeta } from "../components/PageMeta"
+import type { Metadata } from "next";
+import { constructMetadata, serviceSchema, breadcrumbSchema } from "@/lib/seo";
+import DedicatedClient from "./DedicatedClient";
 
-const OSSelectionSection = lazy(() => import("../components/vps/OSSelectionSection"))
-const FeaturesSection = lazy(() => import("../components/FeaturesSection"))
-const LocationsSection = lazy(() => import("../components/LocationsSection"))
-const FAQSection = lazy(() => import("../components/FAQSection"))
-const Footer = lazy(() => import("../components/Footer"))
-const PanelShowcase = lazy(() => import("../components/PanelShowcase"))
-
+export const metadata: Metadata = constructMetadata({
+  title: "Dedicated Bare Metal Servers | High Performance AMD Ryzen & EPYC | VexaNode",
+  description:
+    "Deploy enterprise dedicated bare metal servers with 10 Gbps uplinks, unmetered bandwidth, and hardware-level DDoS protection. Full IPMI/KVM access.",
+  canonical: "/dedicated",
+  keywords: [
+    "dedicated server hosting",
+    "bare metal servers",
+    "ryzen dedicated servers",
+    "epyc dedicated servers",
+    "ddos protected dedicated server",
+    "high frequency dedicated servers",
+  ],
+});
 
 export default function DedicatedPage() {
-  return (
-    <div className="min-h-screen bg-gray-50 dark:bg-[#0a0b0f] transition-colors duration-300">
-      <PageMeta title="Dedicated Servers" />
-      <Navbar />
-      <VDSPricingSection />
-      <Suspense fallback={<div className="h-64 bg-zinc-900/50 animate-pulse rounded-2xl mx-4 my-8" />}>
-        <OSSelectionSection />
-      </Suspense>
-      
-      <Suspense fallback={<div className="h-80 bg-zinc-900/50 animate-pulse rounded-2xl mx-4 my-8" />}>
-        <FeaturesSection />
-      </Suspense>
-      
-      <Suspense fallback={<div className="h-96 bg-zinc-900/50 animate-pulse rounded-2xl mx-4 my-8" />}>
-        <LocationsSection />
-      </Suspense>
-      
-      <Suspense fallback={<div className="h-64 bg-zinc-900/50 animate-pulse rounded-2xl mx-4 my-8" />}>
-        <FAQSection />
-      </Suspense>
+  const serviceJsonLd = serviceSchema({
+    name: "Dedicated Bare Metal Servers",
+    description:
+      "Enterprise dedicated bare metal servers with AMD Ryzen & EPYC processors, 10 Gbps uplinks, and hardware-level DDoS protection.",
+    url: "/dedicated",
+    serviceType: "Dedicated Server Hosting",
+  });
 
-       <Suspense fallback={<div className="h-72 bg-zinc-900/50 animate-pulse rounded-2xl mx-4 my-8" />}>
-        <PanelShowcase />
-      </Suspense>
-      
-      <Suspense fallback={<div className="h-48 bg-zinc-900/50 animate-pulse rounded-2xl mx-4 my-8" />}>
-        <Footer />
-      </Suspense>
-    </div>
-  )
-}
+  const breadcrumbsJsonLd = breadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Dedicated Servers", url: "/dedicated" },
+  ]);
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
+      />
+      <DedicatedClient />
+    </>
+  );
+}

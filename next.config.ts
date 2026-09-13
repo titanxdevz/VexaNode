@@ -105,6 +105,48 @@ const nextConfig: NextConfig = {
         }
       ]
     }
+  ],
+  redirects: async () => [
+    {
+      source: '/minecraft-hosting',
+      destination: '/games',
+      permanent: true,
+    },
+    {
+      source: '/minecraft',
+      destination: '/games',
+      permanent: true,
+    },
+    {
+      source: '/bot-hosting',
+      destination: '/discord',
+      permanent: true,
+    },
+    {
+      source: '/discord-bot-hosting',
+      destination: '/discord',
+      permanent: true,
+    },
+    {
+      source: '/database-hosting',
+      destination: '/databases',
+      permanent: true,
+    },
+    {
+      source: '/dedicated-hosting',
+      destination: '/dedicated',
+      permanent: true,
+    },
+    {
+      source: '/vps-hosting',
+      destination: '/vps',
+      permanent: true,
+    },
+    {
+      source: '/cloud-vps',
+      destination: '/vps',
+      permanent: true,
+    }
   ]
 };
 

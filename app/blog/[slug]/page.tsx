@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Calendar, ArrowLeft, ArrowRight, ChevronRight, Clock, CheckCircle2, Zap, Server, Shield, Sparkles } from "lucide-react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import { blogs } from "../data";
+import { blogs } from "../../blogs/data";
 import { constructMetadata, generateArticleSchema, generateBreadcrumbSchema } from "@/lib/seo";
 
 interface PageProps {
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return constructMetadata({
     title: `${post.title} | VexaNode Engineering Guides`,
     description: post.excerpt,
-    canonical: `/blogs/${post.slug}`,
+    canonical: `/blog/${post.slug}`,
     image: post.image,
     type: "article",
     publishedTime: post.date,
@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   });
 }
 
-export default async function BlogDetailPage({ params }: PageProps) {
+export default async function BlogSlugPage({ params }: PageProps) {
   const { slug } = await params;
   const post = blogs.find((b) => b.slug === slug);
 
@@ -62,15 +62,15 @@ export default async function BlogDetailPage({ params }: PageProps) {
   const articleJsonLd = generateArticleSchema({
     title: post.title,
     description: post.excerpt,
-    url: `/blogs/${post.slug}`,
+    url: `/blog/${post.slug}`,
     image: post.image,
     author: post.author,
   });
 
   const breadcrumbJsonLd = generateBreadcrumbSchema([
     { name: "Home", url: "/" },
-    { name: "Blog", url: "/blogs" },
-    { name: post.title, url: `/blogs/${post.slug}` },
+    { name: "Blog", url: "/blog" },
+    { name: post.title, url: `/blog/${post.slug}` },
   ]);
 
   return (
@@ -99,7 +99,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
               Home
             </Link>
             <ChevronRight className="w-3.5 h-3.5 text-gray-600 flex-shrink-0" />
-            <Link href="/blogs" className="hover:text-[#10b981] transition-colors whitespace-nowrap">
+            <Link href="/blog" className="hover:text-[#10b981] transition-colors whitespace-nowrap">
               Guides & Tutorials
             </Link>
             <ChevronRight className="w-3.5 h-3.5 text-gray-600 flex-shrink-0" />
@@ -109,7 +109,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
           {/* Top Return Button */}
           <div className="mb-6">
             <Link
-              href="/blogs"
+              href="/blog"
               className="inline-flex items-center gap-2 text-xs font-bold text-gray-400 hover:text-[#10b981] transition-colors group"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform text-[#10b981]" />
@@ -265,7 +265,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
                     {relatedPosts.map((related) => (
                       <Link
                         key={related.slug}
-                        href={`/blogs/${related.slug}`}
+                        href={`/blog/${related.slug}`}
                         className="block p-3.5 rounded-2xl bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.04] hover:border-[#10b981]/40 transition-all group"
                       >
                         <span className="text-[10px] font-bold text-[#10b981] uppercase tracking-wider mb-1 block">

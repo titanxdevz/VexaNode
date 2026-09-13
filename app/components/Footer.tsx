@@ -26,6 +26,7 @@ export default function Footer() {
         { name: "Free Bot Hosting", href: "/free-bot-hosting", badge: "Free" },
         { name: "Lavalink Audio Nodes", href: "/lavalink" },
         { name: "Minecraft Servers", href: "/games?game=minecraft" },
+        { name: "SA-MP Hosting", href: "/samp", badge: "New" },
         { name: "Managed Databases", href: "/databases" },
       ]
     },

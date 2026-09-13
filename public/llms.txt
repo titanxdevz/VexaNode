@@ -98,9 +98,24 @@ Games supported: Minecraft, Garry's Mod, CS:GO, Rust, ARK: Survival Evolved, Val
 Budget plans are ~20% cheaper than premium. All plans include unmetered CPU and SSD storage.
 
 #### Minecraft-Specific Plans (game page)
-- Premium: Iron 4GB (₹399), Gold 8GB (₹749), Diamond 16GB (₹1,399)
-- Budget: Dirt 4GB (₹199), Stone 8GB (₹349)
-- Billing cycles: Monthly, Quarterly (-13%), Semi-Annually (-13%), Annually (-24%)
+- Starter (₹99/mo): 2 GB RAM, 8 GB NVMe SSD, 100% CPU
+- Basic (₹179/mo): 4 GB RAM, 15 GB NVMe SSD, 200% CPU
+- Pro (₹399/mo): 8 GB RAM, 25 GB NVMe SSD, 300% CPU
+- Advanced (₹749/mo): 16 GB RAM, 30 GB NVMe SSD, 500% CPU
+- Extreme (₹1,399/mo): 24 GB RAM, 50 GB NVMe SSD, 600% CPU
+- Ultimate (₹1,699/mo): 32 GB RAM, 70 GB NVMe SSD, 800% CPU
+- Features: AMD EPYC 7502 Processors, NVMe SSD Storage, 3 Gbps Network, Unmetered Bandwidth, DDoS Protection, Instant Setup, Full Panel Access
+- Billing cycles: Monthly, Quarterly (-5%), Semi-Annually (-13%), Annually (-24%)
+
+#### SA-MP Hosting (San Andreas Multiplayer / open.mp)
+- Starter (₹59/mo): 1 GB RAM, 1 vCPU, 10 GB NVMe, 25 Player Slots, DDoS Protection
+- Basic (₹99/mo): 2 GB RAM, 1 vCPU, 15 GB NVMe, 50 Player Slots, DDoS Protection
+- Advanced (₹179/mo): 4 GB RAM, 2 vCPU, 25 GB NVMe, 100 Player Slots, DDoS Protection
+- Pro (₹249/mo): 6 GB RAM, 3 vCPU, 40 GB NVMe, 150 Player Slots, DDoS Protection
+- Ultimate (₹349/mo): 8 GB RAM, 4 vCPU, 60 GB NVMe, 200 Player Slots, DDoS Protection
+- Available Locations: India 🇮🇳, USA 🇺🇸, Germany 🇩🇪, Ohio 🇺🇸
+- Features: Reliable, DDoS Protected, 24/7 Uptime, Instant Setup, Full Server Access, Multiple Locations
+- Order Redirect: https://discord.gg/devz
 
 ### 4. Web Hosting
 

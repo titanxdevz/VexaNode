@@ -1,242 +1,125 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
-import { 
-  ArrowRight, ShieldCheck, Zap, Cpu, Server, HardDrive, 
-  Radio, Sparkles, Activity, CheckCircle2, ChevronRight, Play 
-} from "lucide-react";
-import { CustomIcons } from "../CustomIcons";
-import { useState } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { ArrowRight, ChevronRight, ShieldCheck, Zap, HardDrive, Clock, Sparkles, Activity, CheckCircle2 } from "lucide-react";
+import { FaDiscord } from "react-icons/fa";
 
-const quickProducts = [
-  {
-    id: "bot",
-    name: "Discord Bot",
-    badge: "100% Free / ₹24",
-    specs: "50% CPU • 512MB-8GB RAM",
-    href: "/free-bot-hosting",
-    icon: CustomIcons.Discord
-  },
-  {
-    id: "lavalink",
-    name: "Lavalink Node",
-    badge: "from ₹240/mo",
-    specs: "v4 Engine • 100+ Streams",
-    href: "/lavalink",
-    icon: Zap
-  },
-  {
-    id: "minecraft",
-    name: "Minecraft Hosting",
-    badge: "from ₹199/mo",
-    specs: "Ryzen 9 9950X • Unmetered",
-    href: "/games?game=minecraft",
-    icon: CustomIcons.Minecraft
-  },
-  {
-    id: "vps",
-    name: "Cloud VPS",
-    badge: "from ₹349/mo",
-    specs: "Dedicated NVMe • 1Gbps Uplink",
-    href: "/vps",
-    icon: Server
-  }
-];
+const EASE = [0.16, 1, 0.3, 1] as const;
+
+const fadeUp = {
+  initial: { opacity: 0, y: 24 },
+  animate: { opacity: 1, y: 0 },
+};
 
 export default function LandingHero() {
-  const [activeTab, setActiveTab] = useState(0);
-
   return (
-    <section className="relative overflow-hidden pt-32 pb-16 lg:pt-40 lg:pb-24 bg-[#07090e] text-white min-h-[92vh] flex items-center">
-      {/* GPU-optimized ambient radial gradients (Zero scroll jank) */}
+    <section className="relative overflow-hidden bg-[#06070b] text-white pt-32 pb-20 lg:pt-44 lg:pb-28">
+      {/* Background Soft Ambient Atmosphere */}
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-[700px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(16,185,129,0.09),transparent_70%)] pointer-events-none" />
-        <div className="absolute bottom-0 right-1/4 w-[600px] h-[450px] bg-[radial-gradient(ellipse_at_center,rgba(16,185,129,0.05),transparent_70%)] pointer-events-none" />
-        
-        {/* Subtle geometric grid */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.012)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.012)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,#000_60%,transparent_100%)] opacity-80" />
+        {/* Soft emerald / cyan auroras */}
+        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-[radial-gradient(ellipse_at_center,rgba(52,211,153,0.15),rgba(20,184,166,0.06)_40%,transparent_70%)] blur-[20px]" />
+        <div className="absolute top-1/4 right-[10%] w-[420px] h-[420px] bg-[radial-gradient(circle,rgba(99,102,241,0.08),transparent_65%)] blur-[30px]" />
+        <div className="absolute top-1/3 left-[5%] w-[460px] h-[460px] bg-[radial-gradient(circle,rgba(16,185,129,0.08),transparent_65%)] blur-[30px]" />
+
+        {/* Handcrafted subtle dot matrix grid */}
+        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_35%,#000_60%,transparent_100%)]" />
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          
-          {/* Left Column: Headline, Subtitle, and CTAs (7 cols) */}
-          <div className="lg:col-span-7 flex flex-col justify-center text-left">
-            
-            {/* Live Status Badge */}
-            <div className="flex flex-wrap items-center gap-2.5 mb-5">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#10b981]/25 bg-[#10b981]/10 px-3.5 py-1.5 text-[11px] font-bold text-[#10b981] shadow-[0_0_15px_rgba(16,185,129,0.15)]">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10b981] opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10b981]" />
-                </span>
-                <span>Next-Gen High-Frequency Infrastructure</span>
+      <div className="relative z-10 mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
+        
+        {/* Cute handcrafted Pill Badge */}
+        <motion.div
+          {...fadeUp}
+          transition={{ duration: 0.6, ease: EASE }}
+          className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 backdrop-blur-md px-3.5 py-1.5 shadow-[0_0_20px_rgba(16,185,129,0.15)] mb-8"
+        >
+          <span className="flex h-2 w-2 relative">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+          </span>
+          <span className="text-xs font-bold text-emerald-300 tracking-wide">
+            Next-Gen AMD Ryzen 9 &amp; EPYC Infrastructure
+          </span>
+          <span className="text-zinc-600">|</span>
+          <span className="text-[11px] font-medium text-zinc-300 flex items-center gap-1">
+            <Sparkles className="w-3 h-3 text-emerald-400" />
+            99.9% SLA
+          </span>
+        </motion.div>
+
+        {/* Hero Headline */}
+        <motion.h1
+          {...fadeUp}
+          transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
+          className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.08] text-white"
+        >
+          Ultra-Fast Cloud &amp; Game <br />
+          <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(52,211,153,0.3)]">
+            Hosting Made Effortless.
+          </span>
+        </motion.h1>
+
+        {/* Subtitle */}
+        <motion.p
+          {...fadeUp}
+          transition={{ duration: 0.7, delay: 0.2, ease: EASE }}
+          className="mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-zinc-400 font-normal"
+        >
+          Deploy Discord bots, Minecraft, Hytale, and Lavalink audio nodes on dedicated high-frequency NVMe hardware. Instant setup, DDoS shielded, and friendly 24/7 expert support.
+        </motion.p>
+
+        {/* CTAs */}
+        <motion.div
+          {...fadeUp}
+          transition={{ duration: 0.7, delay: 0.3, ease: EASE }}
+          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+        >
+          <Link
+            href="#pricing"
+            className="group relative inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-2xl bg-white hover:bg-zinc-100 text-zinc-950 px-8 py-3.5 text-sm font-black transition-all duration-200 shadow-[0_0_30px_rgba(255,255,255,0.25)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] active:scale-98"
+          >
+            <span>Explore Plans</span>
+            <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1 text-zinc-950" />
+          </Link>
+
+          <a
+            href="https://discord.gg/dJpMDfgUQq"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-2xl border border-white/[0.08] bg-white/[0.04] hover:bg-white/[0.08] px-7 py-3.5 text-sm font-bold text-zinc-200 hover:text-white transition-all duration-200 backdrop-blur-md active:scale-98"
+          >
+            <FaDiscord className="h-4 w-4 text-[#5865F2]" />
+            <span>Join Discord</span>
+          </a>
+        </motion.div>
+
+        {/* Handcrafted Micro Metric Cards */}
+        <motion.div
+          {...fadeUp}
+          transition={{ duration: 0.7, delay: 0.4, ease: EASE }}
+          className="mt-14 pt-8 border-t border-white/[0.06] grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-4xl mx-auto"
+        >
+          {[
+            { icon: Zap, label: "Deployment", value: "30 Seconds" },
+            { icon: ShieldCheck, label: "DDoS Shield", value: "3.2 Tbps Filter" },
+            { icon: HardDrive, label: "Storage", value: "Gen4 NVMe SSD" },
+            { icon: Clock, label: "Guaranteed SLA", value: "99.95% Uptime" },
+          ].map((item, idx) => (
+            <div
+              key={idx}
+              className="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl bg-white/[0.02] border border-white/[0.04] hover:border-emerald-500/20 hover:bg-emerald-500/[0.02] transition-all duration-200"
+            >
+              <div className="flex items-center gap-1.5 text-emerald-400 mb-1">
+                <item.icon className="w-4 h-4" />
+                <span className="text-xs font-black text-white">{item.value}</span>
               </div>
-              
-              <div className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-[11px] font-semibold text-gray-400">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#10b981]" />
-                99.99% Uptime SLA
-              </div>
+              <span className="text-[11px] text-zinc-500 font-medium">{item.label}</span>
             </div>
+          ))}
+        </motion.div>
 
-            {/* Main Headline */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.08] text-white orbitron-font uppercase mb-5">
-              High-Frequency <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10b981] via-[#34d399] to-[#059669]">
-                Cloud &amp; Game
-              </span>{" "}
-              Hosting
-            </h1>
-
-            {/* Subtitle */}
-            <p className="text-sm sm:text-base lg:text-lg text-gray-400 leading-relaxed max-w-2xl mb-8">
-              Deploy ultra-low latency Minecraft servers, Discord bot containers, Cloud VPS, and Lavalink audio nodes powered by AMD Ryzen 9 9950X processors and 100Gbps+ DDoS mitigation.
-            </p>
-
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-10">
-              <Link
-                href="/free-bot-hosting"
-                className="group relative overflow-hidden inline-flex items-center justify-center gap-2 rounded-xl bg-[#10b981] hover:bg-[#059669] text-black font-extrabold text-xs sm:text-sm px-6 py-4 transition-all duration-200 shadow-[0_0_25px_rgba(16,185,129,0.3)] hover:shadow-[0_0_35px_rgba(16,185,129,0.5)] active:scale-[0.98] cursor-pointer orbitron-font uppercase tracking-wider"
-              >
-                <span>Claim Free Bot Host</span>
-                <ChevronRight className="w-4 h-4 stroke-[3] transition-transform duration-200 group-hover:translate-x-1" />
-              </Link>
-
-              <Link
-                href="/games"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/[0.1] hover:border-[#10b981]/40 bg-[#0b0e14]/80 hover:bg-[#0f1420] text-gray-200 hover:text-white font-bold text-xs sm:text-sm px-6 py-4 transition-all duration-200 active:scale-[0.98] cursor-pointer orbitron-font uppercase tracking-wider"
-              >
-                <span>Explore All Servers</span>
-                <ArrowRight className="w-4 h-4 text-gray-400" />
-              </Link>
-            </div>
-
-            {/* Feature Pills */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              {[
-                { icon: Zap, label: "Instant Auto-Deploy", sub: "Online in <30 seconds" },
-                { icon: ShieldCheck, label: "100Gbps DDoS Shield", sub: "Path.net + Voxility" },
-                { icon: Cpu, label: "AMD Ryzen 9 9950X", sub: "5.7GHz Single Core" },
-              ].map(({ icon: Icon, label, sub }, idx) => (
-                <div 
-                  key={idx} 
-                  className="p-3 rounded-xl bg-[#0b0e14]/60 border border-white/[0.06] hover:border-[#10b981]/20 transition-colors"
-                >
-                  <div className="flex items-center gap-2 mb-1">
-                    <Icon className="w-4 h-4 text-[#10b981]" />
-                    <span className="text-xs font-bold text-white leading-none">{label}</span>
-                  </div>
-                  <span className="text-[10px] text-gray-500">{sub}</span>
-                </div>
-              ))}
-            </div>
-
-          </div>
-
-          {/* Right Column: Live Interactive Node Telemetry Card (5 cols) */}
-          <div className="lg:col-span-5">
-            <div className="relative rounded-2xl bg-[#090c13] border border-white/[0.08] p-5 sm:p-6 shadow-[0_10px_40px_rgba(0,0,0,0.4)]">
-              
-              {/* Header Bar */}
-              <div className="flex items-center justify-between border-b border-white/[0.06] pb-4 mb-5">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-3 h-3 rounded-full bg-[#10b981] animate-pulse" />
-                  <div>
-                    <h3 className="text-xs font-bold text-white orbitron-font uppercase tracking-wide">
-                      Node Telemetry
-                    </h3>
-                    <span className="text-[10px] text-gray-400 font-mono">cluster-in-mum01</span>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#10b981]/10 border border-[#10b981]/20 text-[#10b981] text-[10px] font-bold font-mono">
-                  <Activity className="w-3 h-3" />
-                  <span>3.8ms Latency</span>
-                </div>
-              </div>
-
-              {/* Hardware Metrics Display */}
-              <div className="space-y-3.5 mb-6">
-                <div>
-                  <div className="flex justify-between text-xs mb-1.5">
-                    <span className="text-gray-400 flex items-center gap-1.5">
-                      <Cpu className="w-3.5 h-3.5 text-[#10b981]" />
-                      CPU Processor
-                    </span>
-                    <span className="text-white font-mono font-semibold text-[11px]">AMD Ryzen 9 9950X @ 5.7GHz</span>
-                  </div>
-                  <div className="h-1.5 w-full bg-white/[0.05] rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-[#10b981] to-[#34d399] w-[18%] rounded-full" />
-                  </div>
-                </div>
-
-                <div>
-                  <div className="flex justify-between text-xs mb-1.5">
-                    <span className="text-gray-400 flex items-center gap-1.5">
-                      <Zap className="w-3.5 h-3.5 text-[#10b981]" />
-                      System Memory
-                    </span>
-                    <span className="text-white font-mono font-semibold text-[11px]">DDR5 6000MHz ECC</span>
-                  </div>
-                  <div className="h-1.5 w-full bg-white/[0.05] rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-[#10b981] to-[#34d399] w-[24%] rounded-full" />
-                  </div>
-                </div>
-
-                <div>
-                  <div className="flex justify-between text-xs mb-1.5">
-                    <span className="text-gray-400 flex items-center gap-1.5">
-                      <HardDrive className="w-3.5 h-3.5 text-[#10b981]" />
-                      NVMe Storage IOPS
-                    </span>
-                    <span className="text-white font-mono font-semibold text-[11px]">Gen5 Read 14,000 MB/s</span>
-                  </div>
-                  <div className="h-1.5 w-full bg-white/[0.05] rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-[#10b981] to-[#34d399] w-[12%] rounded-full" />
-                  </div>
-                </div>
-              </div>
-
-              {/* Quick Launch Services */}
-              <div>
-                <div className="text-[10px] text-gray-400 uppercase font-bold tracking-wider mb-2.5">
-                  Instant Service Launch
-                </div>
-
-                <div className="grid grid-cols-2 gap-2">
-                  {quickProducts.map((prod, idx) => {
-                    const Icon = prod.icon
-                    return (
-                      <Link
-                        key={prod.id}
-                        href={prod.href}
-                        className="p-2.5 rounded-xl bg-white/[0.02] hover:bg-white/[0.05] border border-white/[0.06] hover:border-[#10b981]/30 transition-all flex flex-col justify-between group cursor-pointer"
-                      >
-                        <div className="flex items-center justify-between mb-1.5">
-                          <Icon className="w-4 h-4 text-[#10b981] group-hover:scale-110 transition-transform" />
-                          <span className="text-[9px] font-bold text-[#10b981] bg-[#10b981]/10 px-1.5 py-0.5 rounded">
-                            {prod.badge}
-                          </span>
-                        </div>
-                        <div>
-                          <div className="text-xs font-bold text-white group-hover:text-[#10b981] transition-colors flex items-center justify-between">
-                            <span>{prod.name}</span>
-                            <ChevronRight className="w-3 h-3 text-gray-500 group-hover:text-white group-hover:translate-x-0.5 transition-all" />
-                          </div>
-                          <span className="text-[9px] text-gray-500 block truncate">{prod.specs}</span>
-                        </div>
-                      </Link>
-                    )
-                  })}
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
       </div>
     </section>
   );
