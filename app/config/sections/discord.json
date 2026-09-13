@@ -4,13 +4,13 @@
       "id": "budget",
       "name": "Budget",
       "displayName": "Budget Plans",
-      "image": "/icons/nodejs.png"
+      "image": "/icons/discord2.avif"
     },
     {
       "id": "premium",
       "name": "Premium",
       "displayName": "Premium Plans",
-      "image": "/icons/nodejs.png"
+      "image": "/icons/discord2.avif"
     }
   ],
   "plans": {

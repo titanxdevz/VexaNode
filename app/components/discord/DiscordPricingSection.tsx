@@ -141,18 +141,18 @@ export default function DiscordPricingSection() {
                   )}
 
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="flex items-center justify-center">
+                    <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-[#5865F2]/10 border border-[#5865F2]/20 p-2 shadow-[0_0_15px_rgba(88,101,242,0.2)]">
                       <Image
-                        src="/icons/nodejs.png"
-                        alt="Node.js"
-                        width={64}
-                        height={64}
-                        className="object-contain bg-transparent"
+                        src="/icons/discord2.avif"
+                        alt="Discord Bot"
+                        width={48}
+                        height={48}
+                        className="object-contain"
                       />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-white">{plan.name}</h3>
-                      <p className="text-sm text-gray-400">Discord Bot</p>
+                      <p className="text-sm text-gray-400">Discord Bot Node</p>
                     </div>
                   </div>
 
