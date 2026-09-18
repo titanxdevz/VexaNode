@@ -2,24 +2,24 @@
 
 import { useEffect, useRef, useState } from "react"
 import createGlobe, { COBEOptions } from "cobe"
-import { useMotionValue, useSpring } from "framer-motion"
+import { useSpring, useMotionValue } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 const MOVEMENT_DAMPING = 1400
 
 const GLOBE_CONFIG: COBEOptions = {
-    width: 900,
-    height: 900,
+    width: 800,
+    height: 800,
     onRender: () => { },
-    devicePixelRatio: 2,
+    devicePixelRatio: 1, // Was 2 — halved for performance
     phi: 0,
     theta: 0.3,
     dark: 1,
     diffuse: 0.4,
-    mapSamples: 16000,
+    mapSamples: 10000, // Was 16000 — reduced for performance
     mapBrightness: 3,
     baseColor: [0.03, 0.05, 0.15],
-    markerColor: [16/255, 185/255, 129/255], // Emerald green markers to match brand
+    markerColor: [16/255, 185/255, 129/255],
     glowColor: [0.03, 0.15, 0.08],
 
     markers: [
@@ -48,14 +48,15 @@ export function Globe({ className, config = GLOBE_CONFIG }: { className?: string
     let phi = 0
     let width = 0
     const canvasRef = useRef<HTMLCanvasElement>(null)
-    
+    const containerRef = useRef<HTMLDivElement>(null)
+    const globeRef = useRef<ReturnType<typeof createGlobe> | null>(null)
+    const [isVisible, setIsVisible] = useState(false)
+
     const pointerInteracting = useRef<number | null>(null)
     const pointerInteractionMovement = useRef(0)
-    const [isDark, setIsDark] = useState(true)
 
     const r = useMotionValue(0)
     const rs = useSpring(r, { mass: 1, damping: 30, stiffness: 100 })
-    const [themeColorUpdate, setThemeColorUpdate] = useState(0)
 
     const updatePointerInteraction = (value: number | null) => {
         pointerInteracting.current = value
@@ -71,34 +72,42 @@ export function Globe({ className, config = GLOBE_CONFIG }: { className?: string
         }
     }
 
+    // IntersectionObserver — only render when visible
     useEffect(() => {
-        const checkTheme = () => setIsDark(document.documentElement.classList.contains('dark'))
-        checkTheme()
-        const observer = new MutationObserver(() => {
-            checkTheme()
-            setThemeColorUpdate(prev => prev + 1)
-        })
-        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
+        const el = containerRef.current
+        if (!el) return
+
+        const observer = new IntersectionObserver(
+            ([entry]) => { setIsVisible(entry.isIntersecting) },
+            { rootMargin: '200px' } // Start loading slightly before in view
+        )
+        observer.observe(el)
         return () => observer.disconnect()
     }, [])
 
+    // Create/destroy globe based on visibility
     useEffect(() => {
+        if (!isVisible || !canvasRef.current) {
+            // Destroy globe when not visible to free GPU
+            if (globeRef.current) {
+                globeRef.current.destroy()
+                globeRef.current = null
+            }
+            return
+        }
+
         const onResize = () => {
             if (canvasRef.current) width = canvasRef.current.offsetWidth
         }
         window.addEventListener("resize", onResize)
         onResize()
 
-        const themeConfig = {
+        const globe = createGlobe(canvasRef.current, {
             ...config,
-            dark: isDark ? 1 : 0,
+            dark: 1,
             baseColor: [0.03, 0.05, 0.15] as [number, number, number],
-            markerColor: [16/255, 185/255, 129/255] as [number, number, number], // emerald green VexaNode brand markers
+            markerColor: [16/255, 185/255, 129/255] as [number, number, number],
             glowColor: [0.03, 0.15, 0.08] as [number, number, number],
-        }
-
-        const globe = createGlobe(canvasRef.current!, {
-            ...themeConfig,
             width: width * 2,
             height: width * 2,
             onRender: (state) => {
@@ -108,19 +117,21 @@ export function Globe({ className, config = GLOBE_CONFIG }: { className?: string
                 state.height = width * 2
             },
         })
+        globeRef.current = globe
 
         setTimeout(() => {
             if (canvasRef.current) canvasRef.current.style.opacity = "1";
         }, 0)
-        
+
         return () => {
             globe.destroy()
+            globeRef.current = null
             window.removeEventListener("resize", onResize)
         }
-    }, [rs, config, isDark, themeColorUpdate])
+    }, [isVisible, rs, config])
 
     return (
-        <div className={cn("absolute inset-0 mx-auto aspect-[1/1] w-full max-w-[600px]", className)}>
+        <div ref={containerRef} className={cn("absolute inset-0 mx-auto aspect-[1/1] w-full max-w-[600px]", className)}>
             <canvas
                 className="size-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size]"
                 ref={canvasRef}
@@ -136,4 +147,3 @@ export function Globe({ className, config = GLOBE_CONFIG }: { className?: string
         </div>
     )
 }
-

@@ -109,12 +109,7 @@ const nextConfig: NextConfig = {
   redirects: async () => [
     {
       source: '/minecraft-hosting',
-      destination: '/games',
-      permanent: true,
-    },
-    {
-      source: '/minecraft',
-      destination: '/games',
+      destination: '/minecraft',
       permanent: true,
     },
     {

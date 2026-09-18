@@ -1,10 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import {
   ChevronRight, Cpu, Zap, Shield, HardDrive,
-  Gamepad2, Sparkles, Server, ChevronDown, Users, Globe2, Radio
+  Gamepad2, Server, ChevronDown, Users, Globe2, Radio,
+  MapPin, Target, Flame, Activity, Crosshair, Sparkles, Star
 } from "lucide-react"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
@@ -23,89 +24,104 @@ const cycles = [
 const sampPlans = [
   {
     id: "samp-starter",
-    name: "Starter",
-    stars: "★",
-    ram: "1 GB",
-    cpu: "1 vCPU",
-    storage: "10 GB NVMe",
-    slots: "25 Players",
-    ddos: "Included",
+    name: "STREET HUSTLER",
+    tier: "TIER 01",
+    stars: 1,
+    ram: "1 GB DDR5",
+    cpu: "1 vCPU @ 5.7 GHz",
+    storage: "10 GB NVMe Gen4",
+    slots: "25 Slots",
+    bandwidth: "Unmetered 1 Gbps",
+    ddos: "Game DDoS Shield",
     basePrice: 59,
-    popular: false
+    popular: false,
+    tag: "STARTER DEPLOY"
   },
   {
     id: "samp-basic",
-    name: "Basic",
-    stars: "★★",
-    ram: "2 GB",
-    cpu: "1 vCPU",
-    storage: "15 GB NVMe",
-    slots: "50 Players",
-    ddos: "Included",
+    name: "GROVE ENFORCER",
+    tier: "TIER 02",
+    stars: 2,
+    ram: "2 GB DDR5",
+    cpu: "1 vCPU @ 5.7 GHz",
+    storage: "15 GB NVMe Gen4",
+    slots: "50 Slots",
+    bandwidth: "Unmetered 1 Gbps",
+    ddos: "Game DDoS Shield",
     basePrice: 99,
-    popular: false
+    popular: false,
+    tag: "CLAN READY"
   },
   {
     id: "samp-advanced",
-    name: "Advanced",
-    stars: "★★★",
-    ram: "4 GB",
-    cpu: "2 vCPU",
-    storage: "25 GB NVMe",
-    slots: "100 Players",
-    ddos: "Included",
+    name: "SAN ANDREAS OG",
+    tier: "TIER 03",
+    stars: 3,
+    ram: "4 GB DDR5",
+    cpu: "2 vCPU @ 5.7 GHz",
+    storage: "25 GB NVMe Gen4",
+    slots: "100 Slots",
+    bandwidth: "Unmetered 10 Gbps",
+    ddos: "Game DDoS Shield",
     basePrice: 179,
-    popular: true
+    popular: true,
+    tag: "MOST POPULAR ROLEPLAY"
   },
   {
     id: "samp-pro",
-    name: "Pro",
-    stars: "★★★★",
-    ram: "6 GB",
-    cpu: "3 vCPU",
-    storage: "40 GB NVMe",
-    slots: "150 Players",
-    ddos: "Included",
+    name: "SYNDICATE BOSS",
+    tier: "TIER 04",
+    stars: 4,
+    ram: "6 GB DDR5",
+    cpu: "3 vCPU @ 5.7 GHz",
+    storage: "40 GB NVMe Gen4",
+    slots: "150 Slots",
+    bandwidth: "Unmetered 10 Gbps",
+    ddos: "Enterprise Anti-Query",
     basePrice: 249,
-    popular: false
+    popular: false,
+    tag: "HEAVY FREEROAM"
   },
   {
     id: "samp-ultimate",
-    name: "Ultimate",
-    stars: "★★★★★",
-    ram: "8 GB",
-    cpu: "4 vCPU",
-    storage: "60 GB NVMe",
-    slots: "200 Players",
-    ddos: "Included",
+    name: "LOS SANTOS KINGPIN",
+    tier: "TIER 05",
+    stars: 5,
+    ram: "8 GB DDR5",
+    cpu: "4 vCPU @ 5.7 GHz",
+    storage: "60 GB NVMe Gen4",
+    slots: "200+ Slots",
+    bandwidth: "Dedicated 10 Gbps",
+    ddos: "Enterprise Anti-Query",
     basePrice: 349,
-    popular: false
+    popular: false,
+    tag: "MAXIMUM CAPACITY"
   }
 ]
 
 const locations = [
-  { name: "India", flag: "🇮🇳", desc: "Ultra-low ping for Indian subcontinent" },
-  { name: "USA", flag: "🇺🇸", desc: "Central & East Coast low latency" },
-  { name: "Germany", flag: "🇩🇪", desc: "High-speed European backbone" },
-  { name: "Ohio", flag: "🇺🇸", desc: "Optimized North American routing" }
+  { name: "India Gateway", city: "Mumbai / Delhi Hub", flag: "🇮🇳", ping: "8ms", code: "IX-BOM", desc: "Lowest ping routing for Indian players & Asian subcontinents" },
+  { name: "US Coastline", city: "Miami / Dallas Nodes", flag: "🇺🇸", ping: "12ms", code: "US-MIA", desc: "Low-jitter transatlantic routing with zero packet loss" },
+  { name: "Europe Backbone", city: "Frankfurt DE-CIX", flag: "🇩🇪", ping: "10ms", code: "EU-FRA", desc: "Direct Tier-1 carrier interchange for European player base" },
+  { name: "US Central", city: "Columbus, Ohio", flag: "🇺🇸", ping: "14ms", code: "US-CMH", desc: "Optimized multi-path routing across North American routes" }
 ]
 
 const faqs = [
   {
-    q: "What is SA-MP Hosting and which versions are supported?",
-    a: "We provide dedicated high-tickrate game hosting for San Andreas Multiplayer (SA-MP 0.3.7, 0.3.DL) and open.mp servers with full plugin support, streamer plugins, crashdetect, and custom native extensions."
+    q: "What is SA-MP Hosting and which gamemodes run smoothly?",
+    a: "We provide dedicated high-tickrate game hosting for San Andreas Multiplayer (SA-MP 0.3.7, 0.3.DL) and open.mp servers. Whether you run complex MySQL roleplay scripts (NG-RP, South Central, Godfather variants), crazy stunt freeroams, or high-APM TDM clans, our servers run with zero tick-drop."
   },
   {
-    q: "How do I order and setup my SA-MP server?",
-    a: "Clicking 'Order Now' will redirect you directly to our official Discord community (https://discord.gg/devz) where our automated deployment bot and support team will instantly provision your server."
+    q: "How do I deploy my server and upload my scripts?",
+    a: "Clicking 'Deploy Server' routes you straight to our official Discord (https://discord.gg/devz) where our bot provisions your node in under 60 seconds. You receive full SFTP access to upload your .amx, filterscripts, plugin .so files, and edit server.cfg directly."
   },
   {
-    q: "Can I use custom gamemodes and MySQL databases?",
-    a: "Yes! You get full SFTP file manager access to upload your .amx gamemodes, filterscripts, scriptfiles, and server.cfg, along with free managed MySQL databases."
+    q: "Do I get a dedicated MySQL database for player accounts?",
+    a: "Yes! Every SA-MP plan comes with high-speed SSD-backed MySQL database instances included at zero extra cost, perfect for BlueG/maddinat0r MySQL plugins."
   },
   {
-    q: "Is DDoS protection included on all SA-MP plans?",
-    a: "Yes! Every SA-MP plan is shielded by always-on Game-Specific DDoS filtering that stops UDP reflection attacks and SAMP query flood attacks without affecting your player ping."
+    q: "How does the Anti-Query Flood DDoS protection work?",
+    a: "SA-MP is infamous for UDP query flood attacks that freeze server browsers and lag players. Our edge mitigation scrubs malicious query packets before they hit your CPU, keeping your ping rock-solid."
   }
 ]
 
@@ -126,108 +142,211 @@ export default function SampHostingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#07090e] text-white selection:bg-[#10b981]/30 relative overflow-hidden">
-      {/* Background Ambient Glow */}
-      <div className="fixed inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(16,185,129,0.08),transparent_100%)] pointer-events-none" />
-      <div className="fixed inset-0 bg-[linear-gradient(rgba(255,255,255,0.012)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.012)_1px,transparent_1px)] bg-[size:48px_48px] pointer-events-none" />
+    <div className="min-h-screen bg-[#07090e] text-zinc-100 selection:bg-amber-500/30 selection:text-white relative overflow-hidden">
+      
+      {/* ── IMMERSIVE SAN ANDREAS THEMED BACKGROUND ── */}
+      <div className="fixed inset-0 pointer-events-none -z-10 select-none overflow-hidden">
+        {/* Crisp black background with subtle California sunset amber crest */}
+        <div className="absolute top-0 inset-x-0 h-[600px] bg-[radial-gradient(ellipse_90%_60%_at_50%_-10%,rgba(245,158,11,0.12),rgba(139,92,246,0.05)_45%,transparent_75%)]" />
+        <div className="absolute top-[30%] left-[-10%] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(217,119,6,0.04),transparent_65%)]" />
+        <div className="absolute top-[50%] right-[-10%] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(139,92,246,0.03),transparent_65%)]" />
+        
+        {/* Subtle grid pattern matching site aesthetic */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:48px_48px]" />
+      </div>
 
-      <PageMeta title="SA-MP Server Hosting — VexaNode" />
+      <PageMeta title="SA-MP Server Hosting — San Andreas Multiplayer | VexaNode" />
       <Navbar />
 
-      <main className="relative z-10 pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        {/* Header Section */}
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 mb-10">
-          <div className="max-w-2xl">
-            {/* Small Badge */}
-            <div className="inline-flex items-center gap-2 bg-[#10b981]/10 text-[#10b981] text-xs font-semibold px-3 py-1 rounded-md border border-[#10b981]/20 mb-4">
-              <Gamepad2 className="w-3.5 h-3.5" />
-              <span>Reliable • DDoS Protected • 24/7 Online</span>
+      <main className="relative z-10 pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        
+        {/* ── 1. GTA SAN ANDREAS HERO SECTION ── */}
+        <div className="relative mb-14 rounded-3xl border border-amber-500/20 bg-[#090b12]/90 p-6 sm:p-10 lg:p-12 overflow-hidden shadow-2xl">
+          {/* Top amber neon edge glow */}
+          <div className="absolute top-0 inset-x-8 h-[2px] bg-gradient-to-r from-transparent via-amber-400 to-transparent shadow-[0_0_12px_#f59e0b]" />
+
+          {/* Palm Silhouette Line Overlay in Hero */}
+          <svg
+            className="absolute bottom-0 inset-x-0 w-full h-28 opacity-[0.08] text-amber-400 pointer-events-none"
+            preserveAspectRatio="none"
+            viewBox="0 0 1200 120"
+            fill="currentColor"
+          >
+            <path d="M0,120 L0,95 Q40,90 70,75 L75,120 L150,120 L152,45 L158,45 L160,120 L240,120 L245,60 L255,60 L260,120 L380,120 L385,80 L395,80 L400,120 L520,120 Q550,60 580,120 L680,120 L685,30 L695,30 L700,120 L820,120 L825,70 L835,70 L840,120 L960,120 L965,50 L975,50 L980,120 L1080,120 Q1120,40 1150,120 L1200,120 Z" />
+          </svg>
+
+          <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
+            
+            {/* Left Column: Heading, Wanted Stars, Narrative */}
+            <div className="max-w-2xl">
+              
+              {/* Retro 90s-00s Console HUD Status Bar */}
+              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-lg bg-black/80 border border-amber-500/40 mb-6 shadow-[0_0_15px_rgba(245,158,11,0.2)] flex-wrap">
+                <span className="flex items-center gap-1.5 font-mono text-[10px] tracking-widest font-black uppercase text-amber-400">
+                  <span className="inline-block w-2 h-2 bg-amber-400 rounded-full shadow-[0_0_8px_#f59e0b] animate-ping" />
+                  STATUS: 1000 FPS ACTIVE
+                </span>
+                <span className="text-zinc-700">|</span>
+                <span className="font-mono text-[11px] text-zinc-300 font-bold tracking-wider uppercase">
+                  SA-MP 0.3.7 • 0.3.DL • OPEN.MP
+                </span>
+                <span className="text-zinc-700">|</span>
+                <span className="text-[10px] font-mono font-bold text-amber-400 uppercase tracking-widest">
+                  AMD RYZEN 9 9950X
+                </span>
+              </div>
+
+              {/* 5-Star Wanted Level Indicator */}
+              <div className="flex items-center gap-1.5 mb-3 select-none">
+                {[1, 2, 3, 4, 5, 6].map((star) => (
+                  <span
+                    key={star}
+                    className={`text-lg sm:text-xl transition-transform hover:scale-125 ${
+                      star <= 5
+                        ? "text-amber-400 drop-shadow-[0_0_12px_rgba(251,191,36,0.8)]"
+                        : "text-zinc-800"
+                    }`}
+                  >
+                    ★
+                  </span>
+                ))}
+                <span className="ml-2 text-[11px] font-mono tracking-widest text-amber-400/90 font-black uppercase">
+                  WANTED 5-STAR QUALITY
+                </span>
+              </div>
+
+              {/* Stencil & San Andreas Font Style Heading */}
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white leading-[1.05] mb-5">
+                SAN ANDREAS{" "}
+                <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-amber-200 drop-shadow-[0_2px_20px_rgba(245,158,11,0.4)]">
+                  MULTIPLAYER
+                  <span className="absolute -bottom-1.5 left-0 right-0 h-[3.5px] bg-gradient-to-r from-amber-500 via-orange-500 to-transparent rounded-full opacity-90 shadow-[0_0_10px_#f59e0b]" />
+                </span>
+              </h1>
+
+              {/* Gritty Street Copy */}
+              <p className="text-zinc-300 text-sm sm:text-base leading-relaxed mb-6 font-normal">
+                Pure high-frequency performance tuned for San Andreas Multiplayer clans, roleplay cities, and open.mp freeroam. Zero tick-drop timer execution, dedicated NVMe Gen4 speeds, and hardware edge packet filters to keep your streets clear.
+              </p>
+
+              {/* Sub-links */}
+              <div className="text-xs text-zinc-400 flex flex-wrap items-center gap-2 font-mono">
+                <span className="text-amber-400 font-bold uppercase tracking-wider">Quick Switch:</span>
+                <Link href="/games?game=minecraft" className="hover:text-amber-300 transition-colors">Minecraft Hosting</Link>
+                <span className="text-zinc-700">•</span>
+                <Link href="/discord" className="hover:text-amber-300 transition-colors">Discord Bots</Link>
+                <span className="text-zinc-700">•</span>
+                <Link href="/lavalink" className="hover:text-amber-300 transition-colors">Lavalink Nodes</Link>
+                <span className="text-zinc-700">•</span>
+                <Link href="/vps" className="hover:text-amber-300 transition-colors">Cloud VPS</Link>
+              </div>
             </div>
 
-            {/* Title */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black orbitron-font tracking-tight mb-4 text-white">
-              SA-MP <span className="text-[#10b981]">Hosting</span>
-            </h1>
+            {/* Right Column: Poster Vignette & Currency */}
+            <div className="flex flex-col items-start lg:items-end gap-4 flex-shrink-0">
+              <CurrencySelector />
 
-            {/* Description */}
-            <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-4">
-              Deploy high-performance San Andreas Multiplayer (SA-MP) & open.mp servers. NVMe storage, 24/7 uptime guarantee, instant setup, and multi-location deployment across India, USA, Germany, and Ohio.
-            </p>
+              {/* Framed Los Santos Poster Card */}
+              <div className="relative group rounded-2xl bg-gradient-to-b from-[#1c140d] via-[#100e16] to-[#09080e] border border-amber-500/40 p-3.5 shadow-[0_20px_50px_rgba(0,0,0,0.9)] hover:border-amber-400 transition-all duration-300">
+                
+                {/* Vintage San Andreas Badge Stamp */}
+                <div className="absolute top-2.5 right-2.5 z-10 px-2.5 py-0.5 rounded bg-amber-500 text-zinc-950 font-mono text-[9px] font-black uppercase tracking-widest shadow-md">
+                  LOS SANTOS 1992
+                </div>
 
-            {/* Sub-links */}
-            <div className="text-xs text-gray-500 flex flex-wrap items-center gap-1.5 font-medium">
-              <span className="text-gray-400">Also Explore:</span>
-              <Link href="/games?game=minecraft" className="text-[#10b981] hover:underline">Minecraft Hosting</Link>
-              <span>•</span>
-              <Link href="/discord" className="text-[#10b981] hover:underline">Discord Bot Hosting</Link>
-              <span>•</span>
-              <Link href="/lavalink" className="text-[#10b981] hover:underline">Lavalink Audio</Link>
-              <span>•</span>
-              <Link href="/vps" className="text-[#10b981] hover:underline">VPS Hosting</Link>
+                <div className="relative overflow-hidden rounded-xl bg-black/70 border border-amber-500/10">
+                  <img
+                    src="/images/samp-banner.webp"
+                    alt="San Andreas Multiplayer SA-MP Hosting"
+                    className="w-56 sm:w-64 h-auto object-contain transition-transform duration-300 group-hover:scale-105 filter contrast-110"
+                    loading="eager"
+                  />
+                  <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_35px_rgba(0,0,0,0.85)]" />
+                </div>
+
+                <div className="mt-2.5 flex items-center justify-between text-[10px] font-mono text-zinc-400 px-1">
+                  <span className="text-amber-400 font-bold uppercase tracking-wider">SA-MP &amp; OPEN.MP</span>
+                  <span className="text-zinc-500">TITAN DEVZ ENGINE</span>
+                </div>
+              </div>
             </div>
-          </div>
 
-          {/* Right Column: Currency Selector & SA-MP Logo Card */}
-          <div className="flex flex-col items-start lg:items-end gap-4 flex-shrink-0">
-            <CurrencySelector />
-            <div className="relative group rounded-2xl bg-[#0a0d14]/80 border border-white/[0.08] p-3 backdrop-blur-md hover:border-[#10b981]/40 transition-all shadow-[0_0_25px_rgba(16,185,129,0.1)]">
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#10b981]/10 to-transparent rounded-2xl pointer-events-none" />
-              <img
-                src="/images/samp-banner.webp"
-                alt="San Andreas Multiplayer SA-MP Hosting"
-                className="w-48 sm:w-56 h-auto object-contain drop-shadow-[0_0_15px_rgba(16,185,129,0.3)] transition-transform duration-300 group-hover:scale-105"
-                loading="eager"
-              />
-            </div>
           </div>
         </div>
 
-        {/* Available Locations Bar */}
-        <div className="mb-10 p-5 rounded-2xl bg-[#0a0d14]/90 border border-white/[0.08] backdrop-blur-md">
-          <div className="flex items-center gap-2 mb-3">
-            <Globe2 className="w-4 h-4 text-[#10b981]" />
-            <h3 className="text-xs font-bold uppercase tracking-wider text-gray-300">
-              Available Locations
-            </h3>
+        {/* ── 2. IN-GAME GPS RADAR STYLED LOCATIONS ── */}
+        <div className="mb-14 rounded-3xl border border-zinc-800/90 bg-[#090b12] p-6 sm:p-8 shadow-xl">
+          <div className="flex items-center justify-between gap-4 mb-6 pb-4 border-b border-zinc-800/80">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-xl bg-amber-500/10 border border-amber-500/25 flex items-center justify-center text-amber-400">
+                <Target className="w-4 h-4" />
+              </div>
+              <div>
+                <h3 className="text-base font-black uppercase tracking-wider text-white">
+                  IN-GAME GPS PEERING HUBS
+                </h3>
+                <p className="text-xs text-zinc-400">Direct IX-connected data centers chosen specifically for lowest player jitter</p>
+              </div>
+            </div>
+            <span className="hidden sm:inline-flex text-[10px] font-mono text-amber-400 bg-amber-500/10 border border-amber-500/30 px-3 py-1 rounded-full uppercase font-black tracking-widest">
+              BGP TIER-1 LOW PING
+            </span>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {locations.map((loc, idx) => (
               <div
                 key={idx}
-                className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:border-[#10b981]/30 transition-all"
+                className="group relative flex items-start gap-3.5 p-4 rounded-2xl bg-[#0d0f18] border border-zinc-800/80 hover:border-amber-400 hover:bg-[#111422] transition-all duration-200"
               >
-                <span className="text-2xl">{loc.flag}</span>
-                <div>
-                  <div className="text-sm font-bold text-white orbitron-font">{loc.name}</div>
-                  <div className="text-[10px] text-gray-400">{loc.desc}</div>
+                {/* GPS Radar Marker Icon */}
+                <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 flex-shrink-0 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-black transition-all">
+                  <MapPin className="w-4 h-4" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center justify-between gap-1">
+                    <span className="text-xs font-black text-white uppercase tracking-wide">
+                      {loc.name} {loc.flag}
+                    </span>
+                    <span className="text-[10px] font-mono font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-1.5 py-0.2 rounded">
+                      {loc.ping}
+                    </span>
+                  </div>
+                  <div className="text-[11px] font-semibold text-amber-300/80 mt-0.5">{loc.city}</div>
+                  <p className="text-[10px] text-zinc-400 mt-1 leading-snug">{loc.desc}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* 1. Choose Billing Cycle */}
+        {/* ── 3. BILLING CYCLE SELECTOR ── */}
         <div className="mb-10">
-          <h3 className="text-xs font-bold text-gray-400 mb-3 tracking-wide">
-            1. Choose Billing Cycle
-          </h3>
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-xs font-mono font-black text-amber-400 uppercase tracking-widest">PHASE 01</span>
+            <span className="text-zinc-600">•</span>
+            <h3 className="text-xs font-bold text-zinc-300 uppercase tracking-wider">
+              SELECT PAYMENT CONTRACT
+            </h3>
+          </div>
+
           <div className="w-full max-w-full overflow-x-auto no-scrollbar flex items-center gap-1.5 pb-1">
-            <div className="inline-flex bg-[#0b0e14] p-1 rounded-xl border border-white/[0.08] flex-nowrap">
+            <div className="inline-flex bg-black/90 p-1.5 rounded-xl border border-amber-500/25 flex-nowrap gap-1">
               {cycles.map((cycle) => (
                 <button
                   key={cycle.id}
                   type="button"
                   onClick={() => setSelectedCycle(cycle.id)}
-                  className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap flex-shrink-0 flex items-center gap-1.5 ${
+                  className={`px-4 py-2 rounded-lg text-xs font-black transition-all cursor-pointer whitespace-nowrap flex-shrink-0 flex items-center gap-2 uppercase tracking-wide ${
                     selectedCycle === cycle.id
-                      ? "bg-[#10b981] text-black shadow-[0_0_12px_rgba(16,185,129,0.3)]"
-                      : "text-gray-400 hover:text-white"
+                      ? "bg-amber-500 text-black shadow-[0_0_15px_rgba(245,158,11,0.4)]"
+                      : "text-zinc-400 hover:text-white hover:bg-zinc-900"
                   }`}
                 >
                   <span>{cycle.name}</span>
                   {cycle.discount > 0 && (
-                    <span className={`text-[9px] px-1 py-0.2 rounded font-black uppercase ${
-                      selectedCycle === cycle.id ? "bg-black/20 text-black" : "bg-[#10b981]/15 text-[#10b981]"
+                    <span className={`text-[9px] px-1.5 py-0.5 rounded font-black uppercase ${
+                      selectedCycle === cycle.id ? "bg-black text-amber-400" : "bg-amber-500/20 text-amber-400 border border-amber-500/30"
                     }`}>
                       {cycle.label}
                     </span>
@@ -238,108 +357,138 @@ export default function SampHostingPage() {
           </div>
         </div>
 
-        {/* 2. Choose Plan Grid */}
+        {/* ── 4. PLAN CARDS (FULL GTA SAN ANDREAS THEME OVERHAUL) ── */}
         <div className="mb-20">
-          <h3 className="text-xs font-bold text-gray-400 mb-4 tracking-wide">
-            2. Choose Plan
-          </h3>
+          <div className="flex items-center gap-2 mb-5">
+            <span className="text-xs font-mono font-black text-amber-400 uppercase tracking-widest">PHASE 02</span>
+            <span className="text-zinc-600">•</span>
+            <h3 className="text-xs font-bold text-zinc-300 uppercase tracking-wider">
+              SELECT GANG TIER &amp; SERVER SPECIFICATIONS
+            </h3>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {sampPlans.map((plan) => {
               const price = calculatePrice(plan.basePrice)
               return (
                 <div
                   key={plan.id}
-                  className={`relative rounded-2xl bg-[#0a0d14]/90 border transition-all duration-300 p-5 flex flex-col justify-between hover:-translate-y-1 ${
+                  className={`group relative rounded-3xl border transition-all duration-300 p-6 flex flex-col justify-between hover:-translate-y-1.5 ${
                     plan.popular
-                      ? "border-[#10b981] shadow-[0_0_25px_rgba(16,185,129,0.15)]"
-                      : "border-white/[0.08] hover:border-[#10b981]/40 hover:bg-[#0c1018]"
+                      ? "border-amber-400/90 bg-[#0d0f18] shadow-[0_0_30px_rgba(245,158,11,0.18)]"
+                      : "border-zinc-800/90 bg-[#090b12] hover:border-amber-500/50 hover:bg-[#0c0f1a]"
                   }`}
                 >
-                  {/* Popular Badge */}
+                  {/* Street Tag Badge */}
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <span className="text-[9px] font-mono font-black text-amber-400 uppercase tracking-widest px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/25">
+                      {plan.tier}
+                    </span>
+                    <span className="text-[9px] font-mono font-bold text-zinc-400 uppercase">
+                      {plan.tag}
+                    </span>
+                  </div>
+
+                  {/* Spray-Paint Stamp for Most Popular */}
                   {plan.popular && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#10b981] to-[#059669] text-black text-[9px] font-black px-3 py-0.5 rounded-full uppercase tracking-wider shadow-[0_0_15px_rgba(16,185,129,0.35)] flex items-center gap-1">
-                      <Sparkles className="w-2.5 h-2.5 fill-black" />
-                      Most Popular
+                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-400 text-black text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-wider shadow-[0_0_20px_rgba(245,158,11,0.6)] flex items-center gap-1.5 border border-amber-200">
+                      <Flame className="w-3.5 h-3.5 fill-black text-black" />
+                      MOST POPULAR ROLEPLAY
                     </div>
                   )}
 
                   <div>
-                    {/* Card Header */}
-                    <div className="flex items-center gap-3.5 mb-5">
-                      <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/[0.08] flex items-center justify-center p-2 text-[#10b981] flex-shrink-0">
-                        <Gamepad2 className="w-5 h-5 text-white" />
-                      </div>
+                    {/* Card Header with Wanted Stars */}
+                    <div className="flex items-center justify-between gap-3 mb-5 pb-4 border-b border-amber-500/15">
                       <div>
-                        <div className="flex items-center gap-1.5">
-                          <h4 className="text-base font-bold text-white orbitron-font">{plan.name}</h4>
-                          <span className="text-[#10b981] text-xs font-bold tracking-widest">{plan.stars}</span>
+                        <h4 className="text-xl font-black uppercase text-white tracking-wide">{plan.name}</h4>
+                        {/* GTA Wanted Stars for Plan Tier */}
+                        <div className="flex items-center gap-1 mt-1.5">
+                          {Array.from({ length: 5 }).map((_, i) => (
+                            <span
+                              key={i}
+                              className={`text-sm ${
+                                i < plan.stars
+                                  ? "text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.7)]"
+                                  : "text-zinc-800"
+                              }`}
+                            >
+                              ★
+                            </span>
+                          ))}
                         </div>
-                        <span className="text-[11px] text-gray-400">SA-MP Server</span>
+                      </div>
+
+                      <div className="w-11 h-11 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 flex-shrink-0 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-black transition-all shadow-md">
+                        <Gamepad2 className="w-5 h-5" />
                       </div>
                     </div>
 
-                    {/* Specs Rows */}
-                    <div className="space-y-3 mb-6">
-                      <div className="flex items-center justify-between text-xs">
-                        <span className="text-gray-400 flex items-center gap-2">
-                          <Zap className="w-3.5 h-3.5 text-[#10b981]" />
-                          Memory
+                    {/* Specs Rows with GTA Themed Icons */}
+                    <div className="space-y-3 mb-7">
+                      <div className="flex items-center justify-between text-xs p-2 rounded-lg bg-black/40 border border-white/[0.02]">
+                        <span className="text-zinc-400 flex items-center gap-2">
+                          <Zap className="w-3.5 h-3.5 text-amber-400" />
+                          Dedicated Memory
                         </span>
-                        <span className="font-bold text-white">{plan.ram}</span>
+                        <span className="font-bold text-white font-mono">{plan.ram}</span>
                       </div>
 
-                      <div className="flex items-center justify-between text-xs">
-                        <span className="text-gray-400 flex items-center gap-2">
-                          <Cpu className="w-3.5 h-3.5 text-[#10b981]" />
-                          Processor
+                      <div className="flex items-center justify-between text-xs p-2 rounded-lg bg-black/40 border border-white/[0.02]">
+                        <span className="text-zinc-400 flex items-center gap-2">
+                          <Cpu className="w-3.5 h-3.5 text-amber-400" />
+                          AMD Clock Rate
                         </span>
-                        <span className="font-bold text-white">{plan.cpu}</span>
+                        <span className="font-bold text-white font-mono">{plan.cpu}</span>
                       </div>
 
-                      <div className="flex items-center justify-between text-xs">
-                        <span className="text-gray-400 flex items-center gap-2">
-                          <HardDrive className="w-3.5 h-3.5 text-[#10b981]" />
-                          Storage
+                      <div className="flex items-center justify-between text-xs p-2 rounded-lg bg-black/40 border border-white/[0.02]">
+                        <span className="text-zinc-400 flex items-center gap-2">
+                          <HardDrive className="w-3.5 h-3.5 text-amber-400" />
+                          Gen4 NVMe Disk
                         </span>
-                        <span className="font-bold text-white">{plan.storage}</span>
+                        <span className="font-bold text-white font-mono">{plan.storage}</span>
                       </div>
 
-                      <div className="flex items-center justify-between text-xs">
-                        <span className="text-gray-400 flex items-center gap-2">
-                          <Users className="w-3.5 h-3.5 text-[#10b981]" />
-                          Slots
+                      <div className="flex items-center justify-between text-xs p-2 rounded-lg bg-black/40 border border-white/[0.02]">
+                        <span className="text-zinc-400 flex items-center gap-2">
+                          <Users className="w-3.5 h-3.5 text-amber-400" />
+                          Player Bandwidth
                         </span>
-                        <span className="font-bold text-white">{plan.slots}</span>
+                        <span className="font-bold text-white font-mono">{plan.slots}</span>
                       </div>
 
-                      <div className="flex items-center justify-between text-xs">
-                        <span className="text-gray-400 flex items-center gap-2">
-                          <Shield className="w-3.5 h-3.5 text-[#10b981]" />
-                          DDoS Protection
+                      <div className="flex items-center justify-between text-xs p-2 rounded-lg bg-black/40 border border-white/[0.02]">
+                        <span className="text-zinc-400 flex items-center gap-2">
+                          <Crosshair className="w-3.5 h-3.5 text-amber-400" />
+                          Query Flood Armor
                         </span>
-                        <span className="font-bold text-emerald-400">{plan.ddos}</span>
+                        <span className="font-bold text-amber-400 font-mono text-[11px]">{plan.ddos}</span>
                       </div>
                     </div>
                   </div>
 
-                  {/* Price & Order Now Button */}
-                  <div className="pt-4 border-t border-white/[0.06]">
+                  {/* Price & Order Button */}
+                  <div className="pt-4 border-t border-amber-500/20">
                     <div className="flex items-baseline justify-between mb-4">
-                      <span className="text-xs text-gray-500">Starting at</span>
+                      <span className="text-[11px] font-mono text-zinc-400 uppercase tracking-wider">Plan Cost</span>
                       <div className="text-right">
-                        <span className="text-2xl font-black text-white orbitron-font">
+                        <span className="text-2xl sm:text-3xl font-black text-white font-mono tracking-tight">
                           {formatPrice(price)}
                         </span>
-                        <span className="text-xs text-gray-400">/mo</span>
+                        <span className="text-xs text-zinc-400 font-medium">/mo</span>
                       </div>
                     </div>
 
                     <button
                       onClick={handleDeploy}
-                      className="w-full bg-[#10b981] hover:bg-[#059669] text-black font-extrabold py-3 px-4 rounded-xl text-xs transition-all duration-200 flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(16,185,129,0.25)] hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] active:scale-[0.98] cursor-pointer"
+                      className={`w-full font-black py-3.5 px-4 rounded-xl text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98] ${
+                        plan.popular
+                          ? "bg-amber-500 hover:bg-amber-400 text-zinc-950 shadow-[0_0_25px_rgba(245,158,11,0.4)] hover:shadow-[0_0_35px_rgba(245,158,11,0.55)]"
+                          : "bg-black hover:bg-amber-500 hover:text-black text-white border border-amber-500/30 hover:border-amber-400 shadow-md"
+                      }`}
                     >
-                      <span>Order Now</span>
+                      <span>DEPLOY SA-MP SERVER</span>
                       <ChevronRight className="w-3.5 h-3.5 stroke-[3]" />
                     </button>
                   </div>
@@ -349,104 +498,110 @@ export default function SampHostingPage() {
           </div>
         </div>
 
-        {/* Feature Highlights Grid */}
+        {/* ── 5. GTA & SA-MP THEMED FEATURES SECTION ── */}
         <div className="mb-20">
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <h2 className="text-2xl font-bold orbitron-font text-white mb-2">
-              All Plans Include
+            <span className="text-xs font-mono text-amber-400 font-black uppercase tracking-widest">
+              LOS SANTOS UNDERGROUND ENGINE
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-black uppercase text-white mt-2 tracking-tight">
+              ALL SERVERS EQUIPPED WITH
             </h2>
-            <p className="text-xs text-gray-400">
-              Enterprise features built for high-traffic SA-MP roleplay, freeroam, and deathmatch communities.
+            <p className="text-xs text-zinc-400 mt-2 leading-relaxed">
+              Engineered from the ground up for high-traffic GTA San Andreas multiplayer communities.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
               {
-                icon: Shield,
-                title: "DDoS Protection",
-                desc: "Game-specific real-time DDoS mitigation shielding your SA-MP server from query floods, UDP amplifications, and malicious drops."
+                icon: Crosshair,
+                title: "Anti-Query Flood Filtering",
+                desc: "High-capacity hardware firewall scrubs malicious SA-MP query packet floods, UDP amplifications, and fake-client spam without ping jitter."
+              },
+              {
+                icon: Activity,
+                title: "1000 FPS Timer Loops",
+                desc: "Dedicated AMD 5.7 GHz single-core frequencies ensure complex Pawn callbacks, streamer plugins, and vehicle physics stay in lockstep."
               },
               {
                 icon: Zap,
-                title: "24/7 Uptime",
-                desc: "Enterprise Tier-3 infrastructure with redundant power and automated health monitoring ensuring maximum availability."
-              },
-              {
-                icon: Sparkles,
-                title: "Instant Setup",
-                desc: "Automatic instant provisioning via our Discord bot and support team deployed in under 60 seconds."
+                title: "60-Second Provisioning",
+                desc: "Automatic deployment directly through our Discord bot within 60 seconds of order confirmation with instant IP & root access."
               },
               {
                 icon: Server,
-                title: "Full Server Access",
-                desc: "Complete control panel, SFTP file access, server.cfg editor, console logs, and free managed MySQL database."
+                title: "Full SFTP & Web Console",
+                desc: "Full file manager to deploy .amx gamemodes, filterscripts, custom soundpacks, crashdetect logs, and edit server.cfg seamlessly."
               },
               {
-                icon: Globe2,
-                title: "Multiple Locations",
-                desc: "Deploy in India, USA, Germany, or Ohio for optimal low-ping player routing."
+                icon: Target,
+                title: "Free High-IOPS MySQL Database",
+                desc: "Dedicated SSD-backed MySQL database instances included free with every plan for instant user accounts, inventory, and stats sync."
               },
               {
                 icon: Radio,
-                title: "open.mp & SA-MP Ready",
-                desc: "100% compatible with SA-MP 0.3.7, 0.3.DL, and the new open.mp server binary."
+                title: "SA-MP 0.3.7 & open.mp Ready",
+                desc: "Seamlessly switch between legacy SA-MP 0.3.7 R2/R4, 0.3.DL custom models, or the new high-performance open.mp server architecture."
               }
             ].map((feature, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-2xl bg-[#0b0c12]/60 border border-white/[0.06] hover:border-[#10b981]/30 transition-all duration-200"
+                className="group p-6 rounded-3xl bg-gradient-to-b from-[#140e0b]/80 via-[#0e0c14]/80 to-[#07060c] border border-amber-500/20 hover:border-amber-400/50 hover:bg-[#191322] transition-all duration-200 shadow-lg"
               >
-                <div className="w-8 h-8 rounded-lg bg-[#10b981]/10 border border-[#10b981]/20 flex items-center justify-center text-[#10b981] mb-3">
-                  <feature.icon className="w-4 h-4" />
+                <div className="w-10 h-10 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-4 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-black transition-all">
+                  <feature.icon className="w-5 h-5" />
                 </div>
-                <h4 className="text-sm font-bold text-white orbitron-font mb-1">{feature.title}</h4>
-                <p className="text-xs text-gray-400 leading-relaxed">{feature.desc}</p>
+                <h4 className="text-base font-black uppercase text-white mb-2 tracking-wide">{feature.title}</h4>
+                <p className="text-xs text-zinc-400 leading-relaxed">{feature.desc}</p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* FAQs Section */}
+        {/* ── 6. GTA STYLE FAQS ── */}
         <div className="max-w-3xl mx-auto mb-16">
           <div className="text-center mb-8">
-            <h2 className="text-xl sm:text-2xl font-bold orbitron-font text-white mb-2">
-              Frequently Asked Questions
+            <span className="text-xs font-mono text-amber-400 font-bold uppercase tracking-widest">STREET INTELLIGENCE</span>
+            <h2 className="text-2xl sm:text-3xl font-black uppercase text-white mt-1">
+              FREQUENTLY ASKED QUESTIONS
             </h2>
-            <p className="text-xs text-gray-400">
-              Everything you need to know about VexaNode SA-MP Hosting.
+            <p className="text-xs text-zinc-400 mt-1">
+              Need answers before taking over the streets? Here is everything you need to know.
             </p>
           </div>
 
-          <div className="space-y-2.5">
+          <div className="space-y-3">
             {faqs.map((faq, index) => {
               const isOpen = openFaq === index
               return (
                 <div
                   key={index}
-                  className="rounded-xl border border-white/[0.06] bg-[#0b0e14]/60 overflow-hidden transition-all"
+                  className="rounded-2xl border border-amber-500/20 bg-gradient-to-b from-[#110d14]/90 to-[#08070e] overflow-hidden transition-all hover:border-amber-400/40 shadow-md"
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : index)}
-                    className="w-full p-4 text-left flex items-center justify-between gap-4 hover:bg-white/[0.02] transition-colors cursor-pointer"
+                    className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 hover:bg-amber-500/5 transition-colors cursor-pointer"
                   >
-                    <span className="text-xs sm:text-sm font-bold text-white">{faq.q}</span>
-                    <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-200 flex-shrink-0 ${
-                      isOpen ? "rotate-180 text-[#10b981]" : ""
+                    <span className="text-xs sm:text-sm font-black uppercase tracking-wide text-white">{faq.q}</span>
+                    <ChevronDown className={`w-4 h-4 text-amber-400 transition-transform duration-200 flex-shrink-0 ${
+                      isOpen ? "rotate-180 text-amber-400" : ""
                     }`} />
                   </button>
 
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="px-4 pb-4 text-xs text-gray-400 leading-relaxed border-t border-white/[0.04] pt-2.5"
-                    >
-                      {faq.a}
-                    </motion.div>
-                  )}
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="px-5 pb-5 text-xs text-zinc-300 leading-relaxed border-t border-amber-500/10 pt-3"
+                      >
+                        {faq.a}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               )
             })}

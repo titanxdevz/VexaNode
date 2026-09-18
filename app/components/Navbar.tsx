@@ -27,7 +27,8 @@ import {
   Database,
   Globe,
   BookOpen,
-  Users
+  Users,
+  Settings,
 } from 'lucide-react';
 import { FaDiscord } from "react-icons/fa";
 import { motion, AnimatePresence } from 'framer-motion';
@@ -38,7 +39,11 @@ import type { HeroConfig } from '../types/hero';
 const config = navigationConfig as NavigationConfig;
 const heroSettings = heroConfig as HeroConfig;
 
-// Icon resolver for modern items
+// Separate Legal items from primary nav for the secondary dropdown
+const primaryNav = config.mainNavigation.filter(item => item.name !== 'Legal');
+const legalNav = config.mainNavigation.find(item => item.name === 'Legal');
+
+// Icon resolver
 const getItemIcon = (name: string) => {
   const n = name.toLowerCase();
   if (n.includes('minecraft')) return Gamepad2;
@@ -61,9 +66,21 @@ const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState<{ [key: string]: boolean }>({});
+  const [secondaryOpen, setSecondaryOpen] = useState(false);
   const pathname = usePathname();
   const { t } = useLanguage();
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const secondaryRef = useRef<HTMLDivElement>(null);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [isMobileMenuOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -71,6 +88,17 @@ const Navbar: React.FC = () => {
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Close secondary dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (secondaryRef.current && !secondaryRef.current.contains(e.target as Node)) {
+        setSecondaryOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   const handleMouseEnter = (itemName: string) => {
@@ -95,286 +123,400 @@ const Navbar: React.FC = () => {
   }, [isHrefActive]);
 
   return (
-    <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-zinc-950/90 backdrop-blur-xl border-b border-zinc-800/80 shadow-[0_4px_30px_rgba(0,0,0,0.5)]'
-          : 'bg-zinc-950/40 backdrop-blur-md border-b border-white/[0.06]'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between gap-6">
-        
-        {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-3 group flex-shrink-0" prefetch={true}>
-          <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-emerald-500/20 via-zinc-900 to-zinc-950 border border-emerald-500/30 p-1.5 flex items-center justify-center transition-all duration-300 group-hover:border-emerald-400/60 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.3)]">
-            <Image
-              src={heroSettings.navbar.logo}
-              alt={heroSettings.navbar.brandName}
-              className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
-              width={36}
-              height={36}
-              priority
-            />
-          </div>
-          <div className="flex flex-col">
-            <div className="flex items-center gap-1 font-black text-base sm:text-lg tracking-tight text-white font-sans">
-              <span>{heroSettings.navbar.brandName}</span>
-              <span className="text-emerald-400 drop-shadow-[0_0_12px_rgba(52,211,153,0.5)]">
-                {heroSettings.navbar.brandAccent}
-              </span>
+    <>
+      <header
+        className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? 'bg-zinc-950/80 backdrop-blur-lg border-b border-zinc-800/60 shadow-[0_1px_12px_rgba(0,0,0,0.5)]'
+            : 'bg-transparent border-b border-transparent'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between gap-4">
+
+          {/* ── Brand Logo ── */}
+          <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0" prefetch={true}>
+            <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-zinc-900 border border-zinc-800 p-1.5 flex items-center justify-center transition-all duration-200 group-hover:border-emerald-500/40">
+              <Image
+                src={heroSettings.navbar.logo}
+                alt={heroSettings.navbar.brandName}
+                className="w-full h-full object-contain"
+                width={32}
+                height={32}
+                priority
+              />
             </div>
-            <span className="text-[10px] font-medium text-zinc-400 tracking-widest uppercase">Cloud Hosting</span>
-          </div>
-        </Link>
+            <div className="flex items-center gap-0.5 font-extrabold text-[15px] tracking-tight text-white">
+              <span>{heroSettings.navbar.brandName}</span>
+              <span className="text-emerald-400">{heroSettings.navbar.brandAccent}</span>
+            </div>
+          </Link>
 
-        {/* Center Navigation Menu */}
-        <nav className="hidden lg:flex items-center gap-1">
-          {config.mainNavigation.map((item) => {
-            const active = isNavItemActive(item);
-            const isMenuOpen = activeDropdown === item.name;
+          {/* ── Center Navigation ── */}
+          <nav className="hidden lg:flex items-center gap-0.5">
+            {primaryNav.map((item) => {
+              const active = isNavItemActive(item);
+              const isMenuOpen = activeDropdown === item.name;
 
-            if (item.hasDropdown && item.dropdownItems) {
-              const isGrid = item.dropdownType === 'grid';
-              return (
-                <div
-                  key={item.name}
-                  className="relative"
-                  onMouseEnter={() => handleMouseEnter(item.name)}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <button
-                    className={`group/btn relative flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all duration-200 ${
-                      active || isMenuOpen
-                        ? 'text-white bg-white/[0.08]'
-                        : 'text-zinc-400 hover:text-white hover:bg-white/[0.04]'
-                    }`}
+              if (item.hasDropdown && item.dropdownItems) {
+                const isGrid = item.dropdownType === 'grid';
+                return (
+                  <div
+                    key={item.name}
+                    className="relative"
+                    onMouseEnter={() => handleMouseEnter(item.name)}
+                    onMouseLeave={handleMouseLeave}
                   >
-                    <span>{item.name}</span>
-                    <ChevronDown
-                      className={`w-3.5 h-3.5 text-zinc-400 transition-transform duration-200 ${
-                        isMenuOpen ? 'rotate-180 text-emerald-400' : ''
+                    <button
+                      className={`group/btn relative flex items-center gap-1 px-3 py-1.5 rounded-lg text-[13px] font-semibold transition-colors duration-150 ${
+                        active || isMenuOpen
+                          ? 'text-white'
+                          : 'text-zinc-400 hover:text-white'
                       }`}
-                    />
-                    {/* Animated hover underline */}
-                    <span className="absolute bottom-1 left-3 right-3 h-[2px] rounded-full bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-400 opacity-0 scale-x-0 group-hover/btn:opacity-100 group-hover/btn:scale-x-100 transition-all duration-300 origin-center shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
-                  </button>
-
-                  {/* Desktop Dropdown Card */}
-                  <AnimatePresence>
-                    {isMenuOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 8, scale: 0.98 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 6, scale: 0.98 }}
-                        transition={{ duration: 0.15, ease: 'easeOut' }}
-                        className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50 ${
-                          isGrid ? 'w-[460px]' : 'w-[280px]'
+                    >
+                      <span>{item.name}</span>
+                      <ChevronDown
+                        className={`w-3 h-3 text-zinc-500 transition-transform duration-150 ${
+                          isMenuOpen ? 'rotate-180 text-emerald-400' : ''
                         }`}
-                      >
-                        <div className="relative rounded-2xl bg-[#090a0f] border border-white/[0.1] p-3 shadow-[0_20px_60px_rgba(0,0,0,0.9)] backdrop-blur-2xl">
-                          {/* Accent Top Border */}
-                          <div className="absolute top-0 inset-x-6 h-[1.5px] bg-gradient-to-r from-transparent via-emerald-400 to-transparent" />
+                      />
+                      {/* Hover underline — clean, no glow */}
+                      <span className={`absolute bottom-0 left-3 right-3 h-[2px] rounded-full bg-emerald-500 transition-transform duration-200 origin-center ${
+                        active ? 'scale-x-100' : 'scale-x-0 group-hover/btn:scale-x-100'
+                      }`} />
+                    </button>
 
-                          <div className={isGrid ? "grid grid-cols-2 gap-2" : "flex flex-col gap-1.5"}>
-                            {item.dropdownItems.map((dropdownItem, idx) => {
-                              const DropIcon = getItemIcon(dropdownItem.name);
-                              return (
-                                <Link
-                                  key={idx}
-                                  href={dropdownItem.href}
-                                  onClick={() => setActiveDropdown(null)}
-                                  className="group flex items-start gap-3 p-2.5 rounded-xl transition-all duration-150 hover:bg-white/[0.06] border border-transparent hover:border-white/[0.06]"
-                                >
-                                  <div className="w-8 h-8 rounded-lg bg-zinc-900/90 border border-white/[0.08] flex items-center justify-center flex-shrink-0 group-hover:border-emerald-500/40 group-hover:bg-emerald-500/10 transition-colors">
-                                    <DropIcon className="w-4 h-4 text-zinc-400 group-hover:text-emerald-400 transition-colors" />
-                                  </div>
-                                  <div className="min-w-0 flex-1">
-                                    <div className="flex items-center justify-between gap-1">
-                                      <span className="text-xs font-bold text-zinc-200 group-hover:text-white transition-colors">
-                                        {dropdownItem.name}
-                                      </span>
-                                      {dropdownItem.badge && (
-                                        <span className="px-1.5 py-0.2 rounded-full bg-emerald-500/20 text-emerald-400 text-[9px] font-extrabold border border-emerald-500/30">
-                                          {dropdownItem.badge}
+                    {/* Desktop Dropdown */}
+                    <AnimatePresence>
+                      {isMenuOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 6 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 4 }}
+                          transition={{ duration: 0.12, ease: 'easeOut' }}
+                          className={`absolute top-full left-1/2 -translate-x-1/2 pt-2.5 z-50 ${
+                            isGrid ? 'w-[440px]' : 'w-[260px]'
+                          }`}
+                        >
+                          <div className="rounded-xl bg-zinc-900 border border-zinc-800 p-2 shadow-xl">
+                            {/* Top accent line */}
+                            <div className="absolute top-2.5 inset-x-6 h-px bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent" />
+
+                            <div className={isGrid ? "grid grid-cols-2 gap-1" : "flex flex-col gap-0.5"}>
+                              {item.dropdownItems.map((dropdownItem, idx) => {
+                                const DropIcon = getItemIcon(dropdownItem.name);
+                                return (
+                                  <Link
+                                    key={idx}
+                                    href={dropdownItem.href}
+                                    onClick={() => setActiveDropdown(null)}
+                                    className="group flex items-start gap-2.5 p-2.5 rounded-lg transition-colors duration-100 hover:bg-zinc-800/60"
+                                  >
+                                    <div className="w-7 h-7 rounded-md bg-zinc-800 border border-zinc-700/50 flex items-center justify-center flex-shrink-0 group-hover:border-emerald-500/30 transition-colors">
+                                      <DropIcon className="w-3.5 h-3.5 text-zinc-400 group-hover:text-emerald-400 transition-colors" />
+                                    </div>
+                                    <div className="min-w-0 flex-1">
+                                      <div className="flex items-center gap-1.5">
+                                        <span className="text-[13px] font-semibold text-zinc-200 group-hover:text-white transition-colors">
+                                          {dropdownItem.name}
                                         </span>
+                                        {dropdownItem.badge && (
+                                          <span className="px-1.5 py-px rounded text-[9px] font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/20 uppercase">
+                                            {dropdownItem.badge}
+                                          </span>
+                                        )}
+                                      </div>
+                                      {dropdownItem.description && (
+                                        <p className="text-[11px] text-zinc-500 truncate mt-0.5 group-hover:text-zinc-400">
+                                          {dropdownItem.description}
+                                        </p>
                                       )}
                                     </div>
-                                    {dropdownItem.description && (
-                                      <p className="text-[10px] text-zinc-400 truncate mt-0.5 group-hover:text-zinc-300">
-                                        {dropdownItem.description}
-                                      </p>
-                                    )}
-                                  </div>
-                                </Link>
-                              );
-                            })}
+                                  </Link>
+                                );
+                              })}
+                            </div>
                           </div>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              }
+
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`group/link relative px-3 py-1.5 rounded-lg text-[13px] font-semibold transition-colors duration-150 ${
+                    active
+                      ? 'text-white'
+                      : 'text-zinc-400 hover:text-white'
+                  }`}
+                  prefetch={true}
+                >
+                  <span>{item.name}</span>
+                  {/* Underline indicator */}
+                  <span className={`absolute bottom-0 left-3 right-3 h-[2px] rounded-full bg-emerald-500 transition-transform duration-200 origin-center ${
+                    active ? 'scale-x-100' : 'scale-x-0 group-hover/link:scale-x-100'
+                  }`} />
+                </Link>
               );
-            }
+            })}
+          </nav>
 
-            return (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`group/link relative px-3.5 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all duration-200 ${
-                  active
-                    ? 'text-white bg-white/[0.08] shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]'
-                    : 'text-zinc-400 hover:text-white hover:bg-white/[0.04]'
-                }`}
-                prefetch={true}
+          {/* ── Right Actions ── */}
+          <div className="hidden lg:flex items-center gap-2">
+            {/* Discord — ghost/outline secondary */}
+            <a
+              href="https://discord.gg/dJpMDfgUQq"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 text-[13px] font-semibold transition-all duration-150"
+            >
+              <FaDiscord className="w-3.5 h-3.5 text-[#5865F2]" />
+              <span>Discord</span>
+            </a>
+
+            {/* Secondary items dropdown: Currency, Language, Legal */}
+            <div className="relative" ref={secondaryRef}>
+              <button
+                onClick={() => setSecondaryOpen(!secondaryOpen)}
+                className="flex items-center justify-center w-8 h-8 rounded-lg border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 transition-all duration-150"
+                aria-label="Settings and preferences"
               >
-                <span>{item.name}</span>
-                {/* Active Indicator or Hover Underline */}
-                {active ? (
-                  <span className="absolute bottom-1 left-3 right-3 h-[2px] rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.9)]" />
-                ) : (
-                  <span className="absolute bottom-1 left-3 right-3 h-[2px] rounded-full bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-400 opacity-0 scale-x-0 group-hover/link:opacity-100 group-hover/link:scale-x-100 transition-all duration-300 origin-center shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
+                <Settings className="w-3.5 h-3.5" />
+              </button>
+
+              <AnimatePresence>
+                {secondaryOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 4 }}
+                    transition={{ duration: 0.12, ease: 'easeOut' }}
+                    className="absolute top-full right-0 mt-2 w-[220px] z-50"
+                  >
+                    <div className="rounded-xl bg-zinc-900 border border-zinc-800 p-2 shadow-xl">
+                      {/* Currency & Language row */}
+                      <div className="flex items-center gap-2 px-2 py-2 border-b border-zinc-800/60 mb-1">
+                        <div className="flex-1">
+                          <CurrencySelector />
+                        </div>
+                        <div className="flex-shrink-0">
+                          <LanguageSelector />
+                        </div>
+                      </div>
+
+                      {/* Legal links */}
+                      {legalNav?.dropdownItems?.map((item, idx) => (
+                        <Link
+                          key={idx}
+                          href={item.href}
+                          onClick={() => setSecondaryOpen(false)}
+                          className="flex items-center gap-2 px-3 py-2 rounded-lg text-[12px] font-medium text-zinc-400 hover:text-white hover:bg-zinc-800/60 transition-colors"
+                        >
+                          {(() => {
+                            const Icon = getItemIcon(item.name);
+                            return <Icon className="w-3.5 h-3.5 text-zinc-500" />;
+                          })()}
+                          <span>{item.name}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.div>
                 )}
-              </Link>
-            );
-          })}
-        </nav>
+              </AnimatePresence>
+            </div>
 
-        {/* Right Action Utilities */}
-        <div className="hidden lg:flex items-center gap-3">
-          {/* Discord Community Pill */}
-          <a
-            href="https://discord.gg/dJpMDfgUQq"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#5865F2]/10 hover:bg-[#5865F2]/20 border border-[#5865F2]/30 text-[#8a96f5] text-xs font-bold transition-all duration-200"
-          >
-            <FaDiscord className="w-4 h-4 text-[#5865F2]" />
-            <span>Discord</span>
-          </a>
-
-          {/* Selectors */}
-          <div className="flex items-center gap-1.5 border-l border-zinc-800 pl-3">
-            <CurrencySelector />
-            <LanguageSelector />
+            {/* Client Area — primary CTA, emerald fill */}
+            <a
+              href="https://billing.vexanode.gg"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-1.5 px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-zinc-950 text-[13px] font-bold transition-all duration-150"
+            >
+              <span>Client Area</span>
+              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-150 group-hover:translate-x-0.5" />
+            </a>
           </div>
 
-          {/* Client Area Glowing CTA */}
-          <a
-            href="https://billing.vexanode.gg"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="relative group overflow-hidden px-4 py-2 rounded-xl bg-white hover:bg-zinc-100 text-black text-xs font-black tracking-wide transition-all duration-200 shadow-[0_0_20px_rgba(255,255,255,0.15)] hover:shadow-[0_0_25px_rgba(255,255,255,0.35)] flex items-center gap-1.5"
-          >
-            <span>Client Area</span>
-            <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
-          </a>
+          {/* ── Mobile Toggle ── */}
+          <div className="flex items-center lg:hidden gap-2">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white transition-colors"
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
+
         </div>
+      </header>
 
-        {/* Mobile Hamburger Toggle */}
-        <div className="flex items-center lg:hidden gap-2">
-          <CurrencySelector />
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="p-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white transition-colors"
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
-        </div>
-
-      </div>
-
-      {/* Mobile Menu Drawer */}
+      {/* ── Mobile Slide-in Drawer ── */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
-            className="lg:hidden border-t border-zinc-800 bg-zinc-950/98 backdrop-blur-2xl overflow-hidden px-4 py-4 space-y-3"
-          >
-            <div className="space-y-1">
-              {config.mainNavigation.map((item) => {
-                const active = isNavItemActive(item);
-                const isOpen = mobileDropdownOpen[item.name];
+          <>
+            {/* Backdrop overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-40 bg-black/60"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
 
-                if (item.hasDropdown && item.dropdownItems) {
-                  return (
-                    <div key={item.name} className="border-b border-zinc-900 pb-1">
-                      <button
-                        onClick={() =>
-                          setMobileDropdownOpen(prev => ({ ...prev, [item.name]: !prev[item.name] }))
-                        }
-                        className="w-full flex items-center justify-between py-2.5 px-3 rounded-lg text-xs font-bold text-zinc-200 hover:bg-zinc-900"
-                      >
-                        <span>{item.name}</span>
-                        <ChevronDown className={`w-4 h-4 text-zinc-400 transition-transform ${isOpen ? 'rotate-180 text-emerald-400' : ''}`} />
-                      </button>
+            {/* Slide-in panel from right */}
+            <motion.nav
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="fixed top-0 right-0 bottom-0 z-50 w-[300px] max-w-[85vw] bg-zinc-950 border-l border-zinc-800 overflow-y-auto flex flex-col"
+            >
+              {/* Drawer header */}
+              <div className="flex items-center justify-between px-5 py-4 border-b border-zinc-800/60">
+                <div className="flex items-center gap-2">
+                  <Image
+                    src={heroSettings.navbar.logo}
+                    alt={heroSettings.navbar.brandName}
+                    width={24}
+                    height={24}
+                    className="w-6 h-6 object-contain"
+                  />
+                  <span className="font-bold text-sm text-white">
+                    {heroSettings.navbar.brandName}
+                    <span className="text-emerald-400">{heroSettings.navbar.brandAccent}</span>
+                  </span>
+                </div>
+                <button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
+                  aria-label="Close menu"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
 
-                      {isOpen && (
-                        <div className="pl-3 pr-1 py-1 space-y-1 bg-zinc-900/40 rounded-xl mt-1">
-                          {item.dropdownItems.map((d, i) => (
-                            <Link
-                              key={i}
-                              href={d.href}
-                              onClick={() => setIsMobileMenuOpen(false)}
-                              className="flex items-center justify-between py-2 px-3 rounded-lg text-xs text-zinc-300 hover:text-white hover:bg-zinc-800"
+              {/* Nav links */}
+              <div className="flex-1 px-3 py-4 space-y-1">
+                {primaryNav.map((item) => {
+                  const active = isNavItemActive(item);
+                  const isOpen = mobileDropdownOpen[item.name];
+
+                  if (item.hasDropdown && item.dropdownItems) {
+                    return (
+                      <div key={item.name}>
+                        <button
+                          onClick={() =>
+                            setMobileDropdownOpen(prev => ({ ...prev, [item.name]: !prev[item.name] }))
+                          }
+                          className={`w-full flex items-center justify-between py-2.5 px-3 rounded-lg text-[13px] font-semibold transition-colors ${
+                            active ? 'text-emerald-400' : 'text-zinc-300 hover:text-white hover:bg-zinc-900'
+                          }`}
+                        >
+                          <span>{item.name}</span>
+                          <ChevronDown className={`w-3.5 h-3.5 text-zinc-500 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+                        </button>
+
+                        <AnimatePresence>
+                          {isOpen && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: 'auto', opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.15 }}
+                              className="overflow-hidden"
                             >
-                              <span>{d.name}</span>
-                              <ChevronRight className="w-3.5 h-3.5 text-zinc-600" />
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                    </div>
+                              <div className="pl-4 pr-1 py-1 space-y-0.5">
+                                {item.dropdownItems.map((d, i) => (
+                                  <Link
+                                    key={i}
+                                    href={d.href}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="flex items-center justify-between py-2 px-3 rounded-lg text-[12px] text-zinc-400 hover:text-white hover:bg-zinc-800/50 transition-colors"
+                                  >
+                                    <span>{d.name}</span>
+                                    <ChevronRight className="w-3 h-3 text-zinc-600" />
+                                  </Link>
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  }
+
+                  return (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`block py-2.5 px-3 rounded-lg text-[13px] font-semibold transition-colors ${
+                        active ? 'text-emerald-400 bg-emerald-500/5' : 'text-zinc-300 hover:text-white hover:bg-zinc-900'
+                      }`}
+                    >
+                      {item.name}
+                    </Link>
                   );
-                }
+                })}
 
-                return (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={`block py-2.5 px-3 rounded-xl text-xs font-bold transition-colors ${
-                      active ? 'bg-emerald-500/10 text-emerald-400' : 'text-zinc-300 hover:text-white hover:bg-zinc-900'
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                );
-              })}
-            </div>
+                {/* Legal links in mobile */}
+                {legalNav?.dropdownItems && (
+                  <div className="pt-3 mt-3 border-t border-zinc-800/60">
+                    <span className="px-3 text-[10px] font-bold text-zinc-600 uppercase tracking-widest">Legal</span>
+                    <div className="mt-2 space-y-0.5">
+                      {legalNav.dropdownItems.map((item, idx) => (
+                        <Link
+                          key={idx}
+                          href={item.href}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-2 px-3 rounded-lg text-[12px] text-zinc-500 hover:text-white hover:bg-zinc-800/50 transition-colors"
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
 
-            {/* Mobile Footer CTAs */}
-            <div className="pt-3 border-t border-zinc-900 space-y-2.5">
-              <a
-                href="https://discord.gg/dJpMDfgUQq"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#5865F2]/15 border border-[#5865F2]/30 text-[#8a96f5] text-xs font-bold"
-              >
-                <FaDiscord className="w-4 h-4" />
-                <span>Join Discord Community</span>
-              </a>
+              {/* Mobile CTAs */}
+              <div className="px-4 py-4 border-t border-zinc-800/60 space-y-2.5">
+                {/* Currency & Language compact row */}
+                <div className="flex items-center gap-2 mb-2">
+                  <CurrencySelector />
+                  <LanguageSelector />
+                </div>
 
-              <a
-                href="https://billing.vexanode.gg"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full text-center py-2.5 rounded-xl bg-white text-black text-xs font-black shadow-lg"
-              >
-                Client Area Login
-              </a>
-            </div>
-          </motion.div>
+                <a
+                  href="https://discord.gg/dJpMDfgUQq"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg border border-zinc-800 text-zinc-300 text-[13px] font-semibold hover:text-white hover:border-zinc-700 transition-colors"
+                >
+                  <FaDiscord className="w-4 h-4 text-[#5865F2]" />
+                  <span>Join Discord</span>
+                </a>
+
+                <a
+                  href="https://billing.vexanode.gg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full text-center py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-zinc-950 text-[13px] font-bold transition-colors"
+                >
+                  Client Area
+                </a>
+              </div>
+            </motion.nav>
+          </>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 };
 
 export default Navbar;
-
-

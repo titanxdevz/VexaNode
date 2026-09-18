@@ -55,7 +55,7 @@ export default function FeatureGrid() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, ease }}
-            className="md:col-span-2 relative rounded-3xl border border-white/[0.08] bg-white/[0.02] p-8 backdrop-blur-xl overflow-hidden group hover:border-emerald-500/30 transition-all duration-300"
+            className="md:col-span-2 relative rounded-3xl border border-white/[0.08] bg-zinc-900/60 p-8 overflow-hidden group hover:border-emerald-500/30 transition-all duration-300"
           >
             <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-[100px] -z-10 group-hover:bg-emerald-500/15 transition-all duration-500" />
             <div className="flex items-center gap-2 mb-4">
