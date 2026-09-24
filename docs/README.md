@@ -30,6 +30,17 @@ area, then updated to match what shipped. See [BRIEF.md](../BRIEF.md) for full s
   ivory; dark = ink. Toggle component: `app/components/ThemeToggle.tsx`.
 
 ## Changelog
+### Loop 2 — 2026-09-24
+- **Phase 2 started.** Themed the shared **Navbar** and **Footer** with `vx-*` tokens →
+  every route's chrome now responds to dark/light. Navbar Client-area CTA switched to the
+  accessible `vx-btn-accent`; removed 3 pre-existing unused imports (lint-clean).
+- **Real-data fix**: Footer's "All Systems Operational" live-status assertion (with fake
+  ping) replaced by a neutral "Server Status" link (condition 7).
+- Added accessible accent tokens + global `:focus-visible` and `prefers-reduced-motion`
+  rules (see [design-system.md](design-system.md), [accessibility.md](accessibility.md)).
+- Verified: `tsc` clean, ESLint clean on changed files, dev server HTTP 200, no compile
+  errors. See [audit.md](audit.md) Loop 2.
+
 ### Loop 1 — 2026-09-24
 - Reconstructed `BRIEF.md` (no brief existed in repo).
 - Phase 1 research complete: 3 research agents covered 10 competitor brands + official

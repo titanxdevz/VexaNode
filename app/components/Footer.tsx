@@ -69,7 +69,7 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="bg-[#060810] border-t border-zinc-800/60">
+    <footer className="vx-bg-alt border-t vx-line">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* ── Main Grid ── */}
@@ -79,12 +79,12 @@ export default function Footer() {
           <div className="col-span-2">
             <Link href="/" className="inline-flex items-center gap-2 mb-4">
               <Image src="/logo.png" alt="VexaNode" width={28} height={28} className="h-7 w-7 object-contain" />
-              <span className="text-base font-extrabold text-white tracking-tight">
-                Vexa<span className="text-emerald-400">Node</span>
+              <span className="text-base font-extrabold vx-ink tracking-tight">
+                Vexa<span className="vx-accent-text">Node</span>
               </span>
             </Link>
 
-            <p className="text-[13px] text-zinc-500 leading-relaxed max-w-xs mb-5">
+            <p className="text-[13px] vx-muted leading-relaxed max-w-xs mb-5">
               High-frequency cloud hosting on AMD Ryzen 9 &amp; EPYC processors
               with NVMe storage and enterprise DDoS protection.
             </p>
@@ -100,7 +100,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={s.name}
-                    className="w-8 h-8 rounded-lg border border-zinc-800 flex items-center justify-center text-zinc-500 hover:text-white hover:border-zinc-600 transition-colors duration-150"
+                    className="w-8 h-8 rounded-lg border vx-line flex items-center justify-center vx-faint vx-hover-ink hover:border-[color:var(--vx-accent)] transition-colors duration-150"
                   >
                     <Icon className="w-3.5 h-3.5" />
                   </a>
@@ -112,7 +112,7 @@ export default function Footer() {
           {/* Link Columns */}
           {sections.map((section, idx) => (
             <div key={idx}>
-              <h4 className="text-[11px] font-bold text-zinc-400 uppercase tracking-widest mb-4">
+              <h4 className="text-[11px] font-bold vx-muted2 uppercase tracking-widest mb-4">
                 {section.title}
               </h4>
               <ul className="space-y-2">
@@ -123,19 +123,19 @@ export default function Footer() {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[13px] text-zinc-500 hover:text-white transition-colors duration-150 inline-flex items-center gap-1"
+                        className="text-[13px] vx-muted vx-hover-ink transition-colors duration-150 inline-flex items-center gap-1"
                       >
                         {link.name}
-                        <ExternalLink className="w-2.5 h-2.5 text-zinc-600" />
+                        <ExternalLink className="w-2.5 h-2.5 vx-faint" />
                       </a>
                     ) : (
                       <Link
                         href={link.href}
-                        className="text-[13px] text-zinc-500 hover:text-white transition-colors duration-150 inline-flex items-center gap-1.5"
+                        className="text-[13px] vx-muted vx-hover-ink transition-colors duration-150 inline-flex items-center gap-1.5"
                       >
                         {link.name}
                         {link.badge && (
-                          <span className="text-[9px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-1.5 py-px rounded">
+                          <span className="text-[9px] font-bold bg-[#d97757]/10 vx-accent-text border border-[#d97757]/25 px-1.5 py-px rounded">
                             {link.badge}
                           </span>
                         )}
@@ -149,32 +149,29 @@ export default function Footer() {
         </div>
 
         {/* ── Bottom Bar ── */}
-        <div className="py-5 border-t border-zinc-800/60 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <div className="text-[11px] text-zinc-600">
+        <div className="py-5 border-t vx-line flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div className="text-[11px] vx-faint">
             &copy; {new Date().getFullYear()} VexaNode. All rights reserved.
           </div>
 
           <div className="flex items-center gap-5">
-            {/* Status indicator */}
+            {/* Status page link (label only — no live-status assertion) */}
             <a
               href="https://status.vexanode.cloud"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-[11px] text-zinc-500 hover:text-white transition-colors"
+              className="inline-flex items-center gap-1.5 text-[11px] vx-muted vx-hover-ink transition-colors"
             >
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-60" />
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
-              </span>
-              All Systems Operational
+              <span className="w-1.5 h-1.5 rounded-full bg-[color:var(--vx-accent)]" />
+              Server Status
             </a>
 
             {/* Legal links */}
-            <div className="flex items-center gap-3.5 text-[11px] text-zinc-600">
-              <Link href="/terms-of-services" className="hover:text-white transition-colors">Terms</Link>
-              <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy</Link>
-              <Link href="/refund-policy" className="hover:text-white transition-colors">Refunds</Link>
-              <Link href="/sla" className="hover:text-white transition-colors">SLA</Link>
+            <div className="flex items-center gap-3.5 text-[11px] vx-faint">
+              <Link href="/terms-of-services" className="vx-hover-ink transition-colors">Terms</Link>
+              <Link href="/privacy-policy" className="vx-hover-ink transition-colors">Privacy</Link>
+              <Link href="/refund-policy" className="vx-hover-ink transition-colors">Refunds</Link>
+              <Link href="/sla" className="vx-hover-ink transition-colors">SLA</Link>
             </div>
           </div>
         </div>

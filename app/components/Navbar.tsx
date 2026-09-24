@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { NavigationConfig, NavigationItem } from '../types/navigation';
 import { usePathname } from 'next/navigation';
-import { useLanguage } from '../contexts/LanguageContext';
 import LanguageSelector from './LanguageSelector';
 import CurrencySelector from './CurrencySelector';
 import ThemeToggle from './ThemeToggle';
@@ -15,7 +14,6 @@ import {
   ChevronDown,
   ChevronRight,
   ArrowRight,
-  ExternalLink,
   Sparkles,
   Layers,
   Gamepad2,
@@ -26,7 +24,6 @@ import {
   ShieldAlert,
   Server,
   Database,
-  Globe,
   BookOpen,
   Users,
   Settings,
@@ -69,7 +66,6 @@ const Navbar: React.FC = () => {
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState<{ [key: string]: boolean }>({});
   const [secondaryOpen, setSecondaryOpen] = useState(false);
   const pathname = usePathname();
-  const { t } = useLanguage();
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const secondaryRef = useRef<HTMLDivElement>(null);
 
@@ -128,7 +124,7 @@ const Navbar: React.FC = () => {
       <header
         className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-zinc-950/80 backdrop-blur-lg border-b border-zinc-800/60 shadow-[0_1px_12px_rgba(0,0,0,0.5)]'
+            ? 'vx-bg backdrop-blur-lg border-b vx-line shadow-sm'
             : 'bg-transparent border-b border-transparent'
         }`}
       >
@@ -136,7 +132,7 @@ const Navbar: React.FC = () => {
 
           {/* ── Brand Logo ── */}
           <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0" prefetch={true}>
-            <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-zinc-900 border border-zinc-800 p-1.5 flex items-center justify-center transition-all duration-200 group-hover:border-emerald-500/40">
+            <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-lg vx-card border vx-line p-1.5 flex items-center justify-center transition-all duration-200 group-hover:border-[color:var(--vx-accent)]">
               <Image
                 src={heroSettings.navbar.logo}
                 alt={heroSettings.navbar.brandName}
@@ -146,9 +142,9 @@ const Navbar: React.FC = () => {
                 priority
               />
             </div>
-            <div className="flex items-center gap-0.5 font-extrabold text-[15px] tracking-tight text-white">
+            <div className="flex items-center gap-0.5 font-extrabold text-[15px] tracking-tight vx-ink">
               <span>{heroSettings.navbar.brandName}</span>
-              <span className="text-emerald-400">{heroSettings.navbar.brandAccent}</span>
+              <span className="vx-accent-text">{heroSettings.navbar.brandAccent}</span>
             </div>
           </Link>
 
@@ -170,18 +166,18 @@ const Navbar: React.FC = () => {
                     <button
                       className={`group/btn relative flex items-center gap-1 px-3 py-1.5 rounded-lg text-[13px] font-semibold transition-colors duration-150 ${
                         active || isMenuOpen
-                          ? 'text-white'
-                          : 'text-zinc-400 hover:text-white'
+                          ? 'vx-ink'
+                          : 'vx-muted vx-hover-ink'
                       }`}
                     >
                       <span>{item.name}</span>
                       <ChevronDown
-                        className={`w-3 h-3 text-zinc-500 transition-transform duration-150 ${
-                          isMenuOpen ? 'rotate-180 text-emerald-400' : ''
+                        className={`w-3 h-3 vx-faint transition-transform duration-150 ${
+                          isMenuOpen ? 'rotate-180 vx-accent-text' : ''
                         }`}
                       />
                       {/* Hover underline — clean, no glow */}
-                      <span className={`absolute bottom-0 left-3 right-3 h-[2px] rounded-full bg-emerald-500 transition-transform duration-200 origin-center ${
+                      <span className={`absolute bottom-0 left-3 right-3 h-[2px] rounded-full bg-[color:var(--vx-accent)] transition-transform duration-200 origin-center ${
                         active ? 'scale-x-100' : 'scale-x-0 group-hover/btn:scale-x-100'
                       }`} />
                     </button>
@@ -198,9 +194,9 @@ const Navbar: React.FC = () => {
                             isGrid ? 'w-[440px]' : 'w-[260px]'
                           }`}
                         >
-                          <div className="rounded-xl bg-zinc-900 border border-zinc-800 p-2 shadow-xl">
+                          <div className="rounded-xl vx-card border vx-line p-2 shadow-xl">
                             {/* Top accent line */}
-                            <div className="absolute top-2.5 inset-x-6 h-px bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent" />
+                            <div className="absolute top-2.5 inset-x-6 h-px bg-gradient-to-r from-transparent via-[color:var(--vx-accent)] to-transparent" />
 
                             <div className={isGrid ? "grid grid-cols-2 gap-1" : "flex flex-col gap-0.5"}>
                               {item.dropdownItems.map((dropdownItem, idx) => {
@@ -210,24 +206,24 @@ const Navbar: React.FC = () => {
                                     key={idx}
                                     href={dropdownItem.href}
                                     onClick={() => setActiveDropdown(null)}
-                                    className="group flex items-start gap-2.5 p-2.5 rounded-lg transition-colors duration-100 hover:bg-zinc-800/60"
+                                    className="group flex items-start gap-2.5 p-2.5 rounded-lg transition-colors duration-100 hover:vx-bg-alt"
                                   >
-                                    <div className="w-7 h-7 rounded-md bg-zinc-800 border border-zinc-700/50 flex items-center justify-center flex-shrink-0 group-hover:border-emerald-500/30 transition-colors">
-                                      <DropIcon className="w-3.5 h-3.5 text-zinc-400 group-hover:text-emerald-400 transition-colors" />
+                                    <div className="w-7 h-7 rounded-md vx-bg-alt border vx-line flex items-center justify-center flex-shrink-0 group-hover:border-[color:var(--vx-accent)] transition-colors">
+                                      <DropIcon className="w-3.5 h-3.5 vx-muted group-hover:vx-accent-text transition-colors" />
                                     </div>
                                     <div className="min-w-0 flex-1">
                                       <div className="flex items-center gap-1.5">
-                                        <span className="text-[13px] font-semibold text-zinc-200 group-hover:text-white transition-colors">
+                                        <span className="text-[13px] font-semibold vx-ink transition-colors">
                                           {dropdownItem.name}
                                         </span>
                                         {dropdownItem.badge && (
-                                          <span className="px-1.5 py-px rounded text-[9px] font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/20 uppercase">
+                                          <span className="px-1.5 py-px rounded text-[9px] font-bold bg-[#d97757]/10 vx-accent-text border border-[#d97757]/25 uppercase">
                                             {dropdownItem.badge}
                                           </span>
                                         )}
                                       </div>
                                       {dropdownItem.description && (
-                                        <p className="text-[11px] text-zinc-500 truncate mt-0.5 group-hover:text-zinc-400">
+                                        <p className="text-[11px] vx-faint truncate mt-0.5">
                                           {dropdownItem.description}
                                         </p>
                                       )}
@@ -250,14 +246,14 @@ const Navbar: React.FC = () => {
                   href={item.href}
                   className={`group/link relative px-3 py-1.5 rounded-lg text-[13px] font-semibold transition-colors duration-150 ${
                     active
-                      ? 'text-white'
-                      : 'text-zinc-400 hover:text-white'
+                      ? 'vx-ink'
+                      : 'vx-muted vx-hover-ink'
                   }`}
                   prefetch={true}
                 >
                   <span>{item.name}</span>
                   {/* Underline indicator */}
-                  <span className={`absolute bottom-0 left-3 right-3 h-[2px] rounded-full bg-emerald-500 transition-transform duration-200 origin-center ${
+                  <span className={`absolute bottom-0 left-3 right-3 h-[2px] rounded-full bg-[color:var(--vx-accent)] transition-transform duration-200 origin-center ${
                     active ? 'scale-x-100' : 'scale-x-0 group-hover/link:scale-x-100'
                   }`} />
                 </Link>
@@ -275,7 +271,7 @@ const Navbar: React.FC = () => {
               href="https://discord.gg/dJpMDfgUQq"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 text-[13px] font-semibold transition-all duration-150"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border vx-line vx-muted vx-hover-ink hover:border-[color:var(--vx-accent)] text-[13px] font-semibold transition-all duration-150"
             >
               <FaDiscord className="w-3.5 h-3.5 text-[#5865F2]" />
               <span>Discord</span>
@@ -285,7 +281,7 @@ const Navbar: React.FC = () => {
             <div className="relative" ref={secondaryRef}>
               <button
                 onClick={() => setSecondaryOpen(!secondaryOpen)}
-                className="flex items-center justify-center w-8 h-8 rounded-lg border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 transition-all duration-150"
+                className="flex items-center justify-center w-8 h-8 rounded-lg border vx-line vx-muted vx-hover-ink hover:border-[color:var(--vx-accent)] transition-all duration-150"
                 aria-label="Settings and preferences"
               >
                 <Settings className="w-3.5 h-3.5" />
@@ -300,9 +296,9 @@ const Navbar: React.FC = () => {
                     transition={{ duration: 0.12, ease: 'easeOut' }}
                     className="absolute top-full right-0 mt-2 w-[220px] z-50"
                   >
-                    <div className="rounded-xl bg-zinc-900 border border-zinc-800 p-2 shadow-xl">
+                    <div className="rounded-xl vx-card border vx-line p-2 shadow-xl">
                       {/* Currency & Language row */}
-                      <div className="flex items-center gap-2 px-2 py-2 border-b border-zinc-800/60 mb-1">
+                      <div className="flex items-center gap-2 px-2 py-2 border-b vx-line mb-1">
                         <div className="flex-1">
                           <CurrencySelector />
                         </div>
@@ -317,11 +313,11 @@ const Navbar: React.FC = () => {
                           key={idx}
                           href={item.href}
                           onClick={() => setSecondaryOpen(false)}
-                          className="flex items-center gap-2 px-3 py-2 rounded-lg text-[12px] font-medium text-zinc-400 hover:text-white hover:bg-zinc-800/60 transition-colors"
+                          className="flex items-center gap-2 px-3 py-2 rounded-lg text-[12px] font-medium vx-muted vx-hover-ink hover:vx-bg-alt transition-colors"
                         >
                           {(() => {
                             const Icon = getItemIcon(item.name);
-                            return <Icon className="w-3.5 h-3.5 text-zinc-500" />;
+                            return <Icon className="w-3.5 h-3.5 vx-faint" />;
                           })()}
                           <span>{item.name}</span>
                         </Link>
@@ -332,12 +328,12 @@ const Navbar: React.FC = () => {
               </AnimatePresence>
             </div>
 
-            {/* Client Area — primary CTA, emerald fill */}
+            {/* Client Area — primary CTA, terracotta fill (accessible white text) */}
             <a
               href="https://billing.vexanode.gg"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-1.5 px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-zinc-950 text-[13px] font-bold transition-all duration-150"
+              className="vx-btn-accent group flex items-center gap-1.5 px-4 py-2 rounded-lg text-[13px] font-bold transition-all duration-150"
             >
               <span>Client Area</span>
               <ArrowRight className="w-3.5 h-3.5 transition-transform duration-150 group-hover:translate-x-0.5" />
@@ -349,7 +345,7 @@ const Navbar: React.FC = () => {
             <ThemeToggle />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white transition-colors"
+              className="p-2 rounded-lg vx-card border vx-line vx-muted vx-hover-ink transition-colors"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -379,10 +375,10 @@ const Navbar: React.FC = () => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-[300px] max-w-[85vw] bg-zinc-950 border-l border-zinc-800 overflow-y-auto flex flex-col"
+              className="fixed top-0 right-0 bottom-0 z-50 w-[300px] max-w-[85vw] vx-bg border-l vx-line overflow-y-auto flex flex-col"
             >
               {/* Drawer header */}
-              <div className="flex items-center justify-between px-5 py-4 border-b border-zinc-800/60">
+              <div className="flex items-center justify-between px-5 py-4 border-b vx-line">
                 <div className="flex items-center gap-2">
                   <Image
                     src={heroSettings.navbar.logo}
@@ -391,14 +387,14 @@ const Navbar: React.FC = () => {
                     height={24}
                     className="w-6 h-6 object-contain"
                   />
-                  <span className="font-bold text-sm text-white">
+                  <span className="font-bold text-sm vx-ink">
                     {heroSettings.navbar.brandName}
-                    <span className="text-emerald-400">{heroSettings.navbar.brandAccent}</span>
+                    <span className="vx-accent-text">{heroSettings.navbar.brandAccent}</span>
                   </span>
                 </div>
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
+                  className="p-1.5 rounded-lg vx-muted vx-hover-ink hover:vx-bg-alt transition-colors"
                   aria-label="Close menu"
                 >
                   <X className="w-5 h-5" />
@@ -419,11 +415,11 @@ const Navbar: React.FC = () => {
                             setMobileDropdownOpen(prev => ({ ...prev, [item.name]: !prev[item.name] }))
                           }
                           className={`w-full flex items-center justify-between py-2.5 px-3 rounded-lg text-[13px] font-semibold transition-colors ${
-                            active ? 'text-emerald-400' : 'text-zinc-300 hover:text-white hover:bg-zinc-900'
+                            active ? 'vx-accent-text' : 'vx-muted2 vx-hover-ink hover:vx-bg-alt'
                           }`}
                         >
                           <span>{item.name}</span>
-                          <ChevronDown className={`w-3.5 h-3.5 text-zinc-500 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+                          <ChevronDown className={`w-3.5 h-3.5 vx-faint transition-transform ${isOpen ? 'rotate-180' : ''}`} />
                         </button>
 
                         <AnimatePresence>
@@ -441,10 +437,10 @@ const Navbar: React.FC = () => {
                                     key={i}
                                     href={d.href}
                                     onClick={() => setIsMobileMenuOpen(false)}
-                                    className="flex items-center justify-between py-2 px-3 rounded-lg text-[12px] text-zinc-400 hover:text-white hover:bg-zinc-800/50 transition-colors"
+                                    className="flex items-center justify-between py-2 px-3 rounded-lg text-[12px] vx-muted vx-hover-ink hover:vx-bg-alt transition-colors"
                                   >
                                     <span>{d.name}</span>
-                                    <ChevronRight className="w-3 h-3 text-zinc-600" />
+                                    <ChevronRight className="w-3 h-3 vx-faint" />
                                   </Link>
                                 ))}
                               </div>
@@ -461,7 +457,7 @@ const Navbar: React.FC = () => {
                       href={item.href}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className={`block py-2.5 px-3 rounded-lg text-[13px] font-semibold transition-colors ${
-                        active ? 'text-emerald-400 bg-emerald-500/5' : 'text-zinc-300 hover:text-white hover:bg-zinc-900'
+                        active ? 'vx-accent-text bg-[#d97757]/5' : 'vx-muted2 vx-hover-ink hover:vx-bg-alt'
                       }`}
                     >
                       {item.name}
@@ -471,15 +467,15 @@ const Navbar: React.FC = () => {
 
                 {/* Legal links in mobile */}
                 {legalNav?.dropdownItems && (
-                  <div className="pt-3 mt-3 border-t border-zinc-800/60">
-                    <span className="px-3 text-[10px] font-bold text-zinc-600 uppercase tracking-widest">Legal</span>
+                  <div className="pt-3 mt-3 border-t vx-line">
+                    <span className="px-3 text-[10px] font-bold vx-faint uppercase tracking-widest">Legal</span>
                     <div className="mt-2 space-y-0.5">
                       {legalNav.dropdownItems.map((item, idx) => (
                         <Link
                           key={idx}
                           href={item.href}
                           onClick={() => setIsMobileMenuOpen(false)}
-                          className="block py-2 px-3 rounded-lg text-[12px] text-zinc-500 hover:text-white hover:bg-zinc-800/50 transition-colors"
+                          className="block py-2 px-3 rounded-lg text-[12px] vx-muted vx-hover-ink hover:vx-bg-alt transition-colors"
                         >
                           {item.name}
                         </Link>
@@ -490,7 +486,7 @@ const Navbar: React.FC = () => {
               </div>
 
               {/* Mobile CTAs */}
-              <div className="px-4 py-4 border-t border-zinc-800/60 space-y-2.5">
+              <div className="px-4 py-4 border-t vx-line space-y-2.5">
                 {/* Currency & Language compact row */}
                 <div className="flex items-center gap-2 mb-2">
                   <CurrencySelector />
@@ -501,7 +497,7 @@ const Navbar: React.FC = () => {
                   href="https://discord.gg/dJpMDfgUQq"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg border border-zinc-800 text-zinc-300 text-[13px] font-semibold hover:text-white hover:border-zinc-700 transition-colors"
+                  className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg border vx-line vx-muted2 vx-hover-ink text-[13px] font-semibold hover:border-[color:var(--vx-accent)] transition-colors"
                 >
                   <FaDiscord className="w-4 h-4 text-[#5865F2]" />
                   <span>Join Discord</span>
@@ -511,7 +507,7 @@ const Navbar: React.FC = () => {
                   href="https://billing.vexanode.gg"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full text-center py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-zinc-950 text-[13px] font-bold transition-colors"
+                  className="vx-btn-accent block w-full text-center py-2.5 rounded-lg text-[13px] font-bold transition-colors"
                 >
                   Client Area
                 </a>

@@ -52,9 +52,12 @@ on theme change.
 
 ## Implementation checklist
 - [x] Tokens defined in globals.css; faint darkened for AA.
-- [ ] Add `--vx-accent-strong` + swap terracotta button/text literals to it.
-- [ ] Add global `prefers-reduced-motion` reduce rule.
-- [ ] Add global `:focus-visible` ring using accent.
+- [x] Added `--vx-accent` / `--vx-accent-text` / `--vx-accent-btn` tokens + `.vx-accent-text`
+      / `.vx-btn-accent` utilities (accessible terracotta for text/fills).
+- [x] Added global `prefers-reduced-motion` reduce rule.
+- [x] Added global `:focus-visible` ring using accent.
+- [ ] Swap component terracotta literals (`#d97757`) → `.vx-accent-text` / `.vx-btn-accent`
+      where used for small text / button fills.
 - [ ] Apply tokens to Navbar, Footer, and all 28 routes (Phase 2).
 
 ## Open questions / needs real data
