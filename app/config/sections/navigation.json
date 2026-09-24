@@ -76,6 +76,26 @@
           "name": "Service Level Agreement",
           "href": "/sla",
           "description": "Our 99.9% uptime guarantees"
+        },
+        {
+          "name": "Refund Policy",
+          "href": "/refund-policy",
+          "description": "24-hour change of mind and 7-day VPS guarantee"
+        },
+        {
+          "name": "Acceptable Usage",
+          "href": "/aup",
+          "description": "Permitted and prohibited use of our services"
+        },
+        {
+          "name": "Fair Usage",
+          "href": "/fup",
+          "description": "Resource limits, bandwidth, and free tier rules"
+        },
+        {
+          "name": "Free Hosting Policy",
+          "href": "/free-bot-hosting-policy",
+          "description": "Backups, data loss, and liability on the free tier"
         }
       ]
     }

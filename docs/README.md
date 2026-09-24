@@ -30,6 +30,34 @@ area, then updated to match what shipped. See [BRIEF.md](../BRIEF.md) for full s
   ivory; dark = ink. Toggle component: `app/components/ThemeToggle.tsx`.
 
 ## Changelog
+### Loop 5 — 2026-09-24
+- **Structured data.** Added `generateProductSchema` (Product + Offer[]) to `lib/seo.ts` —
+  enforces positive real prices + ISO-4217 currency, skips invalid offers. Wired it into
+  `/webhosting` using **real config prices** (GBP); verified rendered JSON-LD
+  (`"price":2.99,"priceCurrency":"GBP"` …). Service + BreadcrumbList already present there.
+- Verified: `tsc` clean; `/webhosting` emits valid Product/Service/Breadcrumb JSON-LD.
+- Pattern established to roll Product/Offer + Breadcrumb to the other commercial pages.
+
+### Loop 4 — 2026-09-24
+- **Phase 3 (SEO) — per-page metadata now on every route.** 13 routes already had metadata;
+  the 15 remaining routes were `"use client"` pages that can't export `metadata`, so added a
+  co-located server `layout.tsx` per route (about, affiliates, aup, contact, docs, domains,
+  free-bot-hosting, free-bot-hosting-policy, fup, partners, privacy-policy, refund-policy,
+  sla, team, terms-of-services) using `constructMetadata` → unique title (<60), description
+  (<160), canonical, Open Graph + Twitter. Verified rendering via dev server (200 + correct
+  `<title>`/`<meta description>`). See [seo.md](seo.md).
+- Verified: `tsc` clean; new routes return HTTP 200 with correct meta.
+
+### Loop 3 — 2026-09-24
+- **Condition 7 (real-data) — landing page cleaned.** Removed every fabricated numeric
+  claim from the home page: uptime %, "3.2 Tbps", "7 GB/s", "5.7 GHz", "7,000 MB/s",
+  "sub-20ms", "30s deploy", "450+ verified reviews"/star aggregate, per-city CPU+ping,
+  "24/7", "thousands of…". Replaced with honest qualitative copy or deleted. See
+  [content.md](content.md) claims register + [audit.md](audit.md) Loop 3.
+- Individual testimonial quotes kept but header relabeled "What our community says";
+  consent still to confirm ([todo-real-data.md](todo-real-data.md)).
+- Verified: `tsc` clean, ESLint clean on all edited files, dev HTTP 200.
+
 ### Loop 2 — 2026-09-24
 - **Phase 2 started.** Themed the shared **Navbar** and **Footer** with `vx-*` tokens →
   every route's chrome now responds to dark/light. Navbar Client-area CTA switched to the

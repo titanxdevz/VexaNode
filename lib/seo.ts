@@ -218,9 +218,53 @@ export function generateArticleSchema({
   };
 }
 
+/**
+ * Product + Offer(s) schema for plan/pricing pages.
+ * Pass ONLY real prices from our config. `price` must parse to a positive number and
+ * `priceCurrency` must be a valid ISO 4217 code, per Google merchant-listing rules.
+ * Offers whose price is not a positive number are skipped (never emit price: 0 / fake).
+ */
+export function generateProductSchema({
+  name,
+  description,
+  url,
+  image = DEFAULT_OG_IMAGE,
+  priceCurrency,
+  offers,
+}: {
+  name: string;
+  description: string;
+  url: string;
+  image?: string;
+  priceCurrency: string;
+  offers: { name: string; price: number; url?: string }[];
+}) {
+  const validOffers = offers.filter((o) => typeof o.price === "number" && o.price > 0);
+  const absUrl = url.startsWith("http") ? url : `${SITE_URL}${url.startsWith("/") ? "" : "/"}${url}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name,
+    description,
+    image: image.startsWith("http") ? image : `${SITE_URL}${image.startsWith("/") ? "" : "/"}${image}`,
+    brand: { "@type": "Brand", name: "VexaNode" },
+    offers: validOffers.map((o) => ({
+      "@type": "Offer",
+      name: o.name,
+      price: o.price,
+      priceCurrency,
+      availability: "https://schema.org/InStock",
+      url: o.url
+        ? o.url.startsWith("http") ? o.url : `${SITE_URL}${o.url.startsWith("/") ? "" : "/"}${o.url}`
+        : absUrl,
+    })),
+  };
+}
+
 // Aliases for convenience
 export const serviceSchema = generateServiceSchema;
 export const organizationSchema = generateOrganizationSchema;
 export const websiteSchema = generateWebSiteSchema;
 export const breadcrumbSchema = generateBreadcrumbSchema;
 export const articleSchema = generateArticleSchema;
+export const productSchema = generateProductSchema;

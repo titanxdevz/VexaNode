@@ -55,7 +55,7 @@ export default function ProductsSection() {
         "AMD Ryzen 9 & EPYC Processors",
         "1-Click Modpacks & Plugins",
         "Unmetered PCIe NVMe Storage",
-        "Sub-20ms Low Ping Routes",
+        "Low-Ping Routing",
         "Real-Time Console & Backups"
       ],
       popular: false,
@@ -92,7 +92,7 @@ export default function ProductsSection() {
         "YouTube, Spotify & Soundcloud",
         "100+ Concurrent Streams",
         "India & USA Low-Jitter Nodes",
-        "99.95% Audio SLA Guarantee"
+        "Dedicated Audio SLA"
       ],
       popular: false,
       badge: "JVM TUNED",

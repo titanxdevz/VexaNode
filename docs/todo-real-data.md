@@ -37,6 +37,26 @@ These pre-exist in the landing components. Confirm real (with source) or we remo
 ## E. Design sign-off
 17. OK to **darken terracotta** for buttons/small text to meet WCAG AA contrast?
 
+## F. "Powered By" trusted-technology logos
+The section (landing marquee + About grid) lives in `app/components/brand/`.
+Logos are used for identification only, with a trademark disclaimer in the footer.
+
+**Real official vector marks (shipped, source: Simple Icons, mirrored in `public/brands/`):**
+- AMD, Intel, Cloudflare, Pterodactyl — official monochrome logos, official brand colors.
+
+**Text-wordmark fallbacks (no official vector sourced yet — replace with real SVG when available):**
+18. **VirtFusion** — official logo SVG + verify exact brand hex (currently `#2F6FED`, unverified).
+19. **GIGABYTE** — official logo SVG + verify exact brand hex (currently `#E45501`, approx.).
+20. **Micron** — official logo SVG (brand hex `#0077C8` verified: Micron "True Blue").
+21. **AWS** — official logo SVG (brand hex `#FF9900` verified). Note AWS trademark
+    guidelines restrict logo use — confirm permitted usage before adding the real mark.
+22. **Voxility** — official logo SVG + verify exact brand hex (currently `#1D6FB8`, unverified).
+23. **Cashfree** — official logo SVG + verify exact brand hex (currently `#00C2A8`, unverified;
+    logotyp.us lists navy/orange/teal).
+
+Also confirm each provider is actually part of VexaNode's stack before publishing (real-data rule):
+VirtFusion, Pterodactyl, AMD, Intel, GIGABYTE, Micron, AWS, Cloudflare, Voxility, Cashfree.
+
 ---
 Until resolved, section A items are the top priority — they are the highest-risk for
 shipping fabricated facts. See [content.md](content.md) claims register.

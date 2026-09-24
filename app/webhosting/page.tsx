@@ -6,7 +6,8 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import PanelShowcase from "../components/PanelShowcase";
 import LocationsSection from "../components/LocationsSection";
-import { constructMetadata, serviceSchema, breadcrumbSchema } from "@/lib/seo";
+import { constructMetadata, serviceSchema, breadcrumbSchema, productSchema } from "@/lib/seo";
+import webhostingConfig from "../config/sections/webhosting.json";
 
 export const metadata: Metadata = constructMetadata({
   title: "High Speed Web Hosting | cPanel & NVMe SSD | VexaNode",
@@ -37,6 +38,23 @@ export default function WebHostingPage() {
     { name: "Web Hosting", url: "/webhosting" },
   ]);
 
+  // Product/Offer schema from real config prices (parse "£2.99" → 2.99). GBP is the base currency.
+  const webPlans = [
+    ...(webhostingConfig.plans.shared ?? []),
+    ...(webhostingConfig.plans.business ?? []),
+  ];
+  const productJsonLd = productSchema({
+    name: "VexaNode Web Hosting Plans",
+    description:
+      "cPanel web hosting plans powered by LiteSpeed, NVMe SSD storage, and free SSL certificates.",
+    url: "/webhosting",
+    priceCurrency: "GBP",
+    offers: webPlans.map((p) => ({
+      name: p.name,
+      price: parseFloat(String(p.price).replace(/[^0-9.]/g, "")),
+    })),
+  });
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-[#0a0b0f] transition-colors duration-300">
       <script
@@ -46,6 +64,10 @@ export default function WebHostingPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
       />
       <Navbar />
       <WebHostingPricingSection />

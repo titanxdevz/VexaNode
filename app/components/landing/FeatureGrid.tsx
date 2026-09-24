@@ -48,10 +48,11 @@ export default function FeatureGrid() {
             </div>
             <h3 className="text-2xl sm:text-3xl font-extrabold vx-ink">AMD Ryzen 9 &amp; EPYC Processors</h3>
             <p className="mt-3 text-sm vx-muted max-w-xl leading-relaxed">
-              Eliminate server tick-drop and audio stuttering with top-tier clock speeds up to 5.7 GHz. Perfectly tuned for Minecraft, bots, and heavy real-time data streaming.
+              Eliminate server tick-drop and audio stuttering with high clock speeds.
+              Tuned for Minecraft, bots, and heavy real-time data streaming.
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
-              {["5.7 GHz Boost", "Zen 4/Zen 5", "DDR5 High Speed", "Dedicated Threads"].map((tag, idx) => (
+              {["High Clock Speed", "Zen 4 / Zen 5", "DDR5 Memory", "Dedicated Threads"].map((tag, idx) => (
                 <span key={idx} className="px-3 py-1 rounded-full vx-bg border vx-line text-[11px] font-bold vx-muted2">
                   {tag}
                 </span>
@@ -71,11 +72,11 @@ export default function FeatureGrid() {
               <span className="p-2.5 rounded-2xl bg-[#6a9bcc]/10 border border-[#6a9bcc]/30 text-[#6a9bcc]">
                 <ShieldCheck className="w-5 h-5" />
               </span>
-              <span className="text-xs font-black text-[#6a9bcc] uppercase tracking-wider">3.2 Tbps Shield</span>
+              <span className="text-xs font-black text-[#6a9bcc] uppercase tracking-wider">DDoS Filtering</span>
             </div>
             <h3 className="text-xl font-extrabold vx-ink">Always-On DDoS Filtering</h3>
             <p className="mt-2.5 text-xs sm:text-sm vx-muted leading-relaxed">
-              Multi-layer hardware firewalls scrub malicious volumetric floods instantly without affecting gameplay ping.
+              Multi-layer hardware firewalls scrub malicious volumetric floods without affecting gameplay ping.
             </p>
           </motion.div>
 
@@ -95,7 +96,7 @@ export default function FeatureGrid() {
             </div>
             <h3 className="text-xl font-extrabold vx-ink">Pure NVMe Storage</h3>
             <p className="mt-2.5 text-xs sm:text-sm vx-muted leading-relaxed">
-              Up to 7,000 MB/s read/write speeds for instant world loading, SQLite/Postgres queries, and backups.
+              High read/write speeds for fast world loading, SQLite/Postgres queries, and backups.
             </p>
           </motion.div>
 
@@ -115,7 +116,7 @@ export default function FeatureGrid() {
             </div>
             <h3 className="text-2xl sm:text-3xl font-extrabold vx-ink">Direct Peering in India &amp; Strategic Regions</h3>
             <p className="mt-3 text-sm vx-muted max-w-xl leading-relaxed">
-              Connected directly to major Internet Exchanges with automated BGP failover to guarantee sub-20ms latency across South Asia and worldwide routes.
+              Connected directly to major Internet Exchanges with automated BGP failover for low-latency routing across South Asia and worldwide.
             </p>
           </motion.div>
 

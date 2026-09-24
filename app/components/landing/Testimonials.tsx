@@ -153,21 +153,12 @@ export default function Testimonials() {
             Customer Trust
           </span>
           <h2 className="text-3xl font-extrabold tracking-tight vx-ink sm:text-4xl">
-            Trusted by developers &amp; communities
+            What our community says
           </h2>
 
-          {/* Trustpilot-style Rating badge */}
-          <div className="mt-4 flex items-center justify-center gap-2 vx-muted">
-            <span className="text-sm font-bold vx-ink">Excellent</span>
-            <div className="flex gap-0.5">
-              {Array.from({ length: 5 }).map((_, idx) => (
-                <div key={idx} className="bg-[#d97757] p-0.5 rounded-sm">
-                  <Star className="h-3 w-3 fill-white text-white" />
-                </div>
-              ))}
-            </div>
-            <span className="text-xs vx-faint">based on 450+ verified reviews</span>
-          </div>
+          <p className="mt-4 text-sm vx-muted max-w-lg mx-auto">
+            Feedback shared by members of the VexaNode community.
+          </p>
         </div>
 
         {/* Marquee Row 1 - Moves Left */}

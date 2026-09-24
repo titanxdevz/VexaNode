@@ -20,12 +20,13 @@ Status: ✅ sourced · ⚠️ needs verification · ❌ remove/relabel until rea
 | Plan prices (£ values, RAM/CPU/NVMe specs) | pricing sections | `app/config/sections/*.json` (our config) | ⚠️ confirm current/real |
 | "Discord" support link `discord.gg/dJpMDfgUQq` | nav/hero/footer | our code | ✅ |
 | Client area `billing.vexanode.gg` | navbar | our code | ⚠️ confirm live |
-| "99.95% Uptime SLA" (landing hero/CTA) | `/` | none found | ❌ needs real SLA source |
-| "3.2 Tbps DDoS Shield" | `/` FeatureGrid | none found | ❌ needs real infra source |
-| "7 GB/s NVMe", "sub-20ms", "30s deploy" | `/` | none found | ❌ needs real benchmark |
-| "based on 450+ verified reviews", "Excellent ★★★★★" | `/` Testimonials | none found | ❌ remove or replace with real review source |
-| Named testimonials (Gaurav, Majid, …) | `/` Testimonials | unverified | ❌ confirm real consent/quotes or relabel |
-| Datacenter regions/pings (Mumbai 8ms, …) | `/` GlobeSection | none found | ❌ needs real location/latency data |
+| "99.95% Uptime SLA" (landing hero/CTA) | `/` | none found | ✅ **REMOVED** (→ "Uptime SLA", links to /sla) |
+| "3.2 Tbps DDoS Shield" | `/` FeatureGrid + hero | none found | ✅ **REMOVED** (→ "DDoS Protection/Filtering") |
+| "7 GB/s NVMe", "sub-20ms", "30s/instant deploy", "5.7 GHz", "7,000 MB/s" | `/` hero/features/products/CTA | none found | ✅ **REMOVED** (qualitative copy) |
+| "based on 450+ verified reviews", "Excellent ★★★★★" | `/` Testimonials | none found | ✅ **REMOVED** (aggregate rating deleted) |
+| "24/7 support", "Join thousands…" | `/` hero/CTA | none found | ✅ **REMOVED** (→ "Discord support") |
+| Named testimonials (Gaurav, Majid, …) | `/` Testimonials | unverified | ⚠️ quotes kept, header now "community feedback"; confirm real consent |
+| Datacenter per-city CPU + ping (Mumbai 8ms, …) | `/` GlobeSection | none found | ✅ **REMOVED** (city/country only; regions still ⚠️ unverified) |
 | "AMD Ryzen 9 & EPYC" hardware | `/` | config/infra? | ⚠️ confirm real hardware |
 
 ## Decisions

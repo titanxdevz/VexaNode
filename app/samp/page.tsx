@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { constructMetadata, serviceSchema } from "@/lib/seo"
+import { constructMetadata, serviceSchema, breadcrumbSchema } from "@/lib/seo"
 import SampClient from "./SampClient"
 
 export const metadata: Metadata = constructMetadata({
@@ -27,11 +27,20 @@ export default function SampPage() {
     serviceType: "Game Server Hosting",
   })
 
+  const breadcrumbsJsonLd = breadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "SA-MP Hosting", url: "/samp" },
+  ])
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
       />
       <SampClient />
     </>

@@ -57,11 +57,17 @@ Legal/utility pages should carry `noIndex` only if the owner wants them out of t
   "99.9%") unless sourced. See [content.md](content.md) claims register.
 
 ## Implementation checklist
-- [ ] Audit each route's current metadata (grep `constructMetadata`/`export const metadata`).
-- [ ] Add unique title+desc per route from the table.
+- [x] Audit each route's current metadata (13 had it; 15 client-page routes were missing).
+- [x] Add unique title+desc per route. Client (`"use client"`) pages can't export
+      `metadata`, so added a co-located server `layout.tsx` per route
+      (about, affiliates, aup, contact, docs, domains, free-bot-hosting,
+      free-bot-hosting-policy, fup, partners, privacy-policy, refund-policy, sla, team,
+      terms-of-services) using `constructMetadata` (unique title/desc/canonical/OG/Twitter).
+      Verified rendering: `/about` → `<title>About VexaNode</title>` etc.
 - [ ] Confirm one H1 per page during Phase 2 theming.
 - [ ] Verify `app/sitemap.ts` lists all public routes; `app/robots.ts` references sitemap.
 - [ ] Validate OG image exists at `/logo.png` (or add dedicated 1200×630 OG asset — owner).
+- [ ] Add Product/Offer + BreadcrumbList JSON-LD to commercial pages ([structured-data.md]).
 
 ## Open questions / needs real data
 - Dedicated 1200×630 OG image (currently reuses `/logo.png`, 702×687) — see

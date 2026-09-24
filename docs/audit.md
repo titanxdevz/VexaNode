@@ -4,6 +4,73 @@
 Record QA results per loop iteration: build/lint/type-check, link/console checks, contrast,
 responsiveness, claims grep. One section per iteration.
 
+## Loop 5 — 2026-09-24
+### Shipped (Condition 2 — structured data)
+- `generateProductSchema` added to `lib/seo.ts` (positive-price + ISO-4217 guard).
+- `/webhosting` now emits Product/Offer JSON-LD from real config prices (GBP), alongside
+  existing Service + BreadcrumbList. Verified rendered output.
+### Still open (carry to Loop 6)
+- Product/Offer + Breadcrumb on the other 9 commercial pages.
+- 27 page bodies still hardcoded dark (theme each) — biggest remaining item.
+- Pre-existing repo-wide lint errors (~74) block `next build`.
+- Lighthouse NOT RUN (no tooling).
+
+## Loop 4 — 2026-09-24
+### Shipped (Condition 2 — per-page SEO metadata)
+- Added `layout.tsx` (server, `constructMetadata`) to 15 client-page routes that lacked
+  metadata → all 28 routes now emit unique title/description/canonical/OG/Twitter.
+- Verified: `tsc` clean; `/about`, `/contact`, `/sla`, `/team`, `/terms-of-services`,
+  `/free-bot-hosting`, `/docs` → HTTP 200; titles/descriptions render correctly.
+### Still open (carry to Loop 5)
+- One-H1-per-page + JSON-LD (Product/Offer/Breadcrumb) still to add per commercial page.
+- 27 page bodies still hardcoded dark (theme each).
+- Pre-existing repo-wide lint errors (~74) block `next build`.
+- Lighthouse NOT RUN (no tooling).
+
+## Loop 3 — 2026-09-24
+### Shipped (Condition 7 — fabricated stats on landing removed)
+- **LandingHero**: stat cards no longer show invented numbers (30s / 3.2 Tbps / 7 GB/s /
+  99.95%) — now qualitative feature cards; trust line "99.95% Uptime SLA"→"Uptime SLA",
+  "24/7 Support"→"Discord support"; sub-copy "under 30 seconds"→"fast automated deployment".
+- **FeatureGrid**: removed "5.7 GHz", "3.2 Tbps", "7,000 MB/s", "sub-20ms" → qualitative.
+- **ProductsSection**: "Sub-20ms Low Ping Routes"→"Low-Ping Routing"; "99.95% Audio SLA
+  Guarantee"→"Dedicated Audio SLA".
+- **CtaSection**: "in under 30 seconds"/"thousands of…"/"99.95% SLA"/"24/7 human support"
+  → neutral copy.
+- **Testimonials**: deleted fabricated aggregate ("Excellent ★★★★★ / 450+ verified
+  reviews"); header now "What our community says". Individual quotes kept (⚠️ consent
+  unverified — [todo-real-data.md](todo-real-data.md)).
+- **GlobeSection**: removed per-city CPU models + ping latencies (fabricated); region list
+  now city/country only (regions themselves still ⚠️ unverified).
+### Verified
+- `tsc` clean; ESLint clean on all edited landing files (also removed GlobeSection's unused
+  Zap/Radio imports); dev HTTP 200, no console errors.
+- Grep for `Tbps|GB/s|\dms|99.9|5.7 GHz|7,000|450+|30 seconds|sub-20|thousands of` → only
+  remaining hits are inert (none rendered as fact).
+### Still open (carry to Loop 4)
+- 27 page bodies still hardcoded dark (theme each).
+- Per-page SEO metadata + Product/Offer/Breadcrumb JSON-LD.
+- Region names + hardware descriptors still need owner verification (todo-real-data).
+- Pre-existing repo-wide lint errors (~74) block `next build`.
+- Lighthouse NOT RUN (no tooling).
+
+## Loop 2 — 2026-09-24
+### Automated
+- **TypeScript** (`tsc --noEmit`): ✅ passes.
+- **ESLint (changed files: Navbar, Footer)**: ✅ 0 errors, 0 warnings (removed 3 pre-existing
+  unused imports in Navbar).
+- **Dev server**: ✅ `/` HTTP 200, no compile/console errors after Navbar+Footer theming.
+### Shipped
+- Navbar + Footer fully tokenized (`vx-*`) → all 28 routes now share theme-aware chrome.
+- Fabricated "All Systems Operational" footer claim removed (→ "Server Status").
+- Accessible accent tokens + focus-visible + reduced-motion confirmed live.
+### Still open (carry to Loop 3)
+- 27 page bodies still hardcoded dark (only `/` fully themed); theme each next.
+- Per-page SEO metadata + Product/Offer/Breadcrumb JSON-LD (Phase 3).
+- Fabricated numeric stats on landing (uptime/Tbps/GB/s/ms/reviews) to resolve.
+- Pre-existing repo-wide lint errors (~74) still block `next build`.
+- Lighthouse NOT RUN (no tooling).
+
 ## Loop 1 — 2026-09-24
 ### Automated
 - **TypeScript** (`tsc --noEmit`): ✅ passes (run this session after landing theme work).

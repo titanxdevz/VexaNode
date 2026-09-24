@@ -5,6 +5,7 @@ import { Shield, Zap, Globe, Cpu, Users, Award, Target, MessageSquare } from "lu
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import { PageMeta } from "../components/PageMeta"
+import { PoweredByGrid, PoweredByDisclaimer } from "../components/brand/PoweredBy"
 import Image from "next/image"
 
 export default function AboutPage() {
@@ -130,6 +131,30 @@ export default function AboutPage() {
               </motion.div>
             ))}
           </div>
+        </section>
+
+        {/* Powered By / Our Technology */}
+        <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-24">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 orbitron-font">Powered By</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              Built on trusted technology from industry-leading hardware, cloud, and security providers.
+            </p>
+            <div className="w-24 h-1 bg-[#10b981] mx-auto rounded-full mt-6" />
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="rounded-3xl bg-white/[0.02] border border-white/10 p-8 md:p-12"
+          >
+            {/* Fixed-dark host page: force a light-enough idle grey so no logo is invisible */}
+            <PoweredByGrid idleColor="#8b897f" />
+          </motion.div>
+
+          <PoweredByDisclaimer className="text-gray-600 text-center mt-8 max-w-3xl mx-auto" />
         </section>
 
         {/* Network Map / Global Presence */}

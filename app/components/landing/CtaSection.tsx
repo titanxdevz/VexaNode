@@ -19,19 +19,19 @@ export default function CtaSection() {
             </span>
 
             <h2 className="mt-3 text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight vx-ink leading-[1.15]">
-              Get your server live<br className="hidden sm:inline" />
-              in under 30 seconds.
+              Deploy your server<br className="hidden sm:inline" />
+              in a few clicks.
             </h2>
 
             <p className="mt-4 max-w-md text-[14px] leading-relaxed vx-muted">
-              Join thousands of developers and gamers running on dedicated AMD
-              hardware with enterprise-grade DDoS mitigation. No contracts, no
-              setup fees, cancel anytime.
+              Run your Minecraft servers, bots, and projects on dedicated AMD
+              hardware with DDoS protection. No contracts, no setup fees,
+              cancel anytime.
             </p>
 
             {/* Trust points — horizontal, tight */}
             <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-[12px] vx-muted">
-              {["Instant activation", "No setup fees", "24/7 human support", "99.95% SLA"].map((t, i) => (
+              {["Automated setup", "No setup fees", "Discord support", "Uptime SLA"].map((t, i) => (
                 <span key={i} className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-3 h-3 text-[#d97757]" />
                   {t}

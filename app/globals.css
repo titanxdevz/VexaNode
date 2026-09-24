@@ -124,6 +124,73 @@
 }
 
 
+/* ============================================================
+   "Powered By" trusted-technology logo wall
+   Uniform muted grey by default → real brand color on hover/focus.
+   Grey tone is theme-aware for correct contrast in light & dark.
+   ============================================================ */
+:root {
+  --logo-idle: #57564f; /* muted grey on ivory (≥3:1 graphical contrast) */
+}
+.dark {
+  --logo-idle: #a3a199; /* muted grey on dark ink */
+}
+
+@layer utilities {
+  .brand-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--logo-idle);
+    opacity: 0.7;
+    transition: color 0.35s ease, opacity 0.35s ease;
+    border-radius: 6px;
+    cursor: default;
+  }
+  .brand-logo:hover,
+  .brand-logo:focus-visible {
+    color: var(--brand-color, var(--logo-idle));
+    opacity: 1;
+  }
+  .brand-logo:focus-visible {
+    outline: 2px solid var(--vx-accent);
+    outline-offset: 4px;
+  }
+  .brand-logo__mark {
+    height: 1.75rem;
+    width: auto;
+    display: block;
+  }
+  .brand-wordmark {
+    font-weight: 800;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+
+  /* Seamless infinite marquee (track duplicated in markup) */
+  .vx-marquee-track {
+    animation: vx-marquee 38s linear infinite;
+    will-change: transform;
+  }
+  @keyframes vx-marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .vx-marquee-mask:hover .vx-marquee-track,
+  .vx-marquee-mask:focus-within .vx-marquee-track {
+    animation-play-state: paused;
+  }
+  .vx-marquee-mask {
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .vx-marquee-track { animation: none; transform: none; }
+  }
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;

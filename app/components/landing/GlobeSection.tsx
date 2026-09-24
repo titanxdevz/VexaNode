@@ -2,21 +2,21 @@
 
 import { motion } from "framer-motion";
 import { Globe } from "@/components/ui/globe";
-import { Server, Zap, Radio } from "lucide-react";
+import { Server } from "lucide-react";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 const regions = [
-  { city: "Mumbai", country: "India", cpu: "AMD Ryzen 9 9950X", ping: "8ms" },
-  { city: "Delhi NCR", country: "India", cpu: "AMD Ryzen 9 9950X", ping: "7ms" },
-  { city: "Noida", country: "India", cpu: "Intel Xeon Gold", ping: "6ms" },
-  { city: "Kolkata", country: "India", cpu: "AMD EPYC 7502", ping: "9ms" },
-  { city: "Singapore", country: "Singapore", cpu: "AMD Ryzen 9 9950X", ping: "12ms" },
-  { city: "Johor", country: "Malaysia", cpu: "AMD Ryzen 9 9950X", ping: "13ms" },
-  { city: "Sydney", country: "Australia", cpu: "AMD Ryzen 9 9900X", ping: "18ms" },
-  { city: "Miami", country: "USA", cpu: "Intel Xeon Scalable", ping: "12ms" },
-  { city: "Frankfurt", country: "Germany", cpu: "AMD EPYC Milan", ping: "10ms" },
-  { city: "Ashburn", country: "USA", cpu: "Intel Xeon Gold", ping: "14ms" },
+  { city: "Mumbai", country: "India" },
+  { city: "Delhi NCR", country: "India" },
+  { city: "Noida", country: "India" },
+  { city: "Kolkata", country: "India" },
+  { city: "Singapore", country: "Singapore" },
+  { city: "Johor", country: "Malaysia" },
+  { city: "Sydney", country: "Australia" },
+  { city: "Miami", country: "USA" },
+  { city: "Frankfurt", country: "Germany" },
+  { city: "Ashburn", country: "USA" },
 ];
 
 export default function GlobeSection() {
@@ -45,7 +45,7 @@ export default function GlobeSection() {
           <div className="mt-8 grid grid-cols-1 gap-2.5 sm:grid-cols-2 max-h-[340px] overflow-y-auto pr-2 custom-scrollbar">
             {regions.map((r, i) => (
               <motion.div
-                key={r.city + "-" + r.cpu + "-" + i}
+                key={r.city + "-" + i}
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -57,15 +57,10 @@ export default function GlobeSection() {
                     <span>{r.city}</span>
                     <span className="text-[10px] font-medium vx-faint">({r.country})</span>
                   </div>
-                  <div className="text-[10px] vx-muted mt-0.5 flex items-center gap-1">
-                    <Server className="w-3 h-3 vx-faint" />
-                    <span>{r.cpu}</span>
-                  </div>
                 </div>
-                <div className="flex items-center gap-1 text-[10px] font-bold font-mono text-[#d97757] bg-[#d97757]/10 border border-[#d97757]/25 px-2 py-0.5 rounded-full">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#d97757] animate-pulse" />
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  {r.ping}
+                <div className="flex items-center gap-1.5 text-[10px] font-semibold vx-muted">
+                  <Server className="w-3 h-3 vx-faint" />
+                  <span>Region</span>
                 </div>
               </motion.div>
             ))}

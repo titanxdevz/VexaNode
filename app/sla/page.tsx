@@ -1,135 +1,104 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { HeartHandshake, ShieldCheck, Zap, Clock, ChevronRight, Activity, Server, LifeBuoy } from "lucide-react"
+import { FileText, Activity, Clock, Zap, ClipboardList, Shield, LifeBuoy, Ban, RefreshCcw, CalendarRange } from "lucide-react"
+import { FaDiscord } from "react-icons/fa"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import { PageMeta } from "../components/PageMeta"
+import LegalDoc from "../components/legal/LegalDoc"
 
-const slaRules = [
+const slaSections = [
   {
-    title: "1. 99.9% Uptime Commitment",
-    content: "We guarantee that our core hosting services will be available and reachable from the global internet 99.9% of the time in any given monthly billing cycle. This applies to power, cooling, and physical network connectivity.",
+    title: "1. Purpose",
+    content: "This Service Level Agreement (SLA) defines the level of service VexaNode commits to providing for its paid hosting services, including VPS hosting, Discord bot hosting, Lavalink hosting, and Minecraft server hosting. This SLA applies to all active paid subscriptions.",
+    icon: FileText
+  },
+  {
+    title: "2. Uptime Guarantee — By Service Tier",
+    content: "Free-tier services (free Discord, Telegram and WhatsApp bot hosting, public Lavalink nodes) target 24/7 availability but carry no paid SLA guarantee, no backup guarantee, and no data-recovery obligation. You must keep your own backups — see our Free Bot Hosting Policy. Uptime is calculated as: (total minutes in the month − unplanned downtime minutes) ÷ total minutes × 100%. Scheduled maintenance windows announced at least 24 hours in advance are excluded from downtime calculations.",
     icon: Activity
   },
   {
-    title: "2. Maintenance Protocols",
-    content: "Scheduled maintenance is performed during off-peak hours and is communicated via our status page at least 24 hours in advance. Emergency maintenance required for critical security patches is exempt from the uptime calculation.",
+    title: "3. Downtime Definitions",
+    content: "Unplanned downtime refers to any period during which a customer's service is inaccessible due to issues within VexaNode's infrastructure. This includes network outages, hardware failures, and software failures on our hosting platform. It does not include issues caused by the customer's application, third-party services, DNS propagation, force majeure events, or scheduled maintenance.",
     icon: Clock
   },
   {
-    title: "3. Service Credits",
-    content: "If we fail to meet our 99.9% uptime guarantee, customers are eligible for service credits. 0.1% to 1% downtime qualifies for a 10% credit, while downtime exceeding 1% qualifies for a 25% credit of the monthly service fee.",
+    title: "4. Service Credits",
+    content: "If VexaNode fails to meet the guaranteed uptime for your plan tier in a given calendar month, eligible customers may request service credits, calculated on the actual shortfall below your tier's guarantee: up to 1% below guarantee = 10% monthly credit; 1%–5% below = 25% monthly credit; more than 5% below = 50% monthly credit. For example, budget bot hosting (95%+ SLA) earns credits only if uptime falls below 95%, and managed Lavalink (99.95% SLA) earns credits only if uptime falls below 99.95%. Credits are applied to the next billing cycle, may not exceed 50% of the monthly service fee, and are not available for free-tier services or services suspended due to policy violations.",
     icon: Zap
   },
   {
-    title: "4. Support Response Times",
-    content: "We aim for 'Elite' support speed. Priority tickets are acknowledged within 15 minutes, while standard inquiries are resolved within 4 hours. Our support team is available 24/7/365 across all channels.",
+    title: "5. How to Claim Credits",
+    content: "Service credit claims must be submitted within 7 days of the incident through our contact page or Discord support ticket. Include the dates and times of the downtime, the affected service or server details, and a brief description of the impact. VexaNode will review and respond within 5 business days.",
+    icon: ClipboardList
+  },
+  {
+    title: "6. Network, Infrastructure & DDoS Protection",
+    content: "VexaNode servers are located in Germany, India (Mumbai), Singapore, Ashburn (US), Miami (US), and Utah (US). Infrastructure-level DDoS protection availability varies by product tier. Services with network-level DDoS mitigation include high-performance bot hosting (EPYC 7C13), India Ryzen 9 VPS (Mumbai, with Cloudflare Magic Transit 500 Tbps), India Ryzen 9 VDS (Mumbai), Singapore VPS, Miami VPS/VDS (Datapacket / Magic Transit), and Utah VPS/VDS (Neoprotect). Budget infrastructure without DDoS protection — budget Discord, Telegram and WhatsApp bot hosting, budget Minecraft and FiveM game server plans, and Germany VPS budget nodes — runs on shared budget hardware and does not include DDoS protection. If your workload may be targeted by DDoS attacks, choose a High Performance or Ryzen 9 tier that explicitly lists DDoS mitigation, or contact support for guidance before purchasing a budget plan.",
+    icon: Shield
+  },
+  {
+    title: "7. Support Response Times",
+    content: "VexaNode provides 24/7 support through our ticket system and Discord community. Target response times: Critical (service down) within 1 hour; High (degraded performance) within 4 hours; Medium (general issues) within 12 hours; Low (questions/requests) within 24 hours.",
     icon: LifeBuoy
   },
   {
-    title: "5. Exclusions",
-    content: "The SLA does not cover issues caused by customer-managed software, third-party upstream providers (e.g., global fiber cuts), or account suspensions due to Acceptable Use Policy violations.",
-    icon: ShieldCheck
+    title: "8. Exclusions",
+    content: "This SLA does not apply to free-tier services, services suspended due to non-payment or policy violations, beta or preview features, issues resulting from customer actions or configurations, or force majeure events including natural disasters, war, or government actions.",
+    icon: Ban
+  },
+  {
+    title: "9. Modifications",
+    content: "VexaNode reserves the right to modify this SLA at any time. Changes will be communicated via email or our website. Continued use of our services after changes constitutes acceptance of the updated SLA.",
+    icon: RefreshCcw
   }
 ]
 
 export default function SLA() {
   return (
-    <div className="min-h-screen bg-[#08090d] text-white selection:bg-blue-500/30">
+    <div className="min-h-screen vx-bg vx-ink selection:bg-[#d97757]/30">
       <PageMeta title="Service Level Agreement" />
       <Navbar />
 
-      <main className="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 text-[10px] font-bold px-3 py-1 rounded-full border border-blue-500/20 mb-6 tracking-widest uppercase"
-          >
-            <HeartHandshake className="w-3 h-3" />
-            Reliability Guarantee
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-black mb-6 tracking-tighter"
-          >
-            Service Level <span className="text-blue-500">Agreement</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-gray-500 max-w-xl mx-auto text-lg leading-relaxed font-medium"
-          >
-            Our professional commitment to uptime, support quality, and infrastructure performance.
-          </motion.p>
-        </div>
-
-        {/* Detailed Sections */}
-        <div className="space-y-4 mb-24">
-          {slaRules.map((rule, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.05 }}
-              className="group bg-[#0c0d12] border border-[#1f2129] hover:border-[#2d303d] rounded-[2.5rem] p-8 md:p-12 transition-all duration-300"
-            >
-              <div className="flex flex-col md:flex-row gap-8 items-start">
-                <div className="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center flex-shrink-0 border border-blue-500/20 group-hover:bg-blue-500 group-hover:border-blue-500 transition-all duration-500">
-                  <rule.icon className="w-7 h-7 text-blue-500 group-hover:text-white transition-colors duration-500" />
-                </div>
-                <div className="flex-1">
-                  <h2 className="text-2xl font-bold mb-4 tracking-tight text-white">{rule.title}</h2>
-                  <p className="text-gray-400 leading-relaxed text-base">
-                    {rule.content}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Status CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="bg-blue-600 rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden group/cta"
-        >
-          <div className="relative z-10">
-            <h2 className="text-4xl md:text-6xl font-black mb-8 text-white leading-tight tracking-tighter uppercase">
-              Current Status?
-            </h2>
-            <p className="text-blue-100/80 max-w-2xl mx-auto mb-12 text-lg md:text-xl leading-relaxed">
-              We maintain transparent, real-time monitoring of all our global nodes and network infrastructure.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <a
-                href="https://status.vexanode.cloud"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto bg-white text-blue-600 px-10 py-5 rounded-2xl font-black hover:bg-blue-50 transition-all flex items-center justify-center gap-2 text-base shadow-2xl"
-              >
-                View Status Page
-                <Activity className="w-5 h-5" />
-              </a>
-              <a
-                href="/contact"
-                className="w-full sm:w-auto bg-transparent text-white px-10 py-5 rounded-2xl font-bold hover:bg-white/10 transition-all flex items-center justify-center gap-2 text-base border-2 border-white/20 hover:border-white"
-              >
-                Support Hub
-              </a>
-            </div>
-          </div>
-        </motion.div>
-      </main>
+      <LegalDoc
+        eyebrow="Reliability Guarantee"
+        eyebrowIcon={Shield}
+        title="Service Level"
+        accent="Agreement"
+        subtitle="The level of service VexaNode commits to for paid hosting — and what you get if we fall short."
+        chips={[
+          { icon: CalendarRange, label: "Updated: September 2026" },
+          { icon: Zap, label: "Tier-based guarantees" },
+        ]}
+        sections={slaSections}
+        cta={{
+          eyebrow: "Live status",
+          title: "Current status?",
+          subtitle: "We maintain transparent, real-time monitoring of all our global nodes and network infrastructure.",
+          trustPoints: ["Real-time monitoring", "Credits within 7 days", "24/7 support"],
+          buttons: [
+            {
+              label: "View Status Page",
+              href: "https://status.vexanode.cloud",
+              external: true,
+              primary: true,
+              icon: Activity,
+            },
+            {
+              label: "Contact Support",
+              href: "/contact",
+              icon: LifeBuoy,
+            },
+            {
+              label: "Join Discord",
+              href: "https://discord.gg/dJpMDfgUQq",
+              external: true,
+              icon: FaDiscord,
+            },
+          ],
+        }}
+      />
 
       <Footer />
     </div>

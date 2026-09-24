@@ -57,6 +57,7 @@ export default function Footer() {
         { name: "Server Status", href: "https://status.vexanode.cloud", external: true },
         { name: "Blog & Guides", href: "/blog" },
         { name: "Hytale Hosting", href: "/hytale", badge: "New" },
+        { name: "Free Hosting Policy", href: "/free-bot-hosting-policy" },
       ]
     }
   ]
@@ -172,8 +173,18 @@ export default function Footer() {
               <Link href="/privacy-policy" className="vx-hover-ink transition-colors">Privacy</Link>
               <Link href="/refund-policy" className="vx-hover-ink transition-colors">Refunds</Link>
               <Link href="/sla" className="vx-hover-ink transition-colors">SLA</Link>
+              <Link href="/aup" className="vx-hover-ink transition-colors">AUP</Link>
+              <Link href="/fup" className="vx-hover-ink transition-colors">FUP</Link>
             </div>
           </div>
+        </div>
+
+        {/* ── Trademark disclaimer ── */}
+        <div className="pb-6">
+          <p className="text-[10.5px] leading-relaxed vx-faint max-w-3xl">
+            All trademarks and logos belong to their respective owners. VexaNode
+            is not affiliated with or endorsed by them.
+          </p>
         </div>
 
       </div>

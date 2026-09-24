@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import LandingHero from "./components/landing/LandingHero";
+import { PoweredByMarquee } from "./components/brand/PoweredBy";
 import FeatureGrid from "./components/landing/FeatureGrid";
 import ProductsSection from "./components/landing/ProductsSection";
 import GlobeSection from "./components/landing/GlobeSection";
@@ -36,6 +37,7 @@ export default function Home() {
       <Navbar />
       <main>
         <LandingHero />
+        <PoweredByMarquee />
         <ProductsSection />
         <FeatureGrid />
         <GlobeSection />

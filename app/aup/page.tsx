@@ -1,133 +1,103 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { ShieldAlert, AlertTriangle, CheckCircle2, XCircle, Hammer, Info, Mail, MessageSquare, Zap } from "lucide-react"
+import { Shield, Scale, Ban, Network, AlertTriangle, UserCheck, ShieldAlert, Mail, RefreshCcw, CalendarRange, Gavel } from "lucide-react"
+import { FaDiscord } from "react-icons/fa"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import { PageMeta } from "../components/PageMeta"
+import LegalDoc from "../components/legal/LegalDoc"
 
-const aupRules = [
+const aupSections = [
   {
-    title: "1. Prohibited Content",
-    content: "Users may not host or distribute material that is illegal, defamatory, pornographic, or infringing on intellectual property rights. This includes copyrighted software, music, or media shared without explicit authorization.",
-    icon: XCircle
+    title: "1. Purpose",
+    content: "This Acceptable Usage Policy (AUP) defines permitted and prohibited use of VexaNode services. It applies to all products including VPS hosting, Discord bot hosting, Lavalink hosting, Minecraft hosting, and free-tier services. Free bot hosting is also governed by our Free Bot Hosting Policy (backups and data loss).",
+    icon: Shield
   },
   {
-    title: "2. Network Abuse",
-    content: "Activities intended to disrupt or gain unauthorized access to network services are strictly prohibited. This includes DDoS attacks, port scanning, network sniffing, and spreading viruses or malware.",
+    title: "2. Lawful Use",
+    content: "Customers must use services only for lawful purposes. You may not host, store, or distribute content or software that violates local, national, or international law, including copyrighted material without authorization.",
+    icon: Scale
+  },
+  {
+    title: "3. Security & Abuse Prohibitions",
+    content: "The following are prohibited: malware distribution, phishing, credential theft, botnet operations, unauthorized port scanning, exploit attempts, brute-force attacks, and DDoS attacks or amplification activities.",
+    icon: Ban
+  },
+  {
+    title: "4. Network Integrity",
+    content: "Activities that disrupt platform or network stability are not allowed, including open proxies, TOR exit nodes, spam relays, abusive traffic generation, and repeated high-risk behavior that affects other customers.",
+    icon: Network
+  },
+  {
+    title: "5. Content Restrictions",
+    content: "Illegal, harmful, or abusive content is prohibited, including child sexual abuse material, terror-related content, non-consensual explicit content, and content promoting violence or fraud. We may remove content and suspend service immediately for severe violations.",
+    icon: AlertTriangle
+  },
+  {
+    title: "6. Account Responsibility",
+    content: "You are responsible for all activity under your account, including actions by team members and API tokens. Keep credentials secure and rotate access if compromise is suspected.",
+    icon: UserCheck
+  },
+  {
+    title: "7. Enforcement & Remedies",
+    content: "For violations, VexaNode may issue warnings, temporarily suspend services, apply resource or network restrictions, or permanently terminate accounts. Severe abuse may result in immediate termination without prior notice.",
     icon: ShieldAlert
   },
   {
-    title: "3. Email & Spam",
-    content: "Our infrastructure must not be used for sending unsolicited bulk emails (SPAM). We maintain a zero-tolerance policy for mail relay abuse or blacklisting caused by user activities.",
+    title: "8. Reporting Abuse",
+    content: "To report AUP violations, contact us through our contact page or Discord with relevant evidence, timestamps, and affected IP or domain details. We review reports and act based on severity and verified evidence.",
     icon: Mail
   },
   {
-    title: "4. Resource Misuse",
-    content: "Users must not engage in activities that degrade the performance of our nodes for other customers. This includes excessive CPU/RAM spikes or running crypto-miners on shared hosting resources.",
-    icon: Zap
-  },
-  {
-    title: "5. Compliance & Enforcement",
-    content: "VexaNode reserves the right to suspend or terminate services immediately upon discovery of AUP violations. Reported abuses are investigated thoroughly and may lead to permanent account bans.",
-    icon: Hammer
+    title: "9. Policy Changes",
+    content: "We may update this policy at any time. Continued use of VexaNode services after updates constitutes acceptance of the revised AUP.",
+    icon: RefreshCcw
   }
 ]
 
 export default function AUP() {
   return (
-    <div className="min-h-screen bg-[#08090d] text-white selection:bg-blue-500/30">
-      <PageMeta title="Acceptable Use Policy" />
+    <div className="min-h-screen vx-bg vx-ink selection:bg-[#d97757]/30">
+      <PageMeta title="Acceptable Usage Policy" />
       <Navbar />
 
-      <main className="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 text-[10px] font-bold px-3 py-1 rounded-full border border-blue-500/20 mb-6 tracking-widest uppercase"
-          >
-            <ShieldAlert className="w-3 h-3" />
-            Infrastructure Security
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-black mb-6 tracking-tighter"
-          >
-            Acceptable <span className="text-blue-500">Usage</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-gray-500 max-w-xl mx-auto text-lg leading-relaxed font-medium"
-          >
-            Clear guidelines on the proper use of our hosting resources to ensure a safe and stable environment for all.
-          </motion.p>
-        </div>
-
-        {/* Detailed Sections */}
-        <div className="space-y-4 mb-24">
-          {aupRules.map((rule, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.05 }}
-              className="group bg-[#0c0d12] border border-[#1f2129] hover:border-[#2d303d] rounded-[2.5rem] p-8 md:p-12 transition-all duration-300"
-            >
-              <div className="flex flex-col md:flex-row gap-8 items-start">
-                <div className="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center flex-shrink-0 border border-blue-500/20 group-hover:bg-blue-500 group-hover:border-blue-500 transition-all duration-500">
-                  <rule.icon className="w-7 h-7 text-blue-500 group-hover:text-white transition-colors duration-500" />
-                </div>
-                <div className="flex-1">
-                  <h2 className="text-2xl font-bold mb-4 tracking-tight text-white">{rule.title}</h2>
-                  <p className="text-gray-400 leading-relaxed text-base">
-                    {rule.content}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Report Abuse CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="bg-white rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden group/cta"
-        >
-          <div className="relative z-10">
-            <h2 className="text-4xl md:text-6xl font-black mb-8 text-black leading-tight tracking-tighter uppercase">
-              Report Abuse?
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto mb-12 text-lg md:text-xl leading-relaxed">
-              If you discover any content or activity on our network that violates these terms, please report it to our security team immediately.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <a
-                href="mailto:abuse@vexanode.cloud"
-                className="w-full sm:w-auto bg-black text-white px-10 py-5 rounded-2xl font-black hover:bg-gray-900 transition-all flex items-center justify-center gap-2 text-base shadow-2xl"
-              >
-                Report Violation
-                <Hammer className="w-5 h-5" />
-              </a>
-              <a
-                href="/contact"
-                className="w-full sm:w-auto bg-transparent text-black border-2 border-black/10 px-10 py-5 rounded-2xl font-bold hover:bg-black/5 transition-all flex items-center justify-center gap-2 text-base border-2 border-black/20 hover:border-black"
-              >
-                Security Center
-              </a>
-            </div>
-          </div>
-        </motion.div>
-      </main>
+      <LegalDoc
+        eyebrow="Legal Framework"
+        eyebrowIcon={Gavel}
+        title="Acceptable Usage"
+        accent="Policy"
+        subtitle="What you may — and may not — do with VexaNode services, across every product and tier."
+        chips={[
+          { icon: CalendarRange, label: "Updated: September 2026" },
+          { icon: ShieldAlert, label: "Zero tolerance for abuse" },
+        ]}
+        sections={aupSections}
+        cta={{
+          eyebrow: "Report abuse",
+          title: "See something wrong?",
+          subtitle: "Report AUP violations with evidence and timestamps. We review every report and act based on severity and verified evidence.",
+          trustPoints: ["Reviewed on severity", "Verified evidence required", "24/7 enforcement"],
+          buttons: [
+            {
+              label: "Contact Us",
+              href: "/contact",
+              primary: true,
+              icon: Mail,
+            },
+            {
+              label: "Join Discord",
+              href: "https://discord.gg/dJpMDfgUQq",
+              external: true,
+              icon: FaDiscord,
+            },
+            {
+              label: "Read the FUP",
+              href: "/fup",
+              icon: Scale,
+            },
+          ],
+        }}
+      />
 
       <Footer />
     </div>

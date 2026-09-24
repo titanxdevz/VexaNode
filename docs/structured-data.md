@@ -37,8 +37,13 @@ docs (accessed 2026-09-24; see [research-log.md](research-log.md)).
 - Do NOT emit `aggregateRating`/`review` schema (no verified reviews) — would be fabricated.
 
 ## Implementation checklist
-- [ ] Add `generateProductSchema` to `lib/seo.ts`; unit of price parsed from config.
-- [ ] Emit Product/Offer + Breadcrumb on each commercial page.
+- [x] Add `generateProductSchema` to `lib/seo.ts`; price parsed to a positive number, GBP
+      currency, skips non-positive prices. Exported as `productSchema`.
+- [x] Emit Product/Offer on `/webhosting` from real config prices (verified: renders
+      `"@type":"Product"` with `"price":2.99,"priceCurrency":"GBP"` …). Service + Breadcrumb
+      already present there.
+- [ ] Emit Product/Offer + Breadcrumb on remaining commercial pages (minecraft, games, vps,
+      discord, lavalink, hytale, samp, dedicated, databases) from their configs.
 - [ ] Emit Breadcrumb on legal/company pages.
 - [ ] Validate all with Google Rich Results Test / Schema Markup Validator (owner/CI — no
       validator tooling in this environment; mark results here when run).

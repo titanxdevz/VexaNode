@@ -1,133 +1,103 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { Scale, Info, CheckCircle2, Zap, BarChart3, Database, HardDrive, Cpu, Gauge } from "lucide-react"
+import { Info, Cpu, Gauge, Ban, Gift, Users, ShieldCheck, BarChart3, RefreshCcw, CalendarRange, Scale } from "lucide-react"
+import { FaDiscord } from "react-icons/fa"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import { PageMeta } from "../components/PageMeta"
+import LegalDoc from "../components/legal/LegalDoc"
 
-const fupRules = [
+const fupSections = [
   {
-    title: "1. Fair Resource Allocation",
-    content: "Our systems are designed for fair distribution of CPU and RAM resources. While burst usage is permitted, constant high-load processes that degrade the experience for other users on the same node may be throttled or restricted.",
+    title: "1. Introduction",
+    content: "VexaNode's Fair Usage Policy (FUP) ensures that all customers receive consistent, high-quality service. This policy applies to all hosting services, including VPS, Discord bot hosting, Lavalink hosting, and Minecraft server hosting. By using our services, you agree to abide by this policy.",
+    icon: Info
+  },
+  {
+    title: "2. Resource Usage",
+    content: "All hosting plans are allocated specific CPU, RAM, storage, and bandwidth resources. Customers are expected to use resources within the limits of their selected plan. Sustained usage of 90% or more of allocated CPU or RAM for extended periods may trigger a review. VexaNode may contact affected users to recommend a plan upgrade.",
     icon: Cpu
   },
   {
-    title: "2. Bandwidth Utilization",
-    content: "Standard plans include 'Unmetered' bandwidth under the condition of fair usage. Activities like public CDN hosting, massive file distribution, or crypto-mining that consume extreme continuous bandwidth are not permitted.",
+    title: "3. Bandwidth & Network",
+    content: "Plans labelled as unmetered bandwidth provide a generous allocation for normal hosting operations. Unmetered does not mean unlimited. Activities that consume disproportionate bandwidth, such as operating public file-sharing services, running open proxies, or streaming pirated content, are prohibited and may result in throttling or suspension.",
     icon: Gauge
   },
   {
-    title: "3. Storage Management",
-    content: "NVMe storage is intended for active service data and files only. Using hosting plans as a remote backup storage or personal cloud drive for non-service related files is a violation of our Fair Usage Policy.",
-    icon: HardDrive
+    title: "4. Prohibited Activities",
+    content: "The following activities are strictly prohibited on all VexaNode services: cryptocurrency mining; running open proxies or TOR exit nodes; distributing malware or spam; DDoS attacks or participation in botnets; hosting phishing pages or illegal content; port scanning or vulnerability scanning of external networks; and any activity that violates applicable laws.",
+    icon: Ban
   },
   {
-    title: "4. Database Performance",
-    content: "Included databases are optimized for service-related queries. Massive data scraping or high-frequency automated polling that stresses the global database clusters must be managed via dedicated instances.",
-    icon: Database
+    title: "5. Free Tier Limitations",
+    content: "Free hosting plans are provided with limited resources intended for learning, development, and small projects. Free-tier services may not be used for commercial production workloads, resource-intensive applications, or to circumvent paid plan limits by creating multiple free accounts. VexaNode does not provide backup, restore, or data-recovery guarantees on free bot hosting — you must keep your own backups, because data on free instances can be lost at any time (see our Free Bot Hosting Policy). VexaNode reserves the right to restrict or terminate free accounts that violate these guidelines.",
+    icon: Gift
   },
   {
-    title: "5. Optimization Reviews",
-    content: "We provide automated alerts if your instance consistently exceeds fair usage thresholds. Our technical team may reach out to help you optimize your workload or suggest a more suitable dedicated tier.",
+    title: "6. Multi-Account Policy",
+    content: "Each individual or organisation is permitted one free-tier account. Creating multiple accounts to bypass resource limits is a violation of this policy. VexaNode reserves the right to merge or terminate duplicate accounts without notice.",
+    icon: Users
+  },
+  {
+    title: "7. Enforcement",
+    content: "If a customer is found to be in violation of this Fair Usage Policy, VexaNode may issue a warning and request corrective action, throttle or restrict the service, suspend the account temporarily, or terminate the service permanently. In cases of severe abuse, termination may occur without prior notice.",
+    icon: ShieldCheck
+  },
+  {
+    title: "8. Monitoring",
+    content: "VexaNode monitors resource usage across its infrastructure to ensure optimal performance for all customers. Monitoring is automated and does not involve inspection of customer data or application content. We respect your privacy while maintaining the health of our platform.",
     icon: BarChart3
+  },
+  {
+    title: "9. Changes to This Policy",
+    content: "This Fair Usage Policy may be updated from time to time. Significant changes will be communicated through our website or via email. Continued use of our services after any updates constitutes acceptance of the revised policy.",
+    icon: RefreshCcw
   }
 ]
 
 export default function FUP() {
   return (
-    <div className="min-h-screen bg-[#08090d] text-white selection:bg-blue-500/30">
+    <div className="min-h-screen vx-bg vx-ink selection:bg-[#d97757]/30">
       <PageMeta title="Fair Usage Policy" />
       <Navbar />
 
-      <main className="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 text-[10px] font-bold px-3 py-1 rounded-full border border-blue-500/20 mb-6 tracking-widest uppercase"
-          >
-            <Scale className="w-3 h-3" />
-            Resource Management
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-black mb-6 tracking-tighter"
-          >
-            Fair Usage <span className="text-blue-500">Policy</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-gray-500 max-w-xl mx-auto text-lg leading-relaxed font-medium"
-          >
-            How we manage global infrastructure resources to ensure peak performance for every VexaNode customer.
-          </motion.p>
-        </div>
-
-        {/* Detailed Sections */}
-        <div className="space-y-4 mb-24">
-          {fupRules.map((rule, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.05 }}
-              className="group bg-[#0c0d12] border border-[#1f2129] hover:border-[#2d303d] rounded-[2.5rem] p-8 md:p-12 transition-all duration-300"
-            >
-              <div className="flex flex-col md:flex-row gap-8 items-start">
-                <div className="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center flex-shrink-0 border border-blue-500/20 group-hover:bg-blue-500 group-hover:border-blue-500 transition-all duration-500">
-                  <rule.icon className="w-7 h-7 text-blue-500 group-hover:text-white transition-colors duration-500" />
-                </div>
-                <div className="flex-1">
-                  <h2 className="text-2xl font-bold mb-4 tracking-tight text-white">{rule.title}</h2>
-                  <p className="text-gray-400 leading-relaxed text-base">
-                    {rule.content}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Optimization CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="bg-white rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden group/cta"
-        >
-          <div className="relative z-10">
-            <h2 className="text-4xl md:text-6xl font-black mb-8 text-black leading-tight tracking-tighter uppercase">
-              Scale Up?
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto mb-12 text-lg md:text-xl leading-relaxed">
-              If your application requires guaranteed continuous high-resource allocation, our Dedicated and Enterprise tiers provide the perfect environment.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <a
-                href="/dedicated"
-                className="w-full sm:w-auto bg-black text-white px-10 py-5 rounded-2xl font-black hover:bg-gray-900 transition-all flex items-center justify-center gap-2 text-base shadow-2xl"
-              >
-                Explore Dedicated
-                <Zap className="w-5 h-5 fill-current" />
-              </a>
-              <a
-                href="/contact"
-                className="w-full sm:w-auto bg-transparent text-black border-2 border-black/10 px-10 py-5 rounded-2xl font-bold hover:bg-black/5 transition-all flex items-center justify-center gap-2 text-base border-2 border-black/20 hover:border-black"
-              >
-                Custom Solutions
-              </a>
-            </div>
-          </div>
-        </motion.div>
-      </main>
+      <LegalDoc
+        eyebrow="Resource Management"
+        eyebrowIcon={Scale}
+        title="Fair Usage"
+        accent="Policy"
+        subtitle="Consistent, high-quality service for every customer — and clear rules that keep it that way."
+        chips={[
+          { icon: CalendarRange, label: "Updated: September 2026" },
+          { icon: Users, label: "One free account per person" },
+        ]}
+        sections={fupSections}
+        cta={{
+          eyebrow: "Need more headroom?",
+          title: "Plans for heavier workloads",
+          subtitle: "If you consistently use 90% or more of your resources, a paid plan gives you guaranteed headroom, DDoS protection where available, and no fair-use worries.",
+          trustPoints: ["Fair for everyone", "Automated monitoring", "No hidden limits"],
+          buttons: [
+            {
+              label: "Explore VPS Hosting",
+              href: "/vps",
+              primary: true,
+              icon: Cpu,
+            },
+            {
+              label: "Contact Support",
+              href: "/contact",
+              icon: ShieldCheck,
+            },
+            {
+              label: "Join Discord",
+              href: "https://discord.gg/dJpMDfgUQq",
+              external: true,
+              icon: FaDiscord,
+            },
+          ],
+        }}
+      />
 
       <Footer />
     </div>

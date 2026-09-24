@@ -56,8 +56,8 @@ export default function LandingHero() {
               className="mt-5 max-w-lg text-[15px] leading-[1.7] vx-muted"
             >
               Deploy Minecraft servers, Discord bots, Hytale worlds, and Lavalink
-              audio nodes on dedicated NVMe hardware — live in under 30 seconds
-              with enterprise DDoS shielding.
+              audio nodes on dedicated NVMe hardware with fast automated
+              deployment and DDoS protection.
             </motion.p>
 
             {/* CTAs */}
@@ -97,7 +97,7 @@ export default function LandingHero() {
             >
               <span className="flex items-center gap-1.5">
                 <span className="w-1 h-1 rounded-full bg-[#d97757]" />
-                99.95% Uptime SLA
+                Uptime SLA
               </span>
               <span className="flex items-center gap-1.5">
                 <span className="w-1 h-1 rounded-full bg-[#d97757]" />
@@ -105,7 +105,7 @@ export default function LandingHero() {
               </span>
               <span className="flex items-center gap-1.5">
                 <span className="w-1 h-1 rounded-full bg-[#d97757]" />
-                24/7 Support
+                Discord support
               </span>
             </motion.div>
           </div>
@@ -118,21 +118,20 @@ export default function LandingHero() {
             className="grid grid-cols-2 gap-3"
           >
             {[
-              { icon: Zap, value: "30s", label: "Deploy Time", desc: "Order to live server", accent: "text-[#d97757]" },
-              { icon: ShieldCheck, value: "3.2 Tbps", label: "DDoS Shield", desc: "Multi-layer filtering", accent: "text-[#6a9bcc]" },
-              { icon: HardDrive, value: "7 GB/s", label: "NVMe Storage", desc: "Gen4 PCIe read/write", accent: "text-[#788c5d]" },
-              { icon: Clock, value: "99.95%", label: "Uptime SLA", desc: "Guaranteed availability", accent: "text-[#d97757]" },
+              { icon: Zap, label: "Fast Deployment", desc: "Automated server setup", accent: "text-[#d97757]" },
+              { icon: ShieldCheck, label: "DDoS Protection", desc: "Multi-layer filtering", accent: "text-[#6a9bcc]" },
+              { icon: HardDrive, label: "NVMe Storage", desc: "High-speed SSD", accent: "text-[#788c5d]" },
+              { icon: Clock, label: "Uptime SLA", desc: "See our SLA terms", accent: "text-[#d97757]" },
             ].map((item, idx) => (
               <div
                 key={idx}
                 className="group rounded-xl border vx-line vx-card p-5 sm:p-6 shadow-sm transition-all duration-200 hover:border-[#d97757]/40 hover:shadow-md"
               >
                 <item.icon className={`w-5 h-5 ${item.accent} mb-3`} />
-                <div className="text-2xl sm:text-[1.75rem] font-extrabold vx-ink tracking-tight leading-none">
-                  {item.value}
+                <div className="text-lg sm:text-xl font-extrabold vx-ink tracking-tight leading-tight">
+                  {item.label}
                 </div>
-                <div className="text-[13px] font-semibold vx-muted2 mt-1.5">{item.label}</div>
-                <div className="text-[11px] vx-muted mt-0.5">{item.desc}</div>
+                <div className="text-[12px] vx-muted mt-1.5">{item.desc}</div>
               </div>
             ))}
           </motion.div>
