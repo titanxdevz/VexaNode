@@ -22,7 +22,7 @@ export default function Home() {
   const webSiteJsonLd = generateWebSiteSchema();
 
   return (
-    <div className="min-h-screen bg-[#07090e] text-white">
+    <div className="min-h-screen vx-bg vx-ink">
       {/* Homepage Structured Data */}
       <script
         type="application/ld+json"

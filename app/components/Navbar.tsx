@@ -8,6 +8,7 @@ import { usePathname } from 'next/navigation';
 import { useLanguage } from '../contexts/LanguageContext';
 import LanguageSelector from './LanguageSelector';
 import CurrencySelector from './CurrencySelector';
+import ThemeToggle from './ThemeToggle';
 import {
   Menu,
   X,
@@ -266,6 +267,9 @@ const Navbar: React.FC = () => {
 
           {/* ── Right Actions ── */}
           <div className="hidden lg:flex items-center gap-2">
+            {/* Theme toggle */}
+            <ThemeToggle />
+
             {/* Discord — ghost/outline secondary */}
             <a
               href="https://discord.gg/dJpMDfgUQq"
@@ -342,6 +346,7 @@ const Navbar: React.FC = () => {
 
           {/* ── Mobile Toggle ── */}
           <div className="flex items-center lg:hidden gap-2">
+            <ThemeToggle />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white transition-colors"

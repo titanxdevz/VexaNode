@@ -91,10 +91,10 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${orbitron.variable} ${quicksand.variable} antialiased min-h-screen bg-[#07090e] text-white overflow-x-hidden selection:bg-[#10b981]/30`}
+        className={`${geistSans.variable} ${geistMono.variable} ${orbitron.variable} ${quicksand.variable} antialiased min-h-screen vx-bg vx-ink overflow-x-hidden selection:bg-[#d97757]/30`}
         suppressHydrationWarning
       >
-        <ThemeProvider attribute="class" defaultTheme="dark" forcedTheme="dark" disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <LanguageProvider>
             <CurrencyProvider>
               <QueryProvider>

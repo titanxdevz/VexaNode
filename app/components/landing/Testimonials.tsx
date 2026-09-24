@@ -144,32 +144,29 @@ const row2 = [
 
 export default function Testimonials() {
   return (
-    <section className="relative py-20 lg:py-28 bg-zinc-950 text-white overflow-hidden border-t border-zinc-900">
-      {/* Background ambient glow */}
-      <div className="pointer-events-none absolute left-1/2 bottom-0 -z-10 h-[300px] w-[600px] -translate-x-1/2 rounded-full bg-emerald-500/5 blur-[100px]" />
-
+    <section className="relative py-20 lg:py-28 vx-bg vx-ink overflow-hidden border-t vx-line">
       <div className="w-full">
-        
+
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center mb-16 px-6">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-emerald-400 mb-4">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#d97757]/10 border border-[#d97757]/25 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#d97757] mb-4">
             Customer Trust
           </span>
-          <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+          <h2 className="text-3xl font-extrabold tracking-tight vx-ink sm:text-4xl">
             Trusted by developers &amp; communities
           </h2>
-          
+
           {/* Trustpilot-style Rating badge */}
-          <div className="mt-4 flex items-center justify-center gap-2 text-zinc-300">
-            <span className="text-sm font-bold text-white">Excellent</span>
+          <div className="mt-4 flex items-center justify-center gap-2 vx-muted">
+            <span className="text-sm font-bold vx-ink">Excellent</span>
             <div className="flex gap-0.5">
               {Array.from({ length: 5 }).map((_, idx) => (
-                <div key={idx} className="bg-emerald-500 p-0.5 rounded-sm">
-                  <Star className="h-3 w-3 fill-black text-black" />
+                <div key={idx} className="bg-[#d97757] p-0.5 rounded-sm">
+                  <Star className="h-3 w-3 fill-white text-white" />
                 </div>
               ))}
             </div>
-            <span className="text-xs text-zinc-400">based on 450+ verified reviews</span>
+            <span className="text-xs vx-faint">based on 450+ verified reviews</span>
           </div>
         </div>
 
@@ -177,8 +174,8 @@ export default function Testimonials() {
         <div className="relative w-full overflow-hidden flex flex-col gap-6 select-none">
           
           {/* Smooth side fades */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-48 bg-gradient-to-r from-zinc-950 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-48 bg-gradient-to-l from-zinc-950 to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-48 bg-gradient-to-r from-[var(--vx-surface)] to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-48 bg-gradient-to-l from-[var(--vx-surface)] to-transparent z-10 pointer-events-none" />
 
           {/* Upper Row */}
           <motion.div 
@@ -195,7 +192,7 @@ export default function Testimonials() {
             {[...row1, ...row1].map((t, i) => (
               <figure
                 key={i}
-                className="w-[320px] sm:w-[350px] flex-shrink-0 flex flex-col justify-between rounded-2xl border border-zinc-800/80 bg-zinc-900/20 p-6 shadow-md hover:border-emerald-500/20 transition-colors"
+                className="w-[320px] sm:w-[350px] flex-shrink-0 flex flex-col justify-between rounded-2xl border vx-line vx-card p-6 shadow-sm hover:border-[#d97757]/40 hover:shadow-md transition-all"
               >
                 <div>
                   <div className="flex gap-0.5">
@@ -206,18 +203,18 @@ export default function Testimonials() {
                       <Star key={s} className="h-3.5 w-3.5 text-zinc-600" />
                     ))}
                   </div>
-                  <blockquote className="mt-4 text-xs sm:text-sm leading-relaxed text-zinc-300 italic min-h-[64px]">
+                  <blockquote className="mt-4 text-xs sm:text-sm leading-relaxed vx-muted2 italic min-h-[64px]">
                     &ldquo;{t.quote}&rdquo;
                   </blockquote>
                 </div>
                 
-                <figcaption className="mt-6 flex items-center gap-3 border-t border-zinc-800/60 pt-4">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-950/30 border border-emerald-500/20 text-xs font-black text-emerald-400 uppercase">
+                <figcaption className="mt-6 flex items-center gap-3 border-t vx-line pt-4">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#d97757]/10 border border-[#d97757]/25 text-xs font-black text-[#d97757] uppercase">
                     {t.initials}
                   </div>
                   <div>
-                    <div className="text-xs font-bold text-white">{t.name}</div>
-                    <div className="text-[10px] text-zinc-500">{t.role}</div>
+                    <div className="text-xs font-bold vx-ink">{t.name}</div>
+                    <div className="text-[10px] vx-faint">{t.role}</div>
                   </div>
                 </figcaption>
               </figure>
@@ -239,7 +236,7 @@ export default function Testimonials() {
             {[...row2, ...row2].map((t, i) => (
               <figure
                 key={i}
-                className="w-[320px] sm:w-[350px] flex-shrink-0 flex flex-col justify-between rounded-2xl border border-zinc-800/80 bg-zinc-900/20 p-6 shadow-md hover:border-emerald-500/20 transition-colors"
+                className="w-[320px] sm:w-[350px] flex-shrink-0 flex flex-col justify-between rounded-2xl border vx-line vx-card p-6 shadow-sm hover:border-[#d97757]/40 hover:shadow-md transition-all"
               >
                 <div>
                   <div className="flex gap-0.5">
@@ -250,18 +247,18 @@ export default function Testimonials() {
                       <Star key={s} className="h-3.5 w-3.5 text-zinc-600" />
                     ))}
                   </div>
-                  <blockquote className="mt-4 text-xs sm:text-sm leading-relaxed text-zinc-300 italic min-h-[64px]">
+                  <blockquote className="mt-4 text-xs sm:text-sm leading-relaxed vx-muted2 italic min-h-[64px]">
                     &ldquo;{t.quote}&rdquo;
                   </blockquote>
                 </div>
                 
-                <figcaption className="mt-6 flex items-center gap-3 border-t border-zinc-800/60 pt-4">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-950/30 border border-emerald-500/20 text-xs font-black text-emerald-400 uppercase">
+                <figcaption className="mt-6 flex items-center gap-3 border-t vx-line pt-4">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#d97757]/10 border border-[#d97757]/25 text-xs font-black text-[#d97757] uppercase">
                     {t.initials}
                   </div>
                   <div>
-                    <div className="text-xs font-bold text-white">{t.name}</div>
-                    <div className="text-[10px] text-zinc-500">{t.role}</div>
+                    <div className="text-xs font-bold vx-ink">{t.name}</div>
+                    <div className="text-[10px] vx-faint">{t.role}</div>
                   </div>
                 </figcaption>
               </figure>

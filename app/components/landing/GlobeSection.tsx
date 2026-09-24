@@ -21,7 +21,7 @@ const regions = [
 
 export default function GlobeSection() {
   return (
-    <section className="relative overflow-hidden border-y border-white/[0.04] bg-[#07080d] py-20 lg:py-28 text-white">
+    <section className="relative overflow-hidden border-t vx-line vx-bg py-20 lg:py-28 vx-ink">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
         
         {/* Copy + region list */}
@@ -31,13 +31,13 @@ export default function GlobeSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease }}
         >
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-emerald-400 mb-4">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#d97757]/10 border border-[#d97757]/25 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#d97757] mb-4">
             Edge Deployment
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight vx-ink leading-tight">
             High-Performance Edge Locations.
           </h2>
-          <p className="mt-4 text-sm sm:text-base text-zinc-400 leading-relaxed">
+          <p className="mt-4 text-sm sm:text-base vx-muted leading-relaxed">
             Deploy your servers close to your players. Our edge-routed nodes operate on dedicated bare-metal setups in premium global facilities with direct IX peering to guarantee low latency.
           </p>
 
@@ -50,19 +50,20 @@ export default function GlobeSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: i * 0.03, ease }}
-                className="group flex items-center justify-between rounded-2xl border border-white/[0.06] bg-white/[0.02] px-4 py-3 transition-all duration-200 hover:border-emerald-500/30 hover:bg-white/[0.04]"
+                className="group flex items-center justify-between rounded-2xl border vx-line vx-card shadow-sm px-4 py-3 transition-all duration-200 hover:border-[#d97757]/40 hover:shadow-md"
               >
                 <div>
-                  <div className="text-xs font-bold text-white group-hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+                  <div className="text-xs font-bold vx-ink group-hover:text-[#d97757] transition-colors flex items-center gap-1.5">
                     <span>{r.city}</span>
-                    <span className="text-[10px] font-medium text-zinc-500">({r.country})</span>
+                    <span className="text-[10px] font-medium vx-faint">({r.country})</span>
                   </div>
-                  <div className="text-[10px] text-zinc-400 mt-0.5 flex items-center gap-1">
-                    <Server className="w-3 h-3 text-zinc-500" />
+                  <div className="text-[10px] vx-muted mt-0.5 flex items-center gap-1">
+                    <Server className="w-3 h-3 vx-faint" />
                     <span>{r.cpu}</span>
                   </div>
                 </div>
-                <div className="flex items-center gap-1 text-[10px] font-bold font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full">
+                <div className="flex items-center gap-1 text-[10px] font-bold font-mono text-[#d97757] bg-[#d97757]/10 border border-[#d97757]/25 px-2 py-0.5 rounded-full">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#d97757] animate-pulse" />
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   {r.ping}
                 </div>

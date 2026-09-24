@@ -41,17 +41,17 @@ export default function FaqSection() {
   const [openTech, setOpenTech] = useState<number | null>(null);
 
   const AccordionItem = ({ item, index, isOpen, onToggle }: any) => (
-    <div className="overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.02] mb-3 last:mb-0 transition-all duration-200 hover:border-emerald-500/30 backdrop-blur-xl">
+    <div className="overflow-hidden rounded-2xl border vx-line vx-card shadow-sm mb-3 last:mb-0 transition-all duration-200 hover:border-[#d97757]/40">
       <button
         onClick={onToggle}
         className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
         aria-expanded={isOpen}
       >
-        <span className="text-xs sm:text-sm font-bold text-white transition-colors">{item.q}</span>
+        <span className="text-xs sm:text-sm font-bold vx-ink transition-colors">{item.q}</span>
         <motion.span
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.15 }}
-          className="flex-shrink-0 text-emerald-400 p-1 rounded-full bg-emerald-500/10"
+          className="flex-shrink-0 text-[#d97757] p-1 rounded-full bg-[#d97757]/10"
         >
           <Plus className="h-3.5 w-3.5" />
         </motion.span>
@@ -63,9 +63,9 @@ export default function FaqSection() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2, ease: "easeInOut" }}
-            className="overflow-hidden border-t border-white/[0.04]"
+            className="overflow-hidden border-t vx-line"
           >
-            <p className="px-5 py-4 text-xs leading-relaxed text-zinc-400">
+            <p className="px-5 py-4 text-xs leading-relaxed vx-muted">
               {item.a}
             </p>
           </motion.div>
@@ -75,7 +75,7 @@ export default function FaqSection() {
   );
 
   return (
-    <section className="relative py-20 lg:py-28 bg-[#06070a] text-white border-b border-white/[0.04]">
+    <section className="relative py-20 lg:py-28 vx-bg-alt vx-ink border-t vx-line">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -86,13 +86,13 @@ export default function FaqSection() {
           transition={{ duration: 0.5, ease }}
           className="text-center mb-16"
         >
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-emerald-400 mb-4">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#d97757]/10 border border-[#d97757]/25 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#d97757] mb-4">
             Common Questions
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight vx-ink">
             Frequently Asked Questions.
           </h2>
-          <p className="mt-3 text-sm text-zinc-400 max-w-lg mx-auto">
+          <p className="mt-3 text-sm vx-muted max-w-lg mx-auto">
             Everything you need to know about our infrastructure, billing, and migrations.
           </p>
         </motion.div>
@@ -103,8 +103,8 @@ export default function FaqSection() {
           {/* General column */}
           <div>
             <div className="flex items-center gap-2 mb-4 px-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-400" />
-              <h3 className="text-xs font-black text-zinc-300 uppercase tracking-widest">
+              <span className="w-2 h-2 rounded-full bg-[#d97757]" />
+              <h3 className="text-xs font-black vx-muted2 uppercase tracking-widest">
                 General &amp; Billing
               </h3>
             </div>
@@ -123,8 +123,8 @@ export default function FaqSection() {
           {/* Technical column */}
           <div>
             <div className="flex items-center gap-2 mb-4 px-2">
-              <span className="w-2 h-2 rounded-full bg-teal-400" />
-              <h3 className="text-xs font-black text-zinc-300 uppercase tracking-widest">
+              <span className="w-2 h-2 rounded-full bg-[#788c5d]" />
+              <h3 className="text-xs font-black vx-muted2 uppercase tracking-widest">
                 Nodes &amp; Hardware
               </h3>
             </div>

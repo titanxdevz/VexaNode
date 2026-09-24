@@ -250,7 +250,54 @@
   --globe-glow-color-r: 0.04;
   --globe-glow-color-g: 0.15;
   --globe-glow-color-b: 0.08;
+
+  /* ============================================================
+     VexaNode landing theme tokens (Anthropic-inspired)
+     Light values live here; .dark overrides below.
+     ============================================================ */
+  --vx-surface: #faf9f5;      /* ivory section base */
+  --vx-surface-alt: #f0eee6;  /* alternate cream section */
+  --vx-card: #ffffff;         /* cards / panels */
+  --vx-ink: #141413;          /* headings / strong text */
+  --vx-ink-hover: #2a2926;
+  --vx-muted: #6b6a63;        /* body text */
+  --vx-muted2: #57564f;       /* secondary text */
+  --vx-faint: #78766e;        /* faint labels — darkened to meet WCAG AA 4.5:1 on ivory */
+  --vx-line: #e8e6dc;         /* borders */
 }
+
+.dark {
+  --vx-surface: #141413;
+  --vx-surface-alt: #191817;
+  --vx-card: #1e1d1b;
+  --vx-ink: #faf9f5;
+  --vx-ink-hover: #e9e7e0;
+  --vx-muted: #a3a199;
+  --vx-muted2: #c9c7bf;
+  --vx-faint: #7c7a72;
+  --vx-line: rgba(255, 255, 255, 0.10);
+}
+
+@layer utilities {
+  .vx-bg { background-color: var(--vx-surface); }
+  .vx-bg-alt { background-color: var(--vx-surface-alt); }
+  .vx-card { background-color: var(--vx-card); }
+  .vx-ink { color: var(--vx-ink); }
+  .vx-muted { color: var(--vx-muted); }
+  .vx-muted2 { color: var(--vx-muted2); }
+  .vx-faint { color: var(--vx-faint); }
+  .vx-line { border-color: var(--vx-line); }
+  .vx-hover-ink:hover { color: var(--vx-ink); }
+  .vx-solid { background-color: var(--vx-ink); color: var(--vx-surface); }
+  .vx-solid:hover { background-color: var(--vx-ink-hover); }
+
+  /* Smooth cross-fade when toggling theme */
+  .vx-bg, .vx-bg-alt, .vx-card, .vx-ink, .vx-muted,
+  .vx-muted2, .vx-faint, .vx-line, .vx-solid {
+    transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+  }
+}
+
 
 @layer base {
   html {
