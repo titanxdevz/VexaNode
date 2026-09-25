@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { constructMetadata, serviceSchema, breadcrumbSchema } from "@/lib/seo"
+import { constructMetadata, serviceSchema, breadcrumbSchema, productSchema } from "@/lib/seo"
 import HytaleClient from "./HytaleClient"
 
 export const metadata: Metadata = constructMetadata({
@@ -31,6 +31,15 @@ export default function HytalePage() {
     { name: "Hytale Hosting", url: "/hytale" },
   ])
 
+  const productJsonLd = productSchema({
+    name: "Hytale Server Hosting in India",
+    description:
+      "Hytale server hosting with high-performance hardware, low latency, and DDoS protection.",
+    url: "/hytale",
+    priceCurrency: "INR",
+    offers: [{ name: "Hytale Hosting (from)", price: 299 }],
+  })
+
   return (
     <>
       <script
@@ -40,6 +49,10 @@ export default function HytalePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
       />
       <HytaleClient />
     </>

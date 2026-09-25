@@ -211,8 +211,8 @@ type Plan = {
   popular: boolean
 }
 
-export default function LavalinkClient() {
-  const [selectedCategory, setSelectedCategory] = useState("managed")
+export default function LavalinkClient({ initialCategory = "managed" }: { initialCategory?: string }) {
+  const [selectedCategory, setSelectedCategory] = useState(initialCategory)
   const [selectedCycle, setSelectedCycle] = useState("monthly")
   const [openFaq, setOpenFaq] = useState<number | null>(0)
   const { convertPrice, currency } = useCurrency()

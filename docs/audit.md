@@ -4,6 +4,22 @@
 Record QA results per loop iteration: build/lint/type-check, link/console checks, contrast,
 responsiveness, claims grep. One section per iteration.
 
+## Loop 9 — 2026-09-24
+### Condition 4 — build/lint/type-check GREEN
+- **`npx next build` -> exit 0.** All routes prerender; `sitemap.xml`, `robots.txt`,
+  `opengraph-image`, `icon.png` generate.
+- **ESLint: 0 errors** (down from 74 at Loop 1); 1 warning left (`<img>` in SampClient, a
+  non-blocking perf suggestion; logged in performance.md).
+- **`tsc --noEmit` -> exit 0.**
+- Behavior-preserving fixes: fonts.d.ts `any`->`Record<string,unknown>`; api routes
+  `catch(e:any)`->typed `unknown` guard; `globe.tsx` `let phi/width`->refs; Discord/Hytale
+  `window.location.href=`->`.assign()`; eslint-disable on legit mount `setState` effects
+  and i18n/plan `any`; removed unused imports; `/team` apostrophe escaped.
+### Remaining
+- Condition 3 (Lighthouse) still needs owner/CI (no tooling here).
+- Condition 2 Product/Offer JSON-LD on remaining commercial pages (owner confirmed prices
+  real -> emitting next).
+
 ## Loop 7 — 2026-09-24
 ### Shipped (big theming + SEO + real-data pass)
 - **Condition 1 — theming:** all page bodies converted to `vx-*` tokens via 6 parallel

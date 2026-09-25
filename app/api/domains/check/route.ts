@@ -21,7 +21,7 @@ export async function GET(request: Request) {
       available: isAvailable,
       status: data.Status
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: 'Failed to check domain' }, { status: 500 });
   }
 }

@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { constructMetadata, serviceSchema, breadcrumbSchema } from "@/lib/seo"
+import { constructMetadata, serviceSchema, breadcrumbSchema, productSchema } from "@/lib/seo"
 import LavalinkClient from "./LavalinkClient"
 
 export const metadata: Metadata = constructMetadata({
@@ -17,7 +17,14 @@ export const metadata: Metadata = constructMetadata({
   ],
 })
 
-export default function LavalinkPage() {
+export default async function LavalinkPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ category?: string }>
+}) {
+  const { category } = await searchParams
+  const initialCategory = category === "self-managed" ? "self-managed" : "managed"
+
   const schema = serviceSchema({
     name: "Managed Lavalink Hosting",
     description:
@@ -31,6 +38,15 @@ export default function LavalinkPage() {
     { name: "Lavalink Hosting", url: "/lavalink" },
   ])
 
+  const productJsonLd = productSchema({
+    name: "Managed Lavalink Hosting",
+    description:
+      "Java Lavalink v4 audio nodes for Discord music bots with low-latency voice routing.",
+    url: "/lavalink",
+    priceCurrency: "INR",
+    offers: [{ name: "Lavalink Hosting (from)", price: 240 }],
+  })
+
   return (
     <>
       <script
@@ -41,7 +57,11 @@ export default function LavalinkPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
       />
-      <LavalinkClient />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
+      <LavalinkClient key={initialCategory} initialCategory={initialCategory} />
     </>
   )
 }

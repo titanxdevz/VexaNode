@@ -27,6 +27,11 @@ import {
   BookOpen,
   Users,
   Settings,
+  Globe,
+  Mail,
+  HardDrive,
+  Cloud,
+  Handshake,
 } from 'lucide-react';
 import { FaDiscord } from "react-icons/fa";
 import { motion, AnimatePresence } from 'framer-motion';
@@ -45,17 +50,24 @@ const legalNav = config.mainNavigation.find(item => item.name === 'Legal');
 const getItemIcon = (name: string) => {
   const n = name.toLowerCase();
   if (n.includes('minecraft')) return Gamepad2;
-  if (n.includes('discord bot') || n.includes('bot')) return Bot;
-  if (n.includes('lavalink')) return Radio;
-  if (n.includes('free')) return Gift;
   if (n.includes('samp')) return Gamepad2;
   if (n.includes('hytale')) return Sparkles;
+  if (n.includes('discord bot') || n.includes('bot')) return Bot;
+  if (n.includes('lavalink') || n.includes('managed') || n.includes('audio')) return Radio;
+  if (n.includes('free')) return Gift;
+  if (n.includes('vps') || n.includes('cloud')) return Cloud;
+  if (n.includes('dedicated')) return HardDrive;
+  if (n.includes('web hosting') || n.includes('domain')) return Globe;
   if (n.includes('database')) return Database;
+  if (n.includes('contact')) return Mail;
+  if (n.includes('partner')) return Handshake;
+  if (n.includes('affiliate') || n.includes('team')) return Users;
   if (n.includes('blog')) return BookOpen;
+  if (n.includes('doc')) return FileText;
   if (n.includes('about')) return Users;
   if (n.includes('terms')) return FileText;
   if (n.includes('privacy')) return ShieldAlert;
-  if (n.includes('sla')) return Server;
+  if (n.includes('sla') || n.includes('service level')) return Server;
   return Layers;
 };
 

@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { constructMetadata, serviceSchema, breadcrumbSchema } from "@/lib/seo"
+import { constructMetadata, serviceSchema, breadcrumbSchema, productSchema } from "@/lib/seo"
 import SampClient from "./SampClient"
 
 export const metadata: Metadata = constructMetadata({
@@ -32,6 +32,15 @@ export default function SampPage() {
     { name: "SA-MP Hosting", url: "/samp" },
   ])
 
+  const productJsonLd = productSchema({
+    name: "SA-MP Server Hosting",
+    description:
+      "San Andreas Multiplayer (SA-MP) and open.mp game server hosting with instant setup.",
+    url: "/samp",
+    priceCurrency: "INR",
+    offers: [{ name: "SA-MP Hosting (from)", price: 59 }],
+  })
+
   return (
     <>
       <script
@@ -41,6 +50,10 @@ export default function SampPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
       />
       <SampClient />
     </>

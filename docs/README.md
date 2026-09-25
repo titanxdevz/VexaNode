@@ -30,6 +30,19 @@ area, then updated to match what shipped. See [BRIEF.md](../BRIEF.md) for full s
   ivory; dark = ink. Toggle component: `app/components/ThemeToggle.tsx`.
 
 ## Changelog
+### Loop 10 — 2026-09-24
+- **Condition 2 complete (structured data):** Product/Offer JSON-LD now on **all** commercial
+  pages — `/webhosting` (GBP from config) + `/discord`, `/games`, `/minecraft`, `/databases`,
+  `/samp`, `/hytale`, `/lavalink` (INR "from" prices, owner-confirmed real). `/vps` + `/dedicated`
+  are Discord-CTA pages with no plans (Service + Breadcrumb only). `tsc` 0, lint clean on all.
+
+### Loop 9 — 2026-09-24
+- **`next build` is GREEN (exit 0); ESLint 0 errors (was 74); `tsc` 0.** Condition 4 met
+  (1 non-blocking `<img>` perf warning remains). Fixed `any` types (fonts.d.ts, api routes,
+  i18n, plan handlers), react-hooks immutability (globe refs, `location.assign`), and mount
+  `setState` effects — all behavior-preserving. All routes prerender; sitemap/robots/OG
+  image generate. See [audit.md](audit.md) Loop 9.
+
 ### Loop 8 — 2026-09-24
 - Fixed a build-blocking JSX error (`react/no-unescaped-entities` in `/team`). `tsc` remains
   exit 0 repo-wide.

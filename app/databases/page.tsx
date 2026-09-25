@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { constructMetadata, serviceSchema, breadcrumbSchema } from "@/lib/seo";
+import { constructMetadata, serviceSchema, breadcrumbSchema, productSchema } from "@/lib/seo";
 import DatabasesClient from "./DatabasesClient";
 
 export const metadata: Metadata = constructMetadata({
@@ -31,6 +31,15 @@ export default function DatabasesPage() {
     { name: "Database Hosting", url: "/databases" },
   ]);
 
+  const productJsonLd = productSchema({
+    name: "Managed Database Hosting",
+    description:
+      "Managed MongoDB, PostgreSQL, and Redis databases on NVMe storage with automated snapshots.",
+    url: "/databases",
+    priceCurrency: "INR",
+    offers: [{ name: "Managed Database (from)", price: 40 }],
+  });
+
   return (
     <>
       <script
@@ -40,6 +49,10 @@ export default function DatabasesPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
       />
       <DatabasesClient />
     </>

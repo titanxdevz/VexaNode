@@ -42,14 +42,11 @@ docs (accessed 2026-09-24; see [research-log.md](research-log.md)).
 - [x] Emit Product/Offer on `/webhosting` from real config prices (verified: renders
       `"@type":"Product"` with `"price":2.99,"priceCurrency":"GBP"` …). Service + Breadcrumb
       already present there.
-- [ ] Emit Product/Offer + Breadcrumb on remaining commercial pages (minecraft, games, vps,
-      discord, lavalink, hytale, samp, dedicated, databases) from their configs.
-      **DECISION (2026-09-24):** only `webhosting.json` still exists as a config; the other
-      commercial pages hold their plan prices **hardcoded in their `*Client.tsx` components**,
-      and those prices are **unconfirmed** (todo-real-data #12). Product/Offer JSON-LD for a
-      merchant listing must use real prices, so we **defer** emitting it for these pages until
-      the owner confirms prices — then map from the client plan arrays (the same values already
-      displayed). BreadcrumbList + Service are already present on all of them.
+- [x] Emit Product/Offer on all commercial pages with real prices. **DONE 2026-09-24**
+      (owner confirmed prices real): `/webhosting` (GBP, from config) + `/discord`, `/games`,
+      `/minecraft`, `/databases`, `/samp`, `/hytale`, `/lavalink` (INR "from" price mirroring
+      the base plan prices shown in each client). `/vps` and `/dedicated` are Discord-CTA
+      landing pages with no plan pricing, so no Product/Offer (Service + Breadcrumb only).
 - [ ] Emit Breadcrumb on legal/company pages.
 - [ ] Validate all with Google Rich Results Test / Schema Markup Validator (owner/CI — no
       validator tooling in this environment; mark results here when run).

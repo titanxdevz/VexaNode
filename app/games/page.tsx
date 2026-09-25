@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import GamesClient from "./GamesClient";
-import { constructMetadata, generateServiceSchema, generateBreadcrumbSchema } from "@/lib/seo";
+import { constructMetadata, generateServiceSchema, generateBreadcrumbSchema, generateProductSchema } from "@/lib/seo";
 
 export const metadata: Metadata = constructMetadata({
   title: "Minecraft Server Hosting | VexaNode",
@@ -32,6 +32,16 @@ export default function GameHostingPage() {
     { name: "Minecraft Hosting", url: "/games" },
   ]);
 
+  // Real base (INR) starting price from GamesClient plans.
+  const productJsonLd = generateProductSchema({
+    name: "Minecraft Server Hosting",
+    description:
+      "Minecraft server hosting on AMD infrastructure with DDoS protection and flexible plans.",
+    url: "/games",
+    priceCurrency: "INR",
+    offers: [{ name: "Minecraft Hosting (from)", price: 99 }],
+  });
+
   return (
     <>
       <script
@@ -41,6 +51,10 @@ export default function GameHostingPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
       />
       <GamesClient />
     </>

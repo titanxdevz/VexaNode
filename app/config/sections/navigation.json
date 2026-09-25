@@ -2,7 +2,7 @@
   "mainNavigation": [
     {
       "name": "Minecraft",
-      "href": "/games?game=minecraft",
+      "href": "/minecraft",
       "hasDropdown": false
     },
     {
@@ -13,7 +13,20 @@
     {
       "name": "Lavalink",
       "href": "/lavalink",
-      "hasDropdown": false
+      "hasDropdown": true,
+      "dropdownType": "list",
+      "dropdownItems": [
+        {
+          "name": "Managed Audio Nodes",
+          "href": "/lavalink?category=managed",
+          "description": "Fully managed, auto-configured Lavalink v4"
+        },
+        {
+          "name": "Self-Managed (Panel)",
+          "href": "/lavalink?category=self-managed",
+          "description": "Full Pterodactyl panel & config access"
+        }
+      ]
     },
     {
       "name": "Free Bot Hosting",
@@ -24,35 +37,87 @@
       "name": "More Services",
       "href": "#",
       "hasDropdown": true,
-      "isMegaMenu": false,
       "dropdownType": "grid",
       "dropdownItems": [
         {
+          "name": "Cloud VPS",
+          "description": "High-frequency AMD Ryzen KVM virtual servers",
+          "href": "/vps"
+        },
+        {
+          "name": "Dedicated Servers",
+          "description": "Bare-metal AMD EPYC dedicated machines",
+          "href": "/dedicated"
+        },
+        {
+          "name": "Web Hosting",
+          "description": "Fast NVMe web hosting for sites & apps",
+          "href": "/webhosting"
+        },
+        {
+          "name": "Domains",
+          "description": "Register and manage your domain names",
+          "href": "/domains"
+        },
+        {
+          "name": "Database Hosting",
+          "description": "MySQL, PostgreSQL, MongoDB & Redis",
+          "href": "/databases"
+        },
+        {
           "name": "SA-MP Hosting",
-          "description": "Reliable DDoS-protected GTA SA-MP & open.mp hosting",
+          "description": "DDoS-protected GTA SA-MP & open.mp hosting",
           "href": "/samp",
           "badge": "NEW"
         },
         {
           "name": "Hytale Hosting",
-          "description": "High-performance Hytale game servers with low latency",
+          "description": "Low-latency Hytale game servers",
           "href": "/hytale",
           "badge": "NEW"
+        }
+      ]
+    },
+    {
+      "name": "Company",
+      "href": "#",
+      "hasDropdown": true,
+      "dropdownType": "grid",
+      "dropdownItems": [
+        {
+          "name": "About Us",
+          "description": "Our mission and the team behind VexaNode",
+          "href": "/about"
         },
         {
-          "name": "Database Hosting",
-          "description": "MySQL, PostgreSQL, MongoDB & Redis hosting",
-          "href": "/databases"
+          "name": "Our Team",
+          "description": "Meet the people running the nodes",
+          "href": "/team"
         },
         {
-          "name": "Blogs & Guides",
+          "name": "Partners",
+          "description": "Bots and projects powered by VexaNode",
+          "href": "/partners"
+        },
+        {
+          "name": "Affiliate Program",
+          "description": "Earn by referring new customers",
+          "href": "/affiliates"
+        },
+        {
+          "name": "Contact",
+          "description": "Reach support via Discord, email or phone",
+          "href": "/contact"
+        },
+        {
+          "name": "Blog & Guides",
           "description": "Hosting guides and technical articles",
           "href": "/blog"
         },
         {
-          "name": "About Us",
-          "description": "Meet the founders and team of VexaNode",
-          "href": "/about"
+          "name": "Developer Docs",
+          "description": "API references and integration docs",
+          "href": "/docs"
         }
       ]
     },
@@ -75,12 +140,12 @@
         {
           "name": "Service Level Agreement",
           "href": "/sla",
-          "description": "Our 99.9% uptime guarantees"
+          "description": "Our uptime commitments"
         },
         {
           "name": "Refund Policy",
           "href": "/refund-policy",
-          "description": "24-hour change of mind and 7-day VPS guarantee"
+          "description": "Change of mind and VPS guarantee terms"
         },
         {
           "name": "Acceptable Usage",

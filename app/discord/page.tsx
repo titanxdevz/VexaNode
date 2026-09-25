@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import DiscordClient from "./DiscordClient";
-import { constructMetadata, generateServiceSchema, generateBreadcrumbSchema } from "@/lib/seo";
+import { constructMetadata, generateServiceSchema, generateBreadcrumbSchema, generateProductSchema } from "@/lib/seo";
 
 export const metadata: Metadata = constructMetadata({
   title: "Discord Bot Hosting | Node.js & Python | VexaNode",
@@ -33,6 +33,16 @@ export default function DiscordBotPage() {
     { name: "Discord Bot Hosting", url: "/discord" },
   ]);
 
+  // Prices are the real base (INR) monthly plan prices from DiscordClient.
+  const productJsonLd = generateProductSchema({
+    name: "Discord Bot Hosting",
+    description:
+      "Node.js and Python Discord bot hosting on DDoS-protected infrastructure.",
+    url: "/discord",
+    priceCurrency: "INR",
+    offers: [{ name: "Discord Bot Hosting (from)", price: 35 }],
+  });
+
   return (
     <>
       <script
@@ -42,6 +52,10 @@ export default function DiscordBotPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
       />
       <DiscordClient />
     </>

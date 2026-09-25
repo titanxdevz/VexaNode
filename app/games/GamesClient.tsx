@@ -11,7 +11,6 @@ import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import { useCurrency } from "../contexts/CurrencyContext"
 import CurrencySelector from "../components/CurrencySelector"
-import Link from "next/link"
 
 // Authentic Server Software Brand SVGs
 const SoftwareIcons = {
@@ -435,7 +434,7 @@ export default function GamesClient() {
                     </div>
 
                     <button
-                      onClick={() => handleDeploy(plan)}
+                      onClick={() => handleDeploy()}
                       className={`w-full font-black py-3.5 px-4 rounded-xl text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98] ${
                         plan.popular
                           ? "bg-[#5D9C42] hover:bg-[#4E8337] text-white shadow-[0_0_25px_rgba(93,156,66,0.35)] hover:shadow-[0_0_35px_rgba(93,156,66,0.5)]"
