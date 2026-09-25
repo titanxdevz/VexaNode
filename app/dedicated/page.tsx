@@ -3,9 +3,9 @@ import { constructMetadata, serviceSchema, breadcrumbSchema } from "@/lib/seo";
 import DedicatedClient from "./DedicatedClient";
 
 export const metadata: Metadata = constructMetadata({
-  title: "Dedicated Bare Metal Servers | High Performance AMD Ryzen & EPYC | VexaNode",
+  title: "Dedicated Bare Metal Servers — VexaNode",
   description:
-    "Deploy enterprise dedicated bare metal servers with 10 Gbps uplinks, unmetered bandwidth, and hardware-level DDoS protection. Full IPMI/KVM access.",
+    "Deploy dedicated bare metal servers with high-bandwidth unmetered uplinks and hardware-level DDoS protection. Full IPMI/KVM access.",
   canonical: "/dedicated",
   keywords: [
     "dedicated server hosting",

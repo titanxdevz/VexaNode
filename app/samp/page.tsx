@@ -3,7 +3,7 @@ import { constructMetadata, serviceSchema, breadcrumbSchema } from "@/lib/seo"
 import SampClient from "./SampClient"
 
 export const metadata: Metadata = constructMetadata({
-  title: "SA-MP Server Hosting | High Performance San Andreas Multiplayer",
+  title: "SA-MP Server Hosting — VexaNode",
   description:
     "Deploy high-tickrate SA-MP and open.mp server hosting starting at ₹59/mo. 100% NVMe SSD storage, instant setup, custom gamemodes, and Game-DDoS protection in India, USA, and Germany.",
   canonical: "/samp",

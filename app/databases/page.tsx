@@ -3,7 +3,7 @@ import { constructMetadata, serviceSchema, breadcrumbSchema } from "@/lib/seo";
 import DatabasesClient from "./DatabasesClient";
 
 export const metadata: Metadata = constructMetadata({
-  title: "Managed Database Hosting | MongoDB, PostgreSQL, Redis | VexaNode",
+  title: "Managed Database Hosting — VexaNode",
   description:
     "High-performance managed MongoDB, PostgreSQL, and Redis caching databases on ultra-fast NVMe storage. Automated snapshots, private networking, and instant provisioning.",
   canonical: "/databases",

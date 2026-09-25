@@ -4,6 +4,7 @@ import Image from "next/image"
 import { Github, Twitter, Instagram, ExternalLink } from "lucide-react"
 import { FaDiscord } from "react-icons/fa"
 import Link from "next/link"
+import PaymentsAccepted from "./PaymentsAccepted"
 
 interface FooterLink {
   name: string
@@ -148,6 +149,9 @@ export default function Footer() {
             </div>
           ))}
         </div>
+
+        {/* ── Payments Accepted ── */}
+        <PaymentsAccepted />
 
         {/* ── Bottom Bar ── */}
         <div className="py-5 border-t vx-line flex flex-col sm:flex-row justify-between items-center gap-4">

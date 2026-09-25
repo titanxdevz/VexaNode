@@ -3,9 +3,9 @@ import BlogsClient from "../blogs/BlogsClient";
 import { constructMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = constructMetadata({
-  title: "Blog & Technical Guides | Minecraft, Discord Bots & VPS | VexaNode",
+  title: "Blog & Technical Guides — VexaNode",
   description:
-    "Explore developer tutorials, benchmark comparisons, and optimization guides for Minecraft servers, Discord bots, Lavalink audio nodes, and high-performance Linux VPS hosting.",
+    "Developer tutorials and optimization guides for Minecraft servers, Discord bots, Lavalink audio nodes, and Linux VPS hosting.",
   canonical: "/blog",
   keywords: [
     "VexaNode blog",

@@ -4,6 +4,57 @@
 Record QA results per loop iteration: build/lint/type-check, link/console checks, contrast,
 responsiveness, claims grep. One section per iteration.
 
+## Loop 7 — 2026-09-24
+### Shipped (big theming + SEO + real-data pass)
+- **Condition 1 — theming:** all page bodies converted to `vx-*` tokens via 6 parallel
+  agents (games/minecraft/databases, vps/dedicated, discord/lavalink/samp/hytale/free-bot,
+  webhosting shared sections + domains/blogs, company pages, legal pages). Every route now
+  works in light + dark. Navbar/Footer already tokenized (Loop 2).
+- **`/docs` redesigned** to landing-page quality: dark-style hero, functional client-side
+  topic filter, product-category cards linking to real routes, real resources + support
+  card. Removed fabricated guide list + fake read-times + non-existent "API Reference".
+- **`/contact`** reworked per owner: removed the Send-a-Message form; added real address
+  (Gorakhpur, PIN 273001), phone (+91 63869 05613), email (vexanodeofficial@gmail.com).
+  Real contact wired into Organization JSON-LD (telephone + PostalAddress + email).
+- **SEO titles** shortened to <60 on minecraft, databases, dedicated, samp, hytale, blog.
+- **BreadcrumbList** now on all 9 commercial pages.
+- **Real-data:** agents neutralized many fabricated stats across bodies (TPS, GHz, MB/s,
+  ms, "24/7", "best", review counts) — logged in each agent report + [content.md].
+### Verified
+- `tsc --noEmit` → exit 0 across the whole repo (the earlier transient PaymentsAccepted
+  error is gone).
+- **Dead links:** grep `href="#"` in app → **0**.
+- **Routes:** 27/28 return HTTP 200 in dev. `/blogs` (plural) is 404 but is **not linked
+  anywhere** (blog index is `/blog`; `/blogs/[slug]` serves posts) — harmless, not a broken
+  on-site link.
+- One `<h1>` per page confirmed on sampled commercial pages (h1 lives in the client body).
+### Still open / blocked
+- **Condition 3 (Lighthouse 90+):** NOT RUN — no headless-browser tooling in this
+  environment. Requires owner/CI.
+- **Condition 4 (green build):** `tsc` passes and dead-links = 0, but ESLint still reports
+  **24 errors / 67 warnings**, almost all PRE-EXISTING in `lib/`, `types/`, API routes and
+  a few components (`no-explicit-any`, `no-unused-vars`, `react-hooks/*`). Fixing them means
+  editing out-of-scope backend/lib files; needs owner OK per the frontend-only rule.
+- **Condition 2:** Product/Offer JSON-LD still only on `/` + `/webhosting` (helper ready to
+  roll to other commercial pages from their configs).
+
+## Loop 6 — 2026-09-24
+### Shipped
+- Added **BreadcrumbList** JSON-LD to `/lavalink`, `/hytale`, `/samp` (previously only had
+  Service) → all 9 commercial pages now have Service + Breadcrumb.
+- **Real-data**: softened fabricated meta/service copy — lavalink "99.9% uptime guarantee"
+  removed; hytale "best…/24/7 uptime" removed and over-long title (>60) shortened to
+  "Hytale Server Hosting in India — VexaNode".
+### Verified
+- `tsc` clean; dev server confirms BreadcrumbList renders on all 3 pages; hytale title
+  updated.
+### Still open (carry to Loop 7)
+- Product/Offer JSON-LD on the 9 commercial pages (only `/webhosting` done) — needs each
+  page's config price mapping.
+- 27 page bodies still hardcoded dark (theme each) — largest remaining item.
+- Sweep remaining page meta descriptions for unverified "99.9%/24/7/best" claims.
+- Pre-existing repo-wide lint errors (~74) block `next build`; Lighthouse NOT RUN.
+
 ## Loop 5 — 2026-09-24
 ### Shipped (Condition 2 — structured data)
 - `generateProductSchema` added to `lib/seo.ts` (positive-price + ISO-4217 guard).

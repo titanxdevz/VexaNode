@@ -201,7 +201,7 @@ const LocationItem = memo(({ location, index }: { location: typeof locations[0],
 
     return (
         <motion.div
-            className="flex items-center justify-between gap-4 py-3 px-4 bg-[#0c0e1a]/40 border border-white/5 rounded-xl hover:border-emerald-500/20 hover:bg-[#0c0e1a]/60 transition-all duration-300 group"
+            className="flex items-center justify-between gap-4 py-3 px-4 vx-card border vx-line rounded-xl hover:border-[#d97757]/20 transition-all duration-300 group"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -217,22 +217,22 @@ const LocationItem = memo(({ location, index }: { location: typeof locations[0],
                     loading="lazy"
                 />
                 <div className="flex-1 min-w-0">
-                    <h3 className="text-white font-bold text-sm sm:text-base truncate group-hover:text-emerald-400 transition-colors">
+                    <h3 className="vx-ink font-bold text-sm sm:text-base truncate group-hover:text-[#d97757] transition-colors">
                         {location.name}
                     </h3>
-                    <p className="text-zinc-500 text-[10px] mt-0.5 truncate uppercase tracking-wider font-semibold">
+                    <p className="vx-faint text-[10px] mt-0.5 truncate uppercase tracking-wider font-semibold">
                         {location.region}
                     </p>
-                    <p className="text-emerald-400 font-mono text-[9px] mt-1 truncate">
+                    <p className="vx-accent-text font-mono text-[9px] mt-1 truncate">
                         {location.hardware}
                     </p>
                 </div>
             </div>
 
             <div className="flex items-center gap-3 flex-shrink-0">
-                <div className="flex items-center gap-1.5 bg-black/40 border border-white/5 rounded-lg px-2.5 py-1 text-xs">
+                <div className="flex items-center gap-1.5 vx-card border vx-line rounded-lg px-2.5 py-1 text-xs">
                     <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                    <span className="text-zinc-400 font-mono">{ping !== "..." ? `${ping}ms` : "checking"}</span>
+                    <span className="vx-muted font-mono">{ping !== "..." ? `${ping}ms` : "checking"}</span>
                 </div>
             </div>
         </motion.div>
@@ -268,11 +268,7 @@ export default function LocationsSection() {
     }), []);
 
     return (
-        <div className="bg-[#030408] relative px-4 sm:px-6 lg:px-8 overflow-hidden py-32 border-t border-b border-white/5">
-            {/* Ambient gradients */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-emerald-500/5 rounded-full blur-[140px] pointer-events-none will-change-transform" />
-            <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-emerald-500/5 rounded-full blur-[140px] pointer-events-none will-change-transform" />
-
+        <div className="vx-bg relative px-4 sm:px-6 lg:px-8 overflow-hidden py-32 border-t border-b vx-line">
             <div className="relative z-10 max-w-7xl mx-auto">
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                     <motion.div
@@ -282,13 +278,13 @@ export default function LocationsSection() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h2 className="text-4xl sm:text-6xl font-black text-white orbitron-font mb-6 leading-none uppercase tracking-tight">
+                        <h2 className="text-4xl sm:text-6xl font-black vx-ink orbitron-font mb-6 leading-none uppercase tracking-tight">
                             Global Node <br />
-                            <span className="text-emerald-500 text-neon-glow-brand">Distribution</span>
+                            <span className="text-[#d97757] text-neon-glow-brand">Distribution</span>
                         </h2>
 
-                        <p className="text-gray-400 text-lg mb-10 leading-relaxed max-w-xl quicksand-font">
-                            Deploy your workloads near your user base. Our custom routing algorithms and strategically located datacenters ensure the absolute lowest latency and highest throughput.
+                        <p className="vx-muted text-lg mb-10 leading-relaxed max-w-xl quicksand-font">
+                            Deploy your workloads near your user base. Our custom routing algorithms and strategically located datacenters help deliver low latency and high throughput.
                         </p>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

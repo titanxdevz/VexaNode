@@ -3,7 +3,7 @@ import GamesClient from "../games/GamesClient";
 import { constructMetadata, generateServiceSchema, generateBreadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = constructMetadata({
-  title: "Minecraft Server Hosting | High-Tickrate AMD Nodes | VexaNode",
+  title: "Minecraft Server Hosting — VexaNode",
   description:
     "Deploy high-performance Minecraft server hosting with dedicated AMD Ryzen 9 and EPYC infrastructure, 1-click Paper/Fabric/Forge installers, and zero-lag NVMe storage.",
   canonical: "/minecraft",

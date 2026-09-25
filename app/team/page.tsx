@@ -23,7 +23,7 @@ const team = [
   {
     name: "Management Team",
     role: "Operations",
-    bio: "Our specialized management team ensures 99.9% uptime and smooth datacenter operations across all global nodes.",
+    bio: "Our specialized management team keeps datacenter operations running smoothly across our global nodes.",
     icon: Zap,
     accent: "#f59e0b",
     socials: {
@@ -33,8 +33,8 @@ const team = [
   },
   {
     name: "Technical Support",
-    role: "24/7 Engineers",
-    bio: "A global team of hosting experts dedicated to resolving issues in minutes, not hours. Available around the clock.",
+    role: "Support Engineers",
+    bio: "A global team of hosting experts dedicated to resolving issues quickly. Available around the clock.",
     icon: MessageSquare,
     accent: "#10b981",
     socials: {
@@ -46,7 +46,7 @@ const team = [
 
 export default function TeamPage() {
   return (
-    <div className="min-h-screen bg-[#08090d] text-white selection:bg-blue-500/30">
+    <div className="min-h-screen vx-bg vx-ink selection:bg-[#d97757]/30">
       <PageMeta title="Our Team" />
       <Navbar />
 
@@ -56,7 +56,7 @@ export default function TeamPage() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 text-[10px] font-bold px-4 py-1.5 rounded-full border border-blue-500/20 mb-8 tracking-[0.2em] uppercase"
+            className="inline-flex items-center gap-2 bg-[#d97757]/10 vx-accent-text text-[10px] font-bold px-4 py-1.5 rounded-full border border-[#d97757]/20 mb-8 tracking-[0.2em] uppercase"
           >
             <User className="w-3.5 h-3.5" />
             Our Leadership
@@ -67,14 +67,14 @@ export default function TeamPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl md:text-7xl font-black mb-8 tracking-tighter"
           >
-            The <span className="text-blue-500">Vexa</span> Team
+            The <span className="vx-accent-text">Vexa</span> Team
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-gray-500 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed font-medium"
+            className="vx-muted max-w-2xl mx-auto text-lg md:text-xl leading-relaxed font-medium"
           >
             Meet the engineers and visionaries building the next generation of global hosting infrastructure.
           </motion.p>
@@ -89,43 +89,43 @@ export default function TeamPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="group relative bg-[#0c0d12] border border-[#1f2129] hover:border-blue-500/30 rounded-[2.5rem] p-8 transition-all duration-500 overflow-hidden"
+              className="group relative vx-card border vx-line hover:border-[#d97757]/30 rounded-[2.5rem] p-8 transition-all duration-500 overflow-hidden"
             >
               {/* Member Icon/Avatar Area */}
               <div className="relative w-24 h-24 mb-8 mx-auto">
-                <div 
+                <div
                   className="absolute inset-0 rounded-3xl blur-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-700"
                   style={{ backgroundColor: member.accent }}
                 />
-                <div className="relative w-full h-full rounded-[2rem] bg-[#111218] border border-[#1f2129] flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+                <div className="relative w-full h-full rounded-[2rem] vx-bg-alt border vx-line flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
                   <member.icon className="w-10 h-10" style={{ color: member.accent }} />
                 </div>
               </div>
 
               <div className="text-center">
                 <h3 className="text-2xl font-bold tracking-tight mb-1">{member.name}</h3>
-                <p className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em] mb-6">{member.role}</p>
-                <p className="text-gray-400 text-sm leading-relaxed mb-8 min-h-[4.5rem]">
+                <p className="text-[10px] font-bold vx-faint uppercase tracking-[0.2em] mb-6">{member.role}</p>
+                <p className="vx-muted text-sm leading-relaxed mb-8 min-h-[4.5rem]">
                   {member.bio}
                 </p>
 
                 {/* Socials */}
                 <div className="flex justify-center gap-3">
-                  <a href={member.socials.discord} className="w-10 h-10 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center text-gray-500 hover:text-[#5865F2] hover:bg-[#5865F2]/10 hover:border-[#5865F2]/30 transition-all">
+                  <a href={member.socials.discord} className="w-10 h-10 rounded-xl vx-bg-alt border vx-line flex items-center justify-center vx-faint hover:text-[#5865F2] hover:bg-[#5865F2]/10 hover:border-[#5865F2]/30 transition-all">
                     <FaDiscord className="w-5 h-5" />
                   </a>
                   {member.socials.twitter && (
-                    <a href={member.socials.twitter} className="w-10 h-10 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center text-gray-500 hover:text-[#1DA1F2] hover:bg-[#1DA1F2]/10 hover:border-[#1DA1F2]/30 transition-all">
+                    <a href={member.socials.twitter} className="w-10 h-10 rounded-xl vx-bg-alt border vx-line flex items-center justify-center vx-faint hover:text-[#1DA1F2] hover:bg-[#1DA1F2]/10 hover:border-[#1DA1F2]/30 transition-all">
                       <Twitter className="w-4 h-4" />
                     </a>
                   )}
                   {member.socials.linkedin && (
-                    <a href={member.socials.linkedin} className="w-10 h-10 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center text-gray-500 hover:text-[#0A66C2] hover:bg-[#0A66C2]/10 hover:border-[#0A66C2]/30 transition-all">
+                    <a href={member.socials.linkedin} className="w-10 h-10 rounded-xl vx-bg-alt border vx-line flex items-center justify-center vx-faint hover:text-[#0A66C2] hover:bg-[#0A66C2]/10 hover:border-[#0A66C2]/30 transition-all">
                       <Linkedin className="w-4 h-4" />
                     </a>
                   )}
                   {member.socials.mail && (
-                    <a href={member.socials.mail} className="w-10 h-10 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center text-gray-500 hover:text-white hover:bg-white/10 hover:border-white/30 transition-all">
+                    <a href={member.socials.mail} className="w-10 h-10 rounded-xl vx-bg-alt border vx-line flex items-center justify-center vx-faint vx-hover-ink hover:border-[#d97757]/30 transition-all">
                       <Mail className="w-4 h-4" />
                     </a>
                   )}
@@ -140,19 +140,19 @@ export default function TeamPage() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-blue-600 rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden group/cta shadow-2xl shadow-blue-900/20"
+          className="bg-[#d97757] rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden group/cta shadow-2xl shadow-[#d97757]/20"
         >
           <div className="relative z-10">
             <h2 className="text-4xl md:text-6xl font-black mb-8 text-white leading-tight tracking-tighter uppercase">
               Join the Mission
             </h2>
-            <p className="text-blue-100/80 max-w-2xl mx-auto mb-12 text-lg md:text-xl leading-relaxed">
+            <p className="text-white/80 max-w-2xl mx-auto mb-12 text-lg md:text-xl leading-relaxed">
               We're always looking for talented engineers and community-driven individuals to join our global team. Think you have what it takes?
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <a
                 href="https://discord.gg/dJpMDfgUQq"
-                className="w-full sm:w-auto bg-white text-blue-600 px-10 py-5 rounded-2xl font-black hover:bg-blue-50 transition-all transform hover:scale-105 active:scale-95 flex items-center justify-center gap-2 text-base shadow-2xl"
+                className="w-full sm:w-auto bg-white text-[#d97757] px-10 py-5 rounded-2xl font-black hover:bg-white/90 transition-all transform hover:scale-105 active:scale-95 flex items-center justify-center gap-2 text-base shadow-2xl"
               >
                 Careers on Discord
                 <ChevronRight className="w-5 h-5" />

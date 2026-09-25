@@ -67,7 +67,7 @@ const faqs = [
   },
   {
     q: "Can I upgrade to a premium plan later?",
-    a: "Yes! When your bot joins hundreds of guilds and needs more RAM or dedicated CPU threads, you can upgrade seamlessly without data loss or downtime."
+    a: "Yes! When your bot joins many guilds and needs more RAM or dedicated CPU threads, you can upgrade seamlessly without data loss or downtime."
   }
 ]
 
@@ -75,7 +75,7 @@ export default function FreeBotHostingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
   return (
-    <div className="min-h-screen bg-[#000000] text-zinc-100 selection:bg-[#00ff88]/30 selection:text-black relative overflow-hidden">
+    <div className="min-h-screen vx-bg vx-ink selection:bg-[#00ff88]/30 selection:text-black relative overflow-hidden">
       
       {/* ── DEVELOPER-FOCUSED PURE BLACK BACKGROUND WITH SCANLINES & DOT MATRIX ── */}
       <div className="fixed inset-0 pointer-events-none -z-10 select-none overflow-hidden">
@@ -106,58 +106,58 @@ export default function FreeBotHostingPage() {
             </div>
 
             {/* Bolder, Larger Headline with Neon Focus */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.08] mb-4">
-              Free 24/7 Discord <br />
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight vx-ink leading-[1.08] mb-4">
+              Free Always-On Discord <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00ff88] via-[#10b981] to-[#34d399] drop-shadow-[0_0_30px_rgba(0,255,136,0.35)]">
                 Bot Hosting.
               </span>
             </h1>
 
             {/* Description with Developer Focus */}
-            <p className="text-zinc-400 text-sm sm:text-base leading-relaxed mb-6 max-w-2xl">
+            <p className="vx-muted text-sm sm:text-base leading-relaxed mb-6 max-w-2xl">
               Zero cost, zero credit cards, zero sleep mode. Run Discord.js, Python, Java, and Rust bots with 50% dedicated vCPU, NVMe storage, and Pterodactyl panel control. Claim your free container instantly on Discord.
             </p>
 
             {/* Live Social Proof Stat Strip */}
-            <div className="inline-flex flex-wrap items-center gap-x-6 gap-y-2 p-3 rounded-xl bg-zinc-950 border border-zinc-800/80 mb-6 font-mono text-xs">
+            <div className="inline-flex flex-wrap items-center gap-x-6 gap-y-2 p-3 rounded-xl vx-card border vx-line mb-6 font-mono text-xs">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#00ff88] shadow-[0_0_6px_#00ff88]" />
-                <span className="text-white font-bold">1,420+</span>
-                <span className="text-zinc-500">Bots Online</span>
+                <span className="vx-ink font-bold">Active</span>
+                <span className="vx-faint">Bots Online</span>
               </div>
-              <span className="text-zinc-800">|</span>
+              <span className="vx-faint">|</span>
               <div className="flex items-center gap-2">
-                <span className="text-[#00ff88] font-bold">99.98%</span>
-                <span className="text-zinc-500">Node Uptime</span>
+                <span className="text-[#00ff88] font-bold">Dependable</span>
+                <span className="vx-faint">Node Uptime</span>
               </div>
-              <span className="text-zinc-800">|</span>
+              <span className="vx-faint">|</span>
               <div className="flex items-center gap-2">
-                <span className="text-white font-bold">0</span>
-                <span className="text-zinc-500">Downtime Incidents</span>
+                <span className="vx-ink font-bold">Always-On</span>
+                <span className="vx-faint">Availability</span>
               </div>
             </div>
 
             {/* Sub-links */}
-            <div className="text-xs text-zinc-500 flex flex-wrap items-center gap-2 font-mono">
-              <span className="text-zinc-400 font-bold uppercase tracking-wider">Explore Upgrades:</span>
+            <div className="text-xs vx-faint flex flex-wrap items-center gap-2 font-mono">
+              <span className="vx-muted font-bold uppercase tracking-wider">Explore Upgrades:</span>
               <Link href="/discord" className="text-[#00ff88] hover:underline">Premium Bot Nodes</Link>
               <span>•</span>
-              <Link href="/lavalink" className="text-zinc-400 hover:text-white transition-colors">Lavalink Audio</Link>
+              <Link href="/lavalink" className="vx-muted vx-hover-ink transition-colors">Lavalink Audio</Link>
               <span>•</span>
-              <Link href="/games?game=minecraft" className="text-zinc-400 hover:text-white transition-colors">Minecraft Hosting</Link>
+              <Link href="/games?game=minecraft" className="vx-muted vx-hover-ink transition-colors">Minecraft Hosting</Link>
               <span>•</span>
-              <Link href="/vps" className="text-zinc-400 hover:text-white transition-colors">Cloud VPS</Link>
+              <Link href="/vps" className="vx-muted vx-hover-ink transition-colors">Cloud VPS</Link>
             </div>
           </div>
 
           {/* Quick Discord CTA Card with Glow Treatment */}
-          <div className="relative group bg-zinc-950/90 border border-[#5865F2]/40 hover:border-[#5865F2]/70 p-5 rounded-2xl flex items-center gap-4 flex-shrink-0 shadow-[0_0_30px_rgba(88,101,242,0.18)] hover:shadow-[0_0_40px_rgba(88,101,242,0.3)] transition-all duration-300">
+          <div className="relative group vx-card border border-[#5865F2]/40 hover:border-[#5865F2]/70 p-5 rounded-2xl flex items-center gap-4 flex-shrink-0 shadow-[0_0_30px_rgba(88,101,242,0.18)] hover:shadow-[0_0_40px_rgba(88,101,242,0.3)] transition-all duration-300">
             <div className="w-12 h-12 rounded-xl bg-[#5865F2]/20 border border-[#5865F2]/40 flex items-center justify-center text-[#5865F2] shadow-[0_0_15px_rgba(88,101,242,0.25)]">
               <CustomIcons.Discord className="w-7 h-7 text-[#5865F2]" />
             </div>
             <div>
-              <div className="text-xs font-bold text-white uppercase tracking-wider">VexaNode Community</div>
-              <div className="text-[11px] text-zinc-400 font-mono">1,000+ Bot Developers</div>
+              <div className="text-xs font-bold vx-ink uppercase tracking-wider">VexaNode Community</div>
+              <div className="text-[11px] vx-muted font-mono">Growing Bot Developer Community</div>
             </div>
             <a
               href={DISCORD_INVITE}
@@ -173,7 +173,7 @@ export default function FreeBotHostingPage() {
 
         {/* ── 2. COMMUNITY FREE TIER SPEC CARD ── */}
         <div className="max-w-xl mx-auto mb-20">
-          <div className="relative rounded-3xl bg-[#050505] border-2 border-[#00ff88] shadow-[0_0_45px_rgba(0,255,136,0.25)] p-6 sm:p-8 flex flex-col justify-between overflow-hidden">
+          <div className="relative rounded-3xl vx-card border-2 border-[#00ff88] shadow-[0_0_45px_rgba(0,255,136,0.25)] p-6 sm:p-8 flex flex-col justify-between overflow-hidden">
             
             {/* Subtle top neon ambient beam */}
             <div className="absolute top-0 inset-x-12 h-[2px] bg-gradient-to-r from-transparent via-[#00ff88] to-transparent shadow-[0_0_15px_#00ff88]" />
@@ -192,15 +192,15 @@ export default function FreeBotHostingPage() {
                     <CustomIcons.Discord className="w-6 h-6 text-[#00ff88]" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-white">Community Free Tier</h3>
-                    <span className="text-xs text-[#00ff88] font-mono font-bold">24/7 Dedicated Container Node</span>
+                    <h3 className="text-xl font-black vx-ink">Community Free Tier</h3>
+                    <span className="text-xs text-[#00ff88] font-mono font-bold">Always-On Dedicated Container Node</span>
                   </div>
                 </div>
               </div>
 
               {/* Supported Language Chips at a glance */}
-              <div className="flex items-center gap-1.5 mb-5 p-2 rounded-xl bg-zinc-900/60 border border-zinc-800">
-                <span className="text-[10px] font-mono text-zinc-400 uppercase font-bold px-2">Runtimes:</span>
+              <div className="flex items-center gap-1.5 mb-5 p-2 rounded-xl vx-bg-alt border vx-line">
+                <span className="text-[10px] font-mono vx-muted uppercase font-bold px-2">Runtimes:</span>
                 <div className="flex items-center gap-1.5 flex-wrap">
                   <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-[#339933]/15 border border-[#339933]/30 text-[10px] font-mono font-bold text-[#68a063]">
                     <TechIcons.NodeJS className="w-3 h-3" />
@@ -222,33 +222,33 @@ export default function FreeBotHostingPage() {
               </div>
 
               {/* Specs Key-Value Rows */}
-              <div className="space-y-3 mb-6 bg-zinc-900/40 p-4 rounded-2xl border border-zinc-800/80 font-mono">
+              <div className="space-y-3 mb-6 vx-bg-alt p-4 rounded-2xl border vx-line font-mono">
                 <div className="flex items-center justify-between text-xs sm:text-sm">
-                  <span className="text-zinc-400 flex items-center gap-2">
+                  <span className="vx-muted flex items-center gap-2">
                     <Cpu className="w-4 h-4 text-[#00ff88]" />
                     CPU Allocation
                   </span>
-                  <span className="font-bold text-white">50% Dedicated Core</span>
+                  <span className="font-bold vx-ink">50% Dedicated Core</span>
                 </div>
 
                 <div className="flex items-center justify-between text-xs sm:text-sm">
-                  <span className="text-zinc-400 flex items-center gap-2">
+                  <span className="vx-muted flex items-center gap-2">
                     <Zap className="w-4 h-4 text-[#00ff88]" />
                     Memory (RAM)
                   </span>
-                  <span className="font-bold text-white">512 MB DDR4/DDR5</span>
+                  <span className="font-bold vx-ink">512 MB DDR4/DDR5</span>
                 </div>
 
                 <div className="flex items-center justify-between text-xs sm:text-sm">
-                  <span className="text-zinc-400 flex items-center gap-2">
+                  <span className="vx-muted flex items-center gap-2">
                     <HardDrive className="w-4 h-4 text-[#00ff88]" />
                     NVMe Storage
                   </span>
-                  <span className="font-bold text-white">1 GB Gen4 NVMe</span>
+                  <span className="font-bold vx-ink">1 GB Gen4 NVMe</span>
                 </div>
 
                 <div className="flex items-center justify-between text-xs sm:text-sm">
-                  <span className="text-zinc-400 flex items-center gap-2">
+                  <span className="vx-muted flex items-center gap-2">
                     <TechIcons.Pterodactyl className="w-4 h-4 text-[#00ff88]" />
                     Control Panel
                   </span>
@@ -258,29 +258,29 @@ export default function FreeBotHostingPage() {
                 </div>
 
                 <div className="flex items-center justify-between text-xs sm:text-sm">
-                  <span className="text-zinc-400 flex items-center gap-2">
+                  <span className="vx-muted flex items-center gap-2">
                     <Radio className="w-4 h-4 text-[#00ff88]" />
                     Sleep Mode
                   </span>
-                  <span className="font-bold text-[#00ff88]">0% (Always 24/7 Online)</span>
+                  <span className="font-bold text-[#00ff88]">None (Always Online)</span>
                 </div>
 
                 <div className="flex items-center justify-between text-xs sm:text-sm">
-                  <span className="text-zinc-400 flex items-center gap-2">
+                  <span className="vx-muted flex items-center gap-2">
                     <Shield className="w-4 h-4 text-[#00ff88]" />
                     DDoS Mitigation
                   </span>
-                  <span className="font-bold text-white">Always-On Shield</span>
+                  <span className="font-bold vx-ink">Always-On Shield</span>
                 </div>
               </div>
             </div>
 
             {/* Dominant ₹0.00 Price & Neon Claim Button */}
-            <div className="pt-4 border-t border-zinc-800">
+            <div className="pt-4 border-t vx-line">
               <div className="flex items-baseline justify-between mb-5">
-                <span className="text-xs font-mono text-zinc-500 uppercase tracking-wider">Total Due</span>
+                <span className="text-xs font-mono vx-faint uppercase tracking-wider">Total Due</span>
                 <div className="text-right">
-                  <span className="text-4xl sm:text-5xl font-black text-white font-mono tracking-tight drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+                  <span className="text-4xl sm:text-5xl font-black vx-ink font-mono tracking-tight drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]">
                     ₹0.00
                   </span>
                   <span className="text-xs text-[#00ff88] font-mono font-bold ml-1.5 uppercase">/ FOREVER</span>
@@ -296,7 +296,7 @@ export default function FreeBotHostingPage() {
                 <span>CLAIM FREE CONTAINER ON DISCORD</span>
                 <ChevronRight className="w-4 h-4 stroke-[3]" />
               </a>
-              <p className="text-center text-[11px] font-mono text-zinc-500 mt-2.5">
+              <p className="text-center text-[11px] font-mono vx-faint mt-2.5">
                 Instant activation upon joining • No credit card or billing details
               </p>
             </div>
@@ -307,10 +307,10 @@ export default function FreeBotHostingPage() {
         <div className="mb-20">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <span className="text-xs font-mono text-[#00ff88] font-bold uppercase tracking-widest">$ DEPLOYMENT_GUIDE</span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white mt-1">
+            <h2 className="text-2xl sm:text-3xl font-black vx-ink mt-1">
               How to Claim Your Free Bot Host
             </h2>
-            <p className="text-xs text-zinc-400 mt-1">
+            <p className="text-xs vx-muted mt-1">
               Get your Discord bot online in three simple terminal steps.
             </p>
           </div>
@@ -332,22 +332,22 @@ export default function FreeBotHostingPage() {
               {
                 step: "$ 03",
                 title: "Deploy Your Code",
-                desc: "Login to Pterodactyl, upload your Discord.js, Python, or Rust bot scripts, and stay 24/7 online.",
+                desc: "Login to Pterodactyl, upload your Discord.js, Python, or Rust bot scripts, and stay online around the clock.",
                 icon: Rocket
               }
             ].map((item, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-2xl bg-zinc-950/80 border border-zinc-800/90 hover:border-[#00ff88]/40 transition-all relative overflow-hidden group shadow-lg"
+                className="p-6 rounded-2xl vx-card border vx-line hover:border-[#00ff88]/40 transition-all relative overflow-hidden group shadow-lg"
               >
-                <div className="text-2xl font-black text-zinc-800 font-mono absolute top-4 right-4 group-hover:text-[#00ff88]/30 transition-colors">
+                <div className="text-2xl font-black vx-faint font-mono absolute top-4 right-4 group-hover:text-[#00ff88]/30 transition-colors">
                   {item.step}
                 </div>
                 <div className="w-10 h-10 rounded-xl bg-[#00ff88]/10 border border-[#00ff88]/20 flex items-center justify-center text-[#00ff88] mb-4 group-hover:scale-110 transition-transform">
                   <item.icon className="w-5 h-5" />
                 </div>
-                <h3 className="text-base font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-xs text-zinc-400 leading-relaxed">{item.desc}</p>
+                <h3 className="text-base font-bold vx-ink mb-2">{item.title}</h3>
+                <p className="text-xs vx-muted leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -357,10 +357,10 @@ export default function FreeBotHostingPage() {
         <div className="mb-20">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <span className="text-xs font-mono text-[#00ff88] font-bold uppercase tracking-widest">$ RUNTIME_CAPABILITIES</span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white mt-1">
+            <h2 className="text-2xl sm:text-3xl font-black vx-ink mt-1">
               Everything You Need to Host for Free
             </h2>
-            <p className="text-xs text-zinc-400 mt-1">
+            <p className="text-xs vx-muted mt-1">
               Full developer freedom without artificial locks, sleep modes, or arbitrary shutdowns.
             </p>
           </div>
@@ -386,7 +386,7 @@ export default function FreeBotHostingPage() {
               },
               {
                 icon: Shield,
-                title: "100Gbps+ DDoS Protection",
+                title: "DDoS Protection",
                 desc: "High-capacity network filtering to keep your bot immune to malicious packet floods and connection drops."
               },
               {
@@ -405,13 +405,13 @@ export default function FreeBotHostingPage() {
               },
               {
                 icon: Globe,
-                title: "24/7 Discord Community",
+                title: "Active Discord Community",
                 desc: "Direct peer support and developer channels to help troubleshoot bot code and library updates."
               }
             ].map((feature, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-2xl bg-zinc-950/80 border border-zinc-800/80 hover:border-[#00ff88]/40 transition-all duration-200 shadow-md group"
+                className="p-6 rounded-2xl vx-card border vx-line hover:border-[#00ff88]/40 transition-all duration-200 shadow-md group"
               >
                 {feature.customHeader ? (
                   feature.customHeader
@@ -420,8 +420,8 @@ export default function FreeBotHostingPage() {
                     <feature.icon className="w-5 h-5" />
                   </div>
                 ) : null}
-                <h4 className="text-sm font-bold text-white mb-2">{feature.title}</h4>
-                <p className="text-xs text-zinc-400 leading-relaxed">{feature.desc}</p>
+                <h4 className="text-sm font-bold vx-ink mb-2">{feature.title}</h4>
+                <p className="text-xs vx-muted leading-relaxed">{feature.desc}</p>
               </div>
             ))}
           </div>
@@ -431,10 +431,10 @@ export default function FreeBotHostingPage() {
         <div className="max-w-3xl mx-auto mb-16">
           <div className="text-center mb-8">
             <span className="text-xs font-mono text-[#00ff88] font-bold uppercase tracking-widest">$ MAN_PAGES</span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white mt-1">
+            <h2 className="text-2xl sm:text-3xl font-black vx-ink mt-1">
               Frequently Asked Questions
             </h2>
-            <p className="text-xs text-zinc-400 mt-1">
+            <p className="text-xs vx-muted mt-1">
               Common questions about our Free Bot Hosting tier.
             </p>
           </div>
@@ -445,14 +445,14 @@ export default function FreeBotHostingPage() {
               return (
                 <div
                   key={index}
-                  className="rounded-xl border border-zinc-800/90 bg-zinc-950/90 overflow-hidden transition-all hover:border-[#00ff88]/30"
+                  className="rounded-xl border vx-line vx-card overflow-hidden transition-all hover:border-[#00ff88]/30"
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : index)}
-                    className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 hover:bg-white/[0.02] transition-colors cursor-pointer"
+                    className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 hover:bg-black/[0.03] transition-colors cursor-pointer"
                   >
-                    <span className="text-xs sm:text-sm font-bold text-white">{faq.q}</span>
-                    <ChevronDown className={`w-4 h-4 text-zinc-400 transition-transform duration-200 flex-shrink-0 ${
+                    <span className="text-xs sm:text-sm font-bold vx-ink">{faq.q}</span>
+                    <ChevronDown className={`w-4 h-4 vx-muted transition-transform duration-200 flex-shrink-0 ${
                       isOpen ? "rotate-180 text-[#00ff88]" : ""
                     }`} />
                   </button>
@@ -464,7 +464,7 @@ export default function FreeBotHostingPage() {
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.2 }}
-                        className="px-5 pb-5 text-xs text-zinc-300 leading-relaxed border-t border-zinc-800/60 pt-3 whitespace-pre-line font-mono"
+                        className="px-5 pb-5 text-xs vx-muted2 leading-relaxed border-t vx-line pt-3 whitespace-pre-line font-mono"
                       >
                         {faq.a}
                       </motion.div>
@@ -477,15 +477,15 @@ export default function FreeBotHostingPage() {
         </div>
 
         {/* ── 6. BOTTOM CTA ── */}
-        <div className="text-center p-8 sm:p-12 rounded-3xl bg-zinc-950 border border-zinc-800 shadow-2xl relative overflow-hidden">
+        <div className="text-center p-8 sm:p-12 rounded-3xl vx-card border vx-line shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 inset-x-12 h-px bg-gradient-to-r from-transparent via-[#00ff88]/50 to-transparent" />
           
           <span className="text-xs font-mono text-[#00ff88] font-bold uppercase tracking-widest">$ READY_TO_SHIP</span>
-          <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-white mt-2 mb-2">
+          <h2 className="text-2xl sm:text-3xl font-black tracking-tight vx-ink mt-2 mb-2">
             Ready to Launch Your Free Bot?
           </h2>
-          <p className="text-zinc-400 text-xs sm:text-sm mb-6 max-w-lg mx-auto">
-            Join the Discord server and claim your 24/7 free Pterodactyl container in under 2 minutes.
+          <p className="vx-muted text-xs sm:text-sm mb-6 max-w-lg mx-auto">
+            Join the Discord server and claim your always-on free Pterodactyl container in just a few minutes.
           </p>
           <div className="flex justify-center gap-3">
             <a 

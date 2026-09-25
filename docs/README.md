@@ -30,6 +30,25 @@ area, then updated to match what shipped. See [BRIEF.md](../BRIEF.md) for full s
   ivory; dark = ink. Toggle component: `app/components/ThemeToggle.tsx`.
 
 ## Changelog
+### Loop 7 — 2026-09-24
+- **All page bodies themed** (light+dark) via 6 parallel agents → every route responds to
+  the theme toggle. `/docs` fully redesigned to landing quality (functional filter, real
+  links only). `/contact` reworked with owner's real address/phone/email (form removed).
+- Real contact details added to Organization JSON-LD; BreadcrumbList on all commercial
+  pages; over-long SEO titles shortened to <60 (minecraft, databases, dedicated, samp,
+  hytale, blog).
+- Verified: `tsc` exit 0 repo-wide; 0 `href="#"` dead links; 27/28 routes HTTP 200
+  (`/blogs` plural is an unlinked 404 — `/blog` is the index).
+- Remaining: Lighthouse (no tooling here), ESLint 24 errors/67 warnings (mostly
+  pre-existing, out-of-scope files), Product/Offer JSON-LD on the other commercial pages.
+  See [audit.md](audit.md) Loop 7 + [todo-real-data.md](todo-real-data.md).
+
+### Loop 6 — 2026-09-24
+- **Structured data + real-data.** Added BreadcrumbList JSON-LD to `/lavalink`, `/hytale`,
+  `/samp` → all 9 commercial pages now have Service + Breadcrumb. Removed fabricated meta
+  claims (lavalink "99.9% uptime guarantee", hytale "best…/24/7 uptime") and shortened
+  hytale's >60-char title. Verified via dev server (BreadcrumbList renders; title updated).
+
 ### Loop 5 — 2026-09-24
 - **Structured data.** Added `generateProductSchema` (Product + Offer[]) to `lib/seo.ts` —
   enforces positive real prices + ISO-4217 currency, skips invalid offers. Wired it into

@@ -36,7 +36,7 @@ const sections = [
 
 export default function PrivacyPolicy() {
   return (
-    <div className="min-h-screen bg-[#08090d] text-white selection:bg-blue-500/30">
+    <div className="min-h-screen vx-bg vx-ink selection:bg-[#d97757]/30">
       <PageMeta title="Privacy Policy" />
       <Navbar />
 
@@ -46,7 +46,7 @@ export default function PrivacyPolicy() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 text-[10px] font-bold px-3 py-1 rounded-full border border-blue-500/20 mb-6 tracking-widest uppercase"
+            className="inline-flex items-center gap-2 bg-[#d97757]/10 vx-accent-text text-[10px] font-bold px-3 py-1 rounded-full border border-[#d97757]/30 mb-6 tracking-widest uppercase"
           >
             <Shield className="w-3 h-3" />
             Privacy First
@@ -57,21 +57,21 @@ export default function PrivacyPolicy() {
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-6xl font-black mb-6 tracking-tighter"
           >
-            Privacy <span className="text-blue-500">Policy</span>
+            Privacy <span className="text-[#d97757]">Policy</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-gray-500 max-w-xl mx-auto text-lg leading-relaxed font-medium"
+            className="vx-muted2 max-w-xl mx-auto text-lg leading-relaxed font-medium"
           >
             Your trust is our most valuable asset. Learn how we protect your personal and professional data.
           </motion.p>
           
-          <div className="mt-8 flex flex-wrap justify-center gap-6 text-[10px] font-bold text-gray-600 uppercase tracking-widest">
-            <span className="flex items-center gap-2 px-3 py-1 bg-white/5 rounded-lg border border-white/5"><Clock className="w-3 h-3 text-blue-500" /> Updated: June 2026</span>
-            <span className="flex items-center gap-2 px-3 py-1 bg-white/5 rounded-lg border border-white/5"><Lock className="w-3 h-3 text-blue-500" /> GDPR Compliant</span>
+          <div className="mt-8 flex flex-wrap justify-center gap-6 text-[10px] font-bold vx-faint uppercase tracking-widest">
+            <span className="flex items-center gap-2 px-3 py-1 vx-card rounded-lg border vx-line"><Clock className="w-3 h-3 text-[#d97757]" /> Updated: June 2026</span>
+            <span className="flex items-center gap-2 px-3 py-1 vx-card rounded-lg border vx-line"><Lock className="w-3 h-3 text-[#d97757]" /> GDPR Compliant</span>
           </div>
         </div>
 
@@ -84,15 +84,15 @@ export default function PrivacyPolicy() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.05 }}
-              className="group bg-[#0c0d12] border border-[#1f2129] hover:border-[#2d303d] rounded-[2.5rem] p-8 md:p-12 transition-all duration-300"
+              className="group vx-card border vx-line hover:border-[#d97757]/40 rounded-[2.5rem] p-8 md:p-12 transition-all duration-300"
             >
               <div className="flex flex-col md:flex-row gap-8 items-start">
-                <div className="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center flex-shrink-0 border border-blue-500/20 group-hover:bg-blue-500 group-hover:border-blue-500 transition-all duration-500">
-                  <section.icon className="w-7 h-7 text-blue-500 group-hover:text-white transition-colors duration-500" />
+                <div className="w-14 h-14 rounded-2xl bg-[#d97757]/10 flex items-center justify-center flex-shrink-0 border border-[#d97757]/30 group-hover:bg-[#d97757] group-hover:border-[#d97757] transition-all duration-500">
+                  <section.icon className="w-7 h-7 text-[#d97757] group-hover:text-white transition-colors duration-500" />
                 </div>
                 <div className="flex-1">
-                  <h2 className="text-2xl font-bold mb-4 tracking-tight text-white">{section.title}</h2>
-                  <p className="text-gray-400 leading-relaxed text-base">
+                  <h2 className="text-2xl font-bold mb-4 tracking-tight vx-ink">{section.title}</h2>
+                  <p className="vx-muted leading-relaxed text-base">
                     {section.content}
                   </p>
                 </div>
@@ -106,7 +106,7 @@ export default function PrivacyPolicy() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-blue-600 rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden group/cta"
+          className="bg-[#d97757] rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden group/cta"
         >
           {/* Animated Background Elements */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 group-hover/cta:scale-125 transition-transform duration-1000" />
@@ -115,13 +115,13 @@ export default function PrivacyPolicy() {
             <h2 className="text-4xl md:text-6xl font-black mb-8 text-white leading-tight tracking-tighter uppercase">
               Privacy Concerns?
             </h2>
-            <p className="text-blue-100/80 max-w-2xl mx-auto mb-12 text-lg md:text-xl leading-relaxed">
+            <p className="text-white/80 max-w-2xl mx-auto mb-12 text-lg md:text-xl leading-relaxed">
               If you have any questions regarding your data or our privacy practices, our legal team is ready to assist you.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <a
                 href="mailto:legal@vexanode.cloud"
-                className="w-full sm:w-auto bg-white text-blue-600 px-10 py-5 rounded-2xl font-black hover:bg-blue-50 transition-all flex items-center justify-center gap-2 text-base shadow-2xl"
+                className="w-full sm:w-auto bg-white text-[#d97757] px-10 py-5 rounded-2xl font-black hover:bg-white/90 transition-all flex items-center justify-center gap-2 text-base shadow-2xl"
               >
                 Email Legal Team
                 <Mail className="w-5 h-5" />

@@ -162,11 +162,11 @@ const faqs = [
   },
   {
     q: "How fast is game server setup after ordering?",
-    a: "Deployment is instantaneous. Your Minecraft server is automatically provisioned and ready for players in under 60 seconds."
+    a: "Deployment is fast. Your Minecraft server is automatically provisioned and ready for players within moments of checkout."
   },
   {
     q: "Do you provide DDoS protection for game servers?",
-    a: "Yes! All game nodes are shielded by Game-Specific multi-terabit DDoS filtering that stops bot flood joins, null-ping attacks, and UDP reflection spam without raising tickrate latency."
+    a: "Yes! All game nodes are shielded by game-specific DDoS filtering that stops bot flood joins, null-ping attacks, and UDP reflection spam without raising tickrate latency."
   },
   {
     q: "Can I upgrade my RAM or CPU later?",
@@ -191,17 +191,12 @@ export default function GamesClient() {
   }
 
   return (
-    <div className="min-h-screen bg-[#07090b] text-zinc-100 selection:bg-[#5D9C42]/40 selection:text-white relative overflow-hidden">
-      
+    <div className="min-h-screen vx-bg vx-ink selection:bg-[#5D9C42]/40 relative overflow-hidden">
+
       {/* ── VOXEL MINECRAFT BACKGROUND THEME ── */}
       <div className="fixed inset-0 pointer-events-none -z-10 select-none overflow-hidden">
         {/* Grass-green & Stone-gray soft ambient glow at the top */}
-        <div className="absolute top-0 inset-x-0 h-[650px] bg-[radial-gradient(ellipse_100%_75%_at_50%_-15%,rgba(93,156,66,0.18),rgba(122,88,58,0.08)_40%,transparent_80%)]" />
-        <div className="absolute top-[35%] left-[-10%] w-[550px] h-[550px] bg-[radial-gradient(circle,rgba(93,156,66,0.05),transparent_65%)]" />
-        <div className="absolute top-[50%] right-[-10%] w-[550px] h-[550px] bg-[radial-gradient(circle,rgba(110,114,122,0.04),transparent_65%)]" />
-        
-        {/* Subtle voxel/blocky pixel matrix pattern */}
-        <div className="absolute inset-0 opacity-[0.035] bg-[linear-gradient(rgba(93,156,66,0.25)_1px,transparent_1px),linear-gradient(90deg,rgba(93,156,66,0.25)_1px,transparent_1px)] bg-[size:32px_32px]" />
+        <div className="absolute top-0 inset-x-0 h-[650px] bg-[radial-gradient(ellipse_100%_75%_at_50%_-15%,rgba(93,156,66,0.10),rgba(122,88,58,0.05)_40%,transparent_80%)]" />
       </div>
 
       <Navbar />
@@ -209,34 +204,34 @@ export default function GamesClient() {
       <main className="relative z-10 pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         
         {/* ── 1. MINECRAFT THEMED HERO SECTION ── */}
-        <div className="relative mb-14 rounded-3xl border border-[#5D9C42]/25 bg-gradient-to-b from-[#0e160a]/90 via-[#0a0f08]/90 to-[#07090b] p-6 sm:p-10 lg:p-12 overflow-hidden shadow-2xl">
+        <div className="relative mb-14 rounded-3xl border border-[#5D9C42]/25 vx-card p-6 sm:p-10 lg:p-12 overflow-hidden shadow-2xl">
           {/* Top pixel accent line */}
           <div className="absolute top-0 inset-x-12 h-[2px] bg-gradient-to-r from-transparent via-[#5D9C42] to-transparent shadow-[0_0_12px_#5D9C42]" />
 
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
-            
+
             {/* Left Column: Heading, Software Ribbon, Java Chips */}
             <div className="max-w-2xl">
-              
+
               {/* Stepped Minecraft Style Badge */}
-              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-lg bg-[#0e170a] border border-[#5D9C42]/40 mb-6 shadow-[0_0_15px_rgba(93,156,66,0.2)] flex-wrap">
-                <span className="flex items-center gap-1.5 font-mono text-[10px] tracking-widest font-black uppercase text-[#6FB34E]">
+              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-lg vx-bg-alt border border-[#5D9C42]/40 mb-6 shadow-[0_0_15px_rgba(93,156,66,0.2)] flex-wrap">
+                <span className="flex items-center gap-1.5 font-mono text-[10px] tracking-widest font-black uppercase text-[#5D9C42]">
                   <span className="inline-block w-2 h-2 bg-[#5D9C42] shadow-[0_0_8px_#5D9C42]" />
-                  20.0 TPS LOCKED
+                  HIGH TICKRATE
                 </span>
-                <span className="text-zinc-700">|</span>
-                <span className="font-mono text-[11px] text-zinc-300 font-bold tracking-wider uppercase">
+                <span className="vx-faint">|</span>
+                <span className="font-mono text-[11px] vx-muted2 font-bold tracking-wider uppercase">
                   1.21 READY • TRICKY TRIALS
                 </span>
-                <span className="text-zinc-700">|</span>
-                <span className="text-[10px] font-mono font-bold text-[#81C784] uppercase tracking-widest">
-                  AMD RYZEN 9 5.7 GHz
+                <span className="vx-faint">|</span>
+                <span className="text-[10px] font-mono font-bold text-[#5D9C42] uppercase tracking-widest">
+                  AMD RYZEN 9
                 </span>
               </div>
 
               {/* Bold Chunky Headline with Blocky Texture Accent */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.05] mb-5">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6FB34E] via-[#81C784] to-white drop-shadow-[0_2px_20px_rgba(93,156,66,0.35)]">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight vx-ink leading-[1.05] mb-5">
+                <span className="text-[#5D9C42] drop-shadow-[0_2px_20px_rgba(93,156,66,0.35)]">
                   MINECRAFT
                 </span>{" "}
                 <br className="hidden sm:inline" />
@@ -244,33 +239,33 @@ export default function GamesClient() {
               </h1>
 
               {/* Description */}
-              <p className="text-zinc-300 text-sm sm:text-base leading-relaxed mb-6 font-normal">
-                Deploy high-tickrate Minecraft game servers on dedicated AMD Ryzen 9 and EPYC infrastructure. Gen4 NVMe arrays eliminate chunk-generation lag, with 1-click modpack installers, automated world backups, and multi-terabit DDoS defense.
+              <p className="vx-muted2 text-sm sm:text-base leading-relaxed mb-6 font-normal">
+                Deploy high-tickrate Minecraft game servers on dedicated AMD Ryzen 9 and EPYC infrastructure. Gen4 NVMe arrays eliminate chunk-generation lag, with 1-click modpack installers, automated world backups, and DDoS defense.
               </p>
 
               {/* Real Server Software Logos Strip */}
-              <div className="flex items-center gap-2.5 p-2.5 rounded-2xl bg-black/60 border border-[#5D9C42]/20 mb-6 flex-wrap max-w-fit">
-                <span className="text-[10px] font-mono text-zinc-400 font-bold uppercase tracking-wider pl-1">
+              <div className="flex items-center gap-2.5 p-2.5 rounded-2xl vx-bg-alt border border-[#5D9C42]/20 mb-6 flex-wrap max-w-fit">
+                <span className="text-[10px] font-mono vx-muted font-bold uppercase tracking-wider pl-1">
                   1-Click Engines:
                 </span>
                 <div className="flex items-center gap-1.5 flex-wrap">
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-semibold text-white">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg vx-card border vx-line text-xs font-semibold vx-ink">
                     <SoftwareIcons.Paper className="w-3.5 h-3.5" />
                     Paper
                   </span>
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-semibold text-white">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg vx-card border vx-line text-xs font-semibold vx-ink">
                     <SoftwareIcons.Fabric className="w-3.5 h-3.5" />
                     Fabric
                   </span>
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-semibold text-white">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg vx-card border vx-line text-xs font-semibold vx-ink">
                     <SoftwareIcons.Forge className="w-3.5 h-3.5" />
                     Forge
                   </span>
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-semibold text-white">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg vx-card border vx-line text-xs font-semibold vx-ink">
                     <SoftwareIcons.Spigot className="w-3.5 h-3.5" />
                     Spigot
                   </span>
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-semibold text-white hidden sm:inline-flex">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg vx-card border vx-line text-xs font-semibold vx-ink hidden sm:inline-flex">
                     <SoftwareIcons.Vanilla className="w-3.5 h-3.5" />
                     Vanilla
                   </span>
@@ -278,11 +273,11 @@ export default function GamesClient() {
               </div>
 
               {/* Supported Java Versions Chips */}
-              <div className="flex items-center gap-2 text-xs font-mono text-zinc-400">
-                <span className="text-[#6FB34E] font-bold uppercase">Supported Java:</span>
-                <span className="px-2 py-0.5 rounded bg-zinc-900 border border-zinc-800 text-[10px] font-bold text-white">Java 8</span>
-                <span className="px-2 py-0.5 rounded bg-zinc-900 border border-zinc-800 text-[10px] font-bold text-white">Java 17</span>
-                <span className="px-2 py-0.5 rounded bg-[#5D9C42]/20 border border-[#5D9C42]/40 text-[10px] font-bold text-[#81C784]">Java 21 (LTS)</span>
+              <div className="flex items-center gap-2 text-xs font-mono vx-muted">
+                <span className="text-[#5D9C42] font-bold uppercase">Supported Java:</span>
+                <span className="px-2 py-0.5 rounded vx-card border vx-line text-[10px] font-bold vx-ink">Java 8</span>
+                <span className="px-2 py-0.5 rounded vx-card border vx-line text-[10px] font-bold vx-ink">Java 17</span>
+                <span className="px-2 py-0.5 rounded bg-[#5D9C42]/20 border border-[#5D9C42]/40 text-[10px] font-bold text-[#5D9C42]">Java 21 (LTS)</span>
               </div>
             </div>
 
@@ -290,13 +285,13 @@ export default function GamesClient() {
             <div className="flex flex-col items-start lg:items-end gap-5 flex-shrink-0">
               <CurrencySelector />
 
-              <div className="relative group rounded-3xl bg-gradient-to-b from-[#121c0e] via-[#0a1007] to-[#060805] border border-[#5D9C42]/35 p-6 shadow-[0_20px_50px_rgba(0,0,0,0.8)] flex flex-col items-center justify-center text-center">
+              <div className="relative group rounded-3xl vx-bg-alt border border-[#5D9C42]/35 p-6 shadow-[0_20px_50px_rgba(0,0,0,0.15)] flex flex-col items-center justify-center text-center">
                 <SoftwareIcons.IsometricCube className="w-28 h-28 drop-shadow-[0_0_25px_rgba(93,156,66,0.35)] transition-transform duration-300 group-hover:scale-105 group-hover:rotate-3" />
-                <div className="mt-3 text-sm font-black uppercase tracking-wider text-white">
+                <div className="mt-3 text-sm font-black uppercase tracking-wider vx-ink">
                   CHUNK LOAD ACCELERATION
                 </div>
-                <div className="text-[11px] font-mono text-[#81C784] mt-0.5">
-                  7,000 MB/s Gen4 NVMe World Saves
+                <div className="text-[11px] font-mono text-[#5D9C42] mt-0.5">
+                  Fast Gen4 NVMe World Saves
                 </div>
               </div>
             </div>
@@ -307,15 +302,15 @@ export default function GamesClient() {
         {/* ── 2. BILLING CYCLE SELECTOR ── */}
         <div className="mb-10">
           <div className="flex items-center gap-2 mb-3">
-            <span className="text-xs font-mono font-bold text-[#6FB34E] uppercase tracking-widest">STEP 01</span>
-            <span className="text-zinc-600">•</span>
-            <h3 className="text-xs font-bold text-zinc-300 uppercase tracking-wider">
+            <span className="text-xs font-mono font-bold text-[#5D9C42] uppercase tracking-widest">STEP 01</span>
+            <span className="vx-faint">•</span>
+            <h3 className="text-xs font-bold vx-muted2 uppercase tracking-wider">
               Choose Billing Cycle
             </h3>
           </div>
 
           <div className="w-full max-w-full overflow-x-auto no-scrollbar flex items-center gap-1.5 pb-1">
-            <div className="inline-flex bg-[#0a0d08] p-1.5 rounded-xl border border-[#5D9C42]/25 flex-nowrap gap-1">
+            <div className="inline-flex vx-card p-1.5 rounded-xl border border-[#5D9C42]/25 flex-nowrap gap-1">
               {cycles.map((cycle) => (
                 <button
                   key={cycle.id}
@@ -323,14 +318,14 @@ export default function GamesClient() {
                   onClick={() => setSelectedCycle(cycle.id)}
                   className={`px-4 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap flex-shrink-0 flex items-center gap-2 ${
                     selectedCycle === cycle.id
-                      ? "bg-[#5D9C42] text-black font-black shadow-[0_0_15px_rgba(93,156,66,0.4)]"
-                      : "text-zinc-400 hover:text-white hover:bg-white/5"
+                      ? "bg-[#5D9C42] text-white font-black shadow-[0_0_15px_rgba(93,156,66,0.4)]"
+                      : "vx-muted vx-hover-ink"
                   }`}
                 >
                   <span>{cycle.name}</span>
                   {cycle.discount > 0 && (
                     <span className={`text-[9px] px-1.5 py-0.2 rounded font-black uppercase ${
-                      selectedCycle === cycle.id ? "bg-black text-[#5D9C42]" : "bg-[#5D9C42]/20 text-[#81C784] border border-[#5D9C42]/30"
+                      selectedCycle === cycle.id ? "bg-black/20 text-white" : "bg-[#5D9C42]/20 text-[#5D9C42] border border-[#5D9C42]/30"
                     }`}>
                       {cycle.label}
                     </span>
@@ -344,9 +339,9 @@ export default function GamesClient() {
         {/* ── 3. PRICING CARDS (MINECRAFT SCALE THEMED) ── */}
         <div className="mb-20">
           <div className="flex items-center gap-2 mb-5">
-            <span className="text-xs font-mono font-bold text-[#6FB34E] uppercase tracking-widest">STEP 02</span>
-            <span className="text-zinc-600">•</span>
-            <h3 className="text-xs font-bold text-zinc-300 uppercase tracking-wider">
+            <span className="text-xs font-mono font-bold text-[#5D9C42] uppercase tracking-widest">STEP 02</span>
+            <span className="vx-faint">•</span>
+            <h3 className="text-xs font-bold vx-muted2 uppercase tracking-wider">
               Choose World Tier &amp; Resource Allocation
             </h3>
           </div>
@@ -357,10 +352,10 @@ export default function GamesClient() {
               return (
                 <div
                   key={plan.id}
-                  className={`group relative rounded-3xl border transition-all duration-300 p-6 flex flex-col justify-between hover:-translate-y-1.5 ${
+                  className={`group relative rounded-3xl border transition-all duration-300 p-6 flex flex-col justify-between hover:-translate-y-1.5 vx-card ${
                     plan.popular
-                      ? "border-[#5D9C42] bg-gradient-to-b from-[#13200d] via-[#0c1408] to-[#07090b] shadow-[0_0_35px_rgba(93,156,66,0.22)]"
-                      : "border-zinc-800/90 bg-[#090d07]/80 hover:border-[#5D9C42]/50 hover:bg-[#0e160a]"
+                      ? "border-[#5D9C42] shadow-[0_0_35px_rgba(93,156,66,0.22)]"
+                      : "vx-line hover:border-[#5D9C42]/50"
                   }`}
                 >
                   {/* Top Green Accent Bar on Featured Plan */}
@@ -370,8 +365,8 @@ export default function GamesClient() {
 
                   {/* Popular Badge */}
                   {plan.popular && (
-                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#5D9C42] text-black text-[10px] font-black px-3.5 py-0.5 rounded-full uppercase tracking-wider shadow-[0_0_15px_rgba(93,156,66,0.5)] flex items-center gap-1">
-                      <Sparkles className="w-3 h-3 fill-black text-black" />
+                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#5D9C42] text-white text-[10px] font-black px-3.5 py-0.5 rounded-full uppercase tracking-wider shadow-[0_0_15px_rgba(93,156,66,0.5)] flex items-center gap-1">
+                      <Sparkles className="w-3 h-3 fill-white text-white" />
                       COMMUNITY CHOICE
                     </div>
                   )}
@@ -380,49 +375,49 @@ export default function GamesClient() {
                     {/* Header */}
                     <div className="flex items-center justify-between gap-3 mb-5 pb-4 border-b border-[#5D9C42]/15">
                       <div>
-                        <div className="text-[10px] font-mono font-black text-[#6FB34E] uppercase tracking-wider">
+                        <div className="text-[10px] font-mono font-black text-[#5D9C42] uppercase tracking-wider">
                           {plan.tierName}
                         </div>
-                        <h4 className="text-xl font-black uppercase text-white tracking-wide mt-0.5">{plan.name}</h4>
-                        <div className="text-[11px] text-zinc-400 mt-1 font-medium">{plan.target}</div>
+                        <h4 className="text-xl font-black uppercase vx-ink tracking-wide mt-0.5">{plan.name}</h4>
+                        <div className="text-[11px] vx-muted mt-1 font-medium">{plan.target}</div>
                       </div>
-                      <div className="w-10 h-10 rounded-2xl bg-[#5D9C42]/15 border border-[#5D9C42]/30 flex items-center justify-center text-[#6FB34E] flex-shrink-0 group-hover:scale-110 group-hover:bg-[#5D9C42] group-hover:text-black transition-all shadow-md">
+                      <div className="w-10 h-10 rounded-2xl bg-[#5D9C42]/15 border border-[#5D9C42]/30 flex items-center justify-center text-[#5D9C42] flex-shrink-0 group-hover:scale-110 group-hover:bg-[#5D9C42] group-hover:text-white transition-all shadow-md">
                         <Box className="w-5 h-5" />
                       </div>
                     </div>
 
                     {/* Specs Rows with Grass Green & Stone Accents */}
                     <div className="space-y-3 mb-6">
-                      <div className="flex items-center justify-between text-xs p-2 rounded-xl bg-black/40 border border-white/[0.02]">
-                        <span className="text-zinc-400 flex items-center gap-2">
+                      <div className="flex items-center justify-between text-xs p-2 rounded-xl vx-bg-alt border vx-line">
+                        <span className="vx-muted flex items-center gap-2">
                           <Zap className="w-3.5 h-3.5 text-[#5D9C42]" />
                           DDR5 Memory
                         </span>
-                        <span className="font-bold text-white font-mono">{plan.ram}</span>
+                        <span className="font-bold vx-ink font-mono">{plan.ram}</span>
                       </div>
 
-                      <div className="flex items-center justify-between text-xs p-2 rounded-xl bg-black/40 border border-white/[0.02]">
-                        <span className="text-zinc-400 flex items-center gap-2">
+                      <div className="flex items-center justify-between text-xs p-2 rounded-xl vx-bg-alt border vx-line">
+                        <span className="vx-muted flex items-center gap-2">
                           <Cpu className="w-3.5 h-3.5 text-[#5D9C42]" />
                           Processor Thread
                         </span>
-                        <span className="font-bold text-white font-mono">{plan.cpu}</span>
+                        <span className="font-bold vx-ink font-mono">{plan.cpu}</span>
                       </div>
 
-                      <div className="flex items-center justify-between text-xs p-2 rounded-xl bg-black/40 border border-white/[0.02]">
-                        <span className="text-zinc-400 flex items-center gap-2">
+                      <div className="flex items-center justify-between text-xs p-2 rounded-xl vx-bg-alt border vx-line">
+                        <span className="vx-muted flex items-center gap-2">
                           <HardDrive className="w-3.5 h-3.5 text-[#5D9C42]" />
                           Chunk Storage
                         </span>
-                        <span className="font-bold text-white font-mono">{plan.storage}</span>
+                        <span className="font-bold vx-ink font-mono">{plan.storage}</span>
                       </div>
 
-                      <div className="flex items-center justify-between text-xs p-2 rounded-xl bg-black/40 border border-white/[0.02]">
-                        <span className="text-zinc-400 flex items-center gap-2">
+                      <div className="flex items-center justify-between text-xs p-2 rounded-xl vx-bg-alt border vx-line">
+                        <span className="vx-muted flex items-center gap-2">
                           <Radio className="w-3.5 h-3.5 text-[#5D9C42]" />
                           Network Speed
                         </span>
-                        <span className="font-bold text-white font-mono">{plan.network}</span>
+                        <span className="font-bold vx-ink font-mono">{plan.network}</span>
                       </div>
                     </div>
                   </div>
@@ -430,12 +425,12 @@ export default function GamesClient() {
                   {/* Price & Order Button */}
                   <div className="pt-4 border-t border-[#5D9C42]/20">
                     <div className="flex items-baseline justify-between mb-4">
-                      <span className="text-[11px] font-mono text-zinc-500 uppercase tracking-wider">Starts At</span>
+                      <span className="text-[11px] font-mono vx-faint uppercase tracking-wider">Starts At</span>
                       <div className="text-right">
-                        <span className="text-2xl sm:text-3xl font-black text-white font-mono tracking-tight">
+                        <span className="text-2xl sm:text-3xl font-black vx-ink font-mono tracking-tight">
                           {formatPrice(price)}
                         </span>
-                        <span className="text-xs text-zinc-400 font-medium">/mo</span>
+                        <span className="text-xs vx-muted font-medium">/mo</span>
                       </div>
                     </div>
 
@@ -443,8 +438,8 @@ export default function GamesClient() {
                       onClick={() => handleDeploy(plan)}
                       className={`w-full font-black py-3.5 px-4 rounded-xl text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98] ${
                         plan.popular
-                          ? "bg-[#5D9C42] hover:bg-[#4E8337] text-black shadow-[0_0_25px_rgba(93,156,66,0.35)] hover:shadow-[0_0_35px_rgba(93,156,66,0.5)]"
-                          : "bg-black hover:bg-[#5D9C42] hover:text-black text-white border border-[#5D9C42]/40 hover:border-[#5D9C42]"
+                          ? "bg-[#5D9C42] hover:bg-[#4E8337] text-white shadow-[0_0_25px_rgba(93,156,66,0.35)] hover:shadow-[0_0_35px_rgba(93,156,66,0.5)]"
+                          : "vx-bg-alt hover:bg-[#5D9C42] hover:text-white vx-ink border border-[#5D9C42]/40 hover:border-[#5D9C42]"
                       }`}
                     >
                       <span>DEPLOY MINECRAFT NODE</span>
@@ -460,13 +455,13 @@ export default function GamesClient() {
         {/* ── 4. MINECRAFT ARCHITECTURE & MODPACK CAPABILITIES ── */}
         <div className="mb-20">
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="text-xs font-mono text-[#6FB34E] font-bold uppercase tracking-widest">
+            <span className="text-xs font-mono text-[#5D9C42] font-bold uppercase tracking-widest">
               OPTIMIZED SERVER ENGINES
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white mt-2">
+            <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight vx-ink mt-2">
               All Minecraft Plans Include
             </h2>
-            <p className="text-xs text-zinc-400 mt-2">
+            <p className="text-xs vx-muted mt-2">
               Everything built for zero tick-drop multiplayer gameplay, automated world preservation, and seamless modpack loading.
             </p>
           </div>
@@ -476,12 +471,12 @@ export default function GamesClient() {
               {
                 icon: Cpu,
                 title: "AMD EPYC & Ryzen 9 Boost",
-                desc: "High single-core clock speeds guarantee consistent 20.0 TPS with heavy entity counts, mob farms, and Redstone logic."
+                desc: "High single-core clock speeds deliver consistently high tick rates with heavy entity counts, mob farms, and Redstone logic."
               },
               {
                 icon: HardDrive,
                 title: "Gen4 NVMe Chunk Caching",
-                desc: "7,000 MB/s read/write speeds eliminate chunk generation stutter and allow near-instant world loading and Elytra flights."
+                desc: "Fast NVMe read/write speeds eliminate chunk generation stutter and allow near-instant world loading and Elytra flights."
               },
               {
                 icon: Pickaxe,
@@ -495,8 +490,8 @@ export default function GamesClient() {
               },
               {
                 icon: Zap,
-                title: "Instant 60-Second Setup",
-                desc: "Automatic deployment provisions your server with a dedicated port and full root SFTP access in under a minute."
+                title: "Instant Setup",
+                desc: "Automatic deployment provisions your server with a dedicated port and full root SFTP access within moments."
               },
               {
                 icon: Server,
@@ -506,13 +501,13 @@ export default function GamesClient() {
             ].map((feature, idx) => (
               <div
                 key={idx}
-                className="group p-6 rounded-3xl bg-[#0a0e07]/80 border border-zinc-800/80 hover:border-[#5D9C42]/40 hover:bg-[#0e160a] transition-all duration-200 shadow-md"
+                className="group p-6 rounded-3xl vx-card border vx-line hover:border-[#5D9C42]/40 transition-all duration-200 shadow-md"
               >
-                <div className="w-10 h-10 rounded-2xl bg-[#5D9C42]/15 border border-[#5D9C42]/30 flex items-center justify-center text-[#6FB34E] mb-4 group-hover:scale-110 group-hover:bg-[#5D9C42] group-hover:text-black transition-all">
+                <div className="w-10 h-10 rounded-2xl bg-[#5D9C42]/15 border border-[#5D9C42]/30 flex items-center justify-center text-[#5D9C42] mb-4 group-hover:scale-110 group-hover:bg-[#5D9C42] group-hover:text-white transition-all">
                   <feature.icon className="w-5 h-5" />
                 </div>
-                <h4 className="text-base font-black uppercase text-white mb-2 tracking-wide">{feature.title}</h4>
-                <p className="text-xs text-zinc-400 leading-relaxed">{feature.desc}</p>
+                <h4 className="text-base font-black uppercase vx-ink mb-2 tracking-wide">{feature.title}</h4>
+                <p className="text-xs vx-muted leading-relaxed">{feature.desc}</p>
               </div>
             ))}
           </div>
@@ -521,11 +516,11 @@ export default function GamesClient() {
         {/* ── 5. MINECRAFT FAQS ── */}
         <div className="max-w-3xl mx-auto mb-16">
           <div className="text-center mb-8">
-            <span className="text-xs font-mono text-[#6FB34E] font-bold uppercase tracking-widest">MINECRAFT FAQ</span>
-            <h2 className="text-2xl sm:text-3xl font-black uppercase text-white mt-1">
+            <span className="text-xs font-mono text-[#5D9C42] font-bold uppercase tracking-widest">MINECRAFT FAQ</span>
+            <h2 className="text-2xl sm:text-3xl font-black uppercase vx-ink mt-1">
               Frequently Asked Questions
             </h2>
-            <p className="text-xs text-zinc-400 mt-1">
+            <p className="text-xs vx-muted mt-1">
               Everything you need to know about our Minecraft server nodes.
             </p>
           </div>
@@ -536,14 +531,14 @@ export default function GamesClient() {
               return (
                 <div
                   key={index}
-                  className="rounded-2xl border border-zinc-800/90 bg-[#090d07]/70 overflow-hidden transition-all hover:border-[#5D9C42]/35 shadow-sm"
+                  className="rounded-2xl border vx-line vx-card overflow-hidden transition-all hover:border-[#5D9C42]/35 shadow-sm"
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : index)}
-                    className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 hover:bg-white/[0.02] transition-colors cursor-pointer"
+                    className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 hover:bg-black/[0.02] dark:hover:bg-white/[0.02] transition-colors cursor-pointer"
                   >
-                    <span className="text-xs sm:text-sm font-black uppercase tracking-wide text-white">{faq.q}</span>
-                    <ChevronDown className={`w-4 h-4 text-zinc-400 transition-transform duration-200 flex-shrink-0 ${
+                    <span className="text-xs sm:text-sm font-black uppercase tracking-wide vx-ink">{faq.q}</span>
+                    <ChevronDown className={`w-4 h-4 vx-muted transition-transform duration-200 flex-shrink-0 ${
                       isOpen ? "rotate-180 text-[#5D9C42]" : ""
                     }`} />
                   </button>
@@ -555,7 +550,7 @@ export default function GamesClient() {
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.2 }}
-                        className="px-5 pb-5 text-xs text-zinc-300 leading-relaxed border-t border-white/[0.04] pt-3"
+                        className="px-5 pb-5 text-xs vx-muted2 leading-relaxed border-t vx-line pt-3"
                       >
                         {faq.a}
                       </motion.div>

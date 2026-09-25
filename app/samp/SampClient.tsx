@@ -100,10 +100,10 @@ const sampPlans = [
 ]
 
 const locations = [
-  { name: "India Gateway", city: "Mumbai / Delhi Hub", flag: "🇮🇳", ping: "8ms", code: "IX-BOM", desc: "Lowest ping routing for Indian players & Asian subcontinents" },
-  { name: "US Coastline", city: "Miami / Dallas Nodes", flag: "🇺🇸", ping: "12ms", code: "US-MIA", desc: "Low-jitter transatlantic routing with zero packet loss" },
-  { name: "Europe Backbone", city: "Frankfurt DE-CIX", flag: "🇩🇪", ping: "10ms", code: "EU-FRA", desc: "Direct Tier-1 carrier interchange for European player base" },
-  { name: "US Central", city: "Columbus, Ohio", flag: "🇺🇸", ping: "14ms", code: "US-CMH", desc: "Optimized multi-path routing across North American routes" }
+  { name: "India Gateway", city: "Mumbai / Delhi Hub", flag: "🇮🇳", ping: "Low Ping", code: "IX-BOM", desc: "Optimized routing for Indian players & Asian subcontinents" },
+  { name: "US Coastline", city: "Miami / Dallas Nodes", flag: "🇺🇸", ping: "Low Ping", code: "US-MIA", desc: "Low-jitter transatlantic routing" },
+  { name: "Europe Backbone", city: "Frankfurt DE-CIX", flag: "🇩🇪", ping: "Low Ping", code: "EU-FRA", desc: "Direct Tier-1 carrier interchange for European player base" },
+  { name: "US Central", city: "Columbus, Ohio", flag: "🇺🇸", ping: "Low Ping", code: "US-CMH", desc: "Optimized multi-path routing across North American routes" }
 ]
 
 const faqs = [
@@ -113,7 +113,7 @@ const faqs = [
   },
   {
     q: "How do I deploy my server and upload my scripts?",
-    a: "Clicking 'Deploy Server' routes you straight to our official Discord (https://discord.gg/devz) where our bot provisions your node in under 60 seconds. You receive full SFTP access to upload your .amx, filterscripts, plugin .so files, and edit server.cfg directly."
+    a: "Clicking 'Deploy Server' routes you straight to our official Discord (https://discord.gg/devz) where our bot provisions your node quickly. You receive full SFTP access to upload your .amx, filterscripts, plugin .so files, and edit server.cfg directly."
   },
   {
     q: "Do I get a dedicated MySQL database for player accounts?",
@@ -121,7 +121,7 @@ const faqs = [
   },
   {
     q: "How does the Anti-Query Flood DDoS protection work?",
-    a: "SA-MP is infamous for UDP query flood attacks that freeze server browsers and lag players. Our edge mitigation scrubs malicious query packets before they hit your CPU, keeping your ping rock-solid."
+    a: "SA-MP is infamous for UDP query flood attacks that freeze server browsers and lag players. Our edge mitigation scrubs malicious query packets before they hit your CPU, keeping your ping stable."
   }
 ]
 
@@ -142,7 +142,7 @@ export default function SampHostingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#07090e] text-zinc-100 selection:bg-amber-500/30 selection:text-white relative overflow-hidden">
+    <div className="min-h-screen vx-bg vx-ink selection:bg-amber-500/30 selection:text-white relative overflow-hidden">
       
       {/* ── IMMERSIVE SAN ANDREAS THEMED BACKGROUND ── */}
       <div className="fixed inset-0 pointer-events-none -z-10 select-none overflow-hidden">
@@ -161,7 +161,7 @@ export default function SampHostingPage() {
       <main className="relative z-10 pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         
         {/* ── 1. GTA SAN ANDREAS HERO SECTION ── */}
-        <div className="relative mb-14 rounded-3xl border border-amber-500/20 bg-[#090b12]/90 p-6 sm:p-10 lg:p-12 overflow-hidden shadow-2xl">
+        <div className="relative mb-14 rounded-3xl border border-amber-500/20 vx-card p-6 sm:p-10 lg:p-12 overflow-hidden shadow-2xl">
           {/* Top amber neon edge glow */}
           <div className="absolute top-0 inset-x-8 h-[2px] bg-gradient-to-r from-transparent via-amber-400 to-transparent shadow-[0_0_12px_#f59e0b]" />
 
@@ -184,13 +184,13 @@ export default function SampHostingPage() {
               <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-lg bg-black/80 border border-amber-500/40 mb-6 shadow-[0_0_15px_rgba(245,158,11,0.2)] flex-wrap">
                 <span className="flex items-center gap-1.5 font-mono text-[10px] tracking-widest font-black uppercase text-amber-400">
                   <span className="inline-block w-2 h-2 bg-amber-400 rounded-full shadow-[0_0_8px_#f59e0b] animate-ping" />
-                  STATUS: 1000 FPS ACTIVE
+                  STATUS: HIGH FPS ACTIVE
                 </span>
-                <span className="text-zinc-700">|</span>
-                <span className="font-mono text-[11px] text-zinc-300 font-bold tracking-wider uppercase">
+                <span className="vx-faint">|</span>
+                <span className="font-mono text-[11px] vx-muted2 font-bold tracking-wider uppercase">
                   SA-MP 0.3.7 • 0.3.DL • OPEN.MP
                 </span>
-                <span className="text-zinc-700">|</span>
+                <span className="vx-faint">|</span>
                 <span className="text-[10px] font-mono font-bold text-amber-400 uppercase tracking-widest">
                   AMD RYZEN 9 9950X
                 </span>
@@ -204,7 +204,7 @@ export default function SampHostingPage() {
                     className={`text-lg sm:text-xl transition-transform hover:scale-125 ${
                       star <= 5
                         ? "text-amber-400 drop-shadow-[0_0_12px_rgba(251,191,36,0.8)]"
-                        : "text-zinc-800"
+                        : "vx-faint"
                     }`}
                   >
                     ★
@@ -216,7 +216,7 @@ export default function SampHostingPage() {
               </div>
 
               {/* Stencil & San Andreas Font Style Heading */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white leading-[1.05] mb-5">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight vx-ink leading-[1.05] mb-5">
                 SAN ANDREAS{" "}
                 <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-amber-200 drop-shadow-[0_2px_20px_rgba(245,158,11,0.4)]">
                   MULTIPLAYER
@@ -225,19 +225,19 @@ export default function SampHostingPage() {
               </h1>
 
               {/* Gritty Street Copy */}
-              <p className="text-zinc-300 text-sm sm:text-base leading-relaxed mb-6 font-normal">
+              <p className="vx-muted2 text-sm sm:text-base leading-relaxed mb-6 font-normal">
                 Pure high-frequency performance tuned for San Andreas Multiplayer clans, roleplay cities, and open.mp freeroam. Zero tick-drop timer execution, dedicated NVMe Gen4 speeds, and hardware edge packet filters to keep your streets clear.
               </p>
 
               {/* Sub-links */}
-              <div className="text-xs text-zinc-400 flex flex-wrap items-center gap-2 font-mono">
+              <div className="text-xs vx-muted flex flex-wrap items-center gap-2 font-mono">
                 <span className="text-amber-400 font-bold uppercase tracking-wider">Quick Switch:</span>
                 <Link href="/games?game=minecraft" className="hover:text-amber-300 transition-colors">Minecraft Hosting</Link>
-                <span className="text-zinc-700">•</span>
+                <span className="vx-faint">•</span>
                 <Link href="/discord" className="hover:text-amber-300 transition-colors">Discord Bots</Link>
-                <span className="text-zinc-700">•</span>
+                <span className="vx-faint">•</span>
                 <Link href="/lavalink" className="hover:text-amber-300 transition-colors">Lavalink Nodes</Link>
-                <span className="text-zinc-700">•</span>
+                <span className="vx-faint">•</span>
                 <Link href="/vps" className="hover:text-amber-300 transition-colors">Cloud VPS</Link>
               </div>
             </div>
@@ -264,9 +264,9 @@ export default function SampHostingPage() {
                   <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_35px_rgba(0,0,0,0.85)]" />
                 </div>
 
-                <div className="mt-2.5 flex items-center justify-between text-[10px] font-mono text-zinc-400 px-1">
+                <div className="mt-2.5 flex items-center justify-between text-[10px] font-mono vx-muted px-1">
                   <span className="text-amber-400 font-bold uppercase tracking-wider">SA-MP &amp; OPEN.MP</span>
-                  <span className="text-zinc-500">TITAN DEVZ ENGINE</span>
+                  <span className="vx-faint">TITAN DEVZ ENGINE</span>
                 </div>
               </div>
             </div>
@@ -275,21 +275,21 @@ export default function SampHostingPage() {
         </div>
 
         {/* ── 2. IN-GAME GPS RADAR STYLED LOCATIONS ── */}
-        <div className="mb-14 rounded-3xl border border-zinc-800/90 bg-[#090b12] p-6 sm:p-8 shadow-xl">
-          <div className="flex items-center justify-between gap-4 mb-6 pb-4 border-b border-zinc-800/80">
+        <div className="mb-14 rounded-3xl border vx-line vx-card p-6 sm:p-8 shadow-xl">
+          <div className="flex items-center justify-between gap-4 mb-6 pb-4 border-b vx-line">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-xl bg-amber-500/10 border border-amber-500/25 flex items-center justify-center text-amber-400">
                 <Target className="w-4 h-4" />
               </div>
               <div>
-                <h3 className="text-base font-black uppercase tracking-wider text-white">
+                <h3 className="text-base font-black uppercase tracking-wider vx-ink">
                   IN-GAME GPS PEERING HUBS
                 </h3>
-                <p className="text-xs text-zinc-400">Direct IX-connected data centers chosen specifically for lowest player jitter</p>
+                <p className="text-xs vx-muted">Direct IX-connected data centers chosen specifically for lowest player jitter</p>
               </div>
             </div>
             <span className="hidden sm:inline-flex text-[10px] font-mono text-amber-400 bg-amber-500/10 border border-amber-500/30 px-3 py-1 rounded-full uppercase font-black tracking-widest">
-              BGP TIER-1 LOW PING
+              BGP TIER-1 ROUTING
             </span>
           </div>
 
@@ -297,7 +297,7 @@ export default function SampHostingPage() {
             {locations.map((loc, idx) => (
               <div
                 key={idx}
-                className="group relative flex items-start gap-3.5 p-4 rounded-2xl bg-[#0d0f18] border border-zinc-800/80 hover:border-amber-400 hover:bg-[#111422] transition-all duration-200"
+                className="group relative flex items-start gap-3.5 p-4 rounded-2xl vx-card border vx-line hover:border-amber-400 transition-all duration-200"
               >
                 {/* GPS Radar Marker Icon */}
                 <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 flex-shrink-0 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-black transition-all">
@@ -305,7 +305,7 @@ export default function SampHostingPage() {
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center justify-between gap-1">
-                    <span className="text-xs font-black text-white uppercase tracking-wide">
+                    <span className="text-xs font-black vx-ink uppercase tracking-wide">
                       {loc.name} {loc.flag}
                     </span>
                     <span className="text-[10px] font-mono font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-1.5 py-0.2 rounded">
@@ -313,7 +313,7 @@ export default function SampHostingPage() {
                     </span>
                   </div>
                   <div className="text-[11px] font-semibold text-amber-300/80 mt-0.5">{loc.city}</div>
-                  <p className="text-[10px] text-zinc-400 mt-1 leading-snug">{loc.desc}</p>
+                  <p className="text-[10px] vx-muted mt-1 leading-snug">{loc.desc}</p>
                 </div>
               </div>
             ))}
@@ -324,14 +324,14 @@ export default function SampHostingPage() {
         <div className="mb-10">
           <div className="flex items-center gap-2 mb-3">
             <span className="text-xs font-mono font-black text-amber-400 uppercase tracking-widest">PHASE 01</span>
-            <span className="text-zinc-600">•</span>
-            <h3 className="text-xs font-bold text-zinc-300 uppercase tracking-wider">
+            <span className="vx-faint">•</span>
+            <h3 className="text-xs font-bold vx-muted2 uppercase tracking-wider">
               SELECT PAYMENT CONTRACT
             </h3>
           </div>
 
           <div className="w-full max-w-full overflow-x-auto no-scrollbar flex items-center gap-1.5 pb-1">
-            <div className="inline-flex bg-black/90 p-1.5 rounded-xl border border-amber-500/25 flex-nowrap gap-1">
+            <div className="inline-flex vx-card p-1.5 rounded-xl border border-amber-500/25 flex-nowrap gap-1">
               {cycles.map((cycle) => (
                 <button
                   key={cycle.id}
@@ -340,7 +340,7 @@ export default function SampHostingPage() {
                   className={`px-4 py-2 rounded-lg text-xs font-black transition-all cursor-pointer whitespace-nowrap flex-shrink-0 flex items-center gap-2 uppercase tracking-wide ${
                     selectedCycle === cycle.id
                       ? "bg-amber-500 text-black shadow-[0_0_15px_rgba(245,158,11,0.4)]"
-                      : "text-zinc-400 hover:text-white hover:bg-zinc-900"
+                      : "vx-muted vx-hover-ink"
                   }`}
                 >
                   <span>{cycle.name}</span>
@@ -361,8 +361,8 @@ export default function SampHostingPage() {
         <div className="mb-20">
           <div className="flex items-center gap-2 mb-5">
             <span className="text-xs font-mono font-black text-amber-400 uppercase tracking-widest">PHASE 02</span>
-            <span className="text-zinc-600">•</span>
-            <h3 className="text-xs font-bold text-zinc-300 uppercase tracking-wider">
+            <span className="vx-faint">•</span>
+            <h3 className="text-xs font-bold vx-muted2 uppercase tracking-wider">
               SELECT GANG TIER &amp; SERVER SPECIFICATIONS
             </h3>
           </div>
@@ -375,8 +375,8 @@ export default function SampHostingPage() {
                   key={plan.id}
                   className={`group relative rounded-3xl border transition-all duration-300 p-6 flex flex-col justify-between hover:-translate-y-1.5 ${
                     plan.popular
-                      ? "border-amber-400/90 bg-[#0d0f18] shadow-[0_0_30px_rgba(245,158,11,0.18)]"
-                      : "border-zinc-800/90 bg-[#090b12] hover:border-amber-500/50 hover:bg-[#0c0f1a]"
+                      ? "border-amber-400/90 vx-card shadow-[0_0_30px_rgba(245,158,11,0.18)]"
+                      : "vx-line vx-card hover:border-amber-500/50"
                   }`}
                 >
                   {/* Street Tag Badge */}
@@ -384,7 +384,7 @@ export default function SampHostingPage() {
                     <span className="text-[9px] font-mono font-black text-amber-400 uppercase tracking-widest px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/25">
                       {plan.tier}
                     </span>
-                    <span className="text-[9px] font-mono font-bold text-zinc-400 uppercase">
+                    <span className="text-[9px] font-mono font-bold vx-muted uppercase">
                       {plan.tag}
                     </span>
                   </div>
@@ -401,7 +401,7 @@ export default function SampHostingPage() {
                     {/* Card Header with Wanted Stars */}
                     <div className="flex items-center justify-between gap-3 mb-5 pb-4 border-b border-amber-500/15">
                       <div>
-                        <h4 className="text-xl font-black uppercase text-white tracking-wide">{plan.name}</h4>
+                        <h4 className="text-xl font-black uppercase vx-ink tracking-wide">{plan.name}</h4>
                         {/* GTA Wanted Stars for Plan Tier */}
                         <div className="flex items-center gap-1 mt-1.5">
                           {Array.from({ length: 5 }).map((_, i) => (
@@ -410,7 +410,7 @@ export default function SampHostingPage() {
                               className={`text-sm ${
                                 i < plan.stars
                                   ? "text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.7)]"
-                                  : "text-zinc-800"
+                                  : "vx-faint"
                               }`}
                             >
                               ★
@@ -426,40 +426,40 @@ export default function SampHostingPage() {
 
                     {/* Specs Rows with GTA Themed Icons */}
                     <div className="space-y-3 mb-7">
-                      <div className="flex items-center justify-between text-xs p-2 rounded-lg bg-black/40 border border-white/[0.02]">
-                        <span className="text-zinc-400 flex items-center gap-2">
+                      <div className="flex items-center justify-between text-xs p-2 rounded-lg vx-bg-alt border vx-line">
+                        <span className="vx-muted flex items-center gap-2">
                           <Zap className="w-3.5 h-3.5 text-amber-400" />
                           Dedicated Memory
                         </span>
-                        <span className="font-bold text-white font-mono">{plan.ram}</span>
+                        <span className="font-bold vx-ink font-mono">{plan.ram}</span>
                       </div>
 
-                      <div className="flex items-center justify-between text-xs p-2 rounded-lg bg-black/40 border border-white/[0.02]">
-                        <span className="text-zinc-400 flex items-center gap-2">
+                      <div className="flex items-center justify-between text-xs p-2 rounded-lg vx-bg-alt border vx-line">
+                        <span className="vx-muted flex items-center gap-2">
                           <Cpu className="w-3.5 h-3.5 text-amber-400" />
                           AMD Clock Rate
                         </span>
-                        <span className="font-bold text-white font-mono">{plan.cpu}</span>
+                        <span className="font-bold vx-ink font-mono">{plan.cpu}</span>
                       </div>
 
-                      <div className="flex items-center justify-between text-xs p-2 rounded-lg bg-black/40 border border-white/[0.02]">
-                        <span className="text-zinc-400 flex items-center gap-2">
+                      <div className="flex items-center justify-between text-xs p-2 rounded-lg vx-bg-alt border vx-line">
+                        <span className="vx-muted flex items-center gap-2">
                           <HardDrive className="w-3.5 h-3.5 text-amber-400" />
                           Gen4 NVMe Disk
                         </span>
-                        <span className="font-bold text-white font-mono">{plan.storage}</span>
+                        <span className="font-bold vx-ink font-mono">{plan.storage}</span>
                       </div>
 
-                      <div className="flex items-center justify-between text-xs p-2 rounded-lg bg-black/40 border border-white/[0.02]">
-                        <span className="text-zinc-400 flex items-center gap-2">
+                      <div className="flex items-center justify-between text-xs p-2 rounded-lg vx-bg-alt border vx-line">
+                        <span className="vx-muted flex items-center gap-2">
                           <Users className="w-3.5 h-3.5 text-amber-400" />
                           Player Bandwidth
                         </span>
-                        <span className="font-bold text-white font-mono">{plan.slots}</span>
+                        <span className="font-bold vx-ink font-mono">{plan.slots}</span>
                       </div>
 
-                      <div className="flex items-center justify-between text-xs p-2 rounded-lg bg-black/40 border border-white/[0.02]">
-                        <span className="text-zinc-400 flex items-center gap-2">
+                      <div className="flex items-center justify-between text-xs p-2 rounded-lg vx-bg-alt border vx-line">
+                        <span className="vx-muted flex items-center gap-2">
                           <Crosshair className="w-3.5 h-3.5 text-amber-400" />
                           Query Flood Armor
                         </span>
@@ -471,12 +471,12 @@ export default function SampHostingPage() {
                   {/* Price & Order Button */}
                   <div className="pt-4 border-t border-amber-500/20">
                     <div className="flex items-baseline justify-between mb-4">
-                      <span className="text-[11px] font-mono text-zinc-400 uppercase tracking-wider">Plan Cost</span>
+                      <span className="text-[11px] font-mono vx-muted uppercase tracking-wider">Plan Cost</span>
                       <div className="text-right">
-                        <span className="text-2xl sm:text-3xl font-black text-white font-mono tracking-tight">
+                        <span className="text-2xl sm:text-3xl font-black vx-ink font-mono tracking-tight">
                           {formatPrice(price)}
                         </span>
-                        <span className="text-xs text-zinc-400 font-medium">/mo</span>
+                        <span className="text-xs vx-muted font-medium">/mo</span>
                       </div>
                     </div>
 
@@ -485,7 +485,7 @@ export default function SampHostingPage() {
                       className={`w-full font-black py-3.5 px-4 rounded-xl text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98] ${
                         plan.popular
                           ? "bg-amber-500 hover:bg-amber-400 text-zinc-950 shadow-[0_0_25px_rgba(245,158,11,0.4)] hover:shadow-[0_0_35px_rgba(245,158,11,0.55)]"
-                          : "bg-black hover:bg-amber-500 hover:text-black text-white border border-amber-500/30 hover:border-amber-400 shadow-md"
+                          : "vx-solid hover:bg-amber-500 hover:text-black border border-amber-500/30 hover:border-amber-400 shadow-md"
                       }`}
                     >
                       <span>DEPLOY SA-MP SERVER</span>
@@ -504,10 +504,10 @@ export default function SampHostingPage() {
             <span className="text-xs font-mono text-amber-400 font-black uppercase tracking-widest">
               LOS SANTOS UNDERGROUND ENGINE
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black uppercase text-white mt-2 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-black uppercase vx-ink mt-2 tracking-tight">
               ALL SERVERS EQUIPPED WITH
             </h2>
-            <p className="text-xs text-zinc-400 mt-2 leading-relaxed">
+            <p className="text-xs vx-muted mt-2 leading-relaxed">
               Engineered from the ground up for high-traffic GTA San Andreas multiplayer communities.
             </p>
           </div>
@@ -521,13 +521,13 @@ export default function SampHostingPage() {
               },
               {
                 icon: Activity,
-                title: "1000 FPS Timer Loops",
+                title: "High-Frequency Timer Loops",
                 desc: "Dedicated AMD 5.7 GHz single-core frequencies ensure complex Pawn callbacks, streamer plugins, and vehicle physics stay in lockstep."
               },
               {
                 icon: Zap,
-                title: "60-Second Provisioning",
-                desc: "Automatic deployment directly through our Discord bot within 60 seconds of order confirmation with instant IP & root access."
+                title: "Rapid Provisioning",
+                desc: "Automatic deployment directly through our Discord bot shortly after order confirmation with instant IP & root access."
               },
               {
                 icon: Server,
@@ -547,13 +547,13 @@ export default function SampHostingPage() {
             ].map((feature, idx) => (
               <div
                 key={idx}
-                className="group p-6 rounded-3xl bg-gradient-to-b from-[#140e0b]/80 via-[#0e0c14]/80 to-[#07060c] border border-amber-500/20 hover:border-amber-400/50 hover:bg-[#191322] transition-all duration-200 shadow-lg"
+                className="group p-6 rounded-3xl vx-card border border-amber-500/20 hover:border-amber-400/50 transition-all duration-200 shadow-lg"
               >
                 <div className="w-10 h-10 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-4 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-black transition-all">
                   <feature.icon className="w-5 h-5" />
                 </div>
-                <h4 className="text-base font-black uppercase text-white mb-2 tracking-wide">{feature.title}</h4>
-                <p className="text-xs text-zinc-400 leading-relaxed">{feature.desc}</p>
+                <h4 className="text-base font-black uppercase vx-ink mb-2 tracking-wide">{feature.title}</h4>
+                <p className="text-xs vx-muted leading-relaxed">{feature.desc}</p>
               </div>
             ))}
           </div>
@@ -563,10 +563,10 @@ export default function SampHostingPage() {
         <div className="max-w-3xl mx-auto mb-16">
           <div className="text-center mb-8">
             <span className="text-xs font-mono text-amber-400 font-bold uppercase tracking-widest">STREET INTELLIGENCE</span>
-            <h2 className="text-2xl sm:text-3xl font-black uppercase text-white mt-1">
+            <h2 className="text-2xl sm:text-3xl font-black uppercase vx-ink mt-1">
               FREQUENTLY ASKED QUESTIONS
             </h2>
-            <p className="text-xs text-zinc-400 mt-1">
+            <p className="text-xs vx-muted mt-1">
               Need answers before taking over the streets? Here is everything you need to know.
             </p>
           </div>
@@ -577,13 +577,13 @@ export default function SampHostingPage() {
               return (
                 <div
                   key={index}
-                  className="rounded-2xl border border-amber-500/20 bg-gradient-to-b from-[#110d14]/90 to-[#08070e] overflow-hidden transition-all hover:border-amber-400/40 shadow-md"
+                  className="rounded-2xl border border-amber-500/20 vx-card overflow-hidden transition-all hover:border-amber-400/40 shadow-md"
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : index)}
                     className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 hover:bg-amber-500/5 transition-colors cursor-pointer"
                   >
-                    <span className="text-xs sm:text-sm font-black uppercase tracking-wide text-white">{faq.q}</span>
+                    <span className="text-xs sm:text-sm font-black uppercase tracking-wide vx-ink">{faq.q}</span>
                     <ChevronDown className={`w-4 h-4 text-amber-400 transition-transform duration-200 flex-shrink-0 ${
                       isOpen ? "rotate-180 text-amber-400" : ""
                     }`} />
@@ -596,7 +596,7 @@ export default function SampHostingPage() {
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.2 }}
-                        className="px-5 pb-5 text-xs text-zinc-300 leading-relaxed border-t border-amber-500/10 pt-3"
+                        className="px-5 pb-5 text-xs vx-muted2 leading-relaxed border-t border-amber-500/10 pt-3"
                       >
                         {faq.a}
                       </motion.div>
