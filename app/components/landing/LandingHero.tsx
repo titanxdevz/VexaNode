@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, ShieldCheck, Zap, HardDrive, Clock } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { FaDiscord } from "react-icons/fa";
+import IntegrationHub from "./IntegrationHub";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -110,30 +111,14 @@ export default function LandingHero() {
             </motion.div>
           </div>
 
-          {/* ── Right: Stat Cards ── */}
+          {/* ── Right: Integration Hub ── */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.15, ease: EASE }}
-            className="grid grid-cols-2 gap-3"
+            initial={{ opacity: 0, scale: 0.92 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.15, ease: EASE }}
+            className="relative"
           >
-            {[
-              { icon: Zap, label: "Fast Deployment", desc: "Automated server setup", accent: "text-[#d97757]" },
-              { icon: ShieldCheck, label: "DDoS Protection", desc: "Multi-layer filtering", accent: "text-[#6a9bcc]" },
-              { icon: HardDrive, label: "NVMe Storage", desc: "High-speed SSD", accent: "text-[#788c5d]" },
-              { icon: Clock, label: "Uptime SLA", desc: "See our SLA terms", accent: "text-[#d97757]" },
-            ].map((item, idx) => (
-              <div
-                key={idx}
-                className="group rounded-xl border vx-line vx-card p-5 sm:p-6 shadow-sm transition-all duration-200 hover:border-[#d97757]/40 hover:shadow-md"
-              >
-                <item.icon className={`w-5 h-5 ${item.accent} mb-3`} />
-                <div className="text-lg sm:text-xl font-extrabold vx-ink tracking-tight leading-tight">
-                  {item.label}
-                </div>
-                <div className="text-[12px] vx-muted mt-1.5">{item.desc}</div>
-              </div>
-            ))}
+            <IntegrationHub />
           </motion.div>
 
         </div>

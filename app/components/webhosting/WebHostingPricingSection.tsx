@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Sparkles, Server, Cpu, MemoryStick, HardDrive, Wifi, HeartPulse } from "lucide-react"
+import { Sparkles, Cpu, MemoryStick, HardDrive, Wifi, HeartPulse } from "lucide-react"
 import { useState } from "react"
 import Image from "next/image"
 import webhostingConfig from "../../config/sections/webhosting.json"

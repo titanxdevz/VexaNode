@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from "framer-motion";
-import { Calendar, ArrowRight, Search, Clock, Sparkles, Layers, Cpu, Server, Terminal, Shield, Music, Bookmark } from "lucide-react";
+import { Calendar, ArrowRight, Search, Clock, Sparkles, Layers, Cpu, Server, Terminal, Shield, Music } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Link from "next/link";

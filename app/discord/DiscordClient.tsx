@@ -4,8 +4,8 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import {
   ChevronRight, Cpu, Zap, Shield, HardDrive,
-  Sparkles, Terminal, Database,
-  RotateCcw, Check, Globe, Code2, ChevronDown,
+  Database,
+  RotateCcw, ChevronDown,
   Calendar, MemoryStick, Wifi, HeartPulse
 } from "lucide-react"
 import Navbar from "../components/Navbar"

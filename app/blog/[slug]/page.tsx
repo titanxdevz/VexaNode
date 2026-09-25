@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { Calendar, ArrowLeft, ArrowRight, ChevronRight, Clock, CheckCircle2, Zap, Server, Shield, Sparkles } from "lucide-react";
+import { Calendar, ArrowLeft, ArrowRight, ChevronRight, Clock, CheckCircle2, Zap, Server, Sparkles } from "lucide-react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { blogs } from "../../blogs/data";

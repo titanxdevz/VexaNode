@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Users, DollarSign, BarChart3, ArrowRight, CheckCircle2, Gift, PieChart, ShieldCheck } from "lucide-react"
+import { DollarSign, BarChart3, ArrowRight, Gift, PieChart, ShieldCheck } from "lucide-react"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import { PageMeta } from "../components/PageMeta"

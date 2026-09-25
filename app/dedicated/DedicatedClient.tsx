@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Server, ArrowRight, Shield, Zap, Sparkles } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { FaDiscord } from "react-icons/fa"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"

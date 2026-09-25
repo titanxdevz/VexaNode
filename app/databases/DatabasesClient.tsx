@@ -4,7 +4,7 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import {
   Database, Zap, Shield, ChevronRight, Server, HardDrive,
-  Cpu, CheckCircle2, Layers, Sparkles, ChevronDown, Radio
+  Layers, Sparkles, ChevronDown, Radio
 } from "lucide-react"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
