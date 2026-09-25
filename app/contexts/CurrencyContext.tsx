@@ -33,6 +33,7 @@ export function CurrencyProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const saved = localStorage.getItem("vexa_currency")
     if (saved && currencies[saved]) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setCurrencyState(currencies[saved])
     }
   }, [])

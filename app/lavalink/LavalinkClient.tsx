@@ -2,10 +2,11 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { 
+import {
   ChevronRight, Cpu, Zap, HardDrive, Sparkles,
-  Headphones, ChevronDown, Activity, Volume2, Shield, Disc
+  Headphones, Plus, Activity, Volume2, Shield, Disc
 } from "lucide-react"
+import NumberFlow from "@number-flow/react"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import { useCurrency } from "../contexts/CurrencyContext"
@@ -201,36 +202,26 @@ const faqs = [
 export default function LavalinkClient() {
   const [selectedCategory, setSelectedCategory] = useState("managed")
   const [selectedCycle, setSelectedCycle] = useState("monthly")
-  const [openFaq, setOpenFaq] = useState<number | null>(null)
-  const { formatPrice } = useCurrency()
+  const [openFaq, setOpenFaq] = useState<number | null>(0)
+  const { convertPrice, currency } = useCurrency()
 
   const calculatePrice = (base: number) => {
     const cycle = cycles.find(c => c.id === selectedCycle)
     if (!cycle) return base
-    const monthlyPrice = base * (1 - cycle.discount)
-    return Math.floor(monthlyPrice)
+    return Math.floor(base * (1 - cycle.discount))
   }
 
-  const handleOrder = (plan: any) => {
-    if (plan.buyUrl) {
-      window.open(plan.buyUrl, "_blank")
-    } else {
-      window.open("https://billing.vexanode.gg", "_blank")
-    }
+  const handleOrder = (plan: { buyUrl?: string }) => {
+    window.open(plan.buyUrl ?? "https://billing.vexanode.gg", "_blank")
   }
 
   return (
-    <div className="min-h-screen vx-bg vx-ink selection:bg-[#E11D2E]/40 selection:text-white relative overflow-hidden">
-      
-      {/* ── CLUB/STUDIO WARM NEAR-BLACK BACKGROUND & RED GLOW AURORA ── */}
+    <div className="min-h-screen vx-bg vx-ink selection:bg-[#d97757]/30 relative overflow-hidden">
+
+      {/* ── Soft ambient terracotta wash ── */}
       <div className="fixed inset-0 pointer-events-none -z-10 select-none overflow-hidden">
-        {/* Soft Crimson & Scarlet Apex Glow */}
-        <div className="absolute top-0 inset-x-0 h-[650px] bg-[radial-gradient(ellipse_100%_75%_at_50%_-15%,rgba(225,29,46,0.18),rgba(153,27,27,0.08)_45%,transparent_80%)]" />
-        <div className="absolute top-[35%] left-[-10%] w-[550px] h-[550px] bg-[radial-gradient(circle,rgba(225,29,46,0.05),transparent_65%)]" />
-        <div className="absolute top-[50%] right-[-10%] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(185,28,28,0.04),transparent_65%)]" />
-        
-        {/* Subtle sound studio soundwave acoustic texture */}
-        <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(rgba(225,29,46,0.3)_1px,transparent_1px),linear-gradient(90deg,rgba(225,29,46,0.3)_1px,transparent_1px)] bg-[size:36px_36px]" />
+        <div className="absolute top-0 inset-x-0 h-[560px] bg-[radial-gradient(ellipse_90%_70%_at_50%_-15%,rgba(217,119,87,0.12),transparent_75%)]" />
+        <div className="absolute top-[45%] right-[-10%] w-[520px] h-[520px] bg-[radial-gradient(circle,rgba(217,119,87,0.04),transparent_65%)]" />
       </div>
 
       <Navbar />
@@ -242,36 +233,35 @@ export default function LavalinkClient() {
           <div className="max-w-3xl">
             
             {/* Live Equalizer Visualizer & Badge */}
-            <div className="inline-flex items-center gap-3 bg-[#E11D2E]/10 border border-[#E11D2E]/30 px-3.5 py-1.5 rounded-full mb-5 shadow-[0_0_20px_rgba(225,29,46,0.2)]">
+            <div className="inline-flex items-center gap-3 bg-[#d97757]/10 border border-[#d97757]/25 px-3.5 py-1.5 rounded-full mb-5">
               {/* CSS Animated Audio Equalizer Bars */}
               <div className="flex items-end gap-1 h-5 select-none">
-                <span className="w-1 bg-[#E11D2E] rounded-full eq-bar-1" />
-                <span className="w-1 bg-white rounded-full eq-bar-2" />
-                <span className="w-1 bg-[#E11D2E] rounded-full eq-bar-3" />
-                <span className="w-1 bg-white rounded-full eq-bar-4" />
-                <span className="w-1 bg-[#E11D2E] rounded-full eq-bar-5" />
+                <span className="w-1 bg-[#d97757] rounded-full eq-bar-1" />
+                <span className="w-1 bg-[#d97757]/50 rounded-full eq-bar-2" />
+                <span className="w-1 bg-[#d97757] rounded-full eq-bar-3" />
+                <span className="w-1 bg-[#d97757]/50 rounded-full eq-bar-4" />
+                <span className="w-1 bg-[#d97757] rounded-full eq-bar-5" />
               </div>
-              <span className="text-xs font-mono font-bold vx-ink uppercase tracking-wider">
-                LOW-JITTER AUDIO NODES • JVM TUNED
+              <span className="text-[11px] font-bold vx-accent-text uppercase tracking-wider">
+                Low-Jitter Audio Nodes · JVM Tuned
               </span>
             </div>
 
-            {/* Headline with Bold Crimson Contrast */}
+            {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight vx-ink leading-[1.05] mb-4">
-              Lavalink Audio <br />
-              <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#E11D2E] via-[#FF4D4D] to-white drop-shadow-[0_0_30px_rgba(225,29,46,0.4)]">
-                Nodes.
-                <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-[#E11D2E] to-transparent rounded-full shadow-[0_0_12px_#E11D2E]" />
-              </span>
+              Lavalink Audio{" "}
+              <span className="vx-accent-text">Nodes.</span>
             </h1>
 
             {/* Studio Streaming Description */}
-            <p className="vx-muted2 text-sm sm:text-base leading-relaxed mb-6 max-w-2xl font-normal">
-              Zero stutter, low latency Lavalink nodes engineered for Discord music bots. Stream many concurrent high-fidelity tracks with dedicated JVM heap memory, AMD single-core compute, and edge DDoS mitigation.
+            <p className="vx-muted text-sm sm:text-base leading-relaxed mb-6 max-w-2xl">
+              Zero-stutter, low-latency Lavalink nodes engineered for Discord music bots.
+              Stream many concurrent high-fidelity tracks with dedicated JVM heap memory,
+              AMD single-core compute, and edge DDoS mitigation.
             </p>
 
             {/* Real Music Source Brands Strip */}
-            <div className="flex items-center gap-3 p-2.5 rounded-2xl vx-card border border-[#E11D2E]/25 mb-6 max-w-fit">
+            <div className="flex items-center gap-3 p-2.5 rounded-2xl vx-card border border-[#d97757]/25 mb-6 max-w-fit">
               <span className="text-[11px] font-mono vx-muted font-bold uppercase tracking-wider pl-1">
                 Audio Sources:
               </span>
@@ -298,21 +288,21 @@ export default function LavalinkClient() {
             {/* Sub-links */}
             <div className="text-xs vx-faint flex flex-wrap items-center gap-2 font-mono">
               <span className="vx-muted font-bold uppercase tracking-wider">Explore Services:</span>
-              <Link href="/discord" className="hover:text-[#FF4D4D] transition-colors">Discord Bot Hosting</Link>
+              <Link href="/discord" className="hover:text-[#c96442] transition-colors">Discord Bot Hosting</Link>
               <span>•</span>
-              <Link href="/games?game=minecraft" className="hover:text-[#FF4D4D] transition-colors">Minecraft Hosting</Link>
+              <Link href="/games?game=minecraft" className="hover:text-[#c96442] transition-colors">Minecraft Hosting</Link>
               <span>•</span>
-              <Link href="/vps" className="hover:text-[#FF4D4D] transition-colors">Cloud VPS</Link>
+              <Link href="/vps" className="hover:text-[#c96442] transition-colors">Cloud VPS</Link>
               <span>•</span>
-              <Link href="/databases" className="hover:text-[#FF4D4D] transition-colors">Databases</Link>
+              <Link href="/databases" className="hover:text-[#c96442] transition-colors">Databases</Link>
             </div>
           </div>
 
           {/* Currency Selector & Quick Badge */}
           <div className="flex flex-col items-start lg:items-end gap-3 flex-shrink-0">
             <CurrencySelector />
-            <div className="p-3 rounded-2xl vx-card border border-[#E11D2E]/30 text-right hidden lg:block shadow-lg">
-              <div className="text-[11px] font-mono font-bold text-[#E11D2E] uppercase">Uptime Focus</div>
+            <div className="p-3 rounded-2xl vx-card border border-[#d97757]/30 text-right hidden lg:block shadow-lg">
+              <div className="text-[11px] font-mono font-bold text-[#d97757] uppercase">Uptime Focus</div>
               <div className="text-xs font-black vx-ink mt-0.5">Dependable Audio Uptime</div>
             </div>
           </div>
@@ -322,10 +312,10 @@ export default function LavalinkClient() {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
           {/* Plan Type Pills */}
           <div>
-            <span className="text-xs font-mono font-bold text-[#E11D2E] uppercase tracking-widest block mb-2">
+            <span className="text-xs font-mono font-bold text-[#d97757] uppercase tracking-widest block mb-2">
               STEP 01 — NODE ARCHITECTURE
             </span>
-            <div className="inline-flex vx-card p-1.5 rounded-2xl border border-[#E11D2E]/30 gap-1 shadow-md">
+            <div className="inline-flex vx-card p-1.5 rounded-2xl border border-[#d97757]/30 gap-1 shadow-md">
               {categories.map((cat) => {
                 const isSelected = selectedCategory === cat.id
                 const Icon = cat.icon
@@ -335,7 +325,7 @@ export default function LavalinkClient() {
                     onClick={() => setSelectedCategory(cat.id)}
                     className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all cursor-pointer ${
                       isSelected
-                        ? "bg-[#E11D2E] text-white shadow-[0_0_20px_rgba(225,29,46,0.5)]"
+                        ? "bg-[#d97757] text-white shadow-sm"
                         : "vx-muted vx-hover-ink hover:bg-black/5"
                     }`}
                   >
@@ -360,14 +350,14 @@ export default function LavalinkClient() {
                   onClick={() => setSelectedCycle(cycle.id)}
                   className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-1.5 ${
                     selectedCycle === cycle.id
-                      ? "bg-white text-black font-black shadow-md"
+                      ? "bg-[#d97757] text-white shadow-sm"
                       : "vx-muted vx-hover-ink"
                   }`}
                 >
                   <span>{cycle.name}</span>
                   {cycle.discount > 0 && (
-                    <span className={`text-[9px] px-1.5 py-0.2 rounded font-black uppercase ${
-                      selectedCycle === cycle.id ? "bg-[#E11D2E] text-white" : "bg-[#E11D2E]/20 text-[#FF4D4D] border border-[#E11D2E]/30"
+                    <span className={`text-[9px] px-1.5 py-0.5 rounded font-black uppercase ${
+                      selectedCycle === cycle.id ? "bg-white/25 text-white" : "bg-[#d97757]/15 text-[#d97757] border border-[#d97757]/30"
                     }`}>
                       {cycle.label}
                     </span>
@@ -393,22 +383,22 @@ export default function LavalinkClient() {
                 return (
                   <div
                     key={plan.id}
-                    className={`relative rounded-3xl border transition-all duration-300 p-6 flex flex-col justify-between hover:-translate-y-1.5 group ${
+                    className={`relative rounded-3xl border transition-all duration-300 p-6 flex flex-col justify-between hover:-translate-y-1.5 group vx-card ${
                       plan.popular
-                        ? "border-[#E11D2E] bg-gradient-to-b from-[#240a0c] via-[#120607] to-[#0a0505] shadow-[0_0_35px_rgba(225,29,46,0.25)]"
-                        : "vx-line vx-card hover:border-[#E11D2E]/50"
+                        ? "border-[#d97757] ring-1 ring-[#d97757]/20 shadow-[0_12px_40px_-12px_rgba(217,119,87,0.4)] lg:scale-[1.03]"
+                        : "vx-line hover:border-[#d97757]/50 shadow-sm hover:shadow-lg"
                     }`}
                   >
-                    {/* Top Red Accent Line on Featured Plan */}
+                    {/* Top Accent Line on Featured Plan */}
                     {plan.popular && (
-                      <div className="absolute top-0 inset-x-8 h-[2px] bg-[#E11D2E] shadow-[0_0_12px_#E11D2E]" />
+                      <div className="absolute top-0 inset-x-8 h-[2px] bg-[#d97757] rounded-full" />
                     )}
 
                     {/* Popular Badge */}
                     {plan.popular && (
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#E11D2E] text-white text-[10px] font-black px-3.5 py-0.5 rounded-full uppercase tracking-wider shadow-[0_0_15px_rgba(225,29,46,0.6)] flex items-center gap-1">
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#d97757] text-white text-[10px] font-black px-3.5 py-0.5 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1">
                         <Sparkles className="w-3 h-3 fill-white text-white" />
-                        RECOMMENDED NODE
+                        Recommended
                       </div>
                     )}
 
@@ -419,7 +409,7 @@ export default function LavalinkClient() {
                           <h4 className="text-lg font-black uppercase vx-ink tracking-wide">{plan.name}</h4>
                           <span className="text-[11px] font-mono vx-muted">Low-Jitter Lavalink</span>
                         </div>
-                        <div className="w-10 h-10 rounded-2xl bg-[#E11D2E]/15 border border-[#E11D2E]/30 flex items-center justify-center p-2 text-[#E11D2E] flex-shrink-0 group-hover:scale-110 group-hover:bg-[#E11D2E] group-hover:text-white transition-all shadow-md">
+                        <div className="w-10 h-10 rounded-2xl bg-[#d97757]/15 border border-[#d97757]/30 flex items-center justify-center p-2 text-[#d97757] flex-shrink-0 group-hover:scale-110 group-hover:bg-[#d97757] group-hover:text-white transition-all shadow-md">
                           <Volume2 className="w-5 h-5" />
                         </div>
                       </div>
@@ -428,7 +418,7 @@ export default function LavalinkClient() {
                       <div className="space-y-3 mb-6">
                         <div className="flex items-center justify-between text-xs p-2 rounded-xl vx-bg-alt border vx-line">
                           <span className="vx-muted flex items-center gap-2">
-                            <Zap className="w-3.5 h-3.5 text-[#E11D2E]" />
+                            <Zap className="w-3.5 h-3.5 text-[#d97757]" />
                             Heap RAM
                           </span>
                           <span className="font-bold vx-ink font-mono">{plan.memory}</span>
@@ -436,7 +426,7 @@ export default function LavalinkClient() {
 
                         <div className="flex items-center justify-between text-xs p-2 rounded-xl vx-bg-alt border vx-line">
                           <span className="vx-muted flex items-center gap-2">
-                            <Cpu className="w-3.5 h-3.5 text-[#E11D2E]" />
+                            <Cpu className="w-3.5 h-3.5 text-[#d97757]" />
                             Compute
                           </span>
                           <span className="font-bold vx-ink font-mono">{plan.processor}</span>
@@ -444,7 +434,7 @@ export default function LavalinkClient() {
 
                         <div className="flex items-center justify-between text-xs p-2 rounded-xl vx-bg-alt border vx-line">
                           <span className="vx-muted flex items-center gap-2">
-                            <HardDrive className="w-3.5 h-3.5 text-[#E11D2E]" />
+                            <HardDrive className="w-3.5 h-3.5 text-[#d97757]" />
                             Audio Cache
                           </span>
                           <span className="font-bold vx-ink font-mono">{plan.storage}</span>
@@ -452,7 +442,7 @@ export default function LavalinkClient() {
 
                         <div className="flex items-center justify-between text-xs p-2 rounded-xl vx-bg-alt border vx-line">
                           <span className="vx-muted flex items-center gap-2">
-                            <Activity className="w-3.5 h-3.5 text-[#E11D2E]" />
+                            <Activity className="w-3.5 h-3.5 text-[#d97757]" />
                             Throughput
                           </span>
                           <span className="font-bold vx-ink font-mono">{plan.port}</span>
@@ -463,25 +453,27 @@ export default function LavalinkClient() {
                     {/* Price & Bold Red Deploy CTA Button */}
                     <div className="pt-4 border-t vx-line">
                       <div className="flex items-baseline justify-between mb-4">
-                        <span className="text-[11px] font-mono vx-faint uppercase tracking-wider">Starts At</span>
-                        <div className="text-right">
-                          <span className="text-3xl font-black vx-ink font-mono tracking-tight">
-                            {formatPrice(calculatePrice(plan.basePrice))}
-                          </span>
+                        <span className="text-[11px] vx-faint uppercase tracking-wider font-bold">Starts At</span>
+                        <div className="text-right flex items-baseline gap-1">
+                          <NumberFlow
+                            value={convertPrice(calculatePrice(plan.basePrice))}
+                            format={{ style: "currency", currency: currency.code, maximumFractionDigits: 0 }}
+                            className="text-3xl font-black vx-ink tracking-tight"
+                          />
                           <span className="text-xs vx-muted font-medium">/mo</span>
                         </div>
                       </div>
 
                       <button
                         onClick={() => handleOrder(plan)}
-                        className={`w-full font-black py-3.5 px-4 rounded-xl text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98] ${
+                        className={`w-full font-bold py-3.5 px-4 rounded-xl text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98] group/btn ${
                           plan.popular
-                            ? "bg-[#E11D2E] hover:bg-[#c91827] text-white shadow-[0_0_25px_rgba(225,29,46,0.45)] hover:shadow-[0_0_35px_rgba(225,29,46,0.6)]"
-                            : "vx-solid hover:bg-[#E11D2E] hover:text-white border border-[#E11D2E]/40 hover:border-[#E11D2E] shadow-md"
+                            ? "bg-[#d97757] hover:bg-[#c96442] text-white shadow-[0_8px_24px_-8px_rgba(217,119,87,0.6)]"
+                            : "vx-solid"
                         }`}
                       >
                         <span>Deploy Lavalink</span>
-                        <ChevronRight className="w-4 h-4 stroke-[3]" />
+                        <ChevronRight className="w-4 h-4 transition-transform duration-200 group-hover/btn:translate-x-1" />
                       </button>
                     </div>
                   </div>
@@ -494,7 +486,7 @@ export default function LavalinkClient() {
         {/* ── 4. AUDIO ARCHITECTURE HIGHLIGHTS ── */}
         <div className="mb-20">
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="text-xs font-mono text-[#E11D2E] font-bold uppercase tracking-widest">
+            <span className="text-xs font-mono text-[#d97757] font-bold uppercase tracking-widest">
               HIGH-FIDELITY SPECS
             </span>
             <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight vx-ink mt-2">
@@ -525,9 +517,9 @@ export default function LavalinkClient() {
             ].map((item, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-3xl vx-card border vx-line hover:border-[#E11D2E]/40 transition-all duration-200 shadow-md group"
+                className="p-6 rounded-3xl vx-card border vx-line hover:border-[#d97757]/40 transition-all duration-200 shadow-md group"
               >
-                <div className="w-10 h-10 rounded-2xl bg-[#E11D2E]/15 border border-[#E11D2E]/30 flex items-center justify-center text-[#E11D2E] mb-4 group-hover:scale-110 group-hover:bg-[#E11D2E] group-hover:text-white transition-all">
+                <div className="w-10 h-10 rounded-2xl bg-[#d97757]/15 border border-[#d97757]/30 flex items-center justify-center text-[#d97757] mb-4 group-hover:scale-110 group-hover:bg-[#d97757] group-hover:text-white transition-all">
                   <item.icon className="w-5 h-5" />
                 </div>
                 <h4 className="text-base font-black uppercase vx-ink mb-2 tracking-wide">{item.title}</h4>
@@ -540,7 +532,7 @@ export default function LavalinkClient() {
         {/* ── 5. STUDIO FAQS ── */}
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-8">
-            <span className="text-xs font-mono text-[#E11D2E] font-bold uppercase tracking-widest">KNOWLEDGE BASE</span>
+            <span className="text-xs font-mono text-[#d97757] font-bold uppercase tracking-widest">KNOWLEDGE BASE</span>
             <h2 className="text-2xl sm:text-3xl font-black uppercase vx-ink mt-1">
               FREQUENTLY ASKED QUESTIONS
             </h2>
@@ -555,16 +547,18 @@ export default function LavalinkClient() {
               return (
                 <div
                   key={index}
-                  className="rounded-2xl border vx-line vx-card overflow-hidden transition-all hover:border-[#E11D2E]/40 shadow-sm"
+                  className="rounded-2xl border vx-line vx-card overflow-hidden transition-all hover:border-[#d97757]/40 shadow-sm"
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : index)}
                     className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 hover:bg-white/[0.02] transition-colors cursor-pointer"
                   >
-                    <span className="text-xs sm:text-sm font-black uppercase tracking-wide vx-ink">{faq.q}</span>
-                    <ChevronDown className={`w-4 h-4 vx-muted transition-transform duration-200 flex-shrink-0 ${
-                      isOpen ? "rotate-180 text-[#E11D2E]" : ""
-                    }`} />
+                    <span className="text-xs sm:text-sm font-bold vx-ink">{faq.q}</span>
+                    <span className={`flex-shrink-0 p-1 rounded-full transition-colors ${
+                      isOpen ? "bg-[#d97757] text-white" : "bg-[#d97757]/10 text-[#d97757]"
+                    }`}>
+                      <Plus className={`w-3.5 h-3.5 transition-transform duration-200 ${isOpen ? "rotate-[135deg]" : ""}`} />
+                    </span>
                   </button>
 
                   <AnimatePresence>

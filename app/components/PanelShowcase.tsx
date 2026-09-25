@@ -64,6 +64,7 @@ export default function PanelShowcase() {
 
   useEffect(() => {
     if (progress >= 100) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setActiveCard(current => (current + 1) % showcaseCards.length)
       setProgress(0)
     }

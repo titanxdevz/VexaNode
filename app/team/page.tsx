@@ -20,6 +20,12 @@ type Owner = {
   github?: string
 }
 
+type StaffMember = {
+  id: string
+  name: string
+  avatar: string
+}
+
 const owners: Owner[] = [
   {
     id: "1308728198565204003",
@@ -49,6 +55,49 @@ const owners: Owner[] = [
     avatar: "https://cdn.discordapp.com/avatars/852761498799046697/60bb3d8f5904cd68ac14be40c0a7390c.png?size=1024",
     discordId: "852761498799046697",
     github: "https://github.com/SreerajSK990",
+  },
+]
+
+const staff: StaffMember[] = [
+  {
+    id: "1492110213874974760",
+    name: "Joy…",
+    avatar: "https://cdn.discordapp.com/avatars/1492110213874974760/5865fe29fb03cc15807cbf24e9aa0b64.webp?size=256",
+  },
+  {
+    id: "1534801642451374130",
+    name: "Admi",
+    avatar: "https://cdn.discordapp.com/avatars/1534801642451374130/30eb2b192fc41d4b3ee97c53c1b9c9ea.webp?size=256",
+  },
+  {
+    id: "1171713294017511489",
+    name: "✦ Staff | Pyro",
+    avatar: "https://cdn.discordapp.com/avatars/1171713294017511489/f3b86bc0b7c53bfd58f1e343f648c1ac.webp?size=256",
+  },
+  {
+    id: "1433916492776214528",
+    name: "𝔵𝑳𝑬𝑽𝑰海外",
+    avatar: "https://cdn.discordapp.com/avatars/1433916492776214528/2eddd529d86226c235dcac08c8adac6b.webp?size=256",
+  },
+  {
+    id: "1295398098989875211",
+    name: "teroq..¡",
+    avatar: "https://cdn.discordapp.com/avatars/1295398098989875211/8217e5ec1bbc215a02635dfe5194bf0c.webp?size=256",
+  },
+  {
+    id: "1532786750567616555",
+    name: "✦ Staff | Princeee",
+    avatar: "https://cdn.discordapp.com/avatars/1532786750567616555/4cd16f6fe859fc6f0f7134fd0ebad61c.webp?size=256",
+  },
+  {
+    id: "1511407679367545034",
+    name: "✦ Staff | 𝑨𝒆 𝒓 𝒊 𝒙",
+    avatar: "https://cdn.discordapp.com/avatars/1511407679367545034/42d7bfec182d1b857164ec3d11e95939.webp?size=256",
+  },
+  {
+    id: "1148981810122997850",
+    name: "shifted",
+    avatar: "https://cdn.discordapp.com/avatars/1148981810122997850/3bbed3933d84ed6043518713ec2473d9.webp?size=256",
   },
 ]
 
