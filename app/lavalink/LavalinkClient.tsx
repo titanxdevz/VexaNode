@@ -199,6 +199,18 @@ const faqs = [
   }
 ]
 
+type Plan = {
+  id: string
+  name: string
+  basePrice: number
+  buyUrl?: string
+  memory: string
+  processor: string
+  storage: string
+  port: string
+  popular: boolean
+}
+
 export default function LavalinkClient() {
   const [selectedCategory, setSelectedCategory] = useState("managed")
   const [selectedCycle, setSelectedCycle] = useState("monthly")
@@ -379,7 +391,7 @@ export default function LavalinkClient() {
               transition={{ duration: 0.2 }}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"
             >
-              {plans[selectedCategory as keyof typeof plans].map((plan: any) => {
+              {plans[selectedCategory as keyof typeof plans].map((plan: Plan) => {
                 return (
                   <div
                     key={plan.id}

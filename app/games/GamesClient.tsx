@@ -186,7 +186,7 @@ export default function GamesClient() {
     return Math.floor(monthlyPrice)
   }
 
-  const handleDeploy = (plan: any) => {
+  const handleDeploy = () => {
     window.open("https://billing.vexanode.gg", "_blank")
   }
 

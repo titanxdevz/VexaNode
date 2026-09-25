@@ -52,6 +52,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ className = 
           {enabledLanguages.map((lang) => (
             <button
               key={lang.code}
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
               onClick={() => { setLanguage(lang.code as any); setIsOpen(false); }}
               className={`w-full flex items-center gap-2.5 px-3 py-2 text-[12px] font-semibold transition-colors duration-100 ${
                 language === lang.code

@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image"
-import Link from "next/link"
 import { MotionConfig, motion } from "framer-motion"
 import { ArrowRight, Github, UsersRound } from "lucide-react"
 import { FaDiscord } from "react-icons/fa6"
@@ -33,7 +32,7 @@ const owners: Owner[] = [
     role: "Founder & Primary Owner",
     summary: "The founder and main owner of VexaNode, leading the company and its direction.",
     focus: ["VexaNode ownership", "Leadership & direction"],
-    avatar: "https://cdn.discordapp.com/avatars/1308728198565204003/cb8fbf21e661b6ccfd1f7adbef7343f4.png?size=1024",
+    avatar: "/team/ansh.png",
     discordId: "1308728198565204003",
     github: "https://github.com/titanxdevz",
   },
@@ -43,7 +42,7 @@ const owners: Owner[] = [
     role: "Co-Owner & Infrastructure",
     summary: "Responsible for VexaNode's VPS infrastructure and backend systems.",
     focus: ["VPS infrastructure", "Backend systems"],
-    avatar: "https://cdn.discordapp.com/avatars/1217865979627962470/04b2b0186b6a469a78a04a3c41eb2983.png?size=1024",
+    avatar: "/team/anshu.png",
     discordId: "1217865979627962470",
   },
   {
@@ -52,7 +51,7 @@ const owners: Owner[] = [
     role: "Co-Owner & Management",
     summary: "Handles company-wide management and the day-to-day operational side of VexaNode.",
     focus: ["Company management", "Day-to-day operations"],
-    avatar: "https://cdn.discordapp.com/avatars/852761498799046697/60bb3d8f5904cd68ac14be40c0a7390c.png?size=1024",
+    avatar: "/team/sreeraj-sk.png",
     discordId: "852761498799046697",
     github: "https://github.com/SreerajSK990",
   },
@@ -62,42 +61,42 @@ const staff: StaffMember[] = [
   {
     id: "1492110213874974760",
     name: "Joy…",
-    avatar: "https://cdn.discordapp.com/avatars/1492110213874974760/5865fe29fb03cc15807cbf24e9aa0b64.webp?size=256",
+    avatar: "/team/joy.webp",
   },
   {
     id: "1534801642451374130",
     name: "Admi",
-    avatar: "https://cdn.discordapp.com/avatars/1534801642451374130/30eb2b192fc41d4b3ee97c53c1b9c9ea.webp?size=256",
+    avatar: "/team/admi.webp",
   },
   {
     id: "1171713294017511489",
-    name: "✦ Staff | Pyro",
-    avatar: "https://cdn.discordapp.com/avatars/1171713294017511489/f3b86bc0b7c53bfd58f1e343f648c1ac.webp?size=256",
+    name: "Pyro",
+    avatar: "/team/pyro.webp",
   },
   {
     id: "1433916492776214528",
     name: "𝔵𝑳𝑬𝑽𝑰海外",
-    avatar: "https://cdn.discordapp.com/avatars/1433916492776214528/2eddd529d86226c235dcac08c8adac6b.webp?size=256",
+    avatar: "/team/levei.webp",
   },
   {
     id: "1295398098989875211",
     name: "teroq..¡",
-    avatar: "https://cdn.discordapp.com/avatars/1295398098989875211/8217e5ec1bbc215a02635dfe5194bf0c.webp?size=256",
+    avatar: "/team/teroq.webp",
   },
   {
     id: "1532786750567616555",
-    name: "✦ Staff | Princeee",
-    avatar: "https://cdn.discordapp.com/avatars/1532786750567616555/4cd16f6fe859fc6f0f7134fd0ebad61c.webp?size=256",
+    name: "Princeee",
+    avatar: "/team/princeee.webp",
   },
   {
     id: "1511407679367545034",
-    name: "✦ Staff | 𝑨𝒆 𝒓 𝒊 𝒙",
-    avatar: "https://cdn.discordapp.com/avatars/1511407679367545034/42d7bfec182d1b857164ec3d11e95939.webp?size=256",
+    name: "𝑨𝒆 𝒓 𝒊 𝒙",
+    avatar: "/team/aerix.webp",
   },
   {
     id: "1148981810122997850",
     name: "shifted",
-    avatar: "https://cdn.discordapp.com/avatars/1148981810122997850/3bbed3933d84ed6043518713ec2473d9.webp?size=256",
+    avatar: "/team/shifted.webp",
   },
 ]
 
@@ -339,34 +338,91 @@ export default function TeamPage() {
             </div>
           </section>
 
-          <section className="mt-20 border-y vx-line vx-bg-alt">
-            <div className="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:px-6 md:grid-cols-[minmax(0,1fr)_auto] md:items-center lg:px-8">
-              <div className="max-w-2xl">
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em] vx-accent-text">
-                  Work with VexaNode
-                </p>
-                <h2 className="mt-2 text-3xl font-black tracking-tight">Talk to the team.</h2>
-                <p className="vx-muted mt-3 text-sm leading-relaxed sm:text-base">
-                  Reach the owners through our Discord community or send a general inquiry to the team.
-                </p>
+          <section id="staff" className="mx-auto mt-20 max-w-6xl scroll-mt-28 px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.35 }}
+              className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end"
+            >
+              <div>
+                <motion.p
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3 }}
+                  className="text-[10px] font-bold uppercase tracking-[0.2em] vx-accent-text"
+                >
+                  The wider team
+                </motion.p>
+                <h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">
+                  <motion.span
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.08 }}
+                    className="inline-block"
+                  >
+                    Meet the{" "}
+                  </motion.span>
+                  <motion.span
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.16 }}
+                    className="inline-block vx-accent-text"
+                  >
+                    staff.
+                  </motion.span>
+                </h2>
               </div>
-              <div className="flex flex-col gap-3 sm:flex-row">
-                <a
-                  href="https://discord.gg/dJpMDfgUQq"
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: 0.2 }}
+                className="vx-muted max-w-md text-sm leading-relaxed sm:text-right"
+              >
+                The staff members supporting VexaNode and its community.
+              </motion.p>
+            </motion.div>
+
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {staff.map((member, index) => (
+                <motion.a
+                  key={member.id}
+                  href={`https://discord.com/users/${member.id}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="vx-btn-accent inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-6 text-sm font-bold transition-opacity hover:opacity-85"
+                  aria-label={`${member.name}, staff member on Discord`}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.3, delay: (index % 4) * 0.06 }}
+                  className="group flex min-h-[11rem] flex-col rounded-2xl border vx-line vx-card p-5 transition-colors duration-150 hover:border-[color:var(--vx-accent)]"
                 >
-                  Join Discord
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </a>
-                <Link
-                  href="/contact"
-                  className="inline-flex min-h-12 items-center justify-center rounded-xl border vx-line vx-card px-6 text-sm font-bold vx-ink hover:border-[color:var(--vx-accent)] transition-colors"
-                >
-                  Contact team
-                </Link>
-              </div>
+                  <div className="flex items-center justify-between">
+                    <Image
+                      src={member.avatar}
+                      alt=""
+                      width={64}
+                      height={64}
+                      sizes="64px"
+                      className="h-16 w-16 rounded-xl border vx-line object-cover"
+                    />
+                    <FaDiscord
+                      className="h-4 w-4 vx-faint transition-colors group-hover:text-[#5865F2]"
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <div className="mt-auto pt-5">
+                    <h3 className="break-words text-base font-black leading-snug">
+                      {member.name}
+                    </h3>
+                  </div>
+                </motion.a>
+              ))}
             </div>
           </section>
         </main>

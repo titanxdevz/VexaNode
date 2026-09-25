@@ -7,6 +7,7 @@ import type { LanguageConfig, Language } from '../types/language';
 const config = languageConfig as LanguageConfig;
 
 interface Translations {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 }
 
@@ -155,6 +156,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
     }
 
     const keys = key.split('.');
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let value: any = translations;
     
     for (const k of keys) {

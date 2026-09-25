@@ -196,7 +196,7 @@ export default function DiscordClient() {
     }
     localStorage.setItem("vexa_cart_total", totalPrice.toFixed(2))
     localStorage.setItem("vexa_cart_items", JSON.stringify([item]))
-    window.location.href = plan.checkoutUrl
+    window.location.assign(plan.checkoutUrl)
   }
 
   return (

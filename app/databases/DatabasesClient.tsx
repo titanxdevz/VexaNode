@@ -97,6 +97,7 @@ export default function DatabasePage() {
     return Math.floor(monthlyPrice)
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleDeploy = (plan: any) => {
     window.open(plan.buyUrl, "_blank", "noopener,noreferrer")
   }

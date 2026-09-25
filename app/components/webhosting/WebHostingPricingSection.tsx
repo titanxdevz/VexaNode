@@ -23,6 +23,7 @@ export default function WebHostingPricingSection() {
 
   const router = useRouter()
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleDeploy = (plan: any) => {
     localStorage.setItem('vexa_cart_total', plan.price.toString())
     localStorage.setItem('vexa_cart_items', JSON.stringify([{
