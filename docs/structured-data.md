@@ -44,6 +44,12 @@ docs (accessed 2026-09-24; see [research-log.md](research-log.md)).
       already present there.
 - [ ] Emit Product/Offer + Breadcrumb on remaining commercial pages (minecraft, games, vps,
       discord, lavalink, hytale, samp, dedicated, databases) from their configs.
+      **DECISION (2026-09-24):** only `webhosting.json` still exists as a config; the other
+      commercial pages hold their plan prices **hardcoded in their `*Client.tsx` components**,
+      and those prices are **unconfirmed** (todo-real-data #12). Product/Offer JSON-LD for a
+      merchant listing must use real prices, so we **defer** emitting it for these pages until
+      the owner confirms prices — then map from the client plan arrays (the same values already
+      displayed). BreadcrumbList + Service are already present on all of them.
 - [ ] Emit Breadcrumb on legal/company pages.
 - [ ] Validate all with Google Rich Results Test / Schema Markup Validator (owner/CI — no
       validator tooling in this environment; mark results here when run).

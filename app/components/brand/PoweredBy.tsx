@@ -1,6 +1,6 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
+import { useReducedMotion, motion } from "framer-motion";
 import type { CSSProperties } from "react";
 import { cn } from "@/lib/utils";
 import BrandLogo from "./BrandLogo";
@@ -13,7 +13,7 @@ const DISCLAIMER =
 function MarqueeGroup({ decorative = false }: { decorative?: boolean }) {
   return (
     <ul
-      className="flex shrink-0 items-center gap-x-10 gap-y-6 pr-10 sm:gap-x-14 sm:pr-14"
+      className="flex shrink-0 items-center gap-x-14 gap-y-6 pr-14 sm:gap-x-20 sm:pr-20"
       aria-hidden={decorative || undefined}
     >
       {BRANDS.map((brand) => (
@@ -28,7 +28,7 @@ function MarqueeGroup({ decorative = false }: { decorative?: boolean }) {
 /* Static wrapped grid — reduced-motion fallback for the marquee. */
 function StaticWrap() {
   return (
-    <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:gap-x-14">
+    <ul className="flex flex-wrap items-center justify-center gap-x-14 gap-y-8 sm:gap-x-20">
       {BRANDS.map((brand) => (
         <li key={brand.key} className="flex items-center justify-center">
           <BrandLogo brand={brand} />
@@ -49,27 +49,37 @@ export function PoweredByMarquee() {
   return (
     <section
       aria-labelledby="powered-by-heading"
-      className="vx-bg vx-ink border-t vx-line py-10 lg:py-14"
+      className="vx-bg vx-ink border-t vx-line py-14 lg:py-20"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2
+        <motion.h2
           id="powered-by-heading"
-          className="mb-8 text-center text-[11px] font-bold uppercase tracking-[0.2em] vx-faint"
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-10% 0px" }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-10 text-center text-xs sm:text-[13px] font-bold uppercase tracking-[0.2em] vx-faint"
         >
           Built on trusted technology
-        </h2>
+        </motion.h2>
 
         {reduceMotion ? (
           <StaticWrap />
         ) : (
-          <div className="vx-marquee-mask relative overflow-hidden">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="vx-marquee-mask relative overflow-hidden"
+          >
             <div className="vx-marquee-viewport flex w-max">
               <div className="vx-marquee-track flex w-max">
                 <MarqueeGroup />
                 <MarqueeGroup decorative />
               </div>
             </div>
-          </div>
+          </motion.div>
         )}
       </div>
     </section>

@@ -37,9 +37,15 @@ Status: ✅ sourced · ⚠️ needs verification · ❌ remove/relabel until rea
   [structured-data.md](structured-data.md)).
 
 ## Implementation checklist
-- [ ] Resolve every ❌ row (remove, source, or relabel) before final sign-off.
-- [ ] Grep the codebase for stat-like strings (`%`, `Tbps`, `ms`, `+ reviews`) and cross-
-      check against this register each loop.
+- [x] Landing page fabricated stats removed (Loop 3).
+- [x] Page-body fabricated stats neutralized across all commercial/company pages by the
+      Loop-7 theming agents (TPS, GHz, MB/s, ms, "24/7", "best", review counts) — see each
+      agent report in [audit.md](audit.md).
+- [x] Fabricated meta claims softened (lavalink/hytale/dedicated) + over-long titles fixed.
+- [x] Grep `href="#"` → 0 dead links.
+- [ ] Resolve ⚠️ rows (region names, hardware descriptors, testimonial consent, plan
+      prices) — owner input pending in [todo-real-data.md](todo-real-data.md).
+- [ ] Re-grep stat-like strings each loop (last run: only config-sourced specs remain).
 
 ## Open questions / needs real data
 - All ❌ rows require owner input — consolidated in [todo-real-data.md](todo-real-data.md).

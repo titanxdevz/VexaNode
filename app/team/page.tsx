@@ -147,7 +147,7 @@ export default function TeamPage() {
               Join the Mission
             </h2>
             <p className="text-white/80 max-w-2xl mx-auto mb-12 text-lg md:text-xl leading-relaxed">
-              We're always looking for talented engineers and community-driven individuals to join our global team. Think you have what it takes?
+              We&apos;re always looking for talented engineers and community-driven individuals to join our global team. Think you have what it takes?
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <a

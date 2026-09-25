@@ -143,7 +143,8 @@
     justify-content: center;
     color: var(--logo-idle);
     opacity: 0.7;
-    transition: color 0.35s ease, opacity 0.35s ease;
+    transform: scale(1);
+    transition: color 0.35s ease, opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     border-radius: 6px;
     cursor: default;
   }
@@ -151,20 +152,21 @@
   .brand-logo:focus-visible {
     color: var(--brand-color, var(--logo-idle));
     opacity: 1;
+    transform: scale(1.12);
   }
   .brand-logo:focus-visible {
     outline: 2px solid var(--vx-accent);
     outline-offset: 4px;
   }
   .brand-logo__mark {
-    height: 1.75rem;
+    height: 2.375rem;
     width: auto;
     display: block;
   }
   .brand-wordmark {
     font-weight: 800;
-    font-size: 1.125rem;
-    line-height: 1.75rem;
+    font-size: 1.5rem;
+    line-height: 2.375rem;
     letter-spacing: -0.01em;
     white-space: nowrap;
   }

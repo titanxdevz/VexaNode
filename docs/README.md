@@ -30,6 +30,18 @@ area, then updated to match what shipped. See [BRIEF.md](../BRIEF.md) for full s
   ivory; dark = ink. Toggle component: `app/components/ThemeToggle.tsx`.
 
 ## Changelog
+### Loop 8 — 2026-09-24
+- Fixed a build-blocking JSX error (`react/no-unescaped-entities` in `/team`). `tsc` remains
+  exit 0 repo-wide.
+- **Decision logged** ([structured-data.md](structured-data.md)): Product/Offer JSON-LD is
+  deferred for the 8 non-webhosting commercial pages because their prices are hardcoded in
+  client components and **unconfirmed** — emitting merchant structured data with unverified
+  prices would violate the real-data rule. Will add once the owner confirms prices.
+- Re-checked DoD: conditions 1, 5, 6, 7, 8 hold; 2 mostly (meta on all routes, Breadcrumb on
+  all commercial pages, Product/Offer on `/`+`/webhosting`); **3** blocked (no Lighthouse
+  tooling here); **4** blocked by pre-existing lint in backend/context/animation files whose
+  fix conflicts with the frontend-only scope (condition 8) — awaiting owner sign-off.
+
 ### Loop 7 — 2026-09-24
 - **All page bodies themed** (light+dark) via 6 parallel agents → every route responds to
   the theme toggle. `/docs` fully redesigned to landing quality (functional filter, real
