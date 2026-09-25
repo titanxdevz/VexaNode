@@ -86,6 +86,11 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="b63fw5tWAHnoKKQUEc0zKw"
+          async
+        />
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
