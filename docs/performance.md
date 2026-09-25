@@ -22,13 +22,22 @@ from web.dev (accessed 2026-09-24).
 - `next.config.ts` sets custom Cache-Control for static assets (dev warning only).
 
 ## Lighthouse scores
-**Status: NOT RUN.** No headless-browser/Lighthouse tooling is available in this
-environment. Scores must be captured by the owner or CI (e.g. `lhci` / PageSpeed Insights)
-per page, per theme (dark+light), mobile+desktop, then recorded here.
+**Status: NOT RUN in this environment** (no headless Chrome). A ready-to-run **Lighthouse CI**
+config now ships at repo root: `lighthouserc.json` (desktop preset; a11y/best-practices/SEO
+asserted at ≥0.90 as errors, performance as a warning). To capture scores:
+
+```bash
+npm run build
+npx @lhci/cli autorun            # desktop (uses lighthouserc.json)
+# for mobile, edit settings.preset to "mobile" (or "perf") and re-run
+```
+
+Results land in `./.lighthouseci`. Record them in the table below (per page, per theme,
+mobile+desktop), then fix anything <90 and re-run. Owner/CI action.
 
 | Page | Theme | Device | Perf | A11y | BP | SEO | Date |
 |---|---|---|---|---|---|---|---|
-| (pending) | — | — | — | — | — | — | — |
+| (pending — run `lhci autorun`) | — | — | — | — | — | — | — |
 
 ## Decisions
 - Lazy/dynamically import `three`/`react-globe.gl`/`cobe`/`tesseract.js`/`react-confetti`
