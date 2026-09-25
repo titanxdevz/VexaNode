@@ -1,25 +1,25 @@
 import 'next/font/google';
 
 declare module 'next/font/google' {
-  export const Geist: (options?: any) => {
+  export const Geist: (options?: Record<string, unknown>) => {
     className: string;
     style: { fontFamily: string; fontWeight?: number; fontStyle?: string };
     variable: string;
   };
 
-  export const Geist_Mono: (options?: any) => {
+  export const Geist_Mono: (options?: Record<string, unknown>) => {
     className: string;
     style: { fontFamily: string; fontWeight?: number; fontStyle?: string };
     variable: string;
   };
 
-  export const Orbitron: (options?: any) => {
+  export const Orbitron: (options?: Record<string, unknown>) => {
     className: string;
     style: { fontFamily: string; fontWeight?: number; fontStyle?: string };
     variable: string;
   };
 
-  export const Quicksand: (options?: any) => {
+  export const Quicksand: (options?: Record<string, unknown>) => {
     className: string;
     style: { fontFamily: string; fontWeight?: number; fontStyle?: string };
     variable: string;

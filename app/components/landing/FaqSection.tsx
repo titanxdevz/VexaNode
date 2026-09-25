@@ -2,56 +2,78 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, HelpCircle } from "lucide-react";
+import { Plus, MessageSquare } from "lucide-react";
+import { FaDiscord } from "react-icons/fa";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
-const generalFaqs = [
+type FaqItem = { q: string; a: string };
+
+const generalFaqs: FaqItem[] = [
   {
     q: "Do you offer a refund policy?",
-    a: "Yes, we offer a 24-hour refund policy on USA-based node purchases if you are not fully satisfied with performance.",
+    a: "Yes. Eligible plans come with a refund window if you're not satisfied with performance — see our Refund Policy for the full terms and covered products.",
   },
   {
     q: "Can I switch my server location later?",
-    a: "Absolutely. Just open a support ticket on our Discord or client area and we'll help migrate your data to India, Singapore, Germany, or the USA seamlessly.",
+    a: "Absolutely. Open a ticket on our Discord or client area and we'll help migrate your data across India, Singapore, Germany, or the USA seamlessly.",
   },
   {
-    q: "Are there free trial plans available?",
-    a: "Yes! We offer a 100% free Discord Bot hosting tier on our USA nodes. No credit card required — just register via Discord and deploy.",
+    q: "Are there free plans available?",
+    a: "Yes! We offer a 100% free Discord bot hosting tier — no credit card required. Just register via Discord and deploy.",
+  },
+  {
+    q: "Which payment methods do you accept?",
+    a: "We accept UPI, credit & debit cards, net banking, and popular wallets through our secure Cashfree Payments checkout.",
   },
 ];
 
-const technicalFaqs = [
+const technicalFaqs: FaqItem[] = [
   {
     q: "What virtualization do you use?",
-    a: "We use high-performance LXC containers for bots and Lavalink nodes for zero overhead, and enterprise KVM virtualization for our VPS infrastructure.",
+    a: "High-performance LXC containers for bots and Lavalink nodes for near-zero overhead, and enterprise KVM virtualization for our VPS infrastructure.",
   },
   {
     q: "Is DDoS protection included by default?",
-    a: "Yes. Every single plan is protected by multi-terabit DDoS mitigation filters at the edge before malicious traffic can ever reach your server.",
+    a: "Yes. Every plan is protected by enterprise-grade, multi-layered DDoS mitigation that filters malicious traffic at the edge before it reaches your server.",
   },
   {
     q: "Can I configure custom databases?",
-    a: "Yes. We offer fully managed databases (MongoDB, Redis, MySQL, PostgreSQL) and you can also host your own with full root access on VPS.",
+    a: "Yes. We offer fully managed databases (MongoDB, Redis, MySQL, PostgreSQL), and you can host your own with full root access on a VPS.",
+  },
+  {
+    q: "Which control panel will I get?",
+    a: "Game and bot servers are managed through the Pterodactyl panel, while VPS plans are provisioned and managed via VirtFusion.",
   },
 ];
-
-export default function FaqSection() {
-  const [openGen, setOpenGen] = useState<number | null>(0);
-  const [openTech, setOpenTech] = useState<number | null>(null);
-
-  const AccordionItem = ({ item, index, isOpen, onToggle }: any) => (
-    <div className="overflow-hidden rounded-2xl border vx-line vx-card shadow-sm mb-3 last:mb-0 transition-all duration-200 hover:border-[#d97757]/40">
+// COMPONENT_PLACEHOLDER
+function AccordionItem({
+  item,
+  isOpen,
+  onToggle,
+}: {
+  item: FaqItem;
+  isOpen: boolean;
+  onToggle: () => void;
+}) {
+  return (
+    <div
+      className={`overflow-hidden rounded-2xl border vx-card shadow-sm mb-3 last:mb-0 transition-colors duration-200 ${
+        isOpen ? "border-[#d97757]/50" : "vx-line hover:border-[#d97757]/40"
+      }`}
+    >
       <button
         onClick={onToggle}
         className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
         aria-expanded={isOpen}
       >
-        <span className="text-xs sm:text-sm font-bold vx-ink transition-colors">{item.q}</span>
+        <span className="text-xs sm:text-sm font-bold vx-ink">{item.q}</span>
         <motion.span
-          animate={{ rotate: isOpen ? 45 : 0 }}
-          transition={{ duration: 0.15 }}
-          className="flex-shrink-0 text-[#d97757] p-1 rounded-full bg-[#d97757]/10"
+          animate={{ rotate: isOpen ? 135 : 0 }}
+          transition={{ duration: 0.2, ease }}
+          className={`flex-shrink-0 p-1 rounded-full transition-colors ${
+            isOpen ? "bg-[#d97757] text-white" : "bg-[#d97757]/10 text-[#d97757]"
+          }`}
         >
           <Plus className="h-3.5 w-3.5" />
         </motion.span>
@@ -62,22 +84,25 @@ export default function FaqSection() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
+            transition={{ duration: 0.25, ease }}
             className="overflow-hidden border-t vx-line"
           >
-            <p className="px-5 py-4 text-xs leading-relaxed vx-muted">
-              {item.a}
-            </p>
+            <p className="px-5 py-4 text-xs sm:text-[13px] leading-relaxed vx-muted">{item.a}</p>
           </motion.div>
         )}
       </AnimatePresence>
     </div>
   );
+}
+
+export default function FaqSection() {
+  const [openGen, setOpenGen] = useState<number | null>(0);
+  const [openTech, setOpenTech] = useState<number | null>(0);
 
   return (
     <section className="relative py-20 lg:py-28 vx-bg-alt vx-ink border-t vx-line">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -99,7 +124,7 @@ export default function FaqSection() {
 
         {/* Dual Column Grid */}
         <div className="grid gap-6 lg:grid-cols-2 max-w-5xl mx-auto">
-          
+
           {/* General column */}
           <div>
             <div className="flex items-center gap-2 mb-4 px-2">
@@ -142,8 +167,35 @@ export default function FaqSection() {
 
         </div>
 
+        {/* Still have questions CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease }}
+          className="mt-12 max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl vx-card border vx-line px-6 py-5 shadow-sm"
+        >
+          <div className="flex items-center gap-3 text-center sm:text-left">
+            <span className="hidden sm:flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#d97757]/10 text-[#d97757]">
+              <MessageSquare className="h-5 w-5" />
+            </span>
+            <div>
+              <p className="text-sm font-bold vx-ink">Still have questions?</p>
+              <p className="text-xs vx-muted">Our team replies fast on Discord.</p>
+            </div>
+          </div>
+          <a
+            href="https://discord.gg/dJpMDfgUQq"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-xl bg-[#5865F2] px-6 py-3 text-xs font-bold text-white transition-all hover:brightness-110"
+          >
+            <FaDiscord className="h-4 w-4" />
+            Ask on Discord
+          </a>
+        </motion.div>
+
       </div>
     </section>
   );
 }
-

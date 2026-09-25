@@ -2,14 +2,13 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Sparkles, Copy, Check, Ticket, Percent } from 'lucide-react'
+import { X, Copy, Check, Ticket, Percent } from 'lucide-react'
 import navigationConfig from '../config/sections/navigation.json'
-import Confetti from 'react-confetti'
 
 export default function SummerSalePopup() {
   const [isOpen, setIsOpen] = useState(false)
   const [copied, setCopied] = useState(false)
-  const [windowDimensions, setWindowDimensions] = useState({ width: 0, height: 0 })
+  const [, setWindowDimensions] = useState({ width: 0, height: 0 })
   const banner = navigationConfig.banner
 
   useEffect(() => {

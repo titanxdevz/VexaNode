@@ -247,26 +247,6 @@ export default function LocationsSection() {
         visible: { opacity: 1, y: 0 }
     }), []);
 
-    const globeConfig = useMemo(() => ({
-        width: 800,
-        height: 800,
-        devicePixelRatio: 2,
-        phi: 0,
-        theta: 0.3,
-        dark: 1,
-        diffuse: 0.4,
-        mapSamples: 16000,
-        mapBrightness: 3.5,
-        baseColor: [0.03, 0.05, 0.15] as [number, number, number], 
-        markerColor: [16/255, 185/255, 129/255] as [number, number, number], // emerald green markers
-        glowColor: [0.03, 0.15, 0.08] as [number, number, number], 
-        markers: locations.map(location => ({
-            location: [location.lat, location.lng] as [number, number],
-            size: 0.09,
-        })),
-        onRender: () => { },
-    }), []);
-
     return (
         <div className="vx-bg relative px-4 sm:px-6 lg:px-8 overflow-hidden py-32 border-t border-b vx-line">
             <div className="relative z-10 max-w-7xl mx-auto">

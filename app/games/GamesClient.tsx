@@ -3,9 +3,9 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { 
-  ChevronRight, Cpu, Zap, Shield, HardDrive, 
-  Sparkles, Server, ChevronDown, Radio, Layers, Box, Terminal,
-  CheckCircle2, Pickaxe, Compass
+  ChevronRight, Cpu, Zap, Shield, HardDrive,
+  Sparkles, Server, ChevronDown, Radio, Box,
+  Pickaxe
 } from "lucide-react"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"

@@ -3,7 +3,6 @@
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import { Cpu, Zap, Shield, Activity, Sliders, TrendingUp, Globe, Sparkles } from "lucide-react"
-import { useLanguage } from "../contexts/LanguageContext"
 
 interface Feature {
   icon: React.ElementType;
@@ -12,7 +11,6 @@ interface Feature {
 }
 
 export default function FeaturesSection() {
-  const { t } = useLanguage()
 
   const features: Feature[] = [
     {

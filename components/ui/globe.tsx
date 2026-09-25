@@ -45,8 +45,8 @@ const GLOBE_CONFIG: COBEOptions = {
 };
 
 export function Globe({ className, config = GLOBE_CONFIG }: { className?: string, config?: COBEOptions }) {
-    let phi = 0
-    let width = 0
+    const phiRef = useRef(0)
+    const widthRef = useRef(0)
     const canvasRef = useRef<HTMLCanvasElement>(null)
     const containerRef = useRef<HTMLDivElement>(null)
     const globeRef = useRef<ReturnType<typeof createGlobe> | null>(null)
@@ -97,7 +97,7 @@ export function Globe({ className, config = GLOBE_CONFIG }: { className?: string
         }
 
         const onResize = () => {
-            if (canvasRef.current) width = canvasRef.current.offsetWidth
+            if (canvasRef.current) widthRef.current = canvasRef.current.offsetWidth
         }
         window.addEventListener("resize", onResize)
         onResize()
@@ -108,13 +108,13 @@ export function Globe({ className, config = GLOBE_CONFIG }: { className?: string
             baseColor: [0.03, 0.05, 0.15] as [number, number, number],
             markerColor: [16/255, 185/255, 129/255] as [number, number, number],
             glowColor: [0.03, 0.15, 0.08] as [number, number, number],
-            width: width * 2,
-            height: width * 2,
+            width: widthRef.current * 2,
+            height: widthRef.current * 2,
             onRender: (state) => {
-                if (!pointerInteracting.current) phi += 0.004
-                state.phi = phi + rs.get()
-                state.width = width * 2
-                state.height = width * 2
+                if (!pointerInteracting.current) phiRef.current += 0.004
+                state.phi = phiRef.current + rs.get()
+                state.width = widthRef.current * 2
+                state.height = widthRef.current * 2
             },
         })
         globeRef.current = globe

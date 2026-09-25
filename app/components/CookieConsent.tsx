@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Cookie, X, Settings, Check } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { useTheme } from 'next-themes';
 
 interface CookiePreferences {
   necessary: boolean;
@@ -28,7 +27,6 @@ export const areCookiesAccepted = (): boolean => {
 
 export default function CookieConsent() {
   const { t } = useLanguage();
-  const { theme } = useTheme();
   const [isVisible, setIsVisible] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [showSettings, setShowSettings] = useState(false);

@@ -1,174 +1,329 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { ShieldCheck, Zap, Mail, MessageSquare, Twitter, Github, Linkedin, User, Briefcase, Code, ChevronRight } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import { MotionConfig, motion } from "framer-motion"
+import { ArrowRight, Github, UsersRound } from "lucide-react"
 import { FaDiscord } from "react-icons/fa6"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import { PageMeta } from "../components/PageMeta"
 
-const team = [
+type Owner = {
+  id: string
+  name: string
+  role: string
+  summary: string
+  focus: string[]
+  avatar: string
+  discordId: string
+  github?: string
+}
+
+const owners: Owner[] = [
   {
-    name: "Anthony",
-    role: "Founder & CEO",
-    bio: "Visionary lead behind VexaNode's infrastructure. Focused on delivering enterprise-grade performance at accessible price points.",
-    icon: ShieldCheck,
-    accent: "#3b82f6",
-    socials: {
-        discord: "#",
-        twitter: "#",
-        linkedin: "#"
-    }
+    id: "1308728198565204003",
+    name: "Ansh",
+    role: "Founder & Primary Owner",
+    summary: "The founder and main owner of VexaNode, leading the company and its direction.",
+    focus: ["VexaNode ownership", "Leadership & direction"],
+    avatar: "https://cdn.discordapp.com/avatars/1308728198565204003/cb8fbf21e661b6ccfd1f7adbef7343f4.png?size=1024",
+    discordId: "1308728198565204003",
+    github: "https://github.com/titanxdevz",
   },
   {
-    name: "Management Team",
-    role: "Operations",
-    bio: "Our specialized management team keeps datacenter operations running smoothly across our global nodes.",
-    icon: Zap,
-    accent: "#f59e0b",
-    socials: {
-        discord: "#",
-        mail: "mailto:ops@vexanode.cloud"
-    }
+    id: "1217865979627962470",
+    name: "𝓐𝓵𝓹𝓱𝓪",
+    role: "Co-Owner & Infrastructure",
+    summary: "Responsible for VexaNode's VPS infrastructure and backend systems.",
+    focus: ["VPS infrastructure", "Backend systems"],
+    avatar: "https://cdn.discordapp.com/avatars/1217865979627962470/04b2b0186b6a469a78a04a3c41eb2983.png?size=1024",
+    discordId: "1217865979627962470",
   },
   {
-    name: "Technical Support",
-    role: "Support Engineers",
-    bio: "A global team of hosting experts dedicated to resolving issues quickly. Available around the clock.",
-    icon: MessageSquare,
-    accent: "#10b981",
-    socials: {
-        discord: "#",
-        ticket: "/contact"
-    }
-  }
+    id: "852761498799046697",
+    name: "SREERAJ SK",
+    role: "Co-Owner & Management",
+    summary: "Handles company-wide management and the day-to-day operational side of VexaNode.",
+    focus: ["Company management", "Day-to-day operations"],
+    avatar: "https://cdn.discordapp.com/avatars/852761498799046697/60bb3d8f5904cd68ac14be40c0a7390c.png?size=1024",
+    discordId: "852761498799046697",
+    github: "https://github.com/SreerajSK990",
+  },
 ]
 
-export default function TeamPage() {
+function OwnerSocialLinks({ owner, compact = false }: { owner: Owner; compact?: boolean }) {
+  const buttonClass = compact
+    ? "h-10 w-10 rounded-xl"
+    : "h-11 px-4 rounded-xl"
+
   return (
-    <div className="min-h-screen vx-bg vx-ink selection:bg-[#d97757]/30">
-      <PageMeta title="Our Team" />
-      <Navbar />
+    <div className="flex flex-wrap items-center gap-2.5">
+      <a
+        href={`https://discord.com/users/${owner.discordId}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`${owner.name} on Discord`}
+        className={`${buttonClass} inline-flex items-center justify-center gap-2 border vx-line vx-muted hover:text-[#5865F2] hover:border-[#5865F2]/40 transition-colors duration-150`}
+      >
+        <FaDiscord className="h-4 w-4" aria-hidden="true" />
+        {!compact && <span className="text-sm font-bold">Discord</span>}
+      </a>
+      {owner.github && (
+        <a
+          href={owner.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${owner.name} on GitHub`}
+          className={`${buttonClass} inline-flex items-center justify-center gap-2 border vx-line vx-muted hover:vx-hover-ink hover:border-[color:var(--vx-accent)] transition-colors duration-150`}
+        >
+          <Github className="h-4 w-4" aria-hidden="true" />
+          {!compact && <span className="text-sm font-bold">GitHub</span>}
+        </a>
+      )}
+    </div>
+  )
+}
 
-      <main className="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-24">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="inline-flex items-center gap-2 bg-[#d97757]/10 vx-accent-text text-[10px] font-bold px-4 py-1.5 rounded-full border border-[#d97757]/20 mb-8 tracking-[0.2em] uppercase"
-          >
-            <User className="w-3.5 h-3.5" />
-            Our Leadership
-          </motion.div>
+export default function TeamPage() {
+  const leadOwner = owners[0]
+  const supportingOwners = owners.slice(1)
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-black mb-8 tracking-tighter"
-          >
-            The <span className="vx-accent-text">Vexa</span> Team
-          </motion.h1>
+  return (
+    <MotionConfig reducedMotion="user">
+      <div className="min-h-screen vx-bg vx-ink selection:bg-[#d97757]/30">
+        <PageMeta title="Our Team" />
+        <Navbar />
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="vx-muted max-w-2xl mx-auto text-lg md:text-xl leading-relaxed font-medium"
-          >
-            Meet the engineers and visionaries building the next generation of global hosting infrastructure.
-          </motion.p>
-        </div>
-
-        {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
-          {team.map((member, idx) => (
+        <main className="pt-32 pb-24">
+          <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="group relative vx-card border vx-line hover:border-[#d97757]/30 rounded-[2.5rem] p-8 transition-all duration-500 overflow-hidden"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="grid items-end gap-10 border-b vx-line pb-14 lg:grid-cols-[minmax(0,1.35fr)_minmax(18rem,0.65fr)] lg:gap-16"
             >
-              {/* Member Icon/Avatar Area */}
-              <div className="relative w-24 h-24 mb-8 mx-auto">
-                <div
-                  className="absolute inset-0 rounded-3xl blur-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-700"
-                  style={{ backgroundColor: member.accent }}
-                />
-                <div className="relative w-full h-full rounded-[2rem] vx-bg-alt border vx-line flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
-                  <member.icon className="w-10 h-10" style={{ color: member.accent }} />
+              <div>
+                <div className="mb-6 inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] vx-accent-text">
+                  <UsersRound className="h-3.5 w-3.5" aria-hidden="true" />
+                  The people behind VexaNode
                 </div>
+                <h1 className="max-w-4xl text-5xl font-black leading-[0.98] tracking-[-0.045em] sm:text-6xl lg:text-7xl">
+                  Owners who run <span className="vx-accent-text">VexaNode.</span>
+                </h1>
               </div>
-
-              <div className="text-center">
-                <h3 className="text-2xl font-bold tracking-tight mb-1">{member.name}</h3>
-                <p className="text-[10px] font-bold vx-faint uppercase tracking-[0.2em] mb-6">{member.role}</p>
-                <p className="vx-muted text-sm leading-relaxed mb-8 min-h-[4.5rem]">
-                  {member.bio}
+              <div className="lg:border-l vx-line lg:pl-8">
+                <p className="text-base font-semibold leading-relaxed sm:text-lg">
+                  Three owners. One hands-on team.
                 </p>
-
-                {/* Socials */}
-                <div className="flex justify-center gap-3">
-                  <a href={member.socials.discord} className="w-10 h-10 rounded-xl vx-bg-alt border vx-line flex items-center justify-center vx-faint hover:text-[#5865F2] hover:bg-[#5865F2]/10 hover:border-[#5865F2]/30 transition-all">
-                    <FaDiscord className="w-5 h-5" />
+                <p className="vx-muted mt-3 text-sm leading-relaxed sm:text-base">
+                  VexaNode is owned and operated by the people who lead the company,
+                  manage its infrastructure, and handle its day-to-day operations.
+                </p>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <a
+                    href="#owners"
+                    className="vx-solid inline-flex min-h-11 items-center gap-2 rounded-xl px-5 text-sm font-bold transition-opacity hover:opacity-85"
+                  >
+                    Meet the owners
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </a>
-                  {member.socials.twitter && (
-                    <a href={member.socials.twitter} className="w-10 h-10 rounded-xl vx-bg-alt border vx-line flex items-center justify-center vx-faint hover:text-[#1DA1F2] hover:bg-[#1DA1F2]/10 hover:border-[#1DA1F2]/30 transition-all">
-                      <Twitter className="w-4 h-4" />
-                    </a>
-                  )}
-                  {member.socials.linkedin && (
-                    <a href={member.socials.linkedin} className="w-10 h-10 rounded-xl vx-bg-alt border vx-line flex items-center justify-center vx-faint hover:text-[#0A66C2] hover:bg-[#0A66C2]/10 hover:border-[#0A66C2]/30 transition-all">
-                      <Linkedin className="w-4 h-4" />
-                    </a>
-                  )}
-                  {member.socials.mail && (
-                    <a href={member.socials.mail} className="w-10 h-10 rounded-xl vx-bg-alt border vx-line flex items-center justify-center vx-faint vx-hover-ink hover:border-[#d97757]/30 transition-all">
-                      <Mail className="w-4 h-4" />
-                    </a>
-                  )}
+                  <a
+                    href="https://discord.gg/dJpMDfgUQq"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-11 items-center rounded-xl border vx-line px-5 text-sm font-bold vx-muted vx-hover-ink hover:border-[color:var(--vx-accent)] transition-colors"
+                  >
+                    Join Discord
+                  </a>
                 </div>
               </div>
             </motion.div>
-          ))}
-        </div>
+          </section>
 
-        {/* Culture CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="bg-[#d97757] rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden group/cta shadow-2xl shadow-[#d97757]/20"
-        >
-          <div className="relative z-10">
-            <h2 className="text-4xl md:text-6xl font-black mb-8 text-white leading-tight tracking-tighter uppercase">
-              Join the Mission
-            </h2>
-            <p className="text-white/80 max-w-2xl mx-auto mb-12 text-lg md:text-xl leading-relaxed">
-              We&apos;re always looking for talented engineers and community-driven individuals to join our global team. Think you have what it takes?
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <a
-                href="https://discord.gg/dJpMDfgUQq"
-                className="w-full sm:w-auto bg-white text-[#d97757] px-10 py-5 rounded-2xl font-black hover:bg-white/90 transition-all transform hover:scale-105 active:scale-95 flex items-center justify-center gap-2 text-base shadow-2xl"
+          <section id="owners" className="mx-auto mt-16 max-w-6xl scroll-mt-28 px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.35 }}
+              className="mb-8 flex flex-col justify-between gap-3 sm:flex-row sm:items-end"
+            >
+              <div>
+                <motion.p
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3 }}
+                  className="text-[10px] font-bold uppercase tracking-[0.2em] vx-accent-text"
+                >
+                  Ownership & operations
+                </motion.p>
+                <h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">
+                  <motion.span
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.08 }}
+                    className="inline-block"
+                  >
+                    Meet the{" "}
+                  </motion.span>
+                  <motion.span
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.16 }}
+                    className="inline-block vx-accent-text"
+                  >
+                    co-owners
+                  </motion.span>
+                </h2>
+              </div>
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: 0.22 }}
+                className="vx-muted max-w-md text-sm leading-relaxed sm:text-right"
               >
-                Careers on Discord
-                <ChevronRight className="w-5 h-5" />
-              </a>
-              <a
-                href="/contact"
-                className="w-full sm:w-auto bg-transparent text-white px-10 py-5 rounded-2xl font-bold hover:bg-white/10 transition-all flex items-center justify-center gap-2 text-base border-2 border-white/20 hover:border-white"
+                Clear ownership, hands-on responsibility, and direct accountability.
+              </motion.p>
+            </motion.div>
+
+            <div className="grid gap-5 lg:grid-cols-[minmax(0,1.2fr)_minmax(20rem,0.8fr)]">
+              <motion.article
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden rounded-2xl border border-[#d97757]/30 vx-card"
+                aria-labelledby={`owner-${leadOwner.id}`}
               >
-                General Inquiry
-              </a>
+                <div className="flex min-h-full flex-col items-center sm:flex-row sm:items-center">
+                  <div className="relative aspect-square w-40 shrink-0 self-center overflow-hidden rounded-2xl border vx-line bg-[color:var(--vx-surface-alt)] sm:mx-7 sm:my-7 sm:h-48 sm:w-48 lg:mx-8 lg:h-56 lg:w-56">
+                    <Image
+                      src={leadOwner.avatar}
+                      alt={`${leadOwner.name}, ${leadOwner.role}`}
+                      fill
+                      priority
+                      sizes="(max-width: 640px) 160px, (max-width: 1024px) 192px, 224px"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="flex w-full flex-1 flex-col justify-center p-7 pt-0 sm:py-8 sm:px-8 sm:pl-0 lg:px-10 lg:pl-0">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] vx-accent-text">
+                      Lead owner
+                    </p>
+                    <h3
+                      id={`owner-${leadOwner.id}`}
+                      className="mt-3 text-3xl font-black tracking-tight sm:text-4xl"
+                    >
+                      {leadOwner.name}
+                    </h3>
+                    <p className="mt-2 text-sm font-semibold vx-muted2">{leadOwner.role}</p>
+                    <p className="vx-muted mt-5 text-sm leading-relaxed sm:text-base">
+                      {leadOwner.summary}
+                    </p>
+                    <ul className="mt-5 space-y-2.5 border-t vx-line pt-5 text-sm font-medium">
+                      {leadOwner.focus.map((item) => (
+                        <li key={item} className="flex items-center gap-3">
+                          <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--vx-accent)]" aria-hidden="true" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-6">
+                      <OwnerSocialLinks owner={leadOwner} />
+                    </div>
+                  </div>
+                </div>
+              </motion.article>
+
+              <div className="grid gap-5">
+                {supportingOwners.map((owner, index) => (
+                  <motion.article
+                    key={owner.id}
+                    initial={{ opacity: 0, y: 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.3, delay: index * 0.08 }}
+                    className="rounded-2xl border vx-line vx-card p-6 sm:p-7"
+                    aria-labelledby={`owner-${owner.id}`}
+                  >
+                    <div className="flex items-start gap-5">
+                      <Image
+                        src={owner.avatar}
+                        alt={`${owner.name}, ${owner.role}`}
+                        width={96}
+                        height={96}
+                        sizes="96px"
+                        className="h-20 w-20 shrink-0 rounded-xl border vx-line object-cover sm:h-24 sm:w-24"
+                      />
+                      <div className="min-w-0 pt-1">
+                        <p className="text-[10px] font-bold uppercase tracking-[0.18em] vx-accent-text">
+                          Co-owner
+                        </p>
+                        <h3
+                          id={`owner-${owner.id}`}
+                          className="mt-2 break-words text-xl font-black tracking-tight sm:text-2xl"
+                        >
+                          {owner.name}
+                        </h3>
+                        <p className="mt-1 text-xs font-semibold vx-muted2 sm:text-sm">{owner.role}</p>
+                      </div>
+                    </div>
+                    <p className="vx-muted mt-5 text-sm leading-relaxed">{owner.summary}</p>
+                    <ul className="mt-5 grid gap-2 border-t vx-line pt-5 text-xs font-medium sm:grid-cols-2 sm:text-sm">
+                      {owner.focus.map((item) => (
+                        <li key={item} className="flex items-center gap-2.5">
+                          <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--vx-accent)]" aria-hidden="true" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-6">
+                      <OwnerSocialLinks owner={owner} compact />
+                    </div>
+                  </motion.article>
+                ))}
+              </div>
             </div>
-          </div>
-        </motion.div>
-      </main>
+          </section>
 
-      <Footer />
-    </div>
+          <section className="mt-20 border-y vx-line vx-bg-alt">
+            <div className="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:px-6 md:grid-cols-[minmax(0,1fr)_auto] md:items-center lg:px-8">
+              <div className="max-w-2xl">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] vx-accent-text">
+                  Work with VexaNode
+                </p>
+                <h2 className="mt-2 text-3xl font-black tracking-tight">Talk to the team.</h2>
+                <p className="vx-muted mt-3 text-sm leading-relaxed sm:text-base">
+                  Reach the owners through our Discord community or send a general inquiry to the team.
+                </p>
+              </div>
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <a
+                  href="https://discord.gg/dJpMDfgUQq"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="vx-btn-accent inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-6 text-sm font-bold transition-opacity hover:opacity-85"
+                >
+                  Join Discord
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </a>
+                <Link
+                  href="/contact"
+                  className="inline-flex min-h-12 items-center justify-center rounded-xl border vx-line vx-card px-6 text-sm font-bold vx-ink hover:border-[color:var(--vx-accent)] transition-colors"
+                >
+                  Contact team
+                </Link>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <Footer />
+      </div>
+    </MotionConfig>
   )
 }

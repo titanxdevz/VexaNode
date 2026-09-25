@@ -4,9 +4,8 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import {
   ChevronRight, Cpu, Zap, Shield, HardDrive,
-  Sparkles, Terminal, Database,
-  RotateCcw, Check, Globe, Code2, ChevronDown,
-  Calendar, MemoryStick, Wifi, HeartPulse, Star
+  RotateCcw, ChevronDown,
+  Calendar, MemoryStick, HeartPulse, Star
 } from "lucide-react"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"

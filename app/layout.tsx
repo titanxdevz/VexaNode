@@ -11,7 +11,7 @@ import { ToastProvider } from "./components/ToastProvider";
 import CookieConsent from "./components/CookieConsent";
 import SummerSalePopup from "./components/SummerSalePopup";
 import { Analytics } from "@vercel/analytics/next";
-import { SITE_URL, constructMetadata, generateOrganizationSchema } from "@/lib/seo";
+import { constructMetadata, generateOrganizationSchema } from "@/lib/seo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

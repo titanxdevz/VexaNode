@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Search, Globe, ChevronRight, CheckCircle2, ShieldCheck, Zap, Server, Loader2, Sparkles, X } from "lucide-react"
+import { Search, Globe, ChevronRight, CheckCircle2, ShieldCheck, Zap, Loader2, Sparkles, X } from "lucide-react"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import { PageMeta } from "../components/PageMeta"

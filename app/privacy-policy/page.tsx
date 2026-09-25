@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Shield, Lock, Eye, FileText, Globe, Clock, ChevronRight, Mail, Server, Database } from "lucide-react"
+import { Shield, Lock, Eye, Globe, Clock, Mail, Server, Database } from "lucide-react"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import { PageMeta } from "../components/PageMeta"

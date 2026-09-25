@@ -3,16 +3,14 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { 
-  ChevronRight, Cpu, Zap, HardDrive, Sparkles, 
-  Headphones, ChevronDown, Radio, Activity, Volume2, Shield, Music, Disc
+  ChevronRight, Cpu, Zap, HardDrive, Sparkles,
+  Headphones, ChevronDown, Activity, Volume2, Shield, Disc
 } from "lucide-react"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import { useCurrency } from "../contexts/CurrencyContext"
 import CurrencySelector from "../components/CurrencySelector"
 import Link from "next/link"
-
-const LAVALINK_ICON = "https://res.cloudinary.com/dri6tqcsr/image/upload/v1786345276/lavalink_p0npoq.webp"
 
 // Platform Brand Icons for supported sources
 const MusicSources = {
