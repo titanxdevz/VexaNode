@@ -30,6 +30,11 @@ area, then updated to match what shipped. See [BRIEF.md](../BRIEF.md) for full s
   ivory; dark = ink. Toggle component: `app/components/ThemeToggle.tsx`.
 
 ## Changelog
+### Loop 11 — 2026-09-25
+- Added **Lighthouse CI** config (`lighthouserc.json`, desktop preset; a11y/best-practices/SEO
+  asserted ≥0.90) + run instructions in [performance.md](performance.md). This is the path to
+  close Condition 3 — run `npx @lhci/cli autorun` in an environment with Chrome (owner/CI).
+
 ### Loop 10 — 2026-09-24
 - **Condition 2 complete (structured data):** Product/Offer JSON-LD now on **all** commercial
   pages — `/webhosting` (GBP from config) + `/discord`, `/games`, `/minecraft`, `/databases`,

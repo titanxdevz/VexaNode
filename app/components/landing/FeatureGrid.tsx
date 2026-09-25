@@ -52,7 +52,6 @@ export default function FeatureGrid() {
             No compromises, no overselling. Pure bare-metal compute tailored for demanding workloads.
           </p>
         </motion.div>
-        {/* BENTO_PLACEHOLDER */}
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
 
@@ -104,7 +103,6 @@ export default function FeatureGrid() {
               Multi-layer hardware firewalls scrub malicious volumetric floods without affecting gameplay ping.
             </p>
           </motion.div>
-          {/* BENTO_PART2 */}
           {/* Card 3 */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -148,7 +146,6 @@ export default function FeatureGrid() {
 
         </div>
 
-        {/* MINI_ROW */}
         {/* Secondary feature row */}
         <div className="mt-5 grid grid-cols-1 md:grid-cols-3 gap-5">
           {miniFeatures.map((f, idx) => (
