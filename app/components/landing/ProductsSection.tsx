@@ -1,17 +1,35 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
+import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Check, Radio } from "lucide-react";
+import NumberFlow from "@number-flow/react";
 import { useCurrency } from "../../contexts/CurrencyContext";
+import { VerticalCutReveal, type VerticalCutRevealRef } from "@/components/ui/vertical-cut-reveal";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
+const cycles = [
+  { key: "monthly", label: "Monthly", badge: null },
+  { key: "quarterly", label: "Quarterly", badge: "-5%" },
+  { key: "annually", label: "Annually", badge: "-15%" },
+] as const;
+
+type Cycle = (typeof cycles)[number]["key"];
+
 export default function ProductsSection() {
-  const { formatPrice } = useCurrency();
-  const [billingCycle, setBillingCycle] = useState<"monthly" | "quarterly" | "annually">("monthly");
+  const { convertPrice, currency } = useCurrency();
+  const [billingCycle, setBillingCycle] = useState<Cycle>("monthly");
+
+  const headingRef = useRef<HTMLDivElement>(null);
+  const revealRef = useRef<VerticalCutRevealRef>(null);
+  const headingInView = useInView(headingRef, { once: true, margin: "-10% 0px" });
+
+  useEffect(() => {
+    if (headingInView) revealRef.current?.startAnimation();
+  }, [headingInView]);
 
   const getMultiplier = () => {
     if (billingCycle === "quarterly") return 3 * 0.95; // 5% discount
@@ -38,11 +56,11 @@ export default function ProductsSection() {
         "DDR4/DDR5 Fast RAM",
         "Gen4 NVMe High-IOPS SSD",
         "Free Automatic Backups",
-        "0% Sleep Mode / 24/7 Uptime"
+        "0% Sleep Mode / 24/7 Uptime",
       ],
       popular: true,
       badge: "MOST POPULAR",
-      cta: "Deploy Bot"
+      cta: "Deploy Bot",
     },
     {
       icon: null,
@@ -56,11 +74,11 @@ export default function ProductsSection() {
         "1-Click Modpacks & Plugins",
         "Unmetered PCIe NVMe Storage",
         "Low-Ping Routing",
-        "Real-Time Console & Backups"
+        "Real-Time Console & Backups",
       ],
       popular: false,
       badge: "EPYC POWERED",
-      cta: "Deploy Minecraft"
+      cta: "Deploy Minecraft",
     },
     {
       icon: null,
@@ -74,11 +92,11 @@ export default function ProductsSection() {
         "High Single-Core Frequency",
         "16 GB to 40 GB NVMe Storage",
         "Multi-Player Optimized SLA",
-        "India & Edge Locations"
+        "India & Edge Locations",
       ],
       popular: false,
       badge: "NEW RELEASE",
-      cta: "Deploy Hytale"
+      cta: "Deploy Hytale",
     },
     {
       icon: Radio,
@@ -92,12 +110,12 @@ export default function ProductsSection() {
         "YouTube, Spotify & Soundcloud",
         "100+ Concurrent Streams",
         "India & USA Low-Jitter Nodes",
-        "Dedicated Audio SLA"
+        "Dedicated Audio SLA",
       ],
       popular: false,
       badge: "JVM TUNED",
-      cta: "Deploy Lavalink"
-    }
+      cta: "Deploy Lavalink",
+    },
   ];
 
   return (
@@ -109,52 +127,61 @@ export default function ProductsSection() {
           <span className="inline-flex items-center gap-1.5 rounded-full bg-[#d97757]/10 border border-[#d97757]/25 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#d97757] mb-4">
             Transparent Plans
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight vx-ink">
-            Choose Your Superpower.
-          </h2>
+          <div ref={headingRef}>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight vx-ink">
+              <VerticalCutReveal
+                ref={revealRef}
+                splitBy="words"
+                staggerDuration={0.12}
+                staggerFrom="first"
+                reverse
+                autoStart={false}
+                containerClassName="justify-center"
+                transition={{ type: "spring", stiffness: 250, damping: 40 }}
+              >
+                Choose Your Superpower.
+              </VerticalCutReveal>
+            </h2>
+          </div>
           <p className="mt-3 text-sm sm:text-base vx-muted">
             Instant automatic setup, zero hidden costs, and silky smooth scalability.
           </p>
 
-          {/* Billing Cycle Selector */}
-          <div className="mt-8 inline-flex items-center p-1 rounded-full vx-bg-alt border vx-line">
-            <button
-              onClick={() => setBillingCycle("monthly")}
-              className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
-                billingCycle === "monthly" ? "vx-card vx-ink shadow-sm" : "vx-muted vx-hover-ink"
-              }`}
-            >
-              Monthly
-            </button>
-            <button
-              onClick={() => setBillingCycle("quarterly")}
-              className={`flex items-center gap-1 px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
-                billingCycle === "quarterly" ? "vx-card vx-ink shadow-sm" : "vx-muted vx-hover-ink"
-              }`}
-            >
-              <span>Quarterly</span>
-              <span className="px-1.5 py-0.5 rounded-full bg-[#d97757]/15 text-[#d97757] text-[9px] font-black">
-                -5%
-              </span>
-            </button>
-            <button
-              onClick={() => setBillingCycle("annually")}
-              className={`flex items-center gap-1 px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
-                billingCycle === "annually" ? "vx-card vx-ink shadow-sm" : "vx-muted vx-hover-ink"
-              }`}
-            >
-              <span>Annually</span>
-              <span className="px-1.5 py-0.5 rounded-full bg-[#d97757]/15 text-[#d97757] text-[9px] font-black">
-                -15%
-              </span>
-            </button>
+          {/* Billing Cycle Selector — animated sliding pill */}
+          <div className="mt-8 inline-flex items-center gap-1 p-1 rounded-full vx-bg-alt border vx-line">
+            {cycles.map((c) => {
+              const active = billingCycle === c.key;
+              return (
+                <button
+                  key={c.key}
+                  onClick={() => setBillingCycle(c.key)}
+                  className={`relative flex items-center gap-1 px-4 py-1.5 rounded-full text-xs font-bold transition-colors duration-200 ${
+                    active ? "vx-ink" : "vx-muted vx-hover-ink"
+                  }`}
+                >
+                  {active && (
+                    <motion.span
+                      layoutId="billingPill"
+                      transition={{ type: "spring", stiffness: 500, damping: 35 }}
+                      className="absolute inset-0 rounded-full vx-card border vx-line shadow-sm"
+                    />
+                  )}
+                  <span className="relative">{c.label}</span>
+                  {c.badge && (
+                    <span className="relative px-1.5 py-0.5 rounded-full bg-[#d97757]/15 text-[#d97757] text-[9px] font-black">
+                      {c.badge}
+                    </span>
+                  )}
+                </button>
+              );
+            })}
           </div>
         </div>
 
         {/* Product Cards Grid */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {products.map((p, i) => {
-            const calculatedPrice = Math.round(p.basePrice * getMultiplier());
+            const value = convertPrice(Math.round(p.basePrice * getMultiplier()));
             const IconComp = p.icon;
             return (
               <motion.div
@@ -165,8 +192,8 @@ export default function ProductsSection() {
                 transition={{ duration: 0.4, delay: i * 0.05, ease }}
                 className={`group relative flex flex-col rounded-3xl border p-6 transition-all duration-300 vx-card ${
                   p.popular
-                    ? "border-[#d97757] shadow-[0_12px_40px_-12px_rgba(217,119,87,0.4)] ring-1 ring-[#d97757]/20"
-                    : "vx-line shadow-sm hover:shadow-lg hover:border-[#d97757]/40"
+                    ? "border-[#d97757] shadow-[0_12px_40px_-12px_rgba(217,119,87,0.4)] ring-1 ring-[#d97757]/20 lg:scale-[1.03]"
+                    : "vx-line shadow-sm hover:shadow-lg hover:border-[#d97757]/40 hover:-translate-y-1"
                 }`}
               >
                 {/* Header row */}
@@ -199,12 +226,14 @@ export default function ProductsSection() {
                 <h3 className="text-lg font-extrabold vx-ink">{p.name}</h3>
                 <p className="text-xs vx-muted mt-1 font-medium">{p.tagline}</p>
 
-                {/* Price */}
+                {/* Price — animated with NumberFlow */}
                 <div className="mt-5 py-4 border-y vx-line flex items-baseline gap-1">
                   <span className="text-[10px] font-bold vx-faint uppercase tracking-wider">Starts at</span>
-                  <span className="text-3xl font-extrabold vx-ink ml-1">
-                    {formatPrice(calculatedPrice)}
-                  </span>
+                  <NumberFlow
+                    value={value}
+                    format={{ style: "currency", currency: currency.code, maximumFractionDigits: 0 }}
+                    className="text-3xl font-extrabold vx-ink ml-1"
+                  />
                   <span className="text-xs font-semibold vx-muted">{getCycleSuffix()}</span>
                 </div>
 
