@@ -116,6 +116,23 @@ const nextConfig: NextConfig = {
   ],
   redirects: async () => [
     {
+      // Canonicalise www → non-www (single canonical HTTPS host).
+      source: "/:path*",
+      has: [{ type: "host", value: "www.vexanode.cloud" }],
+      destination: "https://vexanode.cloud/:path*",
+      permanent: true,
+    },
+    {
+      source: "/blogs",
+      destination: "/blog",
+      permanent: true,
+    },
+    {
+      source: "/blogs/:slug",
+      destination: "/blog/:slug",
+      permanent: true,
+    },
+    {
       source: '/minecraft-hosting',
       destination: '/minecraft',
       permanent: true,

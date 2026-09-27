@@ -213,10 +213,13 @@ export function generateArticleSchema({
     description,
     image: image.startsWith("http") ? image : `${SITE_URL}${image.startsWith("/") ? "" : "/"}${image}`,
     url: url.startsWith("http") ? url : `${SITE_URL}${url.startsWith("/") ? "" : "/"}${url}`,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": url.startsWith("http") ? url : `${SITE_URL}${url.startsWith("/") ? "" : "/"}${url}`,
+    },
     author: {
-      "@type": "Organization",
+      "@type": "Person",
       name: author || "VexaNode Team",
-      url: SITE_URL,
     },
     publisher: {
       "@type": "Organization",
@@ -227,6 +230,7 @@ export function generateArticleSchema({
       },
     },
     datePublished: datePublished || new Date().toISOString(),
+    dateModified: datePublished || new Date().toISOString(),
   };
 }
 
@@ -273,8 +277,28 @@ export function generateProductSchema({
   };
 }
 
+/**
+ * FAQPage schema. Use ONLY on pages where the same Q&A pairs are visibly
+ * rendered to users (Google requires the answer text to be present on-page).
+ */
+export function generateFaqPageSchema(items: { question: string; answer: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+}
+
 // Aliases for convenience
 export const serviceSchema = generateServiceSchema;
+export const faqPageSchema = generateFaqPageSchema;
 export const organizationSchema = generateOrganizationSchema;
 export const websiteSchema = generateWebSiteSchema;
 export const breadcrumbSchema = generateBreadcrumbSchema;

@@ -11,6 +11,7 @@ import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import { useCurrency } from "../contexts/CurrencyContext"
 import CurrencySelector from "../components/CurrencySelector"
+import { minecraftFaqs as faqs } from "./faqs"
 
 // Authentic Server Software Brand SVGs
 const SoftwareIcons = {
@@ -150,27 +151,17 @@ const plans = [
   }
 ]
 
-const faqs = [
-  {
-    q: "Can I install any Minecraft version, Forge, Fabric, or Paper?",
-    a: "Yes! Our game panel features 1-click installer eggs for Vanilla, PaperMC, Purpur, Spigot, Forge, Fabric, NeoForge, Mohist, BungeeCord, and Velocity, plus 1-click modpack installs from CurseForge and Modrinth."
-  },
-  {
-    q: "Which Java versions are supported?",
-    a: "We provide automated 1-click switcher support for Java 8 (1.8-1.16), Java 11, Java 17 (1.17-1.20.4), and Java 21 (1.20.5+ and 1.21 Tricky Trials) with zero manual flag configuration needed."
-  },
-  {
-    q: "How fast is game server setup after ordering?",
-    a: "Deployment is fast. Your Minecraft server is automatically provisioned and ready for players within moments of checkout."
-  },
-  {
-    q: "Do you provide DDoS protection for game servers?",
-    a: "Yes! All game nodes are shielded by game-specific DDoS filtering that stops bot flood joins, null-ping attacks, and UDP reflection spam without raising tickrate latency."
-  },
-  {
-    q: "Can I upgrade my RAM or CPU later?",
-    a: "Yes, you can upgrade your plan at any time without losing world saves, player data, whitelist, or custom plugin configurations."
-  }
+// Static side-by-side comparison of the four headline tiers (rendered as a
+// crawlable HTML table). Prices stay in the currency-aware cards above.
+const COMPARISON_ROWS = [
+  { label: "Best for", starter: "1–5 players", survival: "5–15 players", community: "15–40 players", smp: "40–80 players" },
+  { label: "Memory", starter: "2 GB DDR5", survival: "4 GB DDR5", community: "8 GB DDR5", smp: "16 GB DDR5" },
+  { label: "vCPU (AMD Ryzen 9)", starter: "100%", survival: "200%", community: "300%", smp: "500%" },
+  { label: "NVMe storage", starter: "8 GB", survival: "15 GB", community: "25 GB", smp: "30 GB" },
+  { label: "Network", starter: "3 Gbps", survival: "3 Gbps", community: "10 Gbps", smp: "10 Gbps" },
+  { label: "Modpacks & plugins", starter: "✓", survival: "✓", community: "✓", smp: "✓" },
+  { label: "DDoS protection", starter: "✓", survival: "✓", community: "✓", smp: "✓" },
+  { label: "Automated backups", starter: "✓", survival: "✓", community: "✓", smp: "✓" },
 ]
 
 export default function GamesClient() {
@@ -336,7 +327,19 @@ export default function GamesClient() {
         </div>
 
         {/* ── 3. PRICING CARDS (MINECRAFT SCALE THEMED) ── */}
-        <div className="mb-20">
+        <div id="plans" className="mb-20 scroll-mt-28">
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <span className="text-xs font-mono text-[#5D9C42] font-bold uppercase tracking-widest">
+              TRANSPARENT PRICING
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight vx-ink mt-2">
+              Minecraft Hosting Plans and Pricing
+            </h2>
+            <p className="text-xs vx-muted mt-2">
+              From small survival worlds to 200+ player network clusters — all on AMD Ryzen 9 &amp; EPYC nodes with Gen4 NVMe and DDoS protection. Prices shown in your local currency.
+            </p>
+          </div>
+
           <div className="flex items-center gap-2 mb-5">
             <span className="text-xs font-mono font-bold text-[#5D9C42] uppercase tracking-widest">STEP 02</span>
             <span className="vx-faint">•</span>
@@ -509,6 +512,109 @@ export default function GamesClient() {
                 <p className="text-xs vx-muted leading-relaxed">{feature.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* ── 4b. PLAN COMPARISON TABLE ── */}
+        <div className="mb-20">
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <span className="text-xs font-mono text-[#5D9C42] font-bold uppercase tracking-widest">
+              COMPARE TIERS
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight vx-ink mt-2">
+              Starter vs Survival vs Community vs SMP
+            </h2>
+            <p className="text-xs vx-muted mt-2">
+              A quick side-by-side of our four most popular Minecraft server hosting plans. Pricing for each is shown in your currency in the cards above.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto rounded-3xl border vx-line vx-card shadow-md">
+            <table className="w-full text-left border-collapse text-xs sm:text-sm min-w-[640px]">
+              <thead>
+                <tr className="vx-bg-alt">
+                  <th className="p-4 font-black uppercase tracking-wide vx-muted2">Feature</th>
+                  <th className="p-4 font-black uppercase tracking-wide text-[#5D9C42]">Starter</th>
+                  <th className="p-4 font-black uppercase tracking-wide text-[#5D9C42]">Survival</th>
+                  <th className="p-4 font-black uppercase tracking-wide text-[#5D9C42]">Community</th>
+                  <th className="p-4 font-black uppercase tracking-wide text-[#5D9C42]">SMP</th>
+                </tr>
+              </thead>
+              <tbody className="vx-ink">
+                {COMPARISON_ROWS.map((row) => (
+                  <tr key={row.label} className="border-t vx-line">
+                    <td className="p-4 font-bold vx-muted2">{row.label}</td>
+                    <td className="p-4 font-mono">{row.starter}</td>
+                    <td className="p-4 font-mono">{row.survival}</td>
+                    <td className="p-4 font-mono">{row.community}</td>
+                    <td className="p-4 font-mono">{row.smp}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* ── 4c. MODPACK HOSTING ── */}
+        <div id="modpacks" className="mb-16 scroll-mt-28 max-w-4xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight vx-ink mb-4">
+            Best Minecraft Server Hosting for Modpacks
+          </h2>
+          <p className="text-sm vx-muted2 leading-relaxed mb-4">
+            Run heavy modpacks without tick lag. Every plan ships with 1-click installs for
+            <strong className="vx-ink"> CurseForge</strong> and <strong className="vx-ink">Modrinth</strong> packs,
+            plus Forge, Fabric, NeoForge, and Quilt loaders. High single-core AMD Ryzen 9 frequency keeps
+            entity-heavy packs like All the Mods, RLCraft, and Create above-ground at a stable 20 TPS.
+          </p>
+          <ul className="grid sm:grid-cols-2 gap-3 text-xs vx-muted2">
+            <li className="p-3 rounded-xl vx-bg-alt border vx-line">One-click CurseForge &amp; Modrinth modpack imports</li>
+            <li className="p-3 rounded-xl vx-bg-alt border vx-line">Recommended 6–8 GB RAM for large 150+ mod packs</li>
+            <li className="p-3 rounded-xl vx-bg-alt border vx-line">Forge, Fabric, NeoForge &amp; Quilt loader support</li>
+            <li className="p-3 rounded-xl vx-bg-alt border vx-line">Gen4 NVMe removes chunk-gen stutter on exploration packs</li>
+          </ul>
+        </div>
+
+        {/* ── 4d. DDOS PROTECTION ── */}
+        <div id="ddos-protection" className="mb-16 scroll-mt-28 max-w-4xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight vx-ink mb-4">
+            Minecraft Server Hosting with DDoS Protection
+          </h2>
+          <p className="text-sm vx-muted2 leading-relaxed mb-4">
+            Every Minecraft node sits behind always-on, game-aware DDoS mitigation. Our edge filtering
+            absorbs volumetric L3/L4 floods and drops Minecraft-specific L7 abuse — BungeeCord spoof joins,
+            null-ping packets, and UDP reflection — before it ever reaches your tick loop, so real players
+            stay connected during an attack.
+          </p>
+          <ul className="grid sm:grid-cols-2 gap-3 text-xs vx-muted2">
+            <li className="p-3 rounded-xl vx-bg-alt border vx-line">Multi-Tbps always-on network scrubbing</li>
+            <li className="p-3 rounded-xl vx-bg-alt border vx-line">Layer 7 bot-flood &amp; spoof-join filtering</li>
+            <li className="p-3 rounded-xl vx-bg-alt border vx-line">No added tickrate latency during mitigation</li>
+            <li className="p-3 rounded-xl vx-bg-alt border vx-line">Included free on every plan — no add-on fee</li>
+          </ul>
+        </div>
+
+        {/* ── 4e. SERVER LOCATIONS ── */}
+        <div id="locations" className="mb-20 scroll-mt-28 max-w-4xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight vx-ink mb-4">
+            India, Germany &amp; USA Minecraft Server Locations
+          </h2>
+          <p className="text-sm vx-muted2 leading-relaxed mb-5">
+            Pick the region closest to your community for the lowest ping. We run high-frequency AMD
+            Ryzen 9 &amp; EPYC nodes in three regions, each with local peering and low-jitter routing.
+          </p>
+          <div className="grid sm:grid-cols-3 gap-4">
+            <div className="p-5 rounded-2xl vx-card border vx-line">
+              <div className="text-sm font-black uppercase vx-ink mb-1">🇮🇳 India — Mumbai</div>
+              <p className="text-xs vx-muted leading-relaxed">5–30 ms across India. Ideal for South-Asian SMPs and communities.</p>
+            </div>
+            <div className="p-5 rounded-2xl vx-card border vx-line">
+              <div className="text-sm font-black uppercase vx-ink mb-1">🇩🇪 Germany — Frankfurt</div>
+              <p className="text-xs vx-muted leading-relaxed">Low-latency coverage for Europe, the UK, and the Middle East.</p>
+            </div>
+            <div className="p-5 rounded-2xl vx-card border vx-line">
+              <div className="text-sm font-black uppercase vx-ink mb-1">🇺🇸 USA</div>
+              <p className="text-xs vx-muted leading-relaxed">Central routing for North-American players and networks.</p>
+            </div>
           </div>
         </div>
 

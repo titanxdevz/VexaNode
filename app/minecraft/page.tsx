@@ -3,10 +3,12 @@ import GamesClient from "../games/GamesClient";
 import { constructMetadata, generateServiceSchema, generateBreadcrumbSchema, generateProductSchema } from "@/lib/seo";
 
 export const metadata: Metadata = constructMetadata({
-  title: "Minecraft Server Hosting — VexaNode",
+  title: "Minecraft Server Hosting India | AMD Ryzen 9 & NVMe | VexaNode",
   description:
     "Deploy high-performance Minecraft server hosting with dedicated AMD Ryzen 9 and EPYC infrastructure, 1-click Paper/Fabric/Forge installers, and zero-lag NVMe storage.",
-  canonical: "/minecraft",
+  // Consolidate ranking signals onto /games (the primary Minecraft page) to
+  // avoid duplicate content — both routes render the same GamesClient.
+  canonical: "/games",
   keywords: [
     "Minecraft server hosting",
     "AMD Ryzen Minecraft",

@@ -12,6 +12,8 @@ import Footer from "../components/Footer"
 import { PageMeta } from "../components/PageMeta"
 import { CustomIcons } from "../components/CustomIcons"
 import Link from "next/link"
+import { faqs } from "./faqs"
+import { generateFaqPageSchema } from "@/lib/seo"
 
 const DISCORD_INVITE = "https://discord.gg/dJpMDfgUQq"
 
@@ -48,35 +50,19 @@ const TechIcons = {
   )
 }
 
-const faqs = [
-  {
-    q: "Is VexaNode Free Bot Hosting really 100% free?",
-    a: "Yes, completely free forever! No credit card, payment details, or hidden fees are required. You get a dedicated Pterodactyl container simply by being a member of our Discord server."
-  },
-  {
-    q: "What hardware specs do I get on the Free Plan?",
-    a: "You get 50% vCPU core allocation, 512 MB DDR4/DDR5 RAM, 1 GB NVMe SSD storage, unmetered network bandwidth, and full web console access."
-  },
-  {
-    q: "Which bot programming languages and frameworks are supported?",
-    a: "We support Node.js (Discord.js, Eris), Python (discord.py, disnake, hikari), Java (JDA), Rust (serenity, poise), Go, and custom binary builds with instant package installation."
-  },
-  {
-    q: "How do I claim my free bot container?",
-    a: "1. Join our Discord community at discord.gg/dJpMDfgUQq\n2. Navigate to the #free-bot-hosting channel\n3. Click claim to receive your automated Pterodactyl credentials in seconds!"
-  },
-  {
-    q: "Can I upgrade to a premium plan later?",
-    a: "Yes! When your bot joins many guilds and needs more RAM or dedicated CPU threads, you can upgrade seamlessly without data loss or downtime."
-  }
-]
-
 export default function FreeBotHostingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const faqJsonLd = generateFaqPageSchema(
+    faqs.map((f) => ({ question: f.q, answer: f.a }))
+  )
 
   return (
     <div className="min-h-screen vx-bg vx-ink selection:bg-[#00ff88]/30 selection:text-black relative overflow-hidden">
-      
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+
       {/* ── DEVELOPER-FOCUSED PURE BLACK BACKGROUND WITH SCANLINES & DOT MATRIX ── */}
       <div className="fixed inset-0 pointer-events-none -z-10 select-none overflow-hidden">
         {/* Subtle glowing neon green apex aurora */}

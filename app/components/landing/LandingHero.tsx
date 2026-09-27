@@ -45,8 +45,8 @@ export default function LandingHero() {
               transition={{ duration: 0.4, delay: 0.05, ease: EASE }}
               className="text-[2rem] sm:text-[2.75rem] lg:text-[3.4rem] font-extrabold tracking-[-0.025em] leading-[1.08] vx-ink"
             >
-              Cloud &amp; Game Hosting,<br className="hidden sm:inline" />
-              <span className="text-[#d97757]"> Blazing Fast.</span>
+              High-Performance Minecraft, VPS &amp;<br className="hidden sm:inline" />
+              <span className="text-[#d97757]"> Discord Bot Hosting</span>
             </motion.h1>
 
             {/* Sub */}
@@ -88,6 +88,40 @@ export default function LandingHero() {
                 <span>Join Discord</span>
               </a>
             </motion.div>
+
+            {/* Prominent crawlable service links (real anchors for SEO) */}
+            <motion.nav
+              aria-label="Hosting services"
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.17, ease: EASE }}
+              className="mt-6 flex flex-wrap items-center gap-2"
+            >
+              <Link
+                href="/games?game=minecraft"
+                className="inline-flex items-center rounded-lg border vx-line px-3 py-1.5 text-[12px] font-semibold vx-muted vx-hover-ink hover:border-[#d97757]/40 transition-all"
+              >
+                Minecraft Server Hosting
+              </Link>
+              <Link
+                href="/discord"
+                className="inline-flex items-center rounded-lg border vx-line px-3 py-1.5 text-[12px] font-semibold vx-muted vx-hover-ink hover:border-[#d97757]/40 transition-all"
+              >
+                Discord Bot Hosting
+              </Link>
+              <Link
+                href="/vps"
+                className="inline-flex items-center rounded-lg border vx-line px-3 py-1.5 text-[12px] font-semibold vx-muted vx-hover-ink hover:border-[#d97757]/40 transition-all"
+              >
+                VPS Hosting
+              </Link>
+              <Link
+                href="/lavalink"
+                className="inline-flex items-center rounded-lg border vx-line px-3 py-1.5 text-[12px] font-semibold vx-muted vx-hover-ink hover:border-[#d97757]/40 transition-all"
+              >
+                Lavalink Hosting
+              </Link>
+            </motion.nav>
 
             {/* Trust line — minimal, inline */}
             <motion.div

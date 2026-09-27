@@ -12,12 +12,18 @@ export default function robots(): MetadataRoute.Robots {
           "/admin/",
           "/dashboard/",
           "/checkout/",
+          "/cart/",
           "/billing/",
+          "/account/",
+          "/login/",
+          "/register/",
+          "/order/",
           "/_next/",
           "/private/",
         ],
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   };
 }

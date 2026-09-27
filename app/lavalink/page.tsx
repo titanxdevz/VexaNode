@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
-import { constructMetadata, serviceSchema, breadcrumbSchema, productSchema } from "@/lib/seo"
+import { constructMetadata, serviceSchema, breadcrumbSchema, productSchema, generateFaqPageSchema } from "@/lib/seo"
 import LavalinkClient from "./LavalinkClient"
+import { faqs } from "./faqs"
 
 export const metadata: Metadata = constructMetadata({
   title: "Managed Lavalink Hosting | High Performance Audio Nodes",
@@ -47,6 +48,10 @@ export default async function LavalinkPage({
     offers: [{ name: "Lavalink Hosting (from)", price: 240 }],
   })
 
+  const faqJsonLd = generateFaqPageSchema(
+    faqs.map((f) => ({ question: f.q, answer: f.a }))
+  )
+
   return (
     <>
       <script
@@ -60,6 +65,10 @@ export default async function LavalinkPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <LavalinkClient key={initialCategory} initialCategory={initialCategory} />
     </>

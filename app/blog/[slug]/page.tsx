@@ -184,22 +184,28 @@ export default async function BlogSlugPage({ params }: PageProps) {
                   </p>
                   <div className="flex flex-wrap items-center justify-center gap-3">
                     <Link
-                      href="/games"
+                      href="/games?game=minecraft"
                       className="bg-[#10b981] hover:bg-[#059669] text-black font-extrabold px-6 py-3 rounded-xl text-xs transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)]"
                     >
-                      Minecraft Server Plans
+                      Minecraft server hosting
+                    </Link>
+                    <Link
+                      href="/games?game=minecraft#ddos-protection"
+                      className="bg-white/[0.05] hover:bg-white/[0.1] text-white font-bold px-6 py-3 rounded-xl text-xs border border-white/[0.1] transition-all"
+                    >
+                      DDoS-protected Minecraft hosting
                     </Link>
                     <Link
                       href="/discord"
                       className="bg-white/[0.05] hover:bg-white/[0.1] text-white font-bold px-6 py-3 rounded-xl text-xs border border-white/[0.1] transition-all"
                     >
-                      Discord Bot Hosting
+                      Discord bot hosting
                     </Link>
                     <Link
                       href="/vps"
                       className="bg-white/[0.05] hover:bg-white/[0.1] text-white font-bold px-6 py-3 rounded-xl text-xs border border-white/[0.1] transition-all"
                     >
-                      Cloud VPS
+                      VPS hosting India
                     </Link>
                   </div>
                 </div>
@@ -285,6 +291,35 @@ export default async function BlogSlugPage({ params }: PageProps) {
               )}
             </aside>
           </div>
+
+          {/* Related Posts (bottom, full-width) */}
+          {relatedPosts.length > 0 && (
+            <section className="mt-16 pt-10 border-t border-white/[0.08]">
+              <h2 className="text-xl sm:text-2xl font-black text-white mb-6 orbitron-font">
+                Related guides
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {relatedPosts.map((related) => (
+                  <Link
+                    key={related.slug}
+                    href={`/blog/${related.slug}`}
+                    className="block p-5 rounded-2xl bg-[#0a0d14]/90 border border-white/[0.08] hover:border-[#10b981]/40 transition-all group"
+                  >
+                    <span className="text-[10px] font-bold text-[#10b981] uppercase tracking-wider mb-2 block">
+                      {related.category}
+                    </span>
+                    <h3 className="text-sm font-bold text-white group-hover:text-[#10b981] transition-colors leading-snug line-clamp-3 mb-3">
+                      {related.title}
+                    </h3>
+                    <div className="flex items-center justify-between text-[10px] text-gray-500 font-medium">
+                      <span>{related.readTime}</span>
+                      <span className="text-[#10b981] group-hover:translate-x-0.5 transition-transform">Read &rarr;</span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
         </div>
       </main>
 

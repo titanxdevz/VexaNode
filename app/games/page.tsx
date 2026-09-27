@@ -1,20 +1,22 @@
 import type { Metadata } from "next";
 import GamesClient from "./GamesClient";
-import { constructMetadata, generateServiceSchema, generateBreadcrumbSchema, generateProductSchema } from "@/lib/seo";
+import { minecraftFaqs } from "./faqs";
+import { constructMetadata, generateServiceSchema, generateBreadcrumbSchema, generateProductSchema, generateFaqPageSchema } from "@/lib/seo";
 
 export const metadata: Metadata = constructMetadata({
-  title: "Minecraft Server Hosting | VexaNode",
+  title: "Minecraft Server Hosting India | AMD Ryzen 9 & NVMe | VexaNode",
   description:
-    "High-performance Minecraft server hosting with modern AMD infrastructure, fast deployment, DDoS protection and flexible plans from VexaNode.",
+    "Cheap Minecraft server hosting in India, Germany & USA on AMD Ryzen 9 and EPYC with Gen4 NVMe, 1-click modpacks, DDoS protection and instant setup. Plans from ₹99/mo.",
   canonical: "/games",
   keywords: [
-    "Minecraft server hosting",
-    "AMD EPYC Minecraft",
+    "Minecraft server hosting India",
+    "cheap Minecraft server hosting",
+    "Minecraft hosting with DDoS protection",
+    "Minecraft modpack hosting",
+    "AMD Ryzen 9 Minecraft",
     "PaperMC hosting",
-    "Spigot hosting",
-    "Modpack server hosting",
+    "Fabric Forge Minecraft hosting",
     "Purpur hosting",
-    "DDoS protected Minecraft",
   ],
 });
 
@@ -42,6 +44,10 @@ export default function GameHostingPage() {
     offers: [{ name: "Minecraft Hosting (from)", price: 99 }],
   });
 
+  const faqJsonLd = generateFaqPageSchema(
+    minecraftFaqs.map((f) => ({ question: f.q, answer: f.a }))
+  );
+
   return (
     <>
       <script
@@ -55,6 +61,10 @@ export default function GameHostingPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <GamesClient />
     </>

@@ -8,8 +8,9 @@ import ProductsSection from "./components/landing/ProductsSection";
 import GlobeSection from "./components/landing/GlobeSection";
 import Testimonials from "./components/landing/Testimonials";
 import FaqSection from "./components/landing/FaqSection";
+import { generalFaqs, technicalFaqs } from "./components/landing/faqs";
 import CtaSection from "./components/landing/CtaSection";
-import { constructMetadata, generateOrganizationSchema, generateWebSiteSchema } from "@/lib/seo";
+import { constructMetadata, generateOrganizationSchema, generateWebSiteSchema, generateFaqPageSchema } from "@/lib/seo";
 
 export const metadata: Metadata = constructMetadata({
   title: "VexaNode — Minecraft, VPS & Discord Bot Hosting",
@@ -21,6 +22,9 @@ export const metadata: Metadata = constructMetadata({
 export default function Home() {
   const organizationJsonLd = generateOrganizationSchema();
   const webSiteJsonLd = generateWebSiteSchema();
+  const faqJsonLd = generateFaqPageSchema(
+    [...generalFaqs, ...technicalFaqs].map((f) => ({ question: f.q, answer: f.a }))
+  );
 
   return (
     <div className="min-h-screen vx-bg vx-ink">
@@ -32,6 +36,10 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
       <Navbar />

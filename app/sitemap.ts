@@ -20,6 +20,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${SITE_URL}/minecraft-modpack-hosting`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
+      url: `${SITE_URL}/ddos-protected-game-hosting`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
       url: `${SITE_URL}/discord`,
       lastModified: currentDate,
       changeFrequency: "weekly",
@@ -78,12 +90,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: currentDate,
       changeFrequency: "monthly",
       priority: 0.7,
-    },
-    {
-      url: `${SITE_URL}/blogs`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 0.8,
     },
     {
       url: `${SITE_URL}/blog`,
@@ -167,7 +173,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Dynamic blog posts
   const blogRoutes: MetadataRoute.Sitemap = blogs.map((blog) => ({
-    url: `${SITE_URL}/blogs/${blog.slug}`,
+    url: `${SITE_URL}/blog/${blog.slug}`,
     lastModified: currentDate,
     changeFrequency: "monthly",
     priority: 0.7,
